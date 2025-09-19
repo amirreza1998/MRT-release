@@ -1,3 +1,28 @@
+# MRT improvement for my recent project
+
+> **Forked from** [Original Repository Name](https://github.com/JeremyZhao1998/MRT-release) · **Enhanced with CUDA Type Check Fixes**
+
+This fork introduces critical fixes for modern PyTorch compatibility, replacing deprecated type-checking methods.
+
+---
+
+## 🛠 Modifications & Improvements
+
+The following files were modified to ensure compatibility with newer versions of PyTorch/CUDA:
+
+| File | Change | Purpose |
+| :--- | :--- | :--- |
+| `ms_deform_im2col_cuda.cuh`<br>`ms_deform_attn_cuda.h`<br>`ms_deform_attn_cuda.cu` | `value.type().is_cuda()` → `value.is_cuda()` | Replaces deprecated CUDA device check with the modern, direct method. |
+| | `value.type()` → `value.scalar_type()` | Replaces deprecated function for getting data type (e.g., `kFloat`, `kHalf`). |
+
+These changes resolve compilation warnings and errors, future-proofing the code against the removal of deprecated `Tensor.type()` API.
+
+---
+
+**Original README** (from the forked repository)
+...
+
+
 # MRT
 Official implementation for paper: **Masked Retraining Teacher-student Framework for Domain Adaptive Object Detection**
 
