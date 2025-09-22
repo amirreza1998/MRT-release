@@ -32,6 +32,23 @@ def train_one_epoch_standard(model: torch.nn.Module,
     epoch_loss = torch.zeros(1, dtype=torch.float, device=device, requires_grad=False)
     epoch_loss_dict = defaultdict(float)
     for i in range(len(data_loader)):
+        
+        # <<< START OF DEBUGGING CODE >>>
+        # This code will print the image ID of each sample in the batch.
+        # The last ID printed before the crash is the problematic one.
+        if is_main_process() and annotations is not None:
+            try:
+                # annotations is a list of dicts, one for each image in the batch
+                for ann in annotations:
+                    image_id = ann.get('image_id', 'N/A')
+                    # .item() is needed if the image_id is a tensor
+                    if hasattr(image_id, 'item'):
+                        image_id = image_id.item()
+                    print(f"--- [DEBUG] Processing Image ID: {image_id} ---", flush=True)
+            except Exception as e:
+                print(f"--- [DEBUG] Error while getting image_id: {e} ---", flush=True)
+        # <<< END OF DEBUGGING CODE >>>
+
         # Forward
         out = model(images, masks)
         # Loss
