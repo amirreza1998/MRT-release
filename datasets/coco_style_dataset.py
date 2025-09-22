@@ -8,48 +8,100 @@ from typing import Optional, Callable
 class CocoStyleDataset(CocoDetection):
 
     img_dirs = {
-        'cityscapes': {
-            'train': 'cityscapes/leftImg8bit/train', 'val': 'cityscapes/leftImg8bit/val'
+        'tanks_source': {
+            'train': 'tanks/images/train',
+            'val': 'tanks/images/train',
         },
-        'foggy_cityscapes': {
-            'train': 'foggy_cityscapes/leftImg8bit_foggy/train', 'val': 'foggy_cityscapes/leftImg8bit_foggy/val'
+        'tanks_test': {
+            'train': 'tanks/images/test/images',
+            'val': 'tanks/images/test/images',
         },
-        'bdd100k': {
-            'train': 'bdd100k/images/100k/train', 'val': 'bdd100k/images/100k/val',
-        },
-        'sim10k': {
-            'train': 'sim10k/JPEGImages'
+        'tanks_target': {
+            'train': 'tanks/images/target',
+            'val': 'tanks/images/target',            
         },
     }
     anno_files = {
-        'cityscapes': {
+        'tanks_source':{
             'source': {
-                'train': 'cityscapes/annotations/cityscapes_train_cocostyle.json',
-                'val': 'cityscapes/annotations/cityscapes_val_cocostyle.json',
+                'train': 'tanks/annotations/train_cocostyle_train.json',
+                'val': 'tanks/annotations/train_cocostyle_val.json',
             },
             'target': {
-                'train': 'cityscapes/annotations/cityscapes_train_caronly_cocostyle.json',
-                'val': 'cityscapes/annotations/cityscapes_val_caronly_cocostyle.json'
-            }
-        },
-        'foggy_cityscapes': {
-            'target': {
-                'train': 'foggy_cityscapes/annotations/foggy_cityscapes_train_cocostyle.json',
-                'val': 'foggy_cityscapes/annotations/foggy_cityscapes_val_cocostyle.json'
-            }
-        },
-        'bdd100k': {
-            'target': {
-                'train': 'bdd100k/annotations/bdd100k_daytime_train_cocostyle.json',
-                'val': 'bdd100k/annotations/bdd100k_daytime_val_cocostyle.json'
+                'train': 'tanks/annotations/train_cocostyle_train.json',
+                'val': 'tanks/annotations/train_cocostyle_val.json',
             },
         },
-        'sim10k': {
+        
+        'tanks_target':{
             'source': {
-                'train': 'sim10k/annotations/sim10k_train_cocostyle.json',
+                'train': 'tanks/annotations/target_cocostyle_train.json',
+                'val': 'tanks/annotations/target_cocostyle_val.json'
+            },
+            'target': {
+                'train': 'tanks/annotations/target_cocostyle_train.json',
+                'val': 'tanks/annotations/target_cocostyle_val.json'
+            },
+        },
+                
+        'tanks_test':{
+            'source': {
+                'train': 'tanks/annotations/test_cocostyle_train.json',
+                'val': 'tanks/annotations/test_cocostyle_val.json'
+            },
+            'target': {
+                'train': 'tanks/annotations/test_cocostyle_train.json',
+                'val': 'tanks/annotations/test_cocostyle_val.json'
             },
         },
     }
+
+
+    
+    
+    # img_dirs = {
+    #     'cityscapes': {
+    #         'train': 'cityscapes/leftImg8bit/train', 'val': 'cityscapes/leftImg8bit/val'
+    #     },
+    #     'foggy_cityscapes': {
+    #         'train': 'foggy_cityscapes/leftImg8bit_foggy/train', 'val': 'foggy_cityscapes/leftImg8bit_foggy/val'
+    #     },
+    #     'bdd100k': {
+    #         'train': 'bdd100k/images/100k/train', 'val': 'bdd100k/images/100k/val',
+    #     },
+    #     'sim10k': {
+    #         'train': 'sim10k/JPEGImages'
+    #     },
+    # }
+    # anno_files = {
+    #     'cityscapes': {
+    #         'source': {
+    #             'train': 'cityscapes/annotations/cityscapes_train_cocostyle.json',
+    #             'val': 'cityscapes/annotations/cityscapes_val_cocostyle.json',
+    #         },
+    #         'target': {
+    #             'train': 'cityscapes/annotations/cityscapes_train_caronly_cocostyle.json',
+    #             'val': 'cityscapes/annotations/cityscapes_val_caronly_cocostyle.json'
+    #         }
+    #     },
+    #     'foggy_cityscapes': {
+    #         'target': {
+    #             'train': 'foggy_cityscapes/annotations/foggy_cityscapes_train_cocostyle.json',
+    #             'val': 'foggy_cityscapes/annotations/foggy_cityscapes_val_cocostyle.json'
+    #         }
+    #     },
+    #     'bdd100k': {
+    #         'target': {
+    #             'train': 'bdd100k/annotations/bdd100k_daytime_train_cocostyle.json',
+    #             'val': 'bdd100k/annotations/bdd100k_daytime_val_cocostyle.json'
+    #         },
+    #     },
+    #     'sim10k': {
+    #         'source': {
+    #             'train': 'sim10k/annotations/sim10k_train_cocostyle.json',
+    #         },
+    #     },
+    # }
 
     def __init__(self,
                  root_dir: str,
@@ -58,32 +110,71 @@ class CocoStyleDataset(CocoDetection):
                  split: str,
                  transforms: Optional[Callable] = None):
         # dataset_root = os.path.join(root_dir, dataset_name)
+        # import pdb;pdb.set_trace()
         img_dir = os.path.join(root_dir, self.img_dirs[dataset_name][split])
         self.anno_file = os.path.join(root_dir, self.anno_files[dataset_name][domain][split])
         super(CocoStyleDataset, self).__init__(root=img_dir, annFile=self.anno_file, transforms=transforms)
         self.split = split
 
+    # @staticmethod
+    # def convert(image_id, image, annotation):
+    #     w, h = image.size
+    #     anno = [obj for obj in annotation if 'iscrowd' not in obj or obj['iscrowd'] == 0]
+    #     boxes = [obj["bbox"] for obj in anno]
+    #     boxes = torch.as_tensor(boxes, dtype=torch.float32).reshape(-1, 4)
+    #     boxes[:, 2:] += boxes[:, :2]
+    #     boxes[:, 0::2].clamp_(min=0, max=w)
+    #     boxes[:, 1::2].clamp_(min=0, max=h)
+    #     classes = [obj["category_id"] for obj in anno]
+    #     classes = torch.tensor(classes, dtype=torch.int64)
+    #     keep = (boxes[:, 3] > boxes[:, 1]) & (boxes[:, 2] > boxes[:, 0])
+    #     new_annotation = {
+    #         'boxes': boxes[keep],
+    #         'labels': classes[keep],
+    #         'image_id': torch.as_tensor([image_id]),
+    #         'orig_size': torch.as_tensor([int(h), int(w)]),
+    #         'size': torch.as_tensor([int(h), int(w)])
+    #     }
+    #     return image, new_annotation
     @staticmethod
     def convert(image_id, image, annotation):
         w, h = image.size
         anno = [obj for obj in annotation if 'iscrowd' not in obj or obj['iscrowd'] == 0]
         boxes = [obj["bbox"] for obj in anno]
-        boxes = torch.as_tensor(boxes, dtype=torch.float32).reshape(-1, 4)
+
+        if not boxes:
+            boxes = torch.zeros((0, 4), dtype=torch.float32)
+        else:
+            boxes = torch.as_tensor(boxes, dtype=torch.float32).reshape(-1, 4)
+
+        # COCO format is [x, y, width, height] -> convert to [x1, y1, x2, y2]
         boxes[:, 2:] += boxes[:, :2]
+
+        # Clamp boxes to image dimensions
         boxes[:, 0::2].clamp_(min=0, max=w)
         boxes[:, 1::2].clamp_(min=0, max=h)
+
         classes = [obj["category_id"] for obj in anno]
         classes = torch.tensor(classes, dtype=torch.int64)
+
+        # --- START OF FIX ---
+        # Filter out boxes with zero or negative width/height.
+        # This is the line that prevents the crash.
         keep = (boxes[:, 3] > boxes[:, 1]) & (boxes[:, 2] > boxes[:, 0])
+
+        boxes = boxes[keep]
+        classes = classes[keep]
+        # --- END OF FIX ---
+
         new_annotation = {
-            'boxes': boxes[keep],
-            'labels': classes[keep],
+            'boxes': boxes,
+            'labels': classes,
             'image_id': torch.as_tensor([image_id]),
             'orig_size': torch.as_tensor([int(h), int(w)]),
             'size': torch.as_tensor([int(h), int(w)])
         }
         return image, new_annotation
-
+ 
     def __getitem__(self, idx):
         image_id = self.ids[idx]
         image = self._load_image(image_id)
@@ -92,6 +183,7 @@ class CocoStyleDataset(CocoDetection):
         if self.transforms is not None:
             image, annotation = self.transforms(image, annotation)
         return image, annotation
+
 
     @staticmethod
     def pad_mask(tensor_list):
@@ -205,4 +297,3 @@ class DataPreFetcher:
                     v.record_stream(torch.cuda.current_stream())
         self.preload()
         return images, masks, annotations
-
