@@ -1,0 +1,16 @@
+{
+    "info": {},
+    "licenses": [],
+    "images": [],
+    "annotations": [],
+    "categories": [
+        {
+            "id": 1,
+            "name": "tank"
+        },
+        {
+            "id": 2,
+            "name": "car"
+        }   
+    ]
+}
