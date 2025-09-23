@@ -22,7 +22,9 @@ These changes resolve compilation warnings and errors, future-proofing the code 
 **Original README** (from the forked repository)
 ...
 
-
+## models link:
+models for each part of training is available in the:
+[weights link](https://drive.google.com/drive/folders/1sYyBE6OtEcU2A1wPbc3q5CrvJre3Ejyv?usp=sharing)
 # MRT
 Official implementation for paper: **Masked Retraining Teacher-student Framework for Domain Adaptive Object Detection**
 
