@@ -4,7 +4,7 @@ import os
 # --- 1. CONFIGURATION ---
 # UPDATE this path to your JSON file
 # json_path = r'D:\kazemloo\1-domain_adaptation\docker_code\app4\data\tanks\annotations\test_cocostyle_val.json'
-json_path = r'D:\kazemloo\1-domain_adaptation\docker_code\app4\data\tanks\annotations\test_cocostyle_train.json'
+json_path = r'E:\deep_da_project\1-main_project\data\tanks\annotations\test_cocostyle.json'
 
 # --- 2. SCRIPT LOGIC ---
 

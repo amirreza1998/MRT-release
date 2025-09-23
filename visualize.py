@@ -5,9 +5,9 @@ from tqdm import tqdm
 
 # --- 1. CONFIGURATION ---
 # Update these paths to match your dataset
-json_path = r'D:\kazemloo\1-domain_adaptation\docker_code\app4\data\tanks\annotations\train_cocostyle_val.json'
-image_folder = r'D:\kazemloo\1-domain_adaptation\docker_code\app4\data\tanks\images\train'
-output_folder = r'D:\kazemloo\1-domain_adaptation\docker_code\app4\data\tanks\images\test\labelized5'
+json_path = r'E:\deep_da_project\1-main_project\data\tanks\annotations\test_cocostyle_val.json'
+image_folder = r'E:\deep_da_project\1-main_project\data\tanks\images\test\images'
+output_folder = r'E:\deep_da_project\1-main_project\data\tanks\labelized5'
 # -------------------------
 
 # Create the output directory if it doesn't exist

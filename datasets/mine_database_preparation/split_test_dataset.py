@@ -87,9 +87,9 @@ def split_coco_dataset(
 # --- Main execution ---
 if __name__ == '__main__':
     # Define your file paths here
-    INPUT_JSON = r'D:\kazemloo\1-domain_adaptation\docker_code\app4\data\tanks\annotations\test_cocostyle.json'
-    TRAIN_JSON = r'D:\kazemloo\1-domain_adaptation\docker_code\app4\data\tanks\annotations\test_cocostyle_train.json'
-    VAL_JSON = r'D:\kazemloo\1-domain_adaptation\docker_code\app4\data\tanks\annotations\test_cocostyle_val.json'
+    INPUT_JSON = r'E:\deep_da_project\1-main_project\data\tanks\annotations\test_cocostyle.json'
+    TRAIN_JSON = r'E:\deep_da_project\1-main_project\data\tanks\annotations\test_cocostyle_train.json'
+    VAL_JSON = r'E:\deep_da_project\1-main_project\data\tanks\annotations\test_cocostyle_val.json'
     
     # Define the split ratio (80% for training, 20% for validation)
     TRAIN_RATIO = 0.8

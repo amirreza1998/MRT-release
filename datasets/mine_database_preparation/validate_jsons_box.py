@@ -2,7 +2,7 @@ import json
 import os
 
 # --- CONFIGURE THIS ---
-ANNOTATION_FILE = r'D:\kazemloo\1-domain_adaptation\docker_code\app4\data\tanks\annotations\test_cocostyle_train.json' 
+ANNOTATION_FILE = r'E:\deep_da_project\1-main_project\data\tanks\annotations\test_cocostyle.json' 
 # --------------------
 
 def validate_coco_annotations(file_path):
