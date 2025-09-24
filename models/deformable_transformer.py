@@ -431,8 +431,10 @@ class DeformableTransformerDecoderMAE(DeformableTransformerDecoder):
             query_pos = query_pos.unsqueeze(0).expand(bs, -1, -1)
             tgt = tgt.unsqueeze(0).expand(bs, -1, -1)
             tgt_mask = mask_flatten[:, src_level_start_index[mae_layer]: src_level_start_index[mae_layer+1]]
-            tgt_mask = torch.unsqueeze(tgt_mask, -1)
+            tgt_mask1 = torch.unsqueeze(tgt_mask, -1)
             h, w, c = self.spatial_shapes[i]
+            #remove 50 unnecessary, meaningless, zero-padded queries and make botth tgt_mask and tgt shape equal to 950
+            tgt_mask = tgt_mask1[:, :tgt.shape[1], :]
             tgt = tgt * (~tgt_mask).to(tgt.dtype) + self.mask_query.weight.\
                 expand(bs, h * w, -1) * tgt_mask.to(tgt.dtype)
             reference_points = self.reference_points(query_pos).sigmoid()
