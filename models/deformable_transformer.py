@@ -415,6 +415,7 @@ class DeformableTransformerDecoderMAE(DeformableTransformerDecoder):
         self.query_embed_list = nn.ModuleList([
             nn.Embedding(h * w, hidden_dim * 2)
             for h, w, c in self.spatial_shapes
+            
         ])
         self.reference_points = nn.Linear(hidden_dim, 2)
         self.output_proj = nn.ModuleList([
@@ -431,12 +432,44 @@ class DeformableTransformerDecoderMAE(DeformableTransformerDecoder):
             query_pos = query_pos.unsqueeze(0).expand(bs, -1, -1) #query_pos.shape = torch.Size([6, 950, 256])
             tgt = tgt.unsqueeze(0).expand(bs, -1, -1)
             tgt_mask = mask_flatten[:, src_level_start_index[mae_layer]: src_level_start_index[mae_layer+1]] #src_level_start_index = tensor([    0, 15700, 19650, 20650], device='cuda:0')
-            tgt_mask1 = torch.unsqueeze(tgt_mask, -1)
-            h, w, c = self.spatial_shapes[i]
-            #remove 50 unnecessary, meaningless, zero-padded queries and make botth tgt_mask and tgt shape equal to 950
-            tgt_mask = tgt_mask1[:, :tgt.shape[1], :]
+            tgt_mask = torch.unsqueeze(tgt_mask, -1)
+            # This line uses the static, initialized h, w, and c, which causes the error.
+            # h, w, c = self.spatial_shapes[i]
+            _, _, c = self.spatial_shapes[i]
+            h, w = src_spatial_shapes[mae_layer]
+
+            # #remove 50 unnecessary, meaningless, zero-padded queries and make botth tgt_mask and tgt shape equal to 950
+            # tgt_mask = tgt_mask[:, :tgt.shape[1], :]
+            # query_pos = query_pos[:, :tgt.shape[1], :]
+
+            # # --- FIX: Truncate the fixed-size queries to match the dynamic mask size ---
+            # num_patches = tgt_mask.shape[1]
+            # query_pos = query_pos[:, :num_patches, :]
+            # tgt = tgt[:, :num_patches, :]
+
+
+            # tgt = tgt * (~tgt_mask).to(tgt.dtype) + self.mask_query.weight.\
+            #     expand(bs, h * w, -1) * tgt_mask.to(tgt.dtype)
+            
+            # 1. Determine the safe, common dimension by taking the minimum size.
+            num_patches = min(tgt.shape[1], tgt_mask.shape[1])
+
+            # 2. Truncate all related tensors to this safe dimension.
+            tgt = tgt[:, :num_patches, :]
+            query_pos = query_pos[:, :num_patches, :]
+            tgt_mask = tgt_mask[:, :num_patches]
+
+            # --- End of Fix ---
+
+
+            # 3. Unsqueeze the now-synchronized mask to make it broadcastable.
+            tgt_mask = tgt_mask.unsqueeze(-1)
+
+
+            # 4. This line will now always work correctly.
             tgt = tgt * (~tgt_mask).to(tgt.dtype) + self.mask_query.weight.\
-                expand(bs, h * w, -1) * tgt_mask.to(tgt.dtype)
+                expand(bs, num_patches, -1) * tgt_mask.to(tgt.dtype)
+
             reference_points = self.reference_points(query_pos).sigmoid()
             hs, _, _ = super(DeformableTransformerDecoderMAE, self).forward(
                 tgt, reference_points, src,
