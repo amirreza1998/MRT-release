@@ -427,10 +427,10 @@ class DeformableTransformerDecoderMAE(DeformableTransformerDecoder):
         bs = src.shape[0]
         mae_output = []
         for i, mae_layer in enumerate(self.mae_layers):
-            query_pos, tgt = torch.split(self.query_embed_list[i].weight, self.hidden_dim, dim=1)
-            query_pos = query_pos.unsqueeze(0).expand(bs, -1, -1)
+            query_pos, tgt = torch.split(self.query_embed_list[i].weight, self.hidden_dim, dim=1)  #self.query_embed_list[i].weight.shape = torch.Size([950, 512]), self.hidden_dim = 256
+            query_pos = query_pos.unsqueeze(0).expand(bs, -1, -1) #query_pos.shape = torch.Size([6, 950, 256])
             tgt = tgt.unsqueeze(0).expand(bs, -1, -1)
-            tgt_mask = mask_flatten[:, src_level_start_index[mae_layer]: src_level_start_index[mae_layer+1]]
+            tgt_mask = mask_flatten[:, src_level_start_index[mae_layer]: src_level_start_index[mae_layer+1]] #src_level_start_index = tensor([    0, 15700, 19650, 20650], device='cuda:0')
             tgt_mask1 = torch.unsqueeze(tgt_mask, -1)
             h, w, c = self.spatial_shapes[i]
             #remove 50 unnecessary, meaningless, zero-padded queries and make botth tgt_mask and tgt shape equal to 950
