@@ -9,6 +9,7 @@ from scipy.optimize import linear_sum_assignment
 from utils.box_utils import box_cxcywh_to_xyxy, generalized_box_iou
 from utils.distributed_utils import is_dist_avail_and_initialized, get_world_size
 from collections import defaultdict
+import torch.nn.functional as F
 
 
 class HungarianMatcher(nn.Module):
@@ -156,7 +157,16 @@ class SetCriterion(nn.Module):
         mae_loss = 0.0
         for layer_idx in range(num_layers):
             if out['mae_output'][layer_idx].shape[1] > 0:
-                mae_loss += mse_loss(out['mae_output'][layer_idx], out['features'][layer_idx])
+                ### my additional codes for fixing the size error of Feature Map Mismatch of input and output of encoder & decoder
+                reconstructed_features = out['mae_output'][layer_idx]
+                original_features = out['features'][layer_idx]
+                target_size = original_features.shape[2:] # Get the target [Height, Width]
+                reconstructed_features = F.interpolate(
+                    reconstructed_features, size=target_size, mode='bilinear', align_corners=False
+                )
+                mae_loss += mse_loss(reconstructed_features, original_features)
+                ### ------- ###
+                # mae_loss += mse_loss(out['mae_output'][layer_idx], out['features'][layer_idx])
         mae_loss /= num_layers
         return mae_loss
 

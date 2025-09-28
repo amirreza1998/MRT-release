@@ -1,0 +1,1350 @@
+Unloading shared
+  WARNING: Did not unuse /cm/shared/modulefiles
+| distributed init (rank 0): env://
+| distributed init (rank 1): env://
+-------------------------------------
+Logs will be written to outputs/def-detr-base/city2bdd/cross_domain_mae/data_logs
+Checkpoints will be saved to outputs/def-detr-base/city2bdd/cross_domain_mae
+-------------------------------------
+backbone resnet50
+pos_encoding sine
+num_classes 9
+num_queries 300
+num_feature_levels 4
+with_box_refine False
+hidden_dim 256
+num_heads 8
+num_encoder_layers 6
+num_decoder_layers 6
+feedforward_dim 1024
+dropout 0.0
+batch_size 4
+eval_batch_size 4
+lr 2e-05
+lr_backbone 2e-06
+lr_linear_proj 2e-06
+sgd False
+weight_decay 0.0001
+clip_max_norm 0.5
+epoch 20
+epoch_lr_drop 20
+teach_box_loss False
+coef_class 2.0
+coef_boxes 5.0
+coef_giou 2.0
+coef_target 1.0
+coef_domain 1.0
+coef_domain_bac 0.3
+coef_mae 1.0
+alpha_focal 0.25
+alpha_ema 0.9996
+data_root /scratch/generalvision/zhaozijing/data
+source_dataset cityscapes
+target_dataset bdd100k
+epoch_retrain 40
+keep_modules ['decoder']
+mae_layers [2]
+mask_ratio 0.8
+epoch_mae_decay 10
+threshold 0.3
+alpha_dt 0.5
+gamma_dt 0.9
+max_dt 0.45
+min_dt 0.25
+mode cross_domain_mae
+device cuda
+output_dir ./outputs/def-detr-base/city2bdd/cross_domain_mae
+random_seed 8008
+num_workers 8
+print_freq 20
+flush True
+resume ./outputs/def-detr-base/city2bdd/cross_domain_mae/../source_only/model_best.pth
+rank 0
+world_size 2
+gpu 0
+dist_url env://
+distributed True
+dist_backend nccl
+Loading checkpoints from ./outputs/def-detr-base/city2bdd/cross_domain_mae/../source_only/model_best.pth
+Missing keys: []
+Unexpected keys: []
+-------------------------------------
+loading annotations into memory...
+Done (t=3.10s)
+creating index...
+index created!
+loading annotations into memory...
+Done (t=3.80s)
+creating index...
+index created!
+loading annotations into memory...
+Done (t=0.23s)
+creating index...
+index created!
+Cross-domain MAE training epoch 0 : [ 20/371 ] total loss: [1.3327372]
+Cross-domain MAE training epoch 0 : [ 40/371 ] total loss: [1.110452]
+Cross-domain MAE training epoch 0 : [ 60/371 ] total loss: [1.078531]
+Cross-domain MAE training epoch 0 : [ 80/371 ] total loss: [0.8637361]
+Cross-domain MAE training epoch 0 : [ 100/371 ] total loss: [0.77610534]
+Cross-domain MAE training epoch 0 : [ 120/371 ] total loss: [1.3707529]
+Cross-domain MAE training epoch 0 : [ 140/371 ] total loss: [0.8592772]
+Cross-domain MAE training epoch 0 : [ 160/371 ] total loss: [1.077724]
+Cross-domain MAE training epoch 0 : [ 180/371 ] total loss: [1.460118]
+Cross-domain MAE training epoch 0 : [ 200/371 ] total loss: [0.8014765]
+Cross-domain MAE training epoch 0 : [ 220/371 ] total loss: [0.48480895]
+Cross-domain MAE training epoch 0 : [ 240/371 ] total loss: [0.86634755]
+Cross-domain MAE training epoch 0 : [ 260/371 ] total loss: [1.00412]
+Cross-domain MAE training epoch 0 : [ 280/371 ] total loss: [0.42768055]
+Cross-domain MAE training epoch 0 : [ 300/371 ] total loss: [0.5302384]
+Cross-domain MAE training epoch 0 : [ 320/371 ] total loss: [0.9790591]
+Cross-domain MAE training epoch 0 : [ 340/371 ] total loss: [0.757213]
+Cross-domain MAE training epoch 0 : [ 360/371 ] total loss: [0.9250963]
+Cross-domain MAE training epoch 0 finished. Time cost: 0:05:03 Epoch loss: [1.0371808]
+Evaluation : [ 20/655 ] total loss: [1.2961514]
+Evaluation : [ 40/655 ] total loss: [0.8194028]
+Evaluation : [ 60/655 ] total loss: [1.633086]
+Evaluation : [ 80/655 ] total loss: [1.0487255]
+Evaluation : [ 100/655 ] total loss: [1.1704105]
+Evaluation : [ 120/655 ] total loss: [1.4560497]
+Evaluation : [ 140/655 ] total loss: [1.1057514]
+Evaluation : [ 160/655 ] total loss: [1.8000354]
+Evaluation : [ 180/655 ] total loss: [1.4595778]
+Evaluation : [ 200/655 ] total loss: [1.3935797]
+Evaluation : [ 220/655 ] total loss: [1.2980788]
+Evaluation : [ 240/655 ] total loss: [1.6514338]
+Evaluation : [ 260/655 ] total loss: [0.95824814]
+Evaluation : [ 280/655 ] total loss: [1.8698835]
+Evaluation : [ 300/655 ] total loss: [1.5423977]
+Evaluation : [ 320/655 ] total loss: [1.6613563]
+Evaluation : [ 340/655 ] total loss: [1.7262915]
+Evaluation : [ 360/655 ] total loss: [1.2995732]
+Evaluation : [ 380/655 ] total loss: [1.1829598]
+Evaluation : [ 400/655 ] total loss: [1.1394166]
+Evaluation : [ 420/655 ] total loss: [0.84144986]
+Evaluation : [ 440/655 ] total loss: [1.6757748]
+Evaluation : [ 460/655 ] total loss: [1.0837129]
+Evaluation : [ 480/655 ] total loss: [1.1440597]
+Evaluation : [ 500/655 ] total loss: [1.1110766]
+Evaluation : [ 520/655 ] total loss: [0.71402013]
+Evaluation : [ 540/655 ] total loss: [1.4429673]
+Evaluation : [ 560/655 ] total loss: [1.0087085]
+Evaluation : [ 580/655 ] total loss: [1.4948611]
+Evaluation : [ 600/655 ] total loss: [1.5807514]
+Evaluation : [ 620/655 ] total loss: [0.88891715]
+Evaluation : [ 640/655 ] total loss: [1.2728848]
+Accumulating evaluation results...
+DONE (t=5.40s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.2938471306645409
+	AP of category [person]:		0.45439045047827237
+	AP of category [car]:		0.6219039812105916
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.26379686539809005
+	AP of category [truck]:		0.18710684022769164
+	AP of category [motorcycle]:		0.15445615720048822
+	AP of category [bicycle]:		0.19038083715824042
+	AP of category [bus]:		0.18489478297841166
+Evaluation finished. Time cost: 0:02:24
+Saving checkpoints to outputs/def-detr-base/city2bdd/cross_domain_mae/model_best.pth
+Cross-domain MAE training epoch 1 : [ 20/371 ] total loss: [0.99454856]
+Cross-domain MAE training epoch 1 : [ 40/371 ] total loss: [0.97262436]
+Cross-domain MAE training epoch 1 : [ 60/371 ] total loss: [0.9675673]
+Cross-domain MAE training epoch 1 : [ 80/371 ] total loss: [0.761658]
+Cross-domain MAE training epoch 1 : [ 100/371 ] total loss: [0.609969]
+Cross-domain MAE training epoch 1 : [ 120/371 ] total loss: [1.1328773]
+Cross-domain MAE training epoch 1 : [ 140/371 ] total loss: [0.8527447]
+Cross-domain MAE training epoch 1 : [ 160/371 ] total loss: [1.0670947]
+Cross-domain MAE training epoch 1 : [ 180/371 ] total loss: [1.4345924]
+Cross-domain MAE training epoch 1 : [ 200/371 ] total loss: [0.76470584]
+Cross-domain MAE training epoch 1 : [ 220/371 ] total loss: [0.5679882]
+Cross-domain MAE training epoch 1 : [ 240/371 ] total loss: [0.76508564]
+Cross-domain MAE training epoch 1 : [ 260/371 ] total loss: [0.9232072]
+Cross-domain MAE training epoch 1 : [ 280/371 ] total loss: [0.42389804]
+Cross-domain MAE training epoch 1 : [ 300/371 ] total loss: [0.5613029]
+Cross-domain MAE training epoch 1 : [ 320/371 ] total loss: [0.8533685]
+Cross-domain MAE training epoch 1 : [ 340/371 ] total loss: [0.69819003]
+Cross-domain MAE training epoch 1 : [ 360/371 ] total loss: [0.8259412]
+Cross-domain MAE training epoch 1 finished. Time cost: 0:05:03 Epoch loss: [0.9638958]
+Evaluation : [ 20/655 ] total loss: [1.3450933]
+Evaluation : [ 40/655 ] total loss: [0.8134799]
+Evaluation : [ 60/655 ] total loss: [1.6111]
+Evaluation : [ 80/655 ] total loss: [1.0407399]
+Evaluation : [ 100/655 ] total loss: [1.2354422]
+Evaluation : [ 120/655 ] total loss: [1.4428966]
+Evaluation : [ 140/655 ] total loss: [1.0575854]
+Evaluation : [ 160/655 ] total loss: [1.847096]
+Evaluation : [ 180/655 ] total loss: [1.4494889]
+Evaluation : [ 200/655 ] total loss: [1.3387733]
+Evaluation : [ 220/655 ] total loss: [1.279717]
+Evaluation : [ 240/655 ] total loss: [1.6693668]
+Evaluation : [ 260/655 ] total loss: [0.9427647]
+Evaluation : [ 280/655 ] total loss: [1.9074419]
+Evaluation : [ 300/655 ] total loss: [1.5745847]
+Evaluation : [ 320/655 ] total loss: [1.6727619]
+Evaluation : [ 340/655 ] total loss: [1.7402343]
+Evaluation : [ 360/655 ] total loss: [1.2867637]
+Evaluation : [ 380/655 ] total loss: [1.2002506]
+Evaluation : [ 400/655 ] total loss: [1.1093588]
+Evaluation : [ 420/655 ] total loss: [0.83939016]
+Evaluation : [ 440/655 ] total loss: [1.7251023]
+Evaluation : [ 460/655 ] total loss: [1.0410647]
+Evaluation : [ 480/655 ] total loss: [1.1280901]
+Evaluation : [ 500/655 ] total loss: [1.109936]
+Evaluation : [ 520/655 ] total loss: [0.67376816]
+Evaluation : [ 540/655 ] total loss: [1.4590791]
+Evaluation : [ 560/655 ] total loss: [1.0204455]
+Evaluation : [ 580/655 ] total loss: [1.5463299]
+Evaluation : [ 600/655 ] total loss: [1.5931834]
+Evaluation : [ 620/655 ] total loss: [0.89008844]
+Evaluation : [ 640/655 ] total loss: [1.2764146]
+Accumulating evaluation results...
+DONE (t=5.41s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.29312836368945855
+	AP of category [person]:		0.45889311966600105
+	AP of category [car]:		0.6188920015953449
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.2516994982636187
+	AP of category [truck]:		0.19669427320939703
+	AP of category [motorcycle]:		0.1465087956674417
+	AP of category [bicycle]:		0.20087026731094337
+	AP of category [bus]:		0.17834059011346337
+Evaluation finished. Time cost: 0:02:24
+Cross-domain MAE training epoch 2 : [ 20/371 ] total loss: [0.9167768]
+Cross-domain MAE training epoch 2 : [ 40/371 ] total loss: [0.81626654]
+Cross-domain MAE training epoch 2 : [ 60/371 ] total loss: [0.97378784]
+Cross-domain MAE training epoch 2 : [ 80/371 ] total loss: [0.7332694]
+Cross-domain MAE training epoch 2 : [ 100/371 ] total loss: [0.70680207]
+Cross-domain MAE training epoch 2 : [ 120/371 ] total loss: [1.1669527]
+Cross-domain MAE training epoch 2 : [ 140/371 ] total loss: [0.70455194]
+Cross-domain MAE training epoch 2 : [ 160/371 ] total loss: [1.0330018]
+Cross-domain MAE training epoch 2 : [ 180/371 ] total loss: [1.5548503]
+Cross-domain MAE training epoch 2 : [ 200/371 ] total loss: [0.78356147]
+Cross-domain MAE training epoch 2 : [ 220/371 ] total loss: [0.55337316]
+Cross-domain MAE training epoch 2 : [ 240/371 ] total loss: [0.8144922]
+Cross-domain MAE training epoch 2 : [ 260/371 ] total loss: [1.01893]
+Cross-domain MAE training epoch 2 : [ 280/371 ] total loss: [0.42711452]
+Cross-domain MAE training epoch 2 : [ 300/371 ] total loss: [0.53240496]
+Cross-domain MAE training epoch 2 : [ 320/371 ] total loss: [0.8749651]
+Cross-domain MAE training epoch 2 : [ 340/371 ] total loss: [0.7787629]
+Cross-domain MAE training epoch 2 : [ 360/371 ] total loss: [0.7955019]
+Cross-domain MAE training epoch 2 finished. Time cost: 0:05:00 Epoch loss: [0.94232416]
+Evaluation : [ 20/655 ] total loss: [1.3369974]
+Evaluation : [ 40/655 ] total loss: [0.8157729]
+Evaluation : [ 60/655 ] total loss: [1.5804046]
+Evaluation : [ 80/655 ] total loss: [1.0171179]
+Evaluation : [ 100/655 ] total loss: [1.2284529]
+Evaluation : [ 120/655 ] total loss: [1.4328871]
+Evaluation : [ 140/655 ] total loss: [1.0642629]
+Evaluation : [ 160/655 ] total loss: [1.8222297]
+Evaluation : [ 180/655 ] total loss: [1.4444145]
+Evaluation : [ 200/655 ] total loss: [1.3256944]
+Evaluation : [ 220/655 ] total loss: [1.2441871]
+Evaluation : [ 240/655 ] total loss: [1.6825843]
+Evaluation : [ 260/655 ] total loss: [0.95794195]
+Evaluation : [ 280/655 ] total loss: [1.9137053]
+Evaluation : [ 300/655 ] total loss: [1.5290682]
+Evaluation : [ 320/655 ] total loss: [1.6644601]
+Evaluation : [ 340/655 ] total loss: [1.76059]
+Evaluation : [ 360/655 ] total loss: [1.2661715]
+Evaluation : [ 380/655 ] total loss: [1.1939864]
+Evaluation : [ 400/655 ] total loss: [1.1130445]
+Evaluation : [ 420/655 ] total loss: [0.8149818]
+Evaluation : [ 440/655 ] total loss: [1.7010955]
+Evaluation : [ 460/655 ] total loss: [1.0420594]
+Evaluation : [ 480/655 ] total loss: [1.1451677]
+Evaluation : [ 500/655 ] total loss: [1.1203983]
+Evaluation : [ 520/655 ] total loss: [0.6940708]
+Evaluation : [ 540/655 ] total loss: [1.4425114]
+Evaluation : [ 560/655 ] total loss: [1.0101798]
+Evaluation : [ 580/655 ] total loss: [1.5040821]
+Evaluation : [ 600/655 ] total loss: [1.5767874]
+Evaluation : [ 620/655 ] total loss: [0.8825613]
+Evaluation : [ 640/655 ] total loss: [1.2516768]
+Accumulating evaluation results...
+DONE (t=5.40s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.2970544736028994
+	AP of category [person]:		0.45395528195355334
+	AP of category [car]:		0.622136727356954
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.2567148871272101
+	AP of category [truck]:		0.19601861600390788
+	AP of category [motorcycle]:		0.15498148349144278
+	AP of category [bicycle]:		0.21086973825158464
+	AP of category [bus]:		0.18470458103564294
+Evaluation finished. Time cost: 0:02:26
+Saving checkpoints to outputs/def-detr-base/city2bdd/cross_domain_mae/model_best.pth
+Cross-domain MAE training epoch 3 : [ 20/371 ] total loss: [0.9022871]
+Cross-domain MAE training epoch 3 : [ 40/371 ] total loss: [0.92352366]
+Cross-domain MAE training epoch 3 : [ 60/371 ] total loss: [1.0760206]
+Cross-domain MAE training epoch 3 : [ 80/371 ] total loss: [0.68667626]
+Cross-domain MAE training epoch 3 : [ 100/371 ] total loss: [0.67467284]
+Cross-domain MAE training epoch 3 : [ 120/371 ] total loss: [1.1246389]
+Cross-domain MAE training epoch 3 : [ 140/371 ] total loss: [0.8379232]
+Cross-domain MAE training epoch 3 : [ 160/371 ] total loss: [1.0282853]
+Cross-domain MAE training epoch 3 : [ 180/371 ] total loss: [1.495981]
+Cross-domain MAE training epoch 3 : [ 200/371 ] total loss: [0.70812863]
+Cross-domain MAE training epoch 3 : [ 220/371 ] total loss: [0.52314943]
+Cross-domain MAE training epoch 3 : [ 240/371 ] total loss: [0.78378975]
+Cross-domain MAE training epoch 3 : [ 260/371 ] total loss: [0.95864624]
+Cross-domain MAE training epoch 3 : [ 280/371 ] total loss: [0.44413698]
+Cross-domain MAE training epoch 3 : [ 300/371 ] total loss: [0.45807725]
+Cross-domain MAE training epoch 3 : [ 320/371 ] total loss: [0.8744901]
+Cross-domain MAE training epoch 3 : [ 340/371 ] total loss: [0.75264716]
+Cross-domain MAE training epoch 3 : [ 360/371 ] total loss: [0.81075275]
+Cross-domain MAE training epoch 3 finished. Time cost: 0:05:01 Epoch loss: [0.94243824]
+Evaluation : [ 20/655 ] total loss: [1.3492426]
+Evaluation : [ 40/655 ] total loss: [0.8439301]
+Evaluation : [ 60/655 ] total loss: [1.5704961]
+Evaluation : [ 80/655 ] total loss: [1.0281776]
+Evaluation : [ 100/655 ] total loss: [1.2305028]
+Evaluation : [ 120/655 ] total loss: [1.4380758]
+Evaluation : [ 140/655 ] total loss: [1.0814179]
+Evaluation : [ 160/655 ] total loss: [1.8183516]
+Evaluation : [ 180/655 ] total loss: [1.4367484]
+Evaluation : [ 200/655 ] total loss: [1.3387144]
+Evaluation : [ 220/655 ] total loss: [1.3049793]
+Evaluation : [ 240/655 ] total loss: [1.6607536]
+Evaluation : [ 260/655 ] total loss: [0.9577676]
+Evaluation : [ 280/655 ] total loss: [1.9241213]
+Evaluation : [ 300/655 ] total loss: [1.5638936]
+Evaluation : [ 320/655 ] total loss: [1.6674936]
+Evaluation : [ 340/655 ] total loss: [1.7442052]
+Evaluation : [ 360/655 ] total loss: [1.2989404]
+Evaluation : [ 380/655 ] total loss: [1.1783969]
+Evaluation : [ 400/655 ] total loss: [1.1324466]
+Evaluation : [ 420/655 ] total loss: [0.84073174]
+Evaluation : [ 440/655 ] total loss: [1.7116861]
+Evaluation : [ 460/655 ] total loss: [1.0683322]
+Evaluation : [ 480/655 ] total loss: [1.1223016]
+Evaluation : [ 500/655 ] total loss: [1.1316913]
+Evaluation : [ 520/655 ] total loss: [0.7007434]
+Evaluation : [ 540/655 ] total loss: [1.4678333]
+Evaluation : [ 560/655 ] total loss: [1.0421084]
+Evaluation : [ 580/655 ] total loss: [1.5424602]
+Evaluation : [ 600/655 ] total loss: [1.5534405]
+Evaluation : [ 620/655 ] total loss: [0.85025656]
+Evaluation : [ 640/655 ] total loss: [1.2734108]
+Accumulating evaluation results...
+DONE (t=5.46s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.299175911195022
+	AP of category [person]:		0.4574495090676279
+	AP of category [car]:		0.6189067928838581
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.2633639100141856
+	AP of category [truck]:		0.1977739911405349
+	AP of category [motorcycle]:		0.15909003459920826
+	AP of category [bicycle]:		0.20743861045874706
+	AP of category [bus]:		0.19020853020099196
+Evaluation finished. Time cost: 0:02:27
+Saving checkpoints to outputs/def-detr-base/city2bdd/cross_domain_mae/model_best.pth
+Cross-domain MAE training epoch 4 : [ 20/371 ] total loss: [0.949385]
+Cross-domain MAE training epoch 4 : [ 40/371 ] total loss: [0.9292243]
+Cross-domain MAE training epoch 4 : [ 60/371 ] total loss: [0.97433746]
+Cross-domain MAE training epoch 4 : [ 80/371 ] total loss: [0.78670555]
+Cross-domain MAE training epoch 4 : [ 100/371 ] total loss: [0.6344259]
+Cross-domain MAE training epoch 4 : [ 120/371 ] total loss: [1.0956423]
+Cross-domain MAE training epoch 4 : [ 140/371 ] total loss: [0.77183753]
+Cross-domain MAE training epoch 4 : [ 160/371 ] total loss: [1.0301981]
+Cross-domain MAE training epoch 4 : [ 180/371 ] total loss: [1.4014567]
+Cross-domain MAE training epoch 4 : [ 200/371 ] total loss: [0.8431737]
+Cross-domain MAE training epoch 4 : [ 220/371 ] total loss: [0.46923083]
+Cross-domain MAE training epoch 4 : [ 240/371 ] total loss: [0.6652067]
+Cross-domain MAE training epoch 4 : [ 260/371 ] total loss: [1.0475674]
+Cross-domain MAE training epoch 4 : [ 280/371 ] total loss: [0.42799672]
+Cross-domain MAE training epoch 4 : [ 300/371 ] total loss: [0.52501935]
+Cross-domain MAE training epoch 4 : [ 320/371 ] total loss: [0.90689206]
+Cross-domain MAE training epoch 4 : [ 340/371 ] total loss: [0.82154423]
+Cross-domain MAE training epoch 4 : [ 360/371 ] total loss: [0.7589941]
+Cross-domain MAE training epoch 4 finished. Time cost: 0:04:59 Epoch loss: [0.93378294]
+Evaluation : [ 20/655 ] total loss: [1.3391535]
+Evaluation : [ 40/655 ] total loss: [0.82236063]
+Evaluation : [ 60/655 ] total loss: [1.6289048]
+Evaluation : [ 80/655 ] total loss: [1.025646]
+Evaluation : [ 100/655 ] total loss: [1.2007656]
+Evaluation : [ 120/655 ] total loss: [1.4422921]
+Evaluation : [ 140/655 ] total loss: [1.0813048]
+Evaluation : [ 160/655 ] total loss: [1.80755]
+Evaluation : [ 180/655 ] total loss: [1.4181583]
+Evaluation : [ 200/655 ] total loss: [1.3604026]
+Evaluation : [ 220/655 ] total loss: [1.2865326]
+Evaluation : [ 240/655 ] total loss: [1.7098713]
+Evaluation : [ 260/655 ] total loss: [0.94301337]
+Evaluation : [ 280/655 ] total loss: [1.9173219]
+Evaluation : [ 300/655 ] total loss: [1.5545561]
+Evaluation : [ 320/655 ] total loss: [1.6421008]
+Evaluation : [ 340/655 ] total loss: [1.7592047]
+Evaluation : [ 360/655 ] total loss: [1.2987303]
+Evaluation : [ 380/655 ] total loss: [1.1762903]
+Evaluation : [ 400/655 ] total loss: [1.1592143]
+Evaluation : [ 420/655 ] total loss: [0.86563814]
+Evaluation : [ 440/655 ] total loss: [1.7371072]
+Evaluation : [ 460/655 ] total loss: [1.024194]
+Evaluation : [ 480/655 ] total loss: [1.1439965]
+Evaluation : [ 500/655 ] total loss: [1.1744227]
+Evaluation : [ 520/655 ] total loss: [0.6807225]
+Evaluation : [ 540/655 ] total loss: [1.4417962]
+Evaluation : [ 560/655 ] total loss: [1.0534972]
+Evaluation : [ 580/655 ] total loss: [1.561918]
+Evaluation : [ 600/655 ] total loss: [1.6028547]
+Evaluation : [ 620/655 ] total loss: [0.85035765]
+Evaluation : [ 640/655 ] total loss: [1.26332]
+Accumulating evaluation results...
+DONE (t=6.03s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.2969376613347297
+	AP of category [person]:		0.4654231934654696
+	AP of category [car]:		0.6198109628675947
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.2536603495701786
+	AP of category [truck]:		0.197633146400904
+	AP of category [motorcycle]:		0.14833054411099914
+	AP of category [bicycle]:		0.1960112136478113
+	AP of category [bus]:		0.1976942192801505
+Evaluation finished. Time cost: 0:02:29
+Cross-domain MAE training epoch 5 : [ 20/371 ] total loss: [1.0009009]
+Cross-domain MAE training epoch 5 : [ 40/371 ] total loss: [0.9808226]
+Cross-domain MAE training epoch 5 : [ 60/371 ] total loss: [0.88613683]
+Cross-domain MAE training epoch 5 : [ 80/371 ] total loss: [0.70149183]
+Cross-domain MAE training epoch 5 : [ 100/371 ] total loss: [0.5830791]
+Cross-domain MAE training epoch 5 : [ 120/371 ] total loss: [1.1732765]
+Cross-domain MAE training epoch 5 : [ 140/371 ] total loss: [0.8221423]
+Cross-domain MAE training epoch 5 : [ 160/371 ] total loss: [0.9888658]
+Cross-domain MAE training epoch 5 : [ 180/371 ] total loss: [1.3217561]
+Cross-domain MAE training epoch 5 : [ 200/371 ] total loss: [0.81692535]
+Cross-domain MAE training epoch 5 : [ 220/371 ] total loss: [0.48372242]
+Cross-domain MAE training epoch 5 : [ 240/371 ] total loss: [0.69560075]
+Cross-domain MAE training epoch 5 : [ 260/371 ] total loss: [0.91829115]
+Cross-domain MAE training epoch 5 : [ 280/371 ] total loss: [0.43152577]
+Cross-domain MAE training epoch 5 : [ 300/371 ] total loss: [0.5139646]
+Cross-domain MAE training epoch 5 : [ 320/371 ] total loss: [0.8368534]
+Cross-domain MAE training epoch 5 : [ 340/371 ] total loss: [0.76531506]
+Cross-domain MAE training epoch 5 : [ 360/371 ] total loss: [0.7833041]
+Cross-domain MAE training epoch 5 finished. Time cost: 0:05:00 Epoch loss: [0.9248794]
+Evaluation : [ 20/655 ] total loss: [1.3746994]
+Evaluation : [ 40/655 ] total loss: [0.7803792]
+Evaluation : [ 60/655 ] total loss: [1.5860913]
+Evaluation : [ 80/655 ] total loss: [1.0157956]
+Evaluation : [ 100/655 ] total loss: [1.1850823]
+Evaluation : [ 120/655 ] total loss: [1.4266037]
+Evaluation : [ 140/655 ] total loss: [1.0754707]
+Evaluation : [ 160/655 ] total loss: [1.7967923]
+Evaluation : [ 180/655 ] total loss: [1.3993232]
+Evaluation : [ 200/655 ] total loss: [1.3020949]
+Evaluation : [ 220/655 ] total loss: [1.2776598]
+Evaluation : [ 240/655 ] total loss: [1.6352551]
+Evaluation : [ 260/655 ] total loss: [0.94305223]
+Evaluation : [ 280/655 ] total loss: [1.9284853]
+Evaluation : [ 300/655 ] total loss: [1.5348604]
+Evaluation : [ 320/655 ] total loss: [1.6273221]
+Evaluation : [ 340/655 ] total loss: [1.7095078]
+Evaluation : [ 360/655 ] total loss: [1.2612269]
+Evaluation : [ 380/655 ] total loss: [1.1689987]
+Evaluation : [ 400/655 ] total loss: [1.142566]
+Evaluation : [ 420/655 ] total loss: [0.82669324]
+Evaluation : [ 440/655 ] total loss: [1.724482]
+Evaluation : [ 460/655 ] total loss: [1.0415529]
+Evaluation : [ 480/655 ] total loss: [1.085227]
+Evaluation : [ 500/655 ] total loss: [1.1290537]
+Evaluation : [ 520/655 ] total loss: [0.6756913]
+Evaluation : [ 540/655 ] total loss: [1.3973988]
+Evaluation : [ 560/655 ] total loss: [1.068233]
+Evaluation : [ 580/655 ] total loss: [1.5956553]
+Evaluation : [ 600/655 ] total loss: [1.534955]
+Evaluation : [ 620/655 ] total loss: [0.8237771]
+Evaluation : [ 640/655 ] total loss: [1.2612956]
+Accumulating evaluation results...
+DONE (t=5.45s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.3069771937955927
+	AP of category [person]:		0.46562439863078126
+	AP of category [car]:		0.6288937383565869
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.2624701377826503
+	AP of category [truck]:		0.20006708414329083
+	AP of category [motorcycle]:		0.1645897753312482
+	AP of category [bicycle]:		0.222411334856881
+	AP of category [bus]:		0.20478388746771017
+Evaluation finished. Time cost: 0:02:27
+Saving checkpoints to outputs/def-detr-base/city2bdd/cross_domain_mae/model_best.pth
+Cross-domain MAE training epoch 6 : [ 20/371 ] total loss: [0.97775656]
+Cross-domain MAE training epoch 6 : [ 40/371 ] total loss: [0.85752654]
+Cross-domain MAE training epoch 6 : [ 60/371 ] total loss: [1.1346068]
+Cross-domain MAE training epoch 6 : [ 80/371 ] total loss: [0.7284144]
+Cross-domain MAE training epoch 6 : [ 100/371 ] total loss: [0.6346479]
+Cross-domain MAE training epoch 6 : [ 120/371 ] total loss: [1.1415573]
+Cross-domain MAE training epoch 6 : [ 140/371 ] total loss: [0.67572945]
+Cross-domain MAE training epoch 6 : [ 160/371 ] total loss: [1.0569046]
+Cross-domain MAE training epoch 6 : [ 180/371 ] total loss: [1.2944896]
+Cross-domain MAE training epoch 6 : [ 200/371 ] total loss: [0.6916181]
+Cross-domain MAE training epoch 6 : [ 220/371 ] total loss: [0.49900946]
+Cross-domain MAE training epoch 6 : [ 240/371 ] total loss: [0.6968544]
+Cross-domain MAE training epoch 6 : [ 260/371 ] total loss: [0.89429563]
+Cross-domain MAE training epoch 6 : [ 280/371 ] total loss: [0.40555555]
+Cross-domain MAE training epoch 6 : [ 300/371 ] total loss: [0.45053118]
+Cross-domain MAE training epoch 6 : [ 320/371 ] total loss: [0.85949147]
+Cross-domain MAE training epoch 6 : [ 340/371 ] total loss: [0.75064]
+Cross-domain MAE training epoch 6 : [ 360/371 ] total loss: [0.92805356]
+Cross-domain MAE training epoch 6 finished. Time cost: 0:05:02 Epoch loss: [0.9120906]
+Evaluation : [ 20/655 ] total loss: [1.3465974]
+Evaluation : [ 40/655 ] total loss: [0.8017006]
+Evaluation : [ 60/655 ] total loss: [1.586017]
+Evaluation : [ 80/655 ] total loss: [1.0107607]
+Evaluation : [ 100/655 ] total loss: [1.173502]
+Evaluation : [ 120/655 ] total loss: [1.414728]
+Evaluation : [ 140/655 ] total loss: [1.078655]
+Evaluation : [ 160/655 ] total loss: [1.8173947]
+Evaluation : [ 180/655 ] total loss: [1.4157338]
+Evaluation : [ 200/655 ] total loss: [1.318273]
+Evaluation : [ 220/655 ] total loss: [1.2297776]
+Evaluation : [ 240/655 ] total loss: [1.6408843]
+Evaluation : [ 260/655 ] total loss: [0.9715991]
+Evaluation : [ 280/655 ] total loss: [1.9143599]
+Evaluation : [ 300/655 ] total loss: [1.5309188]
+Evaluation : [ 320/655 ] total loss: [1.6505466]
+Evaluation : [ 340/655 ] total loss: [1.7187345]
+Evaluation : [ 360/655 ] total loss: [1.2701387]
+Evaluation : [ 380/655 ] total loss: [1.1863433]
+Evaluation : [ 400/655 ] total loss: [1.1132821]
+Evaluation : [ 420/655 ] total loss: [0.8057744]
+Evaluation : [ 440/655 ] total loss: [1.7513657]
+Evaluation : [ 460/655 ] total loss: [1.0322173]
+Evaluation : [ 480/655 ] total loss: [1.083814]
+Evaluation : [ 500/655 ] total loss: [1.1384706]
+Evaluation : [ 520/655 ] total loss: [0.6730649]
+Evaluation : [ 540/655 ] total loss: [1.4289932]
+Evaluation : [ 560/655 ] total loss: [1.0241283]
+Evaluation : [ 580/655 ] total loss: [1.5908502]
+Evaluation : [ 600/655 ] total loss: [1.5434526]
+Evaluation : [ 620/655 ] total loss: [0.8293314]
+Evaluation : [ 640/655 ] total loss: [1.2614673]
+Accumulating evaluation results...
+DONE (t=5.92s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.3031656827472409
+	AP of category [person]:		0.467933825012445
+	AP of category [car]:		0.6256236932579067
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.2626807558770921
+	AP of category [truck]:		0.19725048748612584
+	AP of category [motorcycle]:		0.16300334128525812
+	AP of category [bicycle]:		0.20393518491223817
+	AP of category [bus]:		0.2017324913996208
+Evaluation finished. Time cost: 0:02:28
+Cross-domain MAE training epoch 7 : [ 20/371 ] total loss: [0.95179635]
+Cross-domain MAE training epoch 7 : [ 40/371 ] total loss: [0.9539158]
+Cross-domain MAE training epoch 7 : [ 60/371 ] total loss: [0.98990697]
+Cross-domain MAE training epoch 7 : [ 80/371 ] total loss: [0.70228094]
+Cross-domain MAE training epoch 7 : [ 100/371 ] total loss: [0.67491317]
+Cross-domain MAE training epoch 7 : [ 120/371 ] total loss: [1.111946]
+Cross-domain MAE training epoch 7 : [ 140/371 ] total loss: [0.81882024]
+Cross-domain MAE training epoch 7 : [ 160/371 ] total loss: [0.96082646]
+Cross-domain MAE training epoch 7 : [ 180/371 ] total loss: [1.3635913]
+Cross-domain MAE training epoch 7 : [ 200/371 ] total loss: [0.95679104]
+Cross-domain MAE training epoch 7 : [ 220/371 ] total loss: [0.55561537]
+Cross-domain MAE training epoch 7 : [ 240/371 ] total loss: [0.70392454]
+Cross-domain MAE training epoch 7 : [ 260/371 ] total loss: [0.9584827]
+Cross-domain MAE training epoch 7 : [ 280/371 ] total loss: [0.39551035]
+Cross-domain MAE training epoch 7 : [ 300/371 ] total loss: [0.41930765]
+Cross-domain MAE training epoch 7 : [ 320/371 ] total loss: [0.859994]
+Cross-domain MAE training epoch 7 : [ 340/371 ] total loss: [0.73762566]
+Cross-domain MAE training epoch 7 : [ 360/371 ] total loss: [0.75913566]
+Cross-domain MAE training epoch 7 finished. Time cost: 0:05:02 Epoch loss: [0.9031936]
+Evaluation : [ 20/655 ] total loss: [1.3459837]
+Evaluation : [ 40/655 ] total loss: [0.79674625]
+Evaluation : [ 60/655 ] total loss: [1.5775993]
+Evaluation : [ 80/655 ] total loss: [1.0156765]
+Evaluation : [ 100/655 ] total loss: [1.1672561]
+Evaluation : [ 120/655 ] total loss: [1.3987298]
+Evaluation : [ 140/655 ] total loss: [1.0879586]
+Evaluation : [ 160/655 ] total loss: [1.821246]
+Evaluation : [ 180/655 ] total loss: [1.4060768]
+Evaluation : [ 200/655 ] total loss: [1.3245146]
+Evaluation : [ 220/655 ] total loss: [1.244657]
+Evaluation : [ 240/655 ] total loss: [1.61711]
+Evaluation : [ 260/655 ] total loss: [0.99547565]
+Evaluation : [ 280/655 ] total loss: [1.9071472]
+Evaluation : [ 300/655 ] total loss: [1.5304296]
+Evaluation : [ 320/655 ] total loss: [1.6595955]
+Evaluation : [ 340/655 ] total loss: [1.6610177]
+Evaluation : [ 360/655 ] total loss: [1.26802]
+Evaluation : [ 380/655 ] total loss: [1.1740149]
+Evaluation : [ 400/655 ] total loss: [1.142915]
+Evaluation : [ 420/655 ] total loss: [0.814394]
+Evaluation : [ 440/655 ] total loss: [1.7210686]
+Evaluation : [ 460/655 ] total loss: [1.0175904]
+Evaluation : [ 480/655 ] total loss: [1.0844462]
+Evaluation : [ 500/655 ] total loss: [1.1572002]
+Evaluation : [ 520/655 ] total loss: [0.69840163]
+Evaluation : [ 540/655 ] total loss: [1.4378641]
+Evaluation : [ 560/655 ] total loss: [1.041945]
+Evaluation : [ 580/655 ] total loss: [1.5504965]
+Evaluation : [ 600/655 ] total loss: [1.5739369]
+Evaluation : [ 620/655 ] total loss: [0.8630912]
+Evaluation : [ 640/655 ] total loss: [1.2536043]
+Accumulating evaluation results...
+DONE (t=5.54s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.3012416143895141
+	AP of category [person]:		0.46400654815907416
+	AP of category [car]:		0.6252959294650909
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.26714816706806216
+	AP of category [truck]:		0.19666414682540373
+	AP of category [motorcycle]:		0.15635974139479764
+	AP of category [bicycle]:		0.20987533981981726
+	AP of category [bus]:		0.1893414279943526
+Evaluation finished. Time cost: 0:02:30
+Cross-domain MAE training epoch 8 : [ 20/371 ] total loss: [0.87800574]
+Cross-domain MAE training epoch 8 : [ 40/371 ] total loss: [0.84429693]
+Cross-domain MAE training epoch 8 : [ 60/371 ] total loss: [0.90266836]
+Cross-domain MAE training epoch 8 : [ 80/371 ] total loss: [0.74037683]
+Cross-domain MAE training epoch 8 : [ 100/371 ] total loss: [0.596383]
+Cross-domain MAE training epoch 8 : [ 120/371 ] total loss: [1.1060592]
+Cross-domain MAE training epoch 8 : [ 140/371 ] total loss: [0.6773977]
+Cross-domain MAE training epoch 8 : [ 160/371 ] total loss: [0.9595736]
+Cross-domain MAE training epoch 8 : [ 180/371 ] total loss: [1.4117657]
+Cross-domain MAE training epoch 8 : [ 200/371 ] total loss: [0.6777684]
+Cross-domain MAE training epoch 8 : [ 220/371 ] total loss: [0.5025047]
+Cross-domain MAE training epoch 8 : [ 240/371 ] total loss: [0.69686115]
+Cross-domain MAE training epoch 8 : [ 260/371 ] total loss: [0.9539196]
+Cross-domain MAE training epoch 8 : [ 280/371 ] total loss: [0.40493]
+Cross-domain MAE training epoch 8 : [ 300/371 ] total loss: [0.4276492]
+Cross-domain MAE training epoch 8 : [ 320/371 ] total loss: [0.9319917]
+Cross-domain MAE training epoch 8 : [ 340/371 ] total loss: [0.74528927]
+Cross-domain MAE training epoch 8 : [ 360/371 ] total loss: [0.74690366]
+Cross-domain MAE training epoch 8 finished. Time cost: 0:05:02 Epoch loss: [0.90051776]
+Evaluation : [ 20/655 ] total loss: [1.3368559]
+Evaluation : [ 40/655 ] total loss: [0.8152492]
+Evaluation : [ 60/655 ] total loss: [1.5934494]
+Evaluation : [ 80/655 ] total loss: [1.0195475]
+Evaluation : [ 100/655 ] total loss: [1.1918511]
+Evaluation : [ 120/655 ] total loss: [1.4402561]
+Evaluation : [ 140/655 ] total loss: [1.0677508]
+Evaluation : [ 160/655 ] total loss: [1.8744354]
+Evaluation : [ 180/655 ] total loss: [1.4116011]
+Evaluation : [ 200/655 ] total loss: [1.3454247]
+Evaluation : [ 220/655 ] total loss: [1.2635897]
+Evaluation : [ 240/655 ] total loss: [1.6871207]
+Evaluation : [ 260/655 ] total loss: [0.994679]
+Evaluation : [ 280/655 ] total loss: [1.9244903]
+Evaluation : [ 300/655 ] total loss: [1.523484]
+Evaluation : [ 320/655 ] total loss: [1.6927522]
+Evaluation : [ 340/655 ] total loss: [1.7261212]
+Evaluation : [ 360/655 ] total loss: [1.2683969]
+Evaluation : [ 380/655 ] total loss: [1.2016475]
+Evaluation : [ 400/655 ] total loss: [1.148053]
+Evaluation : [ 420/655 ] total loss: [0.80444896]
+Evaluation : [ 440/655 ] total loss: [1.7972549]
+Evaluation : [ 460/655 ] total loss: [1.0513017]
+Evaluation : [ 480/655 ] total loss: [1.0958512]
+Evaluation : [ 500/655 ] total loss: [1.137021]
+Evaluation : [ 520/655 ] total loss: [0.6863581]
+Evaluation : [ 540/655 ] total loss: [1.4233588]
+Evaluation : [ 560/655 ] total loss: [1.0584606]
+Evaluation : [ 580/655 ] total loss: [1.6781678]
+Evaluation : [ 600/655 ] total loss: [1.5866222]
+Evaluation : [ 620/655 ] total loss: [0.8356535]
+Evaluation : [ 640/655 ] total loss: [1.280989]
+Accumulating evaluation results...
+DONE (t=6.01s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.30570897668206287
+	AP of category [person]:		0.46528466872543683
+	AP of category [car]:		0.6192518867969338
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.2627019382337832
+	AP of category [truck]:		0.20193193699970385
+	AP of category [motorcycle]:		0.16667713396172068
+	AP of category [bicycle]:		0.21308803420145853
+	AP of category [bus]:		0.21102723785540306
+Evaluation finished. Time cost: 0:02:28
+Cross-domain MAE training epoch 9 : [ 20/371 ] total loss: [0.99265295]
+Cross-domain MAE training epoch 9 : [ 40/371 ] total loss: [0.77585894]
+Cross-domain MAE training epoch 9 : [ 60/371 ] total loss: [0.9040278]
+Cross-domain MAE training epoch 9 : [ 80/371 ] total loss: [0.7322326]
+Cross-domain MAE training epoch 9 : [ 100/371 ] total loss: [0.6242382]
+Cross-domain MAE training epoch 9 : [ 120/371 ] total loss: [1.0837929]
+Cross-domain MAE training epoch 9 : [ 140/371 ] total loss: [0.7743503]
+Cross-domain MAE training epoch 9 : [ 160/371 ] total loss: [0.96059346]
+Cross-domain MAE training epoch 9 : [ 180/371 ] total loss: [1.300873]
+Cross-domain MAE training epoch 9 : [ 200/371 ] total loss: [0.7654442]
+Cross-domain MAE training epoch 9 : [ 220/371 ] total loss: [0.5023682]
+Cross-domain MAE training epoch 9 : [ 240/371 ] total loss: [0.6313661]
+Cross-domain MAE training epoch 9 : [ 260/371 ] total loss: [0.8932456]
+Cross-domain MAE training epoch 9 : [ 280/371 ] total loss: [0.4220765]
+Cross-domain MAE training epoch 9 : [ 300/371 ] total loss: [0.47747332]
+Cross-domain MAE training epoch 9 : [ 320/371 ] total loss: [0.8152763]
+Cross-domain MAE training epoch 9 : [ 340/371 ] total loss: [0.68400085]
+Cross-domain MAE training epoch 9 : [ 360/371 ] total loss: [0.7002476]
+Cross-domain MAE training epoch 9 finished. Time cost: 0:04:59 Epoch loss: [0.8978716]
+Evaluation : [ 20/655 ] total loss: [1.3485782]
+Evaluation : [ 40/655 ] total loss: [0.80503243]
+Evaluation : [ 60/655 ] total loss: [1.5926054]
+Evaluation : [ 80/655 ] total loss: [1.0369177]
+Evaluation : [ 100/655 ] total loss: [1.1778644]
+Evaluation : [ 120/655 ] total loss: [1.439083]
+Evaluation : [ 140/655 ] total loss: [1.049226]
+Evaluation : [ 160/655 ] total loss: [1.8097856]
+Evaluation : [ 180/655 ] total loss: [1.4160936]
+Evaluation : [ 200/655 ] total loss: [1.3343937]
+Evaluation : [ 220/655 ] total loss: [1.227881]
+Evaluation : [ 240/655 ] total loss: [1.6756418]
+Evaluation : [ 260/655 ] total loss: [0.96222997]
+Evaluation : [ 280/655 ] total loss: [1.9420557]
+Evaluation : [ 300/655 ] total loss: [1.5216138]
+Evaluation : [ 320/655 ] total loss: [1.6300764]
+Evaluation : [ 340/655 ] total loss: [1.7266773]
+Evaluation : [ 360/655 ] total loss: [1.2400887]
+Evaluation : [ 380/655 ] total loss: [1.1792158]
+Evaluation : [ 400/655 ] total loss: [1.1216266]
+Evaluation : [ 420/655 ] total loss: [0.7763374]
+Evaluation : [ 440/655 ] total loss: [1.7567499]
+Evaluation : [ 460/655 ] total loss: [1.0103997]
+Evaluation : [ 480/655 ] total loss: [1.0883107]
+Evaluation : [ 500/655 ] total loss: [1.1566317]
+Evaluation : [ 520/655 ] total loss: [0.6682729]
+Evaluation : [ 540/655 ] total loss: [1.4402986]
+Evaluation : [ 560/655 ] total loss: [1.0605288]
+Evaluation : [ 580/655 ] total loss: [1.6345615]
+Evaluation : [ 600/655 ] total loss: [1.5764654]
+Evaluation : [ 620/655 ] total loss: [0.83718157]
+Evaluation : [ 640/655 ] total loss: [1.2394446]
+Accumulating evaluation results...
+DONE (t=5.60s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.3106170287253502
+	AP of category [person]:		0.46988268998229166
+	AP of category [car]:		0.6284250867929675
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.2796953081449147
+	AP of category [truck]:		0.1955922196072991
+	AP of category [motorcycle]:		0.17539638273895974
+	AP of category [bicycle]:		0.22404521215125486
+	AP of category [bus]:		0.20128230165976366
+Evaluation finished. Time cost: 0:02:27
+Saving checkpoints to outputs/def-detr-base/city2bdd/cross_domain_mae/model_best.pth
+Cross-domain MAE training epoch 10 : [ 20/371 ] total loss: [1.06392]
+Cross-domain MAE training epoch 10 : [ 40/371 ] total loss: [0.8703243]
+Cross-domain MAE training epoch 10 : [ 60/371 ] total loss: [0.88680446]
+Cross-domain MAE training epoch 10 : [ 80/371 ] total loss: [0.7002662]
+Cross-domain MAE training epoch 10 : [ 100/371 ] total loss: [0.6587949]
+Cross-domain MAE training epoch 10 : [ 120/371 ] total loss: [1.1240284]
+Cross-domain MAE training epoch 10 : [ 140/371 ] total loss: [0.73532933]
+Cross-domain MAE training epoch 10 : [ 160/371 ] total loss: [1.0271677]
+Cross-domain MAE training epoch 10 : [ 180/371 ] total loss: [1.3837876]
+Cross-domain MAE training epoch 10 : [ 200/371 ] total loss: [0.68714106]
+Cross-domain MAE training epoch 10 : [ 220/371 ] total loss: [0.5041799]
+Cross-domain MAE training epoch 10 : [ 240/371 ] total loss: [0.65728086]
+Cross-domain MAE training epoch 10 : [ 260/371 ] total loss: [1.0053542]
+Cross-domain MAE training epoch 10 : [ 280/371 ] total loss: [0.39759836]
+Cross-domain MAE training epoch 10 : [ 300/371 ] total loss: [0.5086279]
+Cross-domain MAE training epoch 10 : [ 320/371 ] total loss: [0.8445022]
+Cross-domain MAE training epoch 10 : [ 340/371 ] total loss: [0.7538087]
+Cross-domain MAE training epoch 10 : [ 360/371 ] total loss: [0.72139883]
+Cross-domain MAE training epoch 10 finished. Time cost: 0:05:03 Epoch loss: [0.8943756]
+Evaluation : [ 20/655 ] total loss: [1.3715185]
+Evaluation : [ 40/655 ] total loss: [0.84071136]
+Evaluation : [ 60/655 ] total loss: [1.5938616]
+Evaluation : [ 80/655 ] total loss: [1.0510682]
+Evaluation : [ 100/655 ] total loss: [1.1881155]
+Evaluation : [ 120/655 ] total loss: [1.4494257]
+Evaluation : [ 140/655 ] total loss: [1.0362151]
+Evaluation : [ 160/655 ] total loss: [1.8195255]
+Evaluation : [ 180/655 ] total loss: [1.4195461]
+Evaluation : [ 200/655 ] total loss: [1.3578422]
+Evaluation : [ 220/655 ] total loss: [1.2266221]
+Evaluation : [ 240/655 ] total loss: [1.7049898]
+Evaluation : [ 260/655 ] total loss: [0.9649888]
+Evaluation : [ 280/655 ] total loss: [1.9546428]
+Evaluation : [ 300/655 ] total loss: [1.5392225]
+Evaluation : [ 320/655 ] total loss: [1.6727045]
+Evaluation : [ 340/655 ] total loss: [1.7392776]
+Evaluation : [ 360/655 ] total loss: [1.2906834]
+Evaluation : [ 380/655 ] total loss: [1.1942321]
+Evaluation : [ 400/655 ] total loss: [1.1347187]
+Evaluation : [ 420/655 ] total loss: [0.8118045]
+Evaluation : [ 440/655 ] total loss: [1.8167133]
+Evaluation : [ 460/655 ] total loss: [1.0507911]
+Evaluation : [ 480/655 ] total loss: [1.0860941]
+Evaluation : [ 500/655 ] total loss: [1.1667016]
+Evaluation : [ 520/655 ] total loss: [0.684082]
+Evaluation : [ 540/655 ] total loss: [1.4505336]
+Evaluation : [ 560/655 ] total loss: [1.0716366]
+Evaluation : [ 580/655 ] total loss: [1.7017444]
+Evaluation : [ 600/655 ] total loss: [1.58411]
+Evaluation : [ 620/655 ] total loss: [0.85795486]
+Evaluation : [ 640/655 ] total loss: [1.2789875]
+Accumulating evaluation results...
+DONE (t=6.08s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.3054133618750236
+	AP of category [person]:		0.46539937908723933
+	AP of category [car]:		0.6183571436894362
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.2627153724976229
+	AP of category [truck]:		0.2066608496734361
+	AP of category [motorcycle]:		0.1686179657664833
+	AP of category [bicycle]:		0.21630641801245443
+	AP of category [bus]:		0.19983640439849312
+Evaluation finished. Time cost: 0:02:30
+Cross-domain MAE training epoch 11 : [ 20/371 ] total loss: [0.85994387]
+Cross-domain MAE training epoch 11 : [ 40/371 ] total loss: [0.80838186]
+Cross-domain MAE training epoch 11 : [ 60/371 ] total loss: [0.95699877]
+Cross-domain MAE training epoch 11 : [ 80/371 ] total loss: [0.78504544]
+Cross-domain MAE training epoch 11 : [ 100/371 ] total loss: [0.64096713]
+Cross-domain MAE training epoch 11 : [ 120/371 ] total loss: [1.0899444]
+Cross-domain MAE training epoch 11 : [ 140/371 ] total loss: [0.71964794]
+Cross-domain MAE training epoch 11 : [ 160/371 ] total loss: [0.9935385]
+Cross-domain MAE training epoch 11 : [ 180/371 ] total loss: [1.3441706]
+Cross-domain MAE training epoch 11 : [ 200/371 ] total loss: [0.7606776]
+Cross-domain MAE training epoch 11 : [ 220/371 ] total loss: [0.5219694]
+Cross-domain MAE training epoch 11 : [ 240/371 ] total loss: [0.75824857]
+Cross-domain MAE training epoch 11 : [ 260/371 ] total loss: [0.9610645]
+Cross-domain MAE training epoch 11 : [ 280/371 ] total loss: [0.41095144]
+Cross-domain MAE training epoch 11 : [ 300/371 ] total loss: [0.49917024]
+Cross-domain MAE training epoch 11 : [ 320/371 ] total loss: [0.90910405]
+Cross-domain MAE training epoch 11 : [ 340/371 ] total loss: [0.70789284]
+Cross-domain MAE training epoch 11 : [ 360/371 ] total loss: [0.73514605]
+Cross-domain MAE training epoch 11 finished. Time cost: 0:05:00 Epoch loss: [0.88598406]
+Evaluation : [ 20/655 ] total loss: [1.3745073]
+Evaluation : [ 40/655 ] total loss: [0.8125894]
+Evaluation : [ 60/655 ] total loss: [1.6194994]
+Evaluation : [ 80/655 ] total loss: [1.0743533]
+Evaluation : [ 100/655 ] total loss: [1.1541212]
+Evaluation : [ 120/655 ] total loss: [1.4770898]
+Evaluation : [ 140/655 ] total loss: [1.0483148]
+Evaluation : [ 160/655 ] total loss: [1.8841233]
+Evaluation : [ 180/655 ] total loss: [1.3905492]
+Evaluation : [ 200/655 ] total loss: [1.3286024]
+Evaluation : [ 220/655 ] total loss: [1.2658505]
+Evaluation : [ 240/655 ] total loss: [1.64435]
+Evaluation : [ 260/655 ] total loss: [0.95419896]
+Evaluation : [ 280/655 ] total loss: [1.9652542]
+Evaluation : [ 300/655 ] total loss: [1.5806587]
+Evaluation : [ 320/655 ] total loss: [1.6566863]
+Evaluation : [ 340/655 ] total loss: [1.7710217]
+Evaluation : [ 360/655 ] total loss: [1.2815039]
+Evaluation : [ 380/655 ] total loss: [1.1579]
+Evaluation : [ 400/655 ] total loss: [1.1315384]
+Evaluation : [ 420/655 ] total loss: [0.80939937]
+Evaluation : [ 440/655 ] total loss: [1.8068876]
+Evaluation : [ 460/655 ] total loss: [1.0620756]
+Evaluation : [ 480/655 ] total loss: [1.0726185]
+Evaluation : [ 500/655 ] total loss: [1.2051243]
+Evaluation : [ 520/655 ] total loss: [0.68502414]
+Evaluation : [ 540/655 ] total loss: [1.4340913]
+Evaluation : [ 560/655 ] total loss: [1.0842583]
+Evaluation : [ 580/655 ] total loss: [1.6477537]
+Evaluation : [ 600/655 ] total loss: [1.5639299]
+Evaluation : [ 620/655 ] total loss: [0.83525455]
+Evaluation : [ 640/655 ] total loss: [1.2508029]
+Accumulating evaluation results...
+DONE (t=6.05s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.30234446553710825
+	AP of category [person]:		0.46364409450420113
+	AP of category [car]:		0.6191058122591317
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.26198988019420233
+	AP of category [truck]:		0.18909975827117878
+	AP of category [motorcycle]:		0.1798367826234459
+	AP of category [bicycle]:		0.20658021381580355
+	AP of category [bus]:		0.19615471709179433
+Evaluation finished. Time cost: 0:02:29
+Cross-domain MAE training epoch 12 : [ 20/371 ] total loss: [0.97522634]
+Cross-domain MAE training epoch 12 : [ 40/371 ] total loss: [0.87646306]
+Cross-domain MAE training epoch 12 : [ 60/371 ] total loss: [0.9623435]
+Cross-domain MAE training epoch 12 : [ 80/371 ] total loss: [0.7328955]
+Cross-domain MAE training epoch 12 : [ 100/371 ] total loss: [0.6700137]
+Cross-domain MAE training epoch 12 : [ 120/371 ] total loss: [0.98377615]
+Cross-domain MAE training epoch 12 : [ 140/371 ] total loss: [0.6991506]
+Cross-domain MAE training epoch 12 : [ 160/371 ] total loss: [0.94802344]
+Cross-domain MAE training epoch 12 : [ 180/371 ] total loss: [1.3105242]
+Cross-domain MAE training epoch 12 : [ 200/371 ] total loss: [0.73257285]
+Cross-domain MAE training epoch 12 : [ 220/371 ] total loss: [0.5425892]
+Cross-domain MAE training epoch 12 : [ 240/371 ] total loss: [0.75461376]
+Cross-domain MAE training epoch 12 : [ 260/371 ] total loss: [0.9076916]
+Cross-domain MAE training epoch 12 : [ 280/371 ] total loss: [0.40755695]
+Cross-domain MAE training epoch 12 : [ 300/371 ] total loss: [0.43548554]
+Cross-domain MAE training epoch 12 : [ 320/371 ] total loss: [0.9068883]
+Cross-domain MAE training epoch 12 : [ 340/371 ] total loss: [0.7637753]
+Cross-domain MAE training epoch 12 : [ 360/371 ] total loss: [0.78360254]
+Cross-domain MAE training epoch 12 finished. Time cost: 0:05:04 Epoch loss: [0.8919862]
+Evaluation : [ 20/655 ] total loss: [1.3803661]
+Evaluation : [ 40/655 ] total loss: [0.8224288]
+Evaluation : [ 60/655 ] total loss: [1.5949129]
+Evaluation : [ 80/655 ] total loss: [1.0407771]
+Evaluation : [ 100/655 ] total loss: [1.1437316]
+Evaluation : [ 120/655 ] total loss: [1.4928586]
+Evaluation : [ 140/655 ] total loss: [1.0703526]
+Evaluation : [ 160/655 ] total loss: [1.8680929]
+Evaluation : [ 180/655 ] total loss: [1.3887482]
+Evaluation : [ 200/655 ] total loss: [1.3025483]
+Evaluation : [ 220/655 ] total loss: [1.2783468]
+Evaluation : [ 240/655 ] total loss: [1.6542996]
+Evaluation : [ 260/655 ] total loss: [0.974761]
+Evaluation : [ 280/655 ] total loss: [1.9129033]
+Evaluation : [ 300/655 ] total loss: [1.5802271]
+Evaluation : [ 320/655 ] total loss: [1.637698]
+Evaluation : [ 340/655 ] total loss: [1.7046239]
+Evaluation : [ 360/655 ] total loss: [1.2592114]
+Evaluation : [ 380/655 ] total loss: [1.1973957]
+Evaluation : [ 400/655 ] total loss: [1.1326058]
+Evaluation : [ 420/655 ] total loss: [0.7902309]
+Evaluation : [ 440/655 ] total loss: [1.8191214]
+Evaluation : [ 460/655 ] total loss: [1.0381658]
+Evaluation : [ 480/655 ] total loss: [1.0696516]
+Evaluation : [ 500/655 ] total loss: [1.1595759]
+Evaluation : [ 520/655 ] total loss: [0.69343156]
+Evaluation : [ 540/655 ] total loss: [1.4359014]
+Evaluation : [ 560/655 ] total loss: [1.0660942]
+Evaluation : [ 580/655 ] total loss: [1.6266464]
+Evaluation : [ 600/655 ] total loss: [1.5627741]
+Evaluation : [ 620/655 ] total loss: [0.83543193]
+Evaluation : [ 640/655 ] total loss: [1.2534769]
+Accumulating evaluation results...
+DONE (t=5.62s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.3035538425351189
+	AP of category [person]:		0.4579381020011195
+	AP of category [car]:		0.6189146374820147
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.2773676659607873
+	AP of category [truck]:		0.1946693805341737
+	AP of category [motorcycle]:		0.16929879277427387
+	AP of category [bicycle]:		0.20534585826482044
+	AP of category [bus]:		0.2013424607286429
+Evaluation finished. Time cost: 0:02:29
+Cross-domain MAE training epoch 13 : [ 20/371 ] total loss: [0.8726191]
+Cross-domain MAE training epoch 13 : [ 40/371 ] total loss: [0.84062034]
+Cross-domain MAE training epoch 13 : [ 60/371 ] total loss: [0.89625204]
+Cross-domain MAE training epoch 13 : [ 80/371 ] total loss: [0.631866]
+Cross-domain MAE training epoch 13 : [ 100/371 ] total loss: [0.60373884]
+Cross-domain MAE training epoch 13 : [ 120/371 ] total loss: [1.0344081]
+Cross-domain MAE training epoch 13 : [ 140/371 ] total loss: [0.6570767]
+Cross-domain MAE training epoch 13 : [ 160/371 ] total loss: [0.9169524]
+Cross-domain MAE training epoch 13 : [ 180/371 ] total loss: [1.3294897]
+Cross-domain MAE training epoch 13 : [ 200/371 ] total loss: [0.70292425]
+Cross-domain MAE training epoch 13 : [ 220/371 ] total loss: [0.49129736]
+Cross-domain MAE training epoch 13 : [ 240/371 ] total loss: [0.6852267]
+Cross-domain MAE training epoch 13 : [ 260/371 ] total loss: [0.92958134]
+Cross-domain MAE training epoch 13 : [ 280/371 ] total loss: [0.36949167]
+Cross-domain MAE training epoch 13 : [ 300/371 ] total loss: [0.48190764]
+Cross-domain MAE training epoch 13 : [ 320/371 ] total loss: [0.809399]
+Cross-domain MAE training epoch 13 : [ 340/371 ] total loss: [0.7070722]
+Cross-domain MAE training epoch 13 : [ 360/371 ] total loss: [0.7300923]
+Cross-domain MAE training epoch 13 finished. Time cost: 0:05:04 Epoch loss: [0.8805369]
+Evaluation : [ 20/655 ] total loss: [1.3825582]
+Evaluation : [ 40/655 ] total loss: [0.84036815]
+Evaluation : [ 60/655 ] total loss: [1.6302667]
+Evaluation : [ 80/655 ] total loss: [1.012712]
+Evaluation : [ 100/655 ] total loss: [1.1551062]
+Evaluation : [ 120/655 ] total loss: [1.4711452]
+Evaluation : [ 140/655 ] total loss: [1.0399294]
+Evaluation : [ 160/655 ] total loss: [1.9357227]
+Evaluation : [ 180/655 ] total loss: [1.404375]
+Evaluation : [ 200/655 ] total loss: [1.3291857]
+Evaluation : [ 220/655 ] total loss: [1.2656908]
+Evaluation : [ 240/655 ] total loss: [1.6324772]
+Evaluation : [ 260/655 ] total loss: [0.9794008]
+Evaluation : [ 280/655 ] total loss: [1.966454]
+Evaluation : [ 300/655 ] total loss: [1.5494316]
+Evaluation : [ 320/655 ] total loss: [1.6829785]
+Evaluation : [ 340/655 ] total loss: [1.7654247]
+Evaluation : [ 360/655 ] total loss: [1.2872653]
+Evaluation : [ 380/655 ] total loss: [1.1910847]
+Evaluation : [ 400/655 ] total loss: [1.13536]
+Evaluation : [ 420/655 ] total loss: [0.8103449]
+Evaluation : [ 440/655 ] total loss: [1.8625376]
+Evaluation : [ 460/655 ] total loss: [1.0389576]
+Evaluation : [ 480/655 ] total loss: [1.0819232]
+Evaluation : [ 500/655 ] total loss: [1.1881795]
+Evaluation : [ 520/655 ] total loss: [0.69202846]
+Evaluation : [ 540/655 ] total loss: [1.4536976]
+Evaluation : [ 560/655 ] total loss: [1.079562]
+Evaluation : [ 580/655 ] total loss: [1.6881188]
+Evaluation : [ 600/655 ] total loss: [1.5687532]
+Evaluation : [ 620/655 ] total loss: [0.8605892]
+Evaluation : [ 640/655 ] total loss: [1.2781973]
+Accumulating evaluation results...
+DONE (t=5.60s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.30431509450806965
+	AP of category [person]:		0.46369468156556426
+	AP of category [car]:		0.613989183687059
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.27129200583198554
+	AP of category [truck]:		0.185636680622251
+	AP of category [motorcycle]:		0.16235301443383807
+	AP of category [bicycle]:		0.21953073568040676
+	AP of category [bus]:		0.21370935973538283
+Evaluation finished. Time cost: 0:02:30
+Cross-domain MAE training epoch 14 : [ 20/371 ] total loss: [0.86188877]
+Cross-domain MAE training epoch 14 : [ 40/371 ] total loss: [0.8480937]
+Cross-domain MAE training epoch 14 : [ 60/371 ] total loss: [0.8304234]
+Cross-domain MAE training epoch 14 : [ 80/371 ] total loss: [0.6713747]
+Cross-domain MAE training epoch 14 : [ 100/371 ] total loss: [0.61294985]
+Cross-domain MAE training epoch 14 : [ 120/371 ] total loss: [1.0683289]
+Cross-domain MAE training epoch 14 : [ 140/371 ] total loss: [0.6364817]
+Cross-domain MAE training epoch 14 : [ 160/371 ] total loss: [0.8968977]
+Cross-domain MAE training epoch 14 : [ 180/371 ] total loss: [1.3303666]
+Cross-domain MAE training epoch 14 : [ 200/371 ] total loss: [0.62225896]
+Cross-domain MAE training epoch 14 : [ 220/371 ] total loss: [0.46506363]
+Cross-domain MAE training epoch 14 : [ 240/371 ] total loss: [0.7505474]
+Cross-domain MAE training epoch 14 : [ 260/371 ] total loss: [0.8533474]
+Cross-domain MAE training epoch 14 : [ 280/371 ] total loss: [0.3985618]
+Cross-domain MAE training epoch 14 : [ 300/371 ] total loss: [0.3770081]
+Cross-domain MAE training epoch 14 : [ 320/371 ] total loss: [0.9411312]
+Cross-domain MAE training epoch 14 : [ 340/371 ] total loss: [0.7133462]
+Cross-domain MAE training epoch 14 : [ 360/371 ] total loss: [0.7469211]
+Cross-domain MAE training epoch 14 finished. Time cost: 0:05:01 Epoch loss: [0.87185436]
+Evaluation : [ 20/655 ] total loss: [1.3566153]
+Evaluation : [ 40/655 ] total loss: [0.82018197]
+Evaluation : [ 60/655 ] total loss: [1.5998544]
+Evaluation : [ 80/655 ] total loss: [1.0351706]
+Evaluation : [ 100/655 ] total loss: [1.1683345]
+Evaluation : [ 120/655 ] total loss: [1.4664254]
+Evaluation : [ 140/655 ] total loss: [1.0484734]
+Evaluation : [ 160/655 ] total loss: [1.912908]
+Evaluation : [ 180/655 ] total loss: [1.390954]
+Evaluation : [ 200/655 ] total loss: [1.2816622]
+Evaluation : [ 220/655 ] total loss: [1.2718474]
+Evaluation : [ 240/655 ] total loss: [1.6591748]
+Evaluation : [ 260/655 ] total loss: [0.9585087]
+Evaluation : [ 280/655 ] total loss: [1.9094262]
+Evaluation : [ 300/655 ] total loss: [1.5360651]
+Evaluation : [ 320/655 ] total loss: [1.6817126]
+Evaluation : [ 340/655 ] total loss: [1.7435734]
+Evaluation : [ 360/655 ] total loss: [1.2709464]
+Evaluation : [ 380/655 ] total loss: [1.1899601]
+Evaluation : [ 400/655 ] total loss: [1.1204622]
+Evaluation : [ 420/655 ] total loss: [0.81504124]
+Evaluation : [ 440/655 ] total loss: [1.8053493]
+Evaluation : [ 460/655 ] total loss: [1.0306004]
+Evaluation : [ 480/655 ] total loss: [1.0671234]
+Evaluation : [ 500/655 ] total loss: [1.1551747]
+Evaluation : [ 520/655 ] total loss: [0.67563546]
+Evaluation : [ 540/655 ] total loss: [1.4447534]
+Evaluation : [ 560/655 ] total loss: [1.0656102]
+Evaluation : [ 580/655 ] total loss: [1.6423997]
+Evaluation : [ 600/655 ] total loss: [1.5599535]
+Evaluation : [ 620/655 ] total loss: [0.85536575]
+Evaluation : [ 640/655 ] total loss: [1.2297914]
+Accumulating evaluation results...
+DONE (t=5.51s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.3056351423471499
+	AP of category [person]:		0.4646319254128346
+	AP of category [car]:		0.6242196967373345
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.28040592309968115
+	AP of category [truck]:		0.19771551678829818
+	AP of category [motorcycle]:		0.15697383127468906
+	AP of category [bicycle]:		0.20929233591423657
+	AP of category [bus]:		0.20620676720297507
+Evaluation finished. Time cost: 0:02:28
+Cross-domain MAE training epoch 15 : [ 20/371 ] total loss: [1.0723687]
+Cross-domain MAE training epoch 15 : [ 40/371 ] total loss: [0.8019935]
+Cross-domain MAE training epoch 15 : [ 60/371 ] total loss: [0.9228892]
+Cross-domain MAE training epoch 15 : [ 80/371 ] total loss: [0.65446985]
+Cross-domain MAE training epoch 15 : [ 100/371 ] total loss: [0.6141941]
+Cross-domain MAE training epoch 15 : [ 120/371 ] total loss: [1.045741]
+Cross-domain MAE training epoch 15 : [ 140/371 ] total loss: [0.67724574]
+Cross-domain MAE training epoch 15 : [ 160/371 ] total loss: [0.9085326]
+Cross-domain MAE training epoch 15 : [ 180/371 ] total loss: [1.4064445]
+Cross-domain MAE training epoch 15 : [ 200/371 ] total loss: [0.79446834]
+Cross-domain MAE training epoch 15 : [ 220/371 ] total loss: [0.5413062]
+Cross-domain MAE training epoch 15 : [ 240/371 ] total loss: [0.7672746]
+Cross-domain MAE training epoch 15 : [ 260/371 ] total loss: [0.87161577]
+Cross-domain MAE training epoch 15 : [ 280/371 ] total loss: [0.380547]
+Cross-domain MAE training epoch 15 : [ 300/371 ] total loss: [0.5351262]
+Cross-domain MAE training epoch 15 : [ 320/371 ] total loss: [0.8936431]
+Cross-domain MAE training epoch 15 : [ 340/371 ] total loss: [0.67348635]
+Cross-domain MAE training epoch 15 : [ 360/371 ] total loss: [0.75194925]
+Cross-domain MAE training epoch 15 finished. Time cost: 0:05:03 Epoch loss: [0.871674]
+Evaluation : [ 20/655 ] total loss: [1.3765366]
+Evaluation : [ 40/655 ] total loss: [0.81393695]
+Evaluation : [ 60/655 ] total loss: [1.580789]
+Evaluation : [ 80/655 ] total loss: [1.0351218]
+Evaluation : [ 100/655 ] total loss: [1.1675539]
+Evaluation : [ 120/655 ] total loss: [1.4541978]
+Evaluation : [ 140/655 ] total loss: [1.0483224]
+Evaluation : [ 160/655 ] total loss: [1.8867943]
+Evaluation : [ 180/655 ] total loss: [1.4044117]
+Evaluation : [ 200/655 ] total loss: [1.331485]
+Evaluation : [ 220/655 ] total loss: [1.2809536]
+Evaluation : [ 240/655 ] total loss: [1.6476483]
+Evaluation : [ 260/655 ] total loss: [0.98899025]
+Evaluation : [ 280/655 ] total loss: [1.9250139]
+Evaluation : [ 300/655 ] total loss: [1.5586818]
+Evaluation : [ 320/655 ] total loss: [1.6470797]
+Evaluation : [ 340/655 ] total loss: [1.7481382]
+Evaluation : [ 360/655 ] total loss: [1.2854557]
+Evaluation : [ 380/655 ] total loss: [1.194271]
+Evaluation : [ 400/655 ] total loss: [1.1539829]
+Evaluation : [ 420/655 ] total loss: [0.8153933]
+Evaluation : [ 440/655 ] total loss: [1.7977117]
+Evaluation : [ 460/655 ] total loss: [0.9952496]
+Evaluation : [ 480/655 ] total loss: [1.062778]
+Evaluation : [ 500/655 ] total loss: [1.1546869]
+Evaluation : [ 520/655 ] total loss: [0.6942391]
+Evaluation : [ 540/655 ] total loss: [1.4454806]
+Evaluation : [ 560/655 ] total loss: [1.0641041]
+Evaluation : [ 580/655 ] total loss: [1.6688393]
+Evaluation : [ 600/655 ] total loss: [1.5426519]
+Evaluation : [ 620/655 ] total loss: [0.85474575]
+Evaluation : [ 640/655 ] total loss: [1.2676376]
+Accumulating evaluation results...
+DONE (t=5.57s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.30976470934974587
+	AP of category [person]:		0.462565579012171
+	AP of category [car]:		0.617372616186978
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.27729600432558266
+	AP of category [truck]:		0.20205884944051325
+	AP of category [motorcycle]:		0.1826290612465339
+	AP of category [bicycle]:		0.21743523359397915
+	AP of category [bus]:		0.20899562164246271
+Evaluation finished. Time cost: 0:02:28
+Cross-domain MAE training epoch 16 : [ 20/371 ] total loss: [0.9094231]
+Cross-domain MAE training epoch 16 : [ 40/371 ] total loss: [0.875691]
+Cross-domain MAE training epoch 16 : [ 60/371 ] total loss: [0.9265024]
+Cross-domain MAE training epoch 16 : [ 80/371 ] total loss: [0.6937569]
+Cross-domain MAE training epoch 16 : [ 100/371 ] total loss: [0.5570422]
+Cross-domain MAE training epoch 16 : [ 120/371 ] total loss: [1.2023534]
+Cross-domain MAE training epoch 16 : [ 140/371 ] total loss: [0.6461693]
+Cross-domain MAE training epoch 16 : [ 160/371 ] total loss: [0.9761549]
+Cross-domain MAE training epoch 16 : [ 180/371 ] total loss: [1.3774837]
+Cross-domain MAE training epoch 16 : [ 200/371 ] total loss: [0.60546964]
+Cross-domain MAE training epoch 16 : [ 220/371 ] total loss: [0.4469882]
+Cross-domain MAE training epoch 16 : [ 240/371 ] total loss: [0.7798272]
+Cross-domain MAE training epoch 16 : [ 260/371 ] total loss: [0.8306775]
+Cross-domain MAE training epoch 16 : [ 280/371 ] total loss: [0.39184862]
+Cross-domain MAE training epoch 16 : [ 300/371 ] total loss: [0.47049654]
+Cross-domain MAE training epoch 16 : [ 320/371 ] total loss: [0.82147294]
+Cross-domain MAE training epoch 16 : [ 340/371 ] total loss: [0.64558405]
+Cross-domain MAE training epoch 16 : [ 360/371 ] total loss: [0.8085964]
+Cross-domain MAE training epoch 16 finished. Time cost: 0:05:01 Epoch loss: [0.8741733]
+Evaluation : [ 20/655 ] total loss: [1.3894048]
+Evaluation : [ 40/655 ] total loss: [0.8043083]
+Evaluation : [ 60/655 ] total loss: [1.5876468]
+Evaluation : [ 80/655 ] total loss: [1.0129318]
+Evaluation : [ 100/655 ] total loss: [1.1511993]
+Evaluation : [ 120/655 ] total loss: [1.4454464]
+Evaluation : [ 140/655 ] total loss: [1.0509651]
+Evaluation : [ 160/655 ] total loss: [1.9640014]
+Evaluation : [ 180/655 ] total loss: [1.4099486]
+Evaluation : [ 200/655 ] total loss: [1.343016]
+Evaluation : [ 220/655 ] total loss: [1.2599714]
+Evaluation : [ 240/655 ] total loss: [1.6710186]
+Evaluation : [ 260/655 ] total loss: [0.9733995]
+Evaluation : [ 280/655 ] total loss: [1.9369987]
+Evaluation : [ 300/655 ] total loss: [1.5713358]
+Evaluation : [ 320/655 ] total loss: [1.6963353]
+Evaluation : [ 340/655 ] total loss: [1.7451351]
+Evaluation : [ 360/655 ] total loss: [1.2875347]
+Evaluation : [ 380/655 ] total loss: [1.2008895]
+Evaluation : [ 400/655 ] total loss: [1.1328853]
+Evaluation : [ 420/655 ] total loss: [0.8069601]
+Evaluation : [ 440/655 ] total loss: [1.8429604]
+Evaluation : [ 460/655 ] total loss: [0.9786459]
+Evaluation : [ 480/655 ] total loss: [1.1101174]
+Evaluation : [ 500/655 ] total loss: [1.178324]
+Evaluation : [ 520/655 ] total loss: [0.6640794]
+Evaluation : [ 540/655 ] total loss: [1.4383358]
+Evaluation : [ 560/655 ] total loss: [1.0852429]
+Evaluation : [ 580/655 ] total loss: [1.6538447]
+Evaluation : [ 600/655 ] total loss: [1.5582235]
+Evaluation : [ 620/655 ] total loss: [0.8467342]
+Evaluation : [ 640/655 ] total loss: [1.2583786]
+Accumulating evaluation results...
+DONE (t=5.54s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.3031472142359153
+	AP of category [person]:		0.4611628462879859
+	AP of category [car]:		0.6171065183641538
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.27946034226245603
+	AP of category [truck]:		0.19005984780215293
+	AP of category [motorcycle]:		0.16334457465718408
+	AP of category [bicycle]:		0.20996199165424106
+	AP of category [bus]:		0.20093437862323343
+Evaluation finished. Time cost: 0:02:28
+Cross-domain MAE training epoch 17 : [ 20/371 ] total loss: [0.89457744]
+Cross-domain MAE training epoch 17 : [ 40/371 ] total loss: [0.908472]
+Cross-domain MAE training epoch 17 : [ 60/371 ] total loss: [0.8910916]
+Cross-domain MAE training epoch 17 : [ 80/371 ] total loss: [0.7670517]
+Cross-domain MAE training epoch 17 : [ 100/371 ] total loss: [0.55710864]
+Cross-domain MAE training epoch 17 : [ 120/371 ] total loss: [1.1417193]
+Cross-domain MAE training epoch 17 : [ 140/371 ] total loss: [0.65467185]
+Cross-domain MAE training epoch 17 : [ 160/371 ] total loss: [0.93699455]
+Cross-domain MAE training epoch 17 : [ 180/371 ] total loss: [1.1999592]
+Cross-domain MAE training epoch 17 : [ 200/371 ] total loss: [0.6854276]
+Cross-domain MAE training epoch 17 : [ 220/371 ] total loss: [0.4346313]
+Cross-domain MAE training epoch 17 : [ 240/371 ] total loss: [0.72892934]
+Cross-domain MAE training epoch 17 : [ 260/371 ] total loss: [0.8665912]
+Cross-domain MAE training epoch 17 : [ 280/371 ] total loss: [0.3849051]
+Cross-domain MAE training epoch 17 : [ 300/371 ] total loss: [0.42964375]
+Cross-domain MAE training epoch 17 : [ 320/371 ] total loss: [0.9673052]
+Cross-domain MAE training epoch 17 : [ 340/371 ] total loss: [0.6941977]
+Cross-domain MAE training epoch 17 : [ 360/371 ] total loss: [0.7974438]
+Cross-domain MAE training epoch 17 finished. Time cost: 0:05:01 Epoch loss: [0.8717109]
+Evaluation : [ 20/655 ] total loss: [1.3810072]
+Evaluation : [ 40/655 ] total loss: [0.79374164]
+Evaluation : [ 60/655 ] total loss: [1.6269948]
+Evaluation : [ 80/655 ] total loss: [1.0353081]
+Evaluation : [ 100/655 ] total loss: [1.1879512]
+Evaluation : [ 120/655 ] total loss: [1.4608514]
+Evaluation : [ 140/655 ] total loss: [1.0605326]
+Evaluation : [ 160/655 ] total loss: [1.9443997]
+Evaluation : [ 180/655 ] total loss: [1.4200628]
+Evaluation : [ 200/655 ] total loss: [1.3731608]
+Evaluation : [ 220/655 ] total loss: [1.2591957]
+Evaluation : [ 240/655 ] total loss: [1.7095814]
+Evaluation : [ 260/655 ] total loss: [0.9533917]
+Evaluation : [ 280/655 ] total loss: [1.9422024]
+Evaluation : [ 300/655 ] total loss: [1.552753]
+Evaluation : [ 320/655 ] total loss: [1.6607106]
+Evaluation : [ 340/655 ] total loss: [1.744633]
+Evaluation : [ 360/655 ] total loss: [1.2951598]
+Evaluation : [ 380/655 ] total loss: [1.2006459]
+Evaluation : [ 400/655 ] total loss: [1.1467221]
+Evaluation : [ 420/655 ] total loss: [0.83641386]
+Evaluation : [ 440/655 ] total loss: [1.8490777]
+Evaluation : [ 460/655 ] total loss: [1.0231054]
+Evaluation : [ 480/655 ] total loss: [1.0908136]
+Evaluation : [ 500/655 ] total loss: [1.1990615]
+Evaluation : [ 520/655 ] total loss: [0.6904019]
+Evaluation : [ 540/655 ] total loss: [1.468604]
+Evaluation : [ 560/655 ] total loss: [1.089034]
+Evaluation : [ 580/655 ] total loss: [1.7264938]
+Evaluation : [ 600/655 ] total loss: [1.5846504]
+Evaluation : [ 620/655 ] total loss: [0.84312737]
+Evaluation : [ 640/655 ] total loss: [1.2806934]
+Accumulating evaluation results...
+DONE (t=5.57s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.3066794671740722
+	AP of category [person]:		0.4617358849811235
+	AP of category [car]:		0.6163656853926358
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.2842436787776839
+	AP of category [truck]:		0.19031859117940353
+	AP of category [motorcycle]:		0.16415678020443178
+	AP of category [bicycle]:		0.22443310553875473
+	AP of category [bus]:		0.20550254414447203
+Evaluation finished. Time cost: 0:02:28
+Cross-domain MAE training epoch 18 : [ 20/371 ] total loss: [0.90033793]
+Cross-domain MAE training epoch 18 : [ 40/371 ] total loss: [0.90467805]
+Cross-domain MAE training epoch 18 : [ 60/371 ] total loss: [0.9068587]
+Cross-domain MAE training epoch 18 : [ 80/371 ] total loss: [0.69423306]
+Cross-domain MAE training epoch 18 : [ 100/371 ] total loss: [0.6342302]
+Cross-domain MAE training epoch 18 : [ 120/371 ] total loss: [0.9538825]
+Cross-domain MAE training epoch 18 : [ 140/371 ] total loss: [0.791332]
+Cross-domain MAE training epoch 18 : [ 160/371 ] total loss: [0.92550385]
+Cross-domain MAE training epoch 18 : [ 180/371 ] total loss: [1.4030876]
+Cross-domain MAE training epoch 18 : [ 200/371 ] total loss: [0.6851147]
+Cross-domain MAE training epoch 18 : [ 220/371 ] total loss: [0.44882166]
+Cross-domain MAE training epoch 18 : [ 240/371 ] total loss: [0.6188111]
+Cross-domain MAE training epoch 18 : [ 260/371 ] total loss: [0.8628402]
+Cross-domain MAE training epoch 18 : [ 280/371 ] total loss: [0.37939563]
+Cross-domain MAE training epoch 18 : [ 300/371 ] total loss: [0.3781377]
+Cross-domain MAE training epoch 18 : [ 320/371 ] total loss: [0.93567944]
+Cross-domain MAE training epoch 18 : [ 340/371 ] total loss: [0.67457813]
+Cross-domain MAE training epoch 18 : [ 360/371 ] total loss: [0.69531006]
+Cross-domain MAE training epoch 18 finished. Time cost: 0:05:01 Epoch loss: [0.8606455]
+Evaluation : [ 20/655 ] total loss: [1.3552473]
+Evaluation : [ 40/655 ] total loss: [0.80317855]
+Evaluation : [ 60/655 ] total loss: [1.6104093]
+Evaluation : [ 80/655 ] total loss: [1.0199525]
+Evaluation : [ 100/655 ] total loss: [1.143267]
+Evaluation : [ 120/655 ] total loss: [1.4760747]
+Evaluation : [ 140/655 ] total loss: [1.0041115]
+Evaluation : [ 160/655 ] total loss: [1.9167584]
+Evaluation : [ 180/655 ] total loss: [1.4001774]
+Evaluation : [ 200/655 ] total loss: [1.3478518]
+Evaluation : [ 220/655 ] total loss: [1.2308269]
+Evaluation : [ 240/655 ] total loss: [1.6791686]
+Evaluation : [ 260/655 ] total loss: [0.96832514]
+Evaluation : [ 280/655 ] total loss: [1.9141665]
+Evaluation : [ 300/655 ] total loss: [1.5569018]
+Evaluation : [ 320/655 ] total loss: [1.682146]
+Evaluation : [ 340/655 ] total loss: [1.7276114]
+Evaluation : [ 360/655 ] total loss: [1.2884958]
+Evaluation : [ 380/655 ] total loss: [1.2066331]
+Evaluation : [ 400/655 ] total loss: [1.1479268]
+Evaluation : [ 420/655 ] total loss: [0.8387453]
+Evaluation : [ 440/655 ] total loss: [1.8376797]
+Evaluation : [ 460/655 ] total loss: [0.98648787]
+Evaluation : [ 480/655 ] total loss: [1.0604302]
+Evaluation : [ 500/655 ] total loss: [1.1621951]
+Evaluation : [ 520/655 ] total loss: [0.7064044]
+Evaluation : [ 540/655 ] total loss: [1.4407482]
+Evaluation : [ 560/655 ] total loss: [1.0678848]
+Evaluation : [ 580/655 ] total loss: [1.6807232]
+Evaluation : [ 600/655 ] total loss: [1.5595639]
+Evaluation : [ 620/655 ] total loss: [0.8211996]
+Evaluation : [ 640/655 ] total loss: [1.2491288]
+Accumulating evaluation results...
+DONE (t=5.58s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.3055410641421931
+	AP of category [person]:		0.46686304199757955
+	AP of category [car]:		0.6196074510657998
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.27495594664435513
+	AP of category [truck]:		0.2035629813745438
+	AP of category [motorcycle]:		0.15150421206292916
+	AP of category [bicycle]:		0.21896312333182838
+	AP of category [bus]:		0.20333069251831593
+Evaluation finished. Time cost: 0:02:29
+Cross-domain MAE training epoch 19 : [ 20/371 ] total loss: [0.9239819]
+Cross-domain MAE training epoch 19 : [ 40/371 ] total loss: [0.80425876]
+Cross-domain MAE training epoch 19 : [ 60/371 ] total loss: [0.85566396]
+Cross-domain MAE training epoch 19 : [ 80/371 ] total loss: [0.6351066]
+Cross-domain MAE training epoch 19 : [ 100/371 ] total loss: [0.5411579]
+Cross-domain MAE training epoch 19 : [ 120/371 ] total loss: [1.0856607]
+Cross-domain MAE training epoch 19 : [ 140/371 ] total loss: [0.66803646]
+Cross-domain MAE training epoch 19 : [ 160/371 ] total loss: [0.882475]
+Cross-domain MAE training epoch 19 : [ 180/371 ] total loss: [1.313817]
+Cross-domain MAE training epoch 19 : [ 200/371 ] total loss: [0.77720326]
+Cross-domain MAE training epoch 19 : [ 220/371 ] total loss: [0.44492143]
+Cross-domain MAE training epoch 19 : [ 240/371 ] total loss: [0.74181324]
+Cross-domain MAE training epoch 19 : [ 260/371 ] total loss: [1.0575855]
+Cross-domain MAE training epoch 19 : [ 280/371 ] total loss: [0.39627916]
+Cross-domain MAE training epoch 19 : [ 300/371 ] total loss: [0.42201757]
+Cross-domain MAE training epoch 19 : [ 320/371 ] total loss: [0.8449642]
+Cross-domain MAE training epoch 19 : [ 340/371 ] total loss: [0.69882625]
+Cross-domain MAE training epoch 19 : [ 360/371 ] total loss: [0.75717664]
+Cross-domain MAE training epoch 19 finished. Time cost: 0:05:01 Epoch loss: [0.8529764]
+Evaluation : [ 20/655 ] total loss: [1.3618039]
+Evaluation : [ 40/655 ] total loss: [0.8049933]
+Evaluation : [ 60/655 ] total loss: [1.5695417]
+Evaluation : [ 80/655 ] total loss: [1.026725]
+Evaluation : [ 100/655 ] total loss: [1.1479982]
+Evaluation : [ 120/655 ] total loss: [1.4846954]
+Evaluation : [ 140/655 ] total loss: [0.98944545]
+Evaluation : [ 160/655 ] total loss: [1.9368299]
+Evaluation : [ 180/655 ] total loss: [1.4107194]
+Evaluation : [ 200/655 ] total loss: [1.3443456]
+Evaluation : [ 220/655 ] total loss: [1.22264]
+Evaluation : [ 240/655 ] total loss: [1.6887058]
+Evaluation : [ 260/655 ] total loss: [0.96107614]
+Evaluation : [ 280/655 ] total loss: [1.9347544]
+Evaluation : [ 300/655 ] total loss: [1.5491066]
+Evaluation : [ 320/655 ] total loss: [1.6561275]
+Evaluation : [ 340/655 ] total loss: [1.7505584]
+Evaluation : [ 360/655 ] total loss: [1.2682074]
+Evaluation : [ 380/655 ] total loss: [1.1862577]
+Evaluation : [ 400/655 ] total loss: [1.1374469]
+Evaluation : [ 420/655 ] total loss: [0.8111292]
+Evaluation : [ 440/655 ] total loss: [1.8340573]
+Evaluation : [ 460/655 ] total loss: [0.9887295]
+Evaluation : [ 480/655 ] total loss: [1.061634]
+Evaluation : [ 500/655 ] total loss: [1.1757791]
+Evaluation : [ 520/655 ] total loss: [0.6974546]
+Evaluation : [ 540/655 ] total loss: [1.4316968]
+Evaluation : [ 560/655 ] total loss: [1.0814317]
+Evaluation : [ 580/655 ] total loss: [1.6863632]
+Evaluation : [ 600/655 ] total loss: [1.5727911]
+Evaluation : [ 620/655 ] total loss: [0.84952784]
+Evaluation : [ 640/655 ] total loss: [1.2648127]
+Accumulating evaluation results...
+DONE (t=5.58s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.3073459534200484
+	AP of category [person]:		0.46701624221771443
+	AP of category [car]:		0.622045561502387
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.2902740452687192
+	AP of category [truck]:		0.20034415062263525
+	AP of category [motorcycle]:		0.16228405951956865
+	AP of category [bicycle]:		0.20529436241153984
+	AP of category [bus]:		0.2041632523977743
+Evaluation finished. Time cost: 0:02:27
+Saving checkpoints to outputs/def-detr-base/city2bdd/cross_domain_mae/model_last.pth
+Cross-domain MAE training finished. Time cost: 2:30:50 . Best mAP50: 0.3106170287253502

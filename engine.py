@@ -44,7 +44,7 @@ def train_one_epoch_standard(model: torch.nn.Module,
                     # .item() is needed if the image_id is a tensor
                     if hasattr(image_id, 'item'):
                         image_id = image_id.item()
-                    print(f"--- [DEBUG] Processing Image ID: {image_id} ---", flush=True)
+                    # print(f"--- [DEBUG] Processing Image ID: {image_id} ---", flush=True)
             except Exception as e:
                 print(f"--- [DEBUG] Error while getting image_id: {e} ---", flush=True)
         # <<< END OF DEBUGGING CODE >>>
@@ -252,6 +252,9 @@ def evaluate(model: torch.nn.Module,
         images = images.to(device)
         masks = masks.to(device)
         annotations = [{k: v.to(device) for k, v in t.items()} for t in annotations]
+        # image_id = anno['image_id'].item()
+        # print(f"--- [DEBUG] Processing Image ID: {image_id} ---", flush=True)
+        # print(f"this is:{annotations}")
         # Forward
         out = model(images, masks)
         logits_all, boxes_all = out['logits_all'], out['boxes_all']
@@ -260,6 +263,7 @@ def evaluate(model: torch.nn.Module,
             results = get_pseudo_labels(logits_all[-1], boxes_all[-1], [0.4 for _ in range(9)])
             for anno, res in zip(annotations, results):
                 image_id = anno['image_id'].item()
+                print(f"--- [DEBUG] Processing Image ID: {image_id} ---", flush=True)
                 orig_image_size = anno['orig_size']
                 img_h, img_w = orig_image_size.unbind(0)
                 scale_fct = torch.stack([img_w, img_h, img_w, img_h])
