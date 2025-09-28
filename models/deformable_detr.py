@@ -154,6 +154,64 @@ class DeformableDETR(nn.Module):
         x2 = (1 - x).clamp(min=eps)
         return torch.log(x1 / x2)
 
+
+# Hard Sampling & Attention-Guided Masking
+    def attention_guided_masking(attention_weights, mask_ratio):
+        # Select tokens with highest attention scores for masking
+        attention_scores = attention_weights.mean(dim=1)  # Average across heads
+        num_mask = int(mask_ratio * attention_scores.size(-1))
+        _, mask_indices = torch.topk(attention_scores, num_mask, dim=-1)
+        return mask_indices
+    
+    def attention_guided_hard_sampling(attention_weights, mask_ratio, temperature=1.0):
+        """
+        Implement Hard Sampling & Attention-Guided Masking
+        
+        Args:
+            attention_weights: Attention scores from model [batch, heads, seq_len, seq_len]
+            mask_ratio: Proportion of tokens to mask
+            temperature: Temperature for hard sampling
+        """
+        batch_size, num_heads, seq_len, _ = attention_weights.shape
+        
+        # Average attention across heads and sequence positions
+        # Focus on how much attention each token receives
+        attention_scores = attention_weights.mean(dim=1).mean(dim=1)  # [batch, seq_len]
+        
+        # Apply temperature scaling for hard sampling
+        attention_scores = attention_scores / temperature
+        
+        # Convert to probabilities
+        attention_probs = torch.softmax(attention_scores, dim=-1)
+        
+        # Hard sampling: select tokens with highest attention scores
+        num_mask = int(seq_len * mask_ratio)
+        
+        # Use Gumbel-Softmax for differentiable hard sampling
+        gumbel_noise = -torch.log(-torch.log(torch.rand_like(attention_probs) + 1e-8) + 1e-8)
+        hard_scores = attention_probs + gumbel_noise
+        
+        # Get indices of tokens to mask (highest attention scores)
+        _, mask_indices = torch.topk(hard_scores, num_mask, dim=-1)
+        
+        return mask_indices
+
+    def create_attention_guided_mask(x, attention_weights, mask_ratio):
+        """
+        Create mask based on attention-guided hard sampling
+        """
+        batch_size, seq_len, dim = x.shape
+        
+        # Get mask indices using attention-guided hard sampling
+        mask_indices = attention_guided_masking(attention_weights, mask_ratio)
+        
+        # Create boolean mask
+        mask = torch.zeros(batch_size, seq_len, dtype=torch.bool, device=x.device)
+        mask.scatter_(1, mask_indices, True)
+        
+        return mask, mask_indices   
+    
+         
     @staticmethod
     def get_mask_list(mask_list, mask_ratio):
         mae_mask_list = copy.deepcopy(mask_list)
