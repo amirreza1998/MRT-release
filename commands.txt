@@ -1,0 +1,26 @@
+
+
+python main2.py --continue-from-checkpoint ./outputs/def-detr-base/city2bdd/source_only/model_last.pth \
+--backbone resnet50 --epoch 80 --num_classes 9 --dropout 0.1 \
+--source_dataset cityscapes --target_dataset bdd100k \
+--batch_size 6 --eval_batch_size 6 --lr 2e-4 --lr_backbone 2e-5 \
+--lr_linear_proj 2e-5 --epoch_lr_drop 60 --mode single_domain \
+--backbone resnet50 \
+--output_dir ./outputs/def-detr-base/city2bdd/source_only \
+2>&1 | tee ./outputs/def-detr-base/city2bdd/source_only/logs.txt
+
+
+
+
+
+
+python main2.py \
+--backbone resnet50 --epoch 20 --num_classes 9 --dropout 0.0 \
+--source_dataset cityscapes --target_dataset bdd100k \
+--batch_size 6 --eval_batch_size 6 --lr 2e-5 --lr_backbone 2e-6 \
+--lr_linear_proj 2e-6 --epoch_lr_drop 20 --mode cross_domain_mae \
+--resume ./outputs/def-detr-base/city2bdd/source_only/model_best.pth \
+--output_dir ./outputs/def-detr-base/city2bdd/cross_domain_mae \
+2>&1 | tee ./outputs/def-detr-base/city2bdd/cross_domain_mae/logs.txt
+
+
