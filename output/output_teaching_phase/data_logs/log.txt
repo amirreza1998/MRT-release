@@ -1,0 +1,2410 @@
+Unloading shared
+  WARNING: Did not unuse /cm/shared/modulefiles
+| distributed init (rank 0): env://
+| distributed init (rank 1): env://
+-------------------------------------
+Logs will be written to outputs/def-detr-base/city2bdd/teaching/data_logs
+Checkpoints will be saved to outputs/def-detr-base/city2bdd/teaching
+-------------------------------------
+backbone resnet50
+pos_encoding sine
+num_classes 9
+num_queries 300
+num_feature_levels 4
+with_box_refine False
+hidden_dim 256
+num_heads 8
+num_encoder_layers 6
+num_decoder_layers 6
+feedforward_dim 1024
+dropout 0.0
+batch_size 4
+eval_batch_size 4
+lr 2e-05
+lr_backbone 2e-06
+lr_linear_proj 2e-06
+sgd False
+weight_decay 0.0001
+clip_max_norm 0.5
+epoch 20
+epoch_lr_drop 20
+teach_box_loss True
+coef_class 2.0
+coef_boxes 5.0
+coef_giou 2.0
+coef_target 1.0
+coef_domain 1.0
+coef_domain_bac 0.3
+coef_mae 1.0
+alpha_focal 0.25
+alpha_ema 0.9996
+data_root /scratch/generalvision/zhaozijing/data
+source_dataset cityscapes
+target_dataset bdd100k
+epoch_retrain 10
+keep_modules ['decoder']
+mae_layers [2]
+mask_ratio 0.8
+epoch_mae_decay 5.0
+threshold 0.3
+alpha_dt 0.9
+gamma_dt 0.9
+max_dt 0.6
+min_dt 0.25
+mode teaching
+device cuda
+output_dir ./outputs/def-detr-base/city2bdd/teaching
+random_seed 8008
+num_workers 8
+print_freq 20
+flush True
+resume ./outputs/def-detr-base/city2bdd/teaching/../cross_domain_mae/model_best.pth
+rank 0
+world_size 2
+gpu 0
+dist_url env://
+distributed True
+dist_backend nccl
+Loading checkpoints from ./outputs/def-detr-base/city2bdd/teaching/../cross_domain_mae/model_best.pth
+Missing keys: []
+Unexpected keys: []
+-------------------------------------
+loading annotations into memory...
+Done (t=3.43s)
+creating index...
+index created!
+loading annotations into memory...
+Done (t=5.48s)
+creating index...
+index created!
+loading annotations into memory...
+Done (t=0.24s)
+creating index...
+index created!
+[W reducer.cpp:1298] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[W reducer.cpp:1298] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+Teaching epoch 0 : [ 20/371 ] total loss: [4.7117014]
+Teaching epoch 0 : [ 40/371 ] total loss: [4.344007]
+Teaching epoch 0 : [ 60/371 ] total loss: [4.908066]
+Teaching epoch 0 : [ 80/371 ] total loss: [4.278884]
+Teaching epoch 0 : [ 100/371 ] total loss: [4.343953]
+Teaching epoch 0 : [ 120/371 ] total loss: [4.4267516]
+Teaching epoch 0 : [ 140/371 ] total loss: [3.9937015]
+Teaching epoch 0 : [ 160/371 ] total loss: [5.285714]
+Teaching epoch 0 : [ 180/371 ] total loss: [5.410814]
+Teaching epoch 0 : [ 200/371 ] total loss: [4.4293275]
+Teaching epoch 0 : [ 220/371 ] total loss: [3.9575958]
+Teaching epoch 0 : [ 240/371 ] total loss: [3.9990966]
+Teaching epoch 0 : [ 260/371 ] total loss: [4.799367]
+Teaching epoch 0 : [ 280/371 ] total loss: [3.7897692]
+Teaching epoch 0 : [ 300/371 ] total loss: [3.9903138]
+Teaching epoch 0 : [ 320/371 ] total loss: [4.4623556]
+Teaching epoch 0 : [ 340/371 ] total loss: [4.396266]
+Teaching epoch 0 : [ 360/371 ] total loss: [4.452778]
+Teaching epoch 0 finished. Time cost: 0:07:52 Epoch loss: [4.475475]
+Logits Means:  [0.0, 0.5249284257149817, 0.638306172188375, 0.23362915237228593, 0.565478631961581, 0.46966713353207235, 0.4809197103901274, 0.4514797394740785, 0.4958902994791667]
+New Dynamic Thresholds:  [0.27, 0.3352067500209246, 0.34190465906132816, 0.31350167967119796, 0.33767848194876127, 0.3316790384296787, 0.33241353742706814, 0.330473017865326, 0.3333775309220961]
+Evaluation : [ 20/655 ] total loss: [1.3446687]
+Evaluation : [ 40/655 ] total loss: [0.80396533]
+Evaluation : [ 60/655 ] total loss: [1.5892986]
+Evaluation : [ 80/655 ] total loss: [1.0323422]
+Evaluation : [ 100/655 ] total loss: [1.1766658]
+Evaluation : [ 120/655 ] total loss: [1.4461555]
+Evaluation : [ 140/655 ] total loss: [1.0480018]
+Evaluation : [ 160/655 ] total loss: [1.8051685]
+Evaluation : [ 180/655 ] total loss: [1.4197992]
+Evaluation : [ 200/655 ] total loss: [1.3315305]
+Evaluation : [ 220/655 ] total loss: [1.2374865]
+Evaluation : [ 240/655 ] total loss: [1.6599958]
+Evaluation : [ 260/655 ] total loss: [0.9595379]
+Evaluation : [ 280/655 ] total loss: [1.935185]
+Evaluation : [ 300/655 ] total loss: [1.5168684]
+Evaluation : [ 320/655 ] total loss: [1.6222188]
+Evaluation : [ 340/655 ] total loss: [1.7150133]
+Evaluation : [ 360/655 ] total loss: [1.2342218]
+Evaluation : [ 380/655 ] total loss: [1.1775097]
+Evaluation : [ 400/655 ] total loss: [1.1197568]
+Evaluation : [ 420/655 ] total loss: [0.7751899]
+Evaluation : [ 440/655 ] total loss: [1.7404037]
+Evaluation : [ 460/655 ] total loss: [1.014342]
+Evaluation : [ 480/655 ] total loss: [1.0756552]
+Evaluation : [ 500/655 ] total loss: [1.1532681]
+Evaluation : [ 520/655 ] total loss: [0.6677918]
+Evaluation : [ 540/655 ] total loss: [1.4338636]
+Evaluation : [ 560/655 ] total loss: [1.0560628]
+Evaluation : [ 580/655 ] total loss: [1.616009]
+Evaluation : [ 600/655 ] total loss: [1.5690197]
+Evaluation : [ 620/655 ] total loss: [0.8315484]
+Evaluation : [ 640/655 ] total loss: [1.2349942]
+Accumulating evaluation results...
+DONE (t=6.19s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.3124277700151287
+	AP of category [person]:		0.4694575333946861
+	AP of category [car]:		0.6299084152016643
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.2818648898434754
+	AP of category [truck]:		0.19904631093293496
+	AP of category [motorcycle]:		0.17557186240797318
+	AP of category [bicycle]:		0.22635672907934942
+	AP of category [bus]:		0.20478864924581766
+Evaluation finished. Time cost: 0:02:36
+Evaluation : [ 20/655 ] total loss: [1.3235817]
+Evaluation : [ 40/655 ] total loss: [0.82085323]
+Evaluation : [ 60/655 ] total loss: [1.5943263]
+Evaluation : [ 80/655 ] total loss: [1.0141]
+Evaluation : [ 100/655 ] total loss: [1.2372713]
+Evaluation : [ 120/655 ] total loss: [1.5541681]
+Evaluation : [ 140/655 ] total loss: [1.0801272]
+Evaluation : [ 160/655 ] total loss: [1.871793]
+Evaluation : [ 180/655 ] total loss: [1.4598879]
+Evaluation : [ 200/655 ] total loss: [1.3090594]
+Evaluation : [ 220/655 ] total loss: [1.3415303]
+Evaluation : [ 240/655 ] total loss: [1.7461202]
+Evaluation : [ 260/655 ] total loss: [0.9602108]
+Evaluation : [ 280/655 ] total loss: [1.9812597]
+Evaluation : [ 300/655 ] total loss: [1.5349836]
+Evaluation : [ 320/655 ] total loss: [1.5654963]
+Evaluation : [ 340/655 ] total loss: [1.7023497]
+Evaluation : [ 360/655 ] total loss: [1.23642]
+Evaluation : [ 380/655 ] total loss: [1.1840963]
+Evaluation : [ 400/655 ] total loss: [1.1448059]
+Evaluation : [ 420/655 ] total loss: [0.79988235]
+Evaluation : [ 440/655 ] total loss: [1.7184258]
+Evaluation : [ 460/655 ] total loss: [1.0384338]
+Evaluation : [ 480/655 ] total loss: [1.0667937]
+Evaluation : [ 500/655 ] total loss: [1.1403329]
+Evaluation : [ 520/655 ] total loss: [0.6901034]
+Evaluation : [ 540/655 ] total loss: [1.4810237]
+Evaluation : [ 560/655 ] total loss: [1.0962704]
+Evaluation : [ 580/655 ] total loss: [1.5335368]
+Evaluation : [ 600/655 ] total loss: [1.5511837]
+Evaluation : [ 620/655 ] total loss: [0.82467556]
+Evaluation : [ 640/655 ] total loss: [1.2180681]
+Accumulating evaluation results...
+DONE (t=6.92s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.3078640582731432
+	AP of category [person]:		0.4645336596269655
+	AP of category [car]:		0.6268762143887101
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.265561544072908
+	AP of category [truck]:		0.21759188279792638
+	AP of category [motorcycle]:		0.15486951388199088
+	AP of category [bicycle]:		0.21003365065668625
+	AP of category [bus]:		0.2155819424868153
+Evaluation finished. Time cost: 0:02:39
+Saving checkpoints to outputs/def-detr-base/city2bdd/teaching/model_best.pth
+Teaching epoch 1 : [ 20/371 ] total loss: [4.294785]
+Teaching epoch 1 : [ 40/371 ] total loss: [4.323909]
+Teaching epoch 1 : [ 60/371 ] total loss: [4.6971793]
+Teaching epoch 1 : [ 80/371 ] total loss: [4.3962517]
+Teaching epoch 1 : [ 100/371 ] total loss: [4.4123936]
+Teaching epoch 1 : [ 120/371 ] total loss: [4.305535]
+Teaching epoch 1 : [ 140/371 ] total loss: [4.0851393]
+Teaching epoch 1 : [ 160/371 ] total loss: [5.0517483]
+Teaching epoch 1 : [ 180/371 ] total loss: [5.38672]
+Teaching epoch 1 : [ 200/371 ] total loss: [4.6034145]
+Teaching epoch 1 : [ 220/371 ] total loss: [4.232194]
+Teaching epoch 1 : [ 240/371 ] total loss: [4.3195925]
+Teaching epoch 1 : [ 260/371 ] total loss: [5.047038]
+Teaching epoch 1 : [ 280/371 ] total loss: [3.9695559]
+Teaching epoch 1 : [ 300/371 ] total loss: [4.665159]
+Teaching epoch 1 : [ 320/371 ] total loss: [4.8790445]
+Teaching epoch 1 : [ 340/371 ] total loss: [4.7939987]
+Teaching epoch 1 : [ 360/371 ] total loss: [4.700015]
+Teaching epoch 1 finished. Time cost: 0:07:53 Epoch loss: [4.578232]
+Logits Means:  [0.0, 0.5147337779515079, 0.637350886645493, 0.1713062142426113, 0.5358132041423921, 0.42668136070514545, 0.4797584165550905, 0.4522224521433868, 0.47124965804407576]
+New Dynamic Thresholds:  [0.25, 0.36625652957358357, 0.3795650260093001, 0.31940175110418334, 0.3697899700707712, 0.3572999007050066, 0.36151031947695805, 0.3579484544699257, 0.3618226413937989]
+Evaluation : [ 20/655 ] total loss: [1.3412389]
+Evaluation : [ 40/655 ] total loss: [0.8032529]
+Evaluation : [ 60/655 ] total loss: [1.5876359]
+Evaluation : [ 80/655 ] total loss: [1.0202774]
+Evaluation : [ 100/655 ] total loss: [1.1765296]
+Evaluation : [ 120/655 ] total loss: [1.4569013]
+Evaluation : [ 140/655 ] total loss: [1.0482091]
+Evaluation : [ 160/655 ] total loss: [1.7977874]
+Evaluation : [ 180/655 ] total loss: [1.4213022]
+Evaluation : [ 200/655 ] total loss: [1.3193811]
+Evaluation : [ 220/655 ] total loss: [1.2499604]
+Evaluation : [ 240/655 ] total loss: [1.653954]
+Evaluation : [ 260/655 ] total loss: [0.9579601]
+Evaluation : [ 280/655 ] total loss: [1.9293191]
+Evaluation : [ 300/655 ] total loss: [1.5085295]
+Evaluation : [ 320/655 ] total loss: [1.6133946]
+Evaluation : [ 340/655 ] total loss: [1.7068183]
+Evaluation : [ 360/655 ] total loss: [1.2345129]
+Evaluation : [ 380/655 ] total loss: [1.1755008]
+Evaluation : [ 400/655 ] total loss: [1.1062082]
+Evaluation : [ 420/655 ] total loss: [0.7767936]
+Evaluation : [ 440/655 ] total loss: [1.7243037]
+Evaluation : [ 460/655 ] total loss: [1.0141113]
+Evaluation : [ 480/655 ] total loss: [1.0645483]
+Evaluation : [ 500/655 ] total loss: [1.1539521]
+Evaluation : [ 520/655 ] total loss: [0.6674446]
+Evaluation : [ 540/655 ] total loss: [1.4305568]
+Evaluation : [ 560/655 ] total loss: [1.0569719]
+Evaluation : [ 580/655 ] total loss: [1.5948434]
+Evaluation : [ 600/655 ] total loss: [1.5586805]
+Evaluation : [ 620/655 ] total loss: [0.8220889]
+Evaluation : [ 640/655 ] total loss: [1.2316422]
+Accumulating evaluation results...
+DONE (t=6.39s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.31610025078055953
+	AP of category [person]:		0.4717921668672797
+	AP of category [car]:		0.6320775824679481
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.2855095725557511
+	AP of category [truck]:		0.20394466699967867
+	AP of category [motorcycle]:		0.17781964322257776
+	AP of category [bicycle]:		0.22912259608502158
+	AP of category [bus]:		0.21243552726565967
+Evaluation finished. Time cost: 0:02:38
+Evaluation : [ 20/655 ] total loss: [1.3346825]
+Evaluation : [ 40/655 ] total loss: [0.7966789]
+Evaluation : [ 60/655 ] total loss: [1.5776968]
+Evaluation : [ 80/655 ] total loss: [0.9990865]
+Evaluation : [ 100/655 ] total loss: [1.2340025]
+Evaluation : [ 120/655 ] total loss: [1.5721407]
+Evaluation : [ 140/655 ] total loss: [1.0493429]
+Evaluation : [ 160/655 ] total loss: [2.0177715]
+Evaluation : [ 180/655 ] total loss: [1.4456356]
+Evaluation : [ 200/655 ] total loss: [1.2950019]
+Evaluation : [ 220/655 ] total loss: [1.2950484]
+Evaluation : [ 240/655 ] total loss: [1.8795183]
+Evaluation : [ 260/655 ] total loss: [0.9572768]
+Evaluation : [ 280/655 ] total loss: [2.013022]
+Evaluation : [ 300/655 ] total loss: [1.5209494]
+Evaluation : [ 320/655 ] total loss: [1.6124234]
+Evaluation : [ 340/655 ] total loss: [1.6712782]
+Evaluation : [ 360/655 ] total loss: [1.2263005]
+Evaluation : [ 380/655 ] total loss: [1.1905173]
+Evaluation : [ 400/655 ] total loss: [1.170968]
+Evaluation : [ 420/655 ] total loss: [0.8513911]
+Evaluation : [ 440/655 ] total loss: [1.817859]
+Evaluation : [ 460/655 ] total loss: [1.0875067]
+Evaluation : [ 480/655 ] total loss: [1.1186409]
+Evaluation : [ 500/655 ] total loss: [1.155588]
+Evaluation : [ 520/655 ] total loss: [0.6823548]
+Evaluation : [ 540/655 ] total loss: [1.5023861]
+Evaluation : [ 560/655 ] total loss: [1.1176399]
+Evaluation : [ 580/655 ] total loss: [1.5727395]
+Evaluation : [ 600/655 ] total loss: [1.589959]
+Evaluation : [ 620/655 ] total loss: [0.7692272]
+Evaluation : [ 640/655 ] total loss: [1.2353218]
+Accumulating evaluation results...
+DONE (t=7.17s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.3151717007846422
+	AP of category [person]:		0.47089931040759503
+	AP of category [car]:		0.629347497897973
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.286490353655375
+	AP of category [truck]:		0.22830313017943904
+	AP of category [motorcycle]:		0.1571847149836437
+	AP of category [bicycle]:		0.22300484265029885
+	AP of category [bus]:		0.21097205571817085
+Evaluation finished. Time cost: 0:02:38
+Saving checkpoints to outputs/def-detr-base/city2bdd/teaching/model_best.pth
+Teaching epoch 2 : [ 20/371 ] total loss: [4.354368]
+Teaching epoch 2 : [ 40/371 ] total loss: [4.285886]
+Teaching epoch 2 : [ 60/371 ] total loss: [4.9154825]
+Teaching epoch 2 : [ 80/371 ] total loss: [4.286786]
+Teaching epoch 2 : [ 100/371 ] total loss: [4.389398]
+Teaching epoch 2 : [ 120/371 ] total loss: [4.469593]
+Teaching epoch 2 : [ 140/371 ] total loss: [4.168683]
+Teaching epoch 2 : [ 160/371 ] total loss: [5.510392]
+Teaching epoch 2 : [ 180/371 ] total loss: [5.607047]
+Teaching epoch 2 : [ 200/371 ] total loss: [4.5575876]
+Teaching epoch 2 : [ 220/371 ] total loss: [4.4577827]
+Teaching epoch 2 : [ 240/371 ] total loss: [4.6624517]
+Teaching epoch 2 : [ 260/371 ] total loss: [4.7298965]
+Teaching epoch 2 : [ 280/371 ] total loss: [4.001607]
+Teaching epoch 2 : [ 300/371 ] total loss: [4.4294186]
+Teaching epoch 2 : [ 320/371 ] total loss: [4.6992407]
+Teaching epoch 2 : [ 340/371 ] total loss: [4.466178]
+Teaching epoch 2 : [ 360/371 ] total loss: [4.3571267]
+Teaching epoch 2 finished. Time cost: 0:07:50 Epoch loss: [4.5956254]
+Logits Means:  [0.0, 0.5139242880076799, 0.626647358600255, 0.16779398918151855, 0.5472818451870282, 0.4212205100194209, 0.4689977807936326, 0.4550637157267265, 0.4791759886470527]
+New Dynamic Thresholds:  [0.25, 0.39415053821532386, 0.4128534783501908, 0.32432797414126924, 0.3993916230005558, 0.3799812633936855, 0.38699435891259415, 0.38286617854017957, 0.3879406622300203]
+Evaluation : [ 20/655 ] total loss: [1.3411303]
+Evaluation : [ 40/655 ] total loss: [0.7999153]
+Evaluation : [ 60/655 ] total loss: [1.5829306]
+Evaluation : [ 80/655 ] total loss: [1.008956]
+Evaluation : [ 100/655 ] total loss: [1.1694345]
+Evaluation : [ 120/655 ] total loss: [1.4658989]
+Evaluation : [ 140/655 ] total loss: [1.0525254]
+Evaluation : [ 160/655 ] total loss: [1.7894548]
+Evaluation : [ 180/655 ] total loss: [1.4247396]
+Evaluation : [ 200/655 ] total loss: [1.306613]
+Evaluation : [ 220/655 ] total loss: [1.2634299]
+Evaluation : [ 240/655 ] total loss: [1.6494268]
+Evaluation : [ 260/655 ] total loss: [0.95204115]
+Evaluation : [ 280/655 ] total loss: [1.9277256]
+Evaluation : [ 300/655 ] total loss: [1.4985484]
+Evaluation : [ 320/655 ] total loss: [1.6062033]
+Evaluation : [ 340/655 ] total loss: [1.6995227]
+Evaluation : [ 360/655 ] total loss: [1.2294636]
+Evaluation : [ 380/655 ] total loss: [1.1772577]
+Evaluation : [ 400/655 ] total loss: [1.0964763]
+Evaluation : [ 420/655 ] total loss: [0.78298736]
+Evaluation : [ 440/655 ] total loss: [1.7128265]
+Evaluation : [ 460/655 ] total loss: [1.0157152]
+Evaluation : [ 480/655 ] total loss: [1.0623095]
+Evaluation : [ 500/655 ] total loss: [1.1556113]
+Evaluation : [ 520/655 ] total loss: [0.67009944]
+Evaluation : [ 540/655 ] total loss: [1.4309721]
+Evaluation : [ 560/655 ] total loss: [1.06428]
+Evaluation : [ 580/655 ] total loss: [1.5777282]
+Evaluation : [ 600/655 ] total loss: [1.5551342]
+Evaluation : [ 620/655 ] total loss: [0.8095746]
+Evaluation : [ 640/655 ] total loss: [1.2250247]
+Accumulating evaluation results...
+DONE (t=9.54s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.3196276292064524
+	AP of category [person]:		0.475626921561998
+	AP of category [car]:		0.6343542367685385
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.2887931926548582
+	AP of category [truck]:		0.20708289913521907
+	AP of category [motorcycle]:		0.1762048684456848
+	AP of category [bicycle]:		0.2333391624360333
+	AP of category [bus]:		0.22199212344283498
+Evaluation finished. Time cost: 0:02:42
+Evaluation : [ 20/655 ] total loss: [1.3018669]
+Evaluation : [ 40/655 ] total loss: [0.79375935]
+Evaluation : [ 60/655 ] total loss: [1.5747144]
+Evaluation : [ 80/655 ] total loss: [1.0055139]
+Evaluation : [ 100/655 ] total loss: [1.1826818]
+Evaluation : [ 120/655 ] total loss: [1.5279626]
+Evaluation : [ 140/655 ] total loss: [1.0548013]
+Evaluation : [ 160/655 ] total loss: [1.980196]
+Evaluation : [ 180/655 ] total loss: [1.4329828]
+Evaluation : [ 200/655 ] total loss: [1.2671411]
+Evaluation : [ 220/655 ] total loss: [1.2653804]
+Evaluation : [ 240/655 ] total loss: [1.8296287]
+Evaluation : [ 260/655 ] total loss: [0.976972]
+Evaluation : [ 280/655 ] total loss: [2.0509288]
+Evaluation : [ 300/655 ] total loss: [1.5016944]
+Evaluation : [ 320/655 ] total loss: [1.6424112]
+Evaluation : [ 340/655 ] total loss: [1.6844548]
+Evaluation : [ 360/655 ] total loss: [1.2132281]
+Evaluation : [ 380/655 ] total loss: [1.1694051]
+Evaluation : [ 400/655 ] total loss: [1.1709688]
+Evaluation : [ 420/655 ] total loss: [0.84596986]
+Evaluation : [ 440/655 ] total loss: [1.8432387]
+Evaluation : [ 460/655 ] total loss: [1.1088578]
+Evaluation : [ 480/655 ] total loss: [1.1338109]
+Evaluation : [ 500/655 ] total loss: [1.1409624]
+Evaluation : [ 520/655 ] total loss: [0.7164295]
+Evaluation : [ 540/655 ] total loss: [1.4323053]
+Evaluation : [ 560/655 ] total loss: [1.1540827]
+Evaluation : [ 580/655 ] total loss: [1.5911434]
+Evaluation : [ 600/655 ] total loss: [1.6338353]
+Evaluation : [ 620/655 ] total loss: [0.76055217]
+Evaluation : [ 640/655 ] total loss: [1.2274942]
+Accumulating evaluation results...
+DONE (t=7.95s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.31695575628914774
+	AP of category [person]:		0.47236050559350906
+	AP of category [car]:		0.6380052327734907
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.2861246526552372
+	AP of category [truck]:		0.2192439024269175
+	AP of category [motorcycle]:		0.17762969915153842
+	AP of category [bicycle]:		0.2111609755641655
+	AP of category [bus]:		0.21416532585917566
+Evaluation finished. Time cost: 0:02:36
+Saving checkpoints to outputs/def-detr-base/city2bdd/teaching/model_best.pth
+Teaching epoch 3 : [ 20/371 ] total loss: [4.534127]
+Teaching epoch 3 : [ 40/371 ] total loss: [4.29124]
+Teaching epoch 3 : [ 60/371 ] total loss: [4.8744254]
+Teaching epoch 3 : [ 80/371 ] total loss: [4.7061033]
+Teaching epoch 3 : [ 100/371 ] total loss: [4.6459746]
+Teaching epoch 3 : [ 120/371 ] total loss: [4.4656696]
+Teaching epoch 3 : [ 140/371 ] total loss: [4.433647]
+Teaching epoch 3 : [ 160/371 ] total loss: [5.117594]
+Teaching epoch 3 : [ 180/371 ] total loss: [5.3638353]
+Teaching epoch 3 : [ 200/371 ] total loss: [4.240223]
+Teaching epoch 3 : [ 220/371 ] total loss: [4.3675146]
+Teaching epoch 3 : [ 240/371 ] total loss: [4.311654]
+Teaching epoch 3 : [ 260/371 ] total loss: [5.102971]
+Teaching epoch 3 : [ 280/371 ] total loss: [4.101248]
+Teaching epoch 3 : [ 300/371 ] total loss: [4.3418326]
+Teaching epoch 3 : [ 320/371 ] total loss: [4.8900824]
+Teaching epoch 3 : [ 340/371 ] total loss: [4.6002855]
+Teaching epoch 3 : [ 360/371 ] total loss: [4.6242657]
+Teaching epoch 3 finished. Time cost: 0:07:48 Epoch loss: [4.652797]
+Logits Means:  [0.0, 0.5079316486387337, 0.6166380133743499, 0.24835982146086516, 0.5481259453884022, 0.4020572176846591, 0.4448018427872405, 0.44253530683581777, 0.44748370458209324]
+New Dynamic Thresholds:  [0.25, 0.41887787563370193, 0.4422418024753312, 0.3367473177444116, 0.42608443619009573, 0.3990503208226241, 0.4083190425615383, 0.4044505552108071, 0.4093513965391598]
+Evaluation : [ 20/655 ] total loss: [1.3354319]
+Evaluation : [ 40/655 ] total loss: [0.79094833]
+Evaluation : [ 60/655 ] total loss: [1.5749539]
+Evaluation : [ 80/655 ] total loss: [1.0053227]
+Evaluation : [ 100/655 ] total loss: [1.1636121]
+Evaluation : [ 120/655 ] total loss: [1.4721564]
+Evaluation : [ 140/655 ] total loss: [1.0479026]
+Evaluation : [ 160/655 ] total loss: [1.7713954]
+Evaluation : [ 180/655 ] total loss: [1.4277294]
+Evaluation : [ 200/655 ] total loss: [1.2956214]
+Evaluation : [ 220/655 ] total loss: [1.2736177]
+Evaluation : [ 240/655 ] total loss: [1.6538932]
+Evaluation : [ 260/655 ] total loss: [0.9554641]
+Evaluation : [ 280/655 ] total loss: [1.931051]
+Evaluation : [ 300/655 ] total loss: [1.4912714]
+Evaluation : [ 320/655 ] total loss: [1.6004331]
+Evaluation : [ 340/655 ] total loss: [1.6969526]
+Evaluation : [ 360/655 ] total loss: [1.2265128]
+Evaluation : [ 380/655 ] total loss: [1.1776619]
+Evaluation : [ 400/655 ] total loss: [1.0868586]
+Evaluation : [ 420/655 ] total loss: [0.792228]
+Evaluation : [ 440/655 ] total loss: [1.7123785]
+Evaluation : [ 460/655 ] total loss: [1.021488]
+Evaluation : [ 480/655 ] total loss: [1.0621269]
+Evaluation : [ 500/655 ] total loss: [1.1547606]
+Evaluation : [ 520/655 ] total loss: [0.67788446]
+Evaluation : [ 540/655 ] total loss: [1.4348893]
+Evaluation : [ 560/655 ] total loss: [1.0720067]
+Evaluation : [ 580/655 ] total loss: [1.5639446]
+Evaluation : [ 600/655 ] total loss: [1.5536475]
+Evaluation : [ 620/655 ] total loss: [0.80003947]
+Evaluation : [ 640/655 ] total loss: [1.2238051]
+Accumulating evaluation results...
+DONE (t=10.25s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.32108800302917534
+	AP of category [person]:		0.477048812402332
+	AP of category [car]:		0.6356285349373418
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.2913339990514055
+	AP of category [truck]:		0.21083613264163725
+	AP of category [motorcycle]:		0.17392955465938334
+	AP of category [bicycle]:		0.23399611053181757
+	AP of category [bus]:		0.2248428769803103
+Evaluation finished. Time cost: 0:02:41
+Evaluation : [ 20/655 ] total loss: [1.3390846]
+Evaluation : [ 40/655 ] total loss: [0.79009885]
+Evaluation : [ 60/655 ] total loss: [1.5974722]
+Evaluation : [ 80/655 ] total loss: [0.99803805]
+Evaluation : [ 100/655 ] total loss: [1.1592722]
+Evaluation : [ 120/655 ] total loss: [1.5366287]
+Evaluation : [ 140/655 ] total loss: [1.064187]
+Evaluation : [ 160/655 ] total loss: [2.0789545]
+Evaluation : [ 180/655 ] total loss: [1.4416435]
+Evaluation : [ 200/655 ] total loss: [1.2862804]
+Evaluation : [ 220/655 ] total loss: [1.2613692]
+Evaluation : [ 240/655 ] total loss: [1.8836114]
+Evaluation : [ 260/655 ] total loss: [0.9935924]
+Evaluation : [ 280/655 ] total loss: [2.1117468]
+Evaluation : [ 300/655 ] total loss: [1.5181421]
+Evaluation : [ 320/655 ] total loss: [1.6380234]
+Evaluation : [ 340/655 ] total loss: [1.7398188]
+Evaluation : [ 360/655 ] total loss: [1.2126527]
+Evaluation : [ 380/655 ] total loss: [1.2069615]
+Evaluation : [ 400/655 ] total loss: [1.1774392]
+Evaluation : [ 420/655 ] total loss: [0.8825702]
+Evaluation : [ 440/655 ] total loss: [1.8570142]
+Evaluation : [ 460/655 ] total loss: [1.1235182]
+Evaluation : [ 480/655 ] total loss: [1.1315978]
+Evaluation : [ 500/655 ] total loss: [1.1395135]
+Evaluation : [ 520/655 ] total loss: [0.70413226]
+Evaluation : [ 540/655 ] total loss: [1.4299753]
+Evaluation : [ 560/655 ] total loss: [1.1920966]
+Evaluation : [ 580/655 ] total loss: [1.6023123]
+Evaluation : [ 600/655 ] total loss: [1.6553237]
+Evaluation : [ 620/655 ] total loss: [0.7771586]
+Evaluation : [ 640/655 ] total loss: [1.2338103]
+Accumulating evaluation results...
+DONE (t=5.91s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.31864997171594717
+	AP of category [person]:		0.47474781952301837
+	AP of category [car]:		0.6311013001722713
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.3014751571684039
+	AP of category [truck]:		0.2234029963054064
+	AP of category [motorcycle]:		0.17024744555806573
+	AP of category [bicycle]:		0.212131932291584
+	AP of category [bus]:		0.21744315099288053
+Evaluation finished. Time cost: 0:02:33
+Saving checkpoints to outputs/def-detr-base/city2bdd/teaching/model_best.pth
+Teaching epoch 4 : [ 20/371 ] total loss: [4.556363]
+Teaching epoch 4 : [ 40/371 ] total loss: [4.423314]
+Teaching epoch 4 : [ 60/371 ] total loss: [5.383875]
+Teaching epoch 4 : [ 80/371 ] total loss: [4.3702674]
+Teaching epoch 4 : [ 100/371 ] total loss: [4.5158668]
+Teaching epoch 4 : [ 120/371 ] total loss: [4.3347597]
+Teaching epoch 4 : [ 140/371 ] total loss: [4.3611674]
+Teaching epoch 4 : [ 160/371 ] total loss: [5.5187526]
+Teaching epoch 4 : [ 180/371 ] total loss: [5.719325]
+Teaching epoch 4 : [ 200/371 ] total loss: [4.636408]
+Teaching epoch 4 : [ 220/371 ] total loss: [4.531722]
+Teaching epoch 4 : [ 240/371 ] total loss: [4.793727]
+Teaching epoch 4 : [ 260/371 ] total loss: [5.0991364]
+Teaching epoch 4 : [ 280/371 ] total loss: [4.0802526]
+Teaching epoch 4 : [ 300/371 ] total loss: [4.5025005]
+Teaching epoch 4 : [ 320/371 ] total loss: [4.795368]
+Teaching epoch 4 : [ 340/371 ] total loss: [4.597487]
+Teaching epoch 4 : [ 360/371 ] total loss: [4.319027]
+Teaching epoch 4 finished. Time cost: 0:07:52 Epoch loss: [4.6656938]
+Logits Means:  [0.0, 0.5111257098224464, 0.6248225505033811, 0.2033635377883911, 0.5411842165299207, 0.4018793494956007, 0.4636882948955703, 0.4413615366880894, 0.454301493057352]
+New Dynamic Thresholds:  [0.25, 0.4413338387347266, 0.46915876826212466, 0.3436588478831593, 0.4496846940678861, 0.41619984798775544, 0.42877233381501895, 0.4237970412919758, 0.4290779589200907]
+Evaluation : [ 20/655 ] total loss: [1.3320111]
+Evaluation : [ 40/655 ] total loss: [0.7828102]
+Evaluation : [ 60/655 ] total loss: [1.5665879]
+Evaluation : [ 80/655 ] total loss: [1.0099044]
+Evaluation : [ 100/655 ] total loss: [1.1722729]
+Evaluation : [ 120/655 ] total loss: [1.4764036]
+Evaluation : [ 140/655 ] total loss: [1.0512571]
+Evaluation : [ 160/655 ] total loss: [1.7675834]
+Evaluation : [ 180/655 ] total loss: [1.4271426]
+Evaluation : [ 200/655 ] total loss: [1.2871062]
+Evaluation : [ 220/655 ] total loss: [1.2760782]
+Evaluation : [ 240/655 ] total loss: [1.6606072]
+Evaluation : [ 260/655 ] total loss: [0.9596317]
+Evaluation : [ 280/655 ] total loss: [1.9357952]
+Evaluation : [ 300/655 ] total loss: [1.4827598]
+Evaluation : [ 320/655 ] total loss: [1.5935848]
+Evaluation : [ 340/655 ] total loss: [1.6974878]
+Evaluation : [ 360/655 ] total loss: [1.2252035]
+Evaluation : [ 380/655 ] total loss: [1.1785772]
+Evaluation : [ 400/655 ] total loss: [1.0973048]
+Evaluation : [ 420/655 ] total loss: [0.8037855]
+Evaluation : [ 440/655 ] total loss: [1.7183622]
+Evaluation : [ 460/655 ] total loss: [1.0293416]
+Evaluation : [ 480/655 ] total loss: [1.0630932]
+Evaluation : [ 500/655 ] total loss: [1.159473]
+Evaluation : [ 520/655 ] total loss: [0.6828763]
+Evaluation : [ 540/655 ] total loss: [1.4326487]
+Evaluation : [ 560/655 ] total loss: [1.0757556]
+Evaluation : [ 580/655 ] total loss: [1.5521798]
+Evaluation : [ 600/655 ] total loss: [1.5514262]
+Evaluation : [ 620/655 ] total loss: [0.7927921]
+Evaluation : [ 640/655 ] total loss: [1.2208718]
+Accumulating evaluation results...
+DONE (t=7.47s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.3226815717367594
+	AP of category [person]:		0.4792818099409834
+	AP of category [car]:		0.6373958324870092
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.29224854339985346
+	AP of category [truck]:		0.21262650108400408
+	AP of category [motorcycle]:		0.17727542030158977
+	AP of category [bicycle]:		0.23170775823527526
+	AP of category [bus]:		0.22823513670860063
+Evaluation finished. Time cost: 0:02:38
+Evaluation : [ 20/655 ] total loss: [1.3287671]
+Evaluation : [ 40/655 ] total loss: [0.77914524]
+Evaluation : [ 60/655 ] total loss: [1.5733271]
+Evaluation : [ 80/655 ] total loss: [0.980252]
+Evaluation : [ 100/655 ] total loss: [1.180268]
+Evaluation : [ 120/655 ] total loss: [1.5047059]
+Evaluation : [ 140/655 ] total loss: [1.0699401]
+Evaluation : [ 160/655 ] total loss: [2.0564475]
+Evaluation : [ 180/655 ] total loss: [1.4082332]
+Evaluation : [ 200/655 ] total loss: [1.2709517]
+Evaluation : [ 220/655 ] total loss: [1.2601999]
+Evaluation : [ 240/655 ] total loss: [1.8058108]
+Evaluation : [ 260/655 ] total loss: [0.9963237]
+Evaluation : [ 280/655 ] total loss: [2.1042235]
+Evaluation : [ 300/655 ] total loss: [1.482522]
+Evaluation : [ 320/655 ] total loss: [1.6213712]
+Evaluation : [ 340/655 ] total loss: [1.7218388]
+Evaluation : [ 360/655 ] total loss: [1.1868243]
+Evaluation : [ 380/655 ] total loss: [1.1523086]
+Evaluation : [ 400/655 ] total loss: [1.18219]
+Evaluation : [ 420/655 ] total loss: [0.8830608]
+Evaluation : [ 440/655 ] total loss: [1.8409522]
+Evaluation : [ 460/655 ] total loss: [1.1231248]
+Evaluation : [ 480/655 ] total loss: [1.1220664]
+Evaluation : [ 500/655 ] total loss: [1.1300106]
+Evaluation : [ 520/655 ] total loss: [0.69900006]
+Evaluation : [ 540/655 ] total loss: [1.3963617]
+Evaluation : [ 560/655 ] total loss: [1.136467]
+Evaluation : [ 580/655 ] total loss: [1.6073985]
+Evaluation : [ 600/655 ] total loss: [1.6583996]
+Evaluation : [ 620/655 ] total loss: [0.78526515]
+Evaluation : [ 640/655 ] total loss: [1.2172742]
+Accumulating evaluation results...
+DONE (t=6.18s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.32461122938846687
+	AP of category [person]:		0.4814381676036119
+	AP of category [car]:		0.640463805928744
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.3021329757202979
+	AP of category [truck]:		0.22615957188367336
+	AP of category [motorcycle]:		0.1810082876877118
+	AP of category [bicycle]:		0.20572295287534284
+	AP of category [bus]:		0.2353528440198863
+Evaluation finished. Time cost: 0:02:34
+Saving checkpoints to outputs/def-detr-base/city2bdd/teaching/model_best.pth
+Teaching epoch 5 : [ 20/371 ] total loss: [4.644377]
+Teaching epoch 5 : [ 40/371 ] total loss: [4.272406]
+Teaching epoch 5 : [ 60/371 ] total loss: [5.2165956]
+Teaching epoch 5 : [ 80/371 ] total loss: [4.4074354]
+Teaching epoch 5 : [ 100/371 ] total loss: [4.3829203]
+Teaching epoch 5 : [ 120/371 ] total loss: [4.3699846]
+Teaching epoch 5 : [ 140/371 ] total loss: [4.516396]
+Teaching epoch 5 : [ 160/371 ] total loss: [5.568733]
+Teaching epoch 5 : [ 180/371 ] total loss: [5.3494534]
+Teaching epoch 5 : [ 200/371 ] total loss: [4.5862207]
+Teaching epoch 5 : [ 220/371 ] total loss: [4.5547256]
+Teaching epoch 5 : [ 240/371 ] total loss: [4.5841017]
+Teaching epoch 5 : [ 260/371 ] total loss: [5.09309]
+Teaching epoch 5 : [ 280/371 ] total loss: [3.8685076]
+Teaching epoch 5 : [ 300/371 ] total loss: [4.1925287]
+Teaching epoch 5 : [ 320/371 ] total loss: [4.6623583]
+Teaching epoch 5 : [ 340/371 ] total loss: [4.348344]
+Teaching epoch 5 : [ 360/371 ] total loss: [4.5303593]
+Teaching epoch 5 finished. Time cost: 0:06:27 Epoch loss: [4.5838127]
+Logits Means:  [0.0, 0.5040664516404648, 0.6297705809107061, 0.28973798398618344, 0.5523858264099252, 0.41779984368218315, 0.47691889836237983, 0.4475717917308704, 0.49799597823379826]
+New Dynamic Thresholds:  [0.25, 0.46109832852139826, 0.49366516881052913, 0.3577375465927752, 0.4716066215347922, 0.4327535577065682, 0.4480484839032468, 0.44162806305958213, 0.44968211012226045]
+Evaluation : [ 20/655 ] total loss: [1.3308519]
+Evaluation : [ 40/655 ] total loss: [0.77424854]
+Evaluation : [ 60/655 ] total loss: [1.5599203]
+Evaluation : [ 80/655 ] total loss: [1.0070443]
+Evaluation : [ 100/655 ] total loss: [1.1748505]
+Evaluation : [ 120/655 ] total loss: [1.4818888]
+Evaluation : [ 140/655 ] total loss: [1.0592356]
+Evaluation : [ 160/655 ] total loss: [1.7783412]
+Evaluation : [ 180/655 ] total loss: [1.4253181]
+Evaluation : [ 200/655 ] total loss: [1.2778119]
+Evaluation : [ 220/655 ] total loss: [1.2752565]
+Evaluation : [ 240/655 ] total loss: [1.6737198]
+Evaluation : [ 260/655 ] total loss: [0.96726507]
+Evaluation : [ 280/655 ] total loss: [1.9417427]
+Evaluation : [ 300/655 ] total loss: [1.4770548]
+Evaluation : [ 320/655 ] total loss: [1.5855807]
+Evaluation : [ 340/655 ] total loss: [1.7003078]
+Evaluation : [ 360/655 ] total loss: [1.222502]
+Evaluation : [ 380/655 ] total loss: [1.1772649]
+Evaluation : [ 400/655 ] total loss: [1.1015339]
+Evaluation : [ 420/655 ] total loss: [0.8137827]
+Evaluation : [ 440/655 ] total loss: [1.7295694]
+Evaluation : [ 460/655 ] total loss: [1.0352129]
+Evaluation : [ 480/655 ] total loss: [1.0673904]
+Evaluation : [ 500/655 ] total loss: [1.1633728]
+Evaluation : [ 520/655 ] total loss: [0.6854958]
+Evaluation : [ 540/655 ] total loss: [1.4310492]
+Evaluation : [ 560/655 ] total loss: [1.0808015]
+Evaluation : [ 580/655 ] total loss: [1.5452975]
+Evaluation : [ 600/655 ] total loss: [1.5522013]
+Evaluation : [ 620/655 ] total loss: [0.7881126]
+Evaluation : [ 640/655 ] total loss: [1.2180407]
+Accumulating evaluation results...
+DONE (t=7.15s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.3240582138446259
+	AP of category [person]:		0.48130183749479744
+	AP of category [car]:		0.6388448493678414
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.2973045135686556
+	AP of category [truck]:		0.2130212707067048
+	AP of category [motorcycle]:		0.17879149911974587
+	AP of category [bicycle]:		0.23082571163045779
+	AP of category [bus]:		0.2283178150241787
+Evaluation finished. Time cost: 0:02:35
+Evaluation : [ 20/655 ] total loss: [1.3254751]
+Evaluation : [ 40/655 ] total loss: [0.79375064]
+Evaluation : [ 60/655 ] total loss: [1.5827231]
+Evaluation : [ 80/655 ] total loss: [0.99738306]
+Evaluation : [ 100/655 ] total loss: [1.1568344]
+Evaluation : [ 120/655 ] total loss: [1.4869256]
+Evaluation : [ 140/655 ] total loss: [1.1094332]
+Evaluation : [ 160/655 ] total loss: [2.0660934]
+Evaluation : [ 180/655 ] total loss: [1.4295642]
+Evaluation : [ 200/655 ] total loss: [1.2850368]
+Evaluation : [ 220/655 ] total loss: [1.27051]
+Evaluation : [ 240/655 ] total loss: [1.8767197]
+Evaluation : [ 260/655 ] total loss: [1.0139942]
+Evaluation : [ 280/655 ] total loss: [2.159031]
+Evaluation : [ 300/655 ] total loss: [1.5033607]
+Evaluation : [ 320/655 ] total loss: [1.6515774]
+Evaluation : [ 340/655 ] total loss: [1.7243788]
+Evaluation : [ 360/655 ] total loss: [1.2066798]
+Evaluation : [ 380/655 ] total loss: [1.1606518]
+Evaluation : [ 400/655 ] total loss: [1.2040683]
+Evaluation : [ 420/655 ] total loss: [0.90699565]
+Evaluation : [ 440/655 ] total loss: [1.9152021]
+Evaluation : [ 460/655 ] total loss: [1.1097068]
+Evaluation : [ 480/655 ] total loss: [1.156771]
+Evaluation : [ 500/655 ] total loss: [1.142516]
+Evaluation : [ 520/655 ] total loss: [0.71049666]
+Evaluation : [ 540/655 ] total loss: [1.3971852]
+Evaluation : [ 560/655 ] total loss: [1.124928]
+Evaluation : [ 580/655 ] total loss: [1.6262512]
+Evaluation : [ 600/655 ] total loss: [1.6690187]
+Evaluation : [ 620/655 ] total loss: [0.79952633]
+Evaluation : [ 640/655 ] total loss: [1.2331486]
+Accumulating evaluation results...
+DONE (t=6.84s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.32550302954601096
+	AP of category [person]:		0.48579565222251947
+	AP of category [car]:		0.6431145116321144
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.2927140453602757
+	AP of category [truck]:		0.23002273276276242
+	AP of category [motorcycle]:		0.17444778694454133
+	AP of category [bicycle]:		0.21813388541490175
+	AP of category [bus]:		0.234292592484962
+Evaluation finished. Time cost: 0:02:33
+Saving checkpoints to outputs/def-detr-base/city2bdd/teaching/model_best.pth
+Teaching epoch 6 : [ 20/371 ] total loss: [4.676752]
+Teaching epoch 6 : [ 40/371 ] total loss: [4.4892855]
+Teaching epoch 6 : [ 60/371 ] total loss: [4.9625835]
+Teaching epoch 6 : [ 80/371 ] total loss: [4.4513164]
+Teaching epoch 6 : [ 100/371 ] total loss: [4.2073507]
+Teaching epoch 6 : [ 120/371 ] total loss: [4.336546]
+Teaching epoch 6 : [ 140/371 ] total loss: [4.2948494]
+Teaching epoch 6 : [ 160/371 ] total loss: [5.4240627]
+Teaching epoch 6 : [ 180/371 ] total loss: [5.172514]
+Teaching epoch 6 : [ 200/371 ] total loss: [4.264979]
+Teaching epoch 6 : [ 220/371 ] total loss: [4.2928643]
+Teaching epoch 6 : [ 240/371 ] total loss: [4.7911816]
+Teaching epoch 6 : [ 260/371 ] total loss: [4.8765316]
+Teaching epoch 6 : [ 280/371 ] total loss: [4.039784]
+Teaching epoch 6 : [ 300/371 ] total loss: [4.2561736]
+Teaching epoch 6 : [ 320/371 ] total loss: [4.635748]
+Teaching epoch 6 : [ 340/371 ] total loss: [4.215423]
+Teaching epoch 6 : [ 360/371 ] total loss: [4.378599]
+Teaching epoch 6 finished. Time cost: 0:06:23 Epoch loss: [4.585098]
+Logits Means:  [0.0, 0.49519251856192453, 0.619540921799643, 0.17158733901157175, 0.5392680761232898, 0.39761642492298843, 0.4297808859457818, 0.43836435384360817, 0.4365056854447508]
+New Dynamic Thresholds:  [0.25, 0.47832142075843764, 0.5151384815917298, 0.35924458385096814, 0.4905373462376852, 0.4462293520729456, 0.46224554375461235, 0.45705343734451986, 0.46417561832586673]
+Evaluation : [ 20/655 ] total loss: [1.3258421]
+Evaluation : [ 40/655 ] total loss: [0.772426]
+Evaluation : [ 60/655 ] total loss: [1.5541198]
+Evaluation : [ 80/655 ] total loss: [1.0052347]
+Evaluation : [ 100/655 ] total loss: [1.1682814]
+Evaluation : [ 120/655 ] total loss: [1.4882386]
+Evaluation : [ 140/655 ] total loss: [1.0662489]
+Evaluation : [ 160/655 ] total loss: [1.7937621]
+Evaluation : [ 180/655 ] total loss: [1.4184831]
+Evaluation : [ 200/655 ] total loss: [1.2702165]
+Evaluation : [ 220/655 ] total loss: [1.2724757]
+Evaluation : [ 240/655 ] total loss: [1.6915498]
+Evaluation : [ 260/655 ] total loss: [0.9732553]
+Evaluation : [ 280/655 ] total loss: [1.9553156]
+Evaluation : [ 300/655 ] total loss: [1.4688772]
+Evaluation : [ 320/655 ] total loss: [1.5936754]
+Evaluation : [ 340/655 ] total loss: [1.7012438]
+Evaluation : [ 360/655 ] total loss: [1.2241321]
+Evaluation : [ 380/655 ] total loss: [1.1779335]
+Evaluation : [ 400/655 ] total loss: [1.1134958]
+Evaluation : [ 420/655 ] total loss: [0.82364243]
+Evaluation : [ 440/655 ] total loss: [1.7470067]
+Evaluation : [ 460/655 ] total loss: [1.040973]
+Evaluation : [ 480/655 ] total loss: [1.0763612]
+Evaluation : [ 500/655 ] total loss: [1.1626043]
+Evaluation : [ 520/655 ] total loss: [0.68833846]
+Evaluation : [ 540/655 ] total loss: [1.42844]
+Evaluation : [ 560/655 ] total loss: [1.0901135]
+Evaluation : [ 580/655 ] total loss: [1.547899]
+Evaluation : [ 600/655 ] total loss: [1.5446346]
+Evaluation : [ 620/655 ] total loss: [0.78816885]
+Evaluation : [ 640/655 ] total loss: [1.2160888]
+Accumulating evaluation results...
+DONE (t=7.19s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.32509677614216576
+	AP of category [person]:		0.48328394978143874
+	AP of category [car]:		0.6393921714567068
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.29919896211988284
+	AP of category [truck]:		0.2133548759525569
+	AP of category [motorcycle]:		0.1832740749867525
+	AP of category [bicycle]:		0.22818262646683118
+	AP of category [bus]:		0.2289907722309913
+Evaluation finished. Time cost: 0:02:34
+Evaluation : [ 20/655 ] total loss: [1.3181117]
+Evaluation : [ 40/655 ] total loss: [0.8030367]
+Evaluation : [ 60/655 ] total loss: [1.6763204]
+Evaluation : [ 80/655 ] total loss: [1.0186198]
+Evaluation : [ 100/655 ] total loss: [1.1429094]
+Evaluation : [ 120/655 ] total loss: [1.4972533]
+Evaluation : [ 140/655 ] total loss: [1.1289146]
+Evaluation : [ 160/655 ] total loss: [2.0439055]
+Evaluation : [ 180/655 ] total loss: [1.440614]
+Evaluation : [ 200/655 ] total loss: [1.2719865]
+Evaluation : [ 220/655 ] total loss: [1.2894969]
+Evaluation : [ 240/655 ] total loss: [1.9529403]
+Evaluation : [ 260/655 ] total loss: [1.0230472]
+Evaluation : [ 280/655 ] total loss: [2.181251]
+Evaluation : [ 300/655 ] total loss: [1.458765]
+Evaluation : [ 320/655 ] total loss: [1.7010554]
+Evaluation : [ 340/655 ] total loss: [1.7980479]
+Evaluation : [ 360/655 ] total loss: [1.2394474]
+Evaluation : [ 380/655 ] total loss: [1.2033504]
+Evaluation : [ 400/655 ] total loss: [1.2213606]
+Evaluation : [ 420/655 ] total loss: [0.9456913]
+Evaluation : [ 440/655 ] total loss: [1.9706267]
+Evaluation : [ 460/655 ] total loss: [1.11364]
+Evaluation : [ 480/655 ] total loss: [1.19345]
+Evaluation : [ 500/655 ] total loss: [1.1203135]
+Evaluation : [ 520/655 ] total loss: [0.72589946]
+Evaluation : [ 540/655 ] total loss: [1.4178314]
+Evaluation : [ 560/655 ] total loss: [1.129897]
+Evaluation : [ 580/655 ] total loss: [1.6886222]
+Evaluation : [ 600/655 ] total loss: [1.6545167]
+Evaluation : [ 620/655 ] total loss: [0.7951259]
+Evaluation : [ 640/655 ] total loss: [1.2179091]
+Accumulating evaluation results...
+DONE (t=7.18s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.3289940782297083
+	AP of category [person]:		0.48641303586062873
+	AP of category [car]:		0.640925338004274
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.29288011001250286
+	AP of category [truck]:		0.23055532230071568
+	AP of category [motorcycle]:		0.18427323213572497
+	AP of category [bicycle]:		0.21396401451787717
+	AP of category [bus]:		0.25394749477623435
+Evaluation finished. Time cost: 0:02:32
+Saving checkpoints to outputs/def-detr-base/city2bdd/teaching/model_best.pth
+Teaching epoch 7 : [ 20/371 ] total loss: [4.6136045]
+Teaching epoch 7 : [ 40/371 ] total loss: [4.349454]
+Teaching epoch 7 : [ 60/371 ] total loss: [4.9624367]
+Teaching epoch 7 : [ 80/371 ] total loss: [4.558873]
+Teaching epoch 7 : [ 100/371 ] total loss: [4.4215975]
+Teaching epoch 7 : [ 120/371 ] total loss: [4.4101]
+Teaching epoch 7 : [ 140/371 ] total loss: [4.402046]
+Teaching epoch 7 : [ 160/371 ] total loss: [5.243972]
+Teaching epoch 7 : [ 180/371 ] total loss: [5.397002]
+Teaching epoch 7 : [ 200/371 ] total loss: [4.6123033]
+Teaching epoch 7 : [ 220/371 ] total loss: [4.2597837]
+Teaching epoch 7 : [ 240/371 ] total loss: [4.656849]
+Teaching epoch 7 : [ 260/371 ] total loss: [4.915889]
+Teaching epoch 7 : [ 280/371 ] total loss: [3.9307451]
+Teaching epoch 7 : [ 300/371 ] total loss: [4.304438]
+Teaching epoch 7 : [ 320/371 ] total loss: [4.5182233]
+Teaching epoch 7 : [ 340/371 ] total loss: [4.388387]
+Teaching epoch 7 : [ 360/371 ] total loss: [4.3787565]
+Teaching epoch 7 finished. Time cost: 0:06:20 Epoch loss: [4.595128]
+Logits Means:  [0.0, 0.49851377529913443, 0.6231860130914407, 0.19156950347277582, 0.5346007633730362, 0.402503662109375, 0.455989228049063, 0.44117245744872086, 0.45262528692411075]
+New Dynamic Thresholds:  [0.25, 0.4940342358383194, 0.5346725518119201, 0.3627119136726726, 0.5072883696738137, 0.45870527555026874, 0.47679526639827663, 0.471126826495055, 0.478307745378404]
+Evaluation : [ 20/655 ] total loss: [1.3236101]
+Evaluation : [ 40/655 ] total loss: [0.7750511]
+Evaluation : [ 60/655 ] total loss: [1.556984]
+Evaluation : [ 80/655 ] total loss: [1.0067506]
+Evaluation : [ 100/655 ] total loss: [1.1576424]
+Evaluation : [ 120/655 ] total loss: [1.4987534]
+Evaluation : [ 140/655 ] total loss: [1.0767663]
+Evaluation : [ 160/655 ] total loss: [1.8194697]
+Evaluation : [ 180/655 ] total loss: [1.4139346]
+Evaluation : [ 200/655 ] total loss: [1.2687649]
+Evaluation : [ 220/655 ] total loss: [1.2703435]
+Evaluation : [ 240/655 ] total loss: [1.7182591]
+Evaluation : [ 260/655 ] total loss: [0.98255694]
+Evaluation : [ 280/655 ] total loss: [1.9723217]
+Evaluation : [ 300/655 ] total loss: [1.4627013]
+Evaluation : [ 320/655 ] total loss: [1.6079296]
+Evaluation : [ 340/655 ] total loss: [1.7208989]
+Evaluation : [ 360/655 ] total loss: [1.2182678]
+Evaluation : [ 380/655 ] total loss: [1.1794074]
+Evaluation : [ 400/655 ] total loss: [1.1265004]
+Evaluation : [ 420/655 ] total loss: [0.83557487]
+Evaluation : [ 440/655 ] total loss: [1.7688907]
+Evaluation : [ 460/655 ] total loss: [1.0480207]
+Evaluation : [ 480/655 ] total loss: [1.0875251]
+Evaluation : [ 500/655 ] total loss: [1.168144]
+Evaluation : [ 520/655 ] total loss: [0.69361925]
+Evaluation : [ 540/655 ] total loss: [1.4315008]
+Evaluation : [ 560/655 ] total loss: [1.0973502]
+Evaluation : [ 580/655 ] total loss: [1.5598829]
+Evaluation : [ 600/655 ] total loss: [1.5433371]
+Evaluation : [ 620/655 ] total loss: [0.78912306]
+Evaluation : [ 640/655 ] total loss: [1.2144196]
+Accumulating evaluation results...
+DONE (t=6.29s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.3249907587411645
+	AP of category [person]:		0.48277580797413
+	AP of category [car]:		0.6375781157101432
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.299401060316211
+	AP of category [truck]:		0.21517822695303193
+	AP of category [motorcycle]:		0.18529106732827252
+	AP of category [bicycle]:		0.222813454801643
+	AP of category [bus]:		0.23189757810471973
+Evaluation finished. Time cost: 0:02:33
+Evaluation : [ 20/655 ] total loss: [1.3254375]
+Evaluation : [ 40/655 ] total loss: [0.82398415]
+Evaluation : [ 60/655 ] total loss: [1.6795769]
+Evaluation : [ 80/655 ] total loss: [1.0274041]
+Evaluation : [ 100/655 ] total loss: [1.1548367]
+Evaluation : [ 120/655 ] total loss: [1.5405452]
+Evaluation : [ 140/655 ] total loss: [1.1835568]
+Evaluation : [ 160/655 ] total loss: [2.2029486]
+Evaluation : [ 180/655 ] total loss: [1.4425443]
+Evaluation : [ 200/655 ] total loss: [1.3219994]
+Evaluation : [ 220/655 ] total loss: [1.2769144]
+Evaluation : [ 240/655 ] total loss: [2.062861]
+Evaluation : [ 260/655 ] total loss: [1.0392634]
+Evaluation : [ 280/655 ] total loss: [2.319764]
+Evaluation : [ 300/655 ] total loss: [1.5229268]
+Evaluation : [ 320/655 ] total loss: [1.753721]
+Evaluation : [ 340/655 ] total loss: [1.8487843]
+Evaluation : [ 360/655 ] total loss: [1.2641244]
+Evaluation : [ 380/655 ] total loss: [1.2126113]
+Evaluation : [ 400/655 ] total loss: [1.2429073]
+Evaluation : [ 420/655 ] total loss: [0.9455816]
+Evaluation : [ 440/655 ] total loss: [2.0158596]
+Evaluation : [ 460/655 ] total loss: [1.1320308]
+Evaluation : [ 480/655 ] total loss: [1.229145]
+Evaluation : [ 500/655 ] total loss: [1.1644464]
+Evaluation : [ 520/655 ] total loss: [0.7510533]
+Evaluation : [ 540/655 ] total loss: [1.4405811]
+Evaluation : [ 560/655 ] total loss: [1.1809872]
+Evaluation : [ 580/655 ] total loss: [1.749936]
+Evaluation : [ 600/655 ] total loss: [1.7872227]
+Evaluation : [ 620/655 ] total loss: [0.79641354]
+Evaluation : [ 640/655 ] total loss: [1.2574403]
+Accumulating evaluation results...
+DONE (t=7.40s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.32568950255063134
+	AP of category [person]:		0.48272857242255024
+	AP of category [car]:		0.6351137072097044
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.29142969315363415
+	AP of category [truck]:		0.23495126618391127
+	AP of category [motorcycle]:		0.1848937631914171
+	AP of category [bicycle]:		0.21047297267529386
+	AP of category [bus]:		0.24023654301790806
+Evaluation finished. Time cost: 0:02:37
+Teaching epoch 8 : [ 20/371 ] total loss: [4.5873265]
+Teaching epoch 8 : [ 40/371 ] total loss: [4.41259]
+Teaching epoch 8 : [ 60/371 ] total loss: [5.003687]
+Teaching epoch 8 : [ 80/371 ] total loss: [4.312678]
+Teaching epoch 8 : [ 100/371 ] total loss: [4.3146644]
+Teaching epoch 8 : [ 120/371 ] total loss: [4.208971]
+Teaching epoch 8 : [ 140/371 ] total loss: [4.2544894]
+Teaching epoch 8 : [ 160/371 ] total loss: [5.302973]
+Teaching epoch 8 : [ 180/371 ] total loss: [5.449197]
+Teaching epoch 8 : [ 200/371 ] total loss: [4.4386663]
+Teaching epoch 8 : [ 220/371 ] total loss: [4.276415]
+Teaching epoch 8 : [ 240/371 ] total loss: [4.624589]
+Teaching epoch 8 : [ 260/371 ] total loss: [4.8936095]
+Teaching epoch 8 : [ 280/371 ] total loss: [3.8722856]
+Teaching epoch 8 : [ 300/371 ] total loss: [4.365546]
+Teaching epoch 8 : [ 320/371 ] total loss: [4.5135665]
+Teaching epoch 8 : [ 340/371 ] total loss: [4.375539]
+Teaching epoch 8 : [ 360/371 ] total loss: [4.4205985]
+Teaching epoch 8 finished. Time cost: 0:06:21 Epoch loss: [4.583825]
+Logits Means:  [0.0, 0.49911795779624607, 0.617732073629617, 0.20195380316840278, 0.5529290619319166, 0.4015819790127041, 0.47631075549683843, 0.4541461313371178, 0.457757568359375]
+New Dynamic Thresholds:  [0.25, 0.5082142649615369, 0.5519416366293448, 0.3668860657415051, 0.5234828126742322, 0.4698681945858426, 0.4912294831613738, 0.48466547246933694, 0.4913689760933957]
+Evaluation : [ 20/655 ] total loss: [1.3174188]
+Evaluation : [ 40/655 ] total loss: [0.7797072]
+Evaluation : [ 60/655 ] total loss: [1.5582598]
+Evaluation : [ 80/655 ] total loss: [1.0091523]
+Evaluation : [ 100/655 ] total loss: [1.1461128]
+Evaluation : [ 120/655 ] total loss: [1.5145186]
+Evaluation : [ 140/655 ] total loss: [1.0894513]
+Evaluation : [ 160/655 ] total loss: [1.8725452]
+Evaluation : [ 180/655 ] total loss: [1.4093943]
+Evaluation : [ 200/655 ] total loss: [1.2719738]
+Evaluation : [ 220/655 ] total loss: [1.2662802]
+Evaluation : [ 240/655 ] total loss: [1.7518413]
+Evaluation : [ 260/655 ] total loss: [0.9873864]
+Evaluation : [ 280/655 ] total loss: [1.9953483]
+Evaluation : [ 300/655 ] total loss: [1.4646311]
+Evaluation : [ 320/655 ] total loss: [1.6252878]
+Evaluation : [ 340/655 ] total loss: [1.7270712]
+Evaluation : [ 360/655 ] total loss: [1.2138611]
+Evaluation : [ 380/655 ] total loss: [1.1846069]
+Evaluation : [ 400/655 ] total loss: [1.1482719]
+Evaluation : [ 420/655 ] total loss: [0.8493549]
+Evaluation : [ 440/655 ] total loss: [1.795948]
+Evaluation : [ 460/655 ] total loss: [1.0553029]
+Evaluation : [ 480/655 ] total loss: [1.099288]
+Evaluation : [ 500/655 ] total loss: [1.1717381]
+Evaluation : [ 520/655 ] total loss: [0.69451976]
+Evaluation : [ 540/655 ] total loss: [1.4341466]
+Evaluation : [ 560/655 ] total loss: [1.1025233]
+Evaluation : [ 580/655 ] total loss: [1.5817666]
+Evaluation : [ 600/655 ] total loss: [1.5484159]
+Evaluation : [ 620/655 ] total loss: [0.78760976]
+Evaluation : [ 640/655 ] total loss: [1.2141294]
+Accumulating evaluation results...
+DONE (t=6.57s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.3237938934136036
+	AP of category [person]:		0.48258633450044985
+	AP of category [car]:		0.6373116648244709
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.29937502121731063
+	AP of category [truck]:		0.21632800365365049
+	AP of category [motorcycle]:		0.18266567088286556
+	AP of category [bicycle]:		0.21544603378945065
+	AP of category [bus]:		0.2328445250270267
+Evaluation finished. Time cost: 0:02:32
+Evaluation : [ 20/655 ] total loss: [1.349893]
+Evaluation : [ 40/655 ] total loss: [0.8247928]
+Evaluation : [ 60/655 ] total loss: [1.7610528]
+Evaluation : [ 80/655 ] total loss: [1.0259742]
+Evaluation : [ 100/655 ] total loss: [1.1901722]
+Evaluation : [ 120/655 ] total loss: [1.6026275]
+Evaluation : [ 140/655 ] total loss: [1.2118052]
+Evaluation : [ 160/655 ] total loss: [2.146297]
+Evaluation : [ 180/655 ] total loss: [1.4737124]
+Evaluation : [ 200/655 ] total loss: [1.3527501]
+Evaluation : [ 220/655 ] total loss: [1.2723472]
+Evaluation : [ 240/655 ] total loss: [2.1640089]
+Evaluation : [ 260/655 ] total loss: [1.0469174]
+Evaluation : [ 280/655 ] total loss: [2.2830164]
+Evaluation : [ 300/655 ] total loss: [1.5537041]
+Evaluation : [ 320/655 ] total loss: [1.8028641]
+Evaluation : [ 340/655 ] total loss: [1.9076653]
+Evaluation : [ 360/655 ] total loss: [1.2705153]
+Evaluation : [ 380/655 ] total loss: [1.2292087]
+Evaluation : [ 400/655 ] total loss: [1.3039509]
+Evaluation : [ 420/655 ] total loss: [0.9699394]
+Evaluation : [ 440/655 ] total loss: [2.128781]
+Evaluation : [ 460/655 ] total loss: [1.1433208]
+Evaluation : [ 480/655 ] total loss: [1.2448888]
+Evaluation : [ 500/655 ] total loss: [1.1849431]
+Evaluation : [ 520/655 ] total loss: [0.7381741]
+Evaluation : [ 540/655 ] total loss: [1.4578769]
+Evaluation : [ 560/655 ] total loss: [1.2225422]
+Evaluation : [ 580/655 ] total loss: [1.7285923]
+Evaluation : [ 600/655 ] total loss: [1.7879895]
+Evaluation : [ 620/655 ] total loss: [0.80039567]
+Evaluation : [ 640/655 ] total loss: [1.294041]
+Accumulating evaluation results...
+DONE (t=6.13s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.33733253364647414
+	AP of category [person]:		0.48420009106049694
+	AP of category [car]:		0.6373224822513017
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.3087112802853792
+	AP of category [truck]:		0.2472935766811331
+	AP of category [motorcycle]:		0.20184698766465042
+	AP of category [bicycle]:		0.22647326415723706
+	AP of category [bus]:		0.2554800534251207
+Evaluation finished. Time cost: 0:02:31
+Saving checkpoints to outputs/def-detr-base/city2bdd/teaching/model_best.pth
+Teaching epoch 9 : [ 20/371 ] total loss: [4.482512]
+Teaching epoch 9 : [ 40/371 ] total loss: [4.177968]
+Teaching epoch 9 : [ 60/371 ] total loss: [4.966774]
+Teaching epoch 9 : [ 80/371 ] total loss: [4.416507]
+Teaching epoch 9 : [ 100/371 ] total loss: [4.3350544]
+Teaching epoch 9 : [ 120/371 ] total loss: [4.3299046]
+Teaching epoch 9 : [ 140/371 ] total loss: [4.1960626]
+Teaching epoch 9 : [ 160/371 ] total loss: [5.0449533]
+Teaching epoch 9 : [ 180/371 ] total loss: [5.467766]
+Teaching epoch 9 : [ 200/371 ] total loss: [4.4818444]
+Teaching epoch 9 : [ 220/371 ] total loss: [4.2629166]
+Teaching epoch 9 : [ 240/371 ] total loss: [4.118196]
+Teaching epoch 9 : [ 260/371 ] total loss: [5.1499443]
+Teaching epoch 9 : [ 280/371 ] total loss: [3.8043492]
+Teaching epoch 9 : [ 300/371 ] total loss: [4.543152]
+Teaching epoch 9 : [ 320/371 ] total loss: [4.703112]
+Teaching epoch 9 : [ 340/371 ] total loss: [4.3528066]
+Teaching epoch 9 : [ 360/371 ] total loss: [4.560671]
+Teaching epoch 9 finished. Time cost: 0:06:22 Epoch loss: [4.53381]
+Logits Means:  [0.0, 0.502951705267842, 0.6174040185364833, 0.22073906543208102, 0.5483091603154722, 0.4032917753179023, 0.44090688943476497, 0.43058402372367216, 0.43411703670726104]
+New Dynamic Thresholds:  [0.25, 0.5212200177283706, 0.5674650277187172, 0.3724820477310365, 0.5377776420676668, 0.48003610704050426, 0.5018672728294815, 0.4952559365941426, 0.5015308811475907]
+Doing selective reinitialization. Parameters of the model will be reinitialized EXCEPT FOR:
+module.transformer.decoder.layers.0.cross_attn.sampling_offsets.weight
+module.transformer.decoder.layers.0.cross_attn.sampling_offsets.bias
+module.transformer.decoder.layers.0.cross_attn.attention_weights.weight
+module.transformer.decoder.layers.0.cross_attn.attention_weights.bias
+module.transformer.decoder.layers.0.cross_attn.value_proj.weight
+module.transformer.decoder.layers.0.cross_attn.value_proj.bias
+module.transformer.decoder.layers.0.cross_attn.output_proj.weight
+module.transformer.decoder.layers.0.cross_attn.output_proj.bias
+module.transformer.decoder.layers.0.norm1.weight
+module.transformer.decoder.layers.0.norm1.bias
+module.transformer.decoder.layers.0.self_attn.in_proj_weight
+module.transformer.decoder.layers.0.self_attn.in_proj_bias
+module.transformer.decoder.layers.0.self_attn.out_proj.weight
+module.transformer.decoder.layers.0.self_attn.out_proj.bias
+module.transformer.decoder.layers.0.norm2.weight
+module.transformer.decoder.layers.0.norm2.bias
+module.transformer.decoder.layers.0.linear1.weight
+module.transformer.decoder.layers.0.linear1.bias
+module.transformer.decoder.layers.0.linear2.weight
+module.transformer.decoder.layers.0.linear2.bias
+module.transformer.decoder.layers.0.norm3.weight
+module.transformer.decoder.layers.0.norm3.bias
+module.transformer.decoder.layers.1.cross_attn.sampling_offsets.weight
+module.transformer.decoder.layers.1.cross_attn.sampling_offsets.bias
+module.transformer.decoder.layers.1.cross_attn.attention_weights.weight
+module.transformer.decoder.layers.1.cross_attn.attention_weights.bias
+module.transformer.decoder.layers.1.cross_attn.value_proj.weight
+module.transformer.decoder.layers.1.cross_attn.value_proj.bias
+module.transformer.decoder.layers.1.cross_attn.output_proj.weight
+module.transformer.decoder.layers.1.cross_attn.output_proj.bias
+module.transformer.decoder.layers.1.norm1.weight
+module.transformer.decoder.layers.1.norm1.bias
+module.transformer.decoder.layers.1.self_attn.in_proj_weight
+module.transformer.decoder.layers.1.self_attn.in_proj_bias
+module.transformer.decoder.layers.1.self_attn.out_proj.weight
+module.transformer.decoder.layers.1.self_attn.out_proj.bias
+module.transformer.decoder.layers.1.norm2.weight
+module.transformer.decoder.layers.1.norm2.bias
+module.transformer.decoder.layers.1.linear1.weight
+module.transformer.decoder.layers.1.linear1.bias
+module.transformer.decoder.layers.1.linear2.weight
+module.transformer.decoder.layers.1.linear2.bias
+module.transformer.decoder.layers.1.norm3.weight
+module.transformer.decoder.layers.1.norm3.bias
+module.transformer.decoder.layers.2.cross_attn.sampling_offsets.weight
+module.transformer.decoder.layers.2.cross_attn.sampling_offsets.bias
+module.transformer.decoder.layers.2.cross_attn.attention_weights.weight
+module.transformer.decoder.layers.2.cross_attn.attention_weights.bias
+module.transformer.decoder.layers.2.cross_attn.value_proj.weight
+module.transformer.decoder.layers.2.cross_attn.value_proj.bias
+module.transformer.decoder.layers.2.cross_attn.output_proj.weight
+module.transformer.decoder.layers.2.cross_attn.output_proj.bias
+module.transformer.decoder.layers.2.norm1.weight
+module.transformer.decoder.layers.2.norm1.bias
+module.transformer.decoder.layers.2.self_attn.in_proj_weight
+module.transformer.decoder.layers.2.self_attn.in_proj_bias
+module.transformer.decoder.layers.2.self_attn.out_proj.weight
+module.transformer.decoder.layers.2.self_attn.out_proj.bias
+module.transformer.decoder.layers.2.norm2.weight
+module.transformer.decoder.layers.2.norm2.bias
+module.transformer.decoder.layers.2.linear1.weight
+module.transformer.decoder.layers.2.linear1.bias
+module.transformer.decoder.layers.2.linear2.weight
+module.transformer.decoder.layers.2.linear2.bias
+module.transformer.decoder.layers.2.norm3.weight
+module.transformer.decoder.layers.2.norm3.bias
+module.transformer.decoder.layers.3.cross_attn.sampling_offsets.weight
+module.transformer.decoder.layers.3.cross_attn.sampling_offsets.bias
+module.transformer.decoder.layers.3.cross_attn.attention_weights.weight
+module.transformer.decoder.layers.3.cross_attn.attention_weights.bias
+module.transformer.decoder.layers.3.cross_attn.value_proj.weight
+module.transformer.decoder.layers.3.cross_attn.value_proj.bias
+module.transformer.decoder.layers.3.cross_attn.output_proj.weight
+module.transformer.decoder.layers.3.cross_attn.output_proj.bias
+module.transformer.decoder.layers.3.norm1.weight
+module.transformer.decoder.layers.3.norm1.bias
+module.transformer.decoder.layers.3.self_attn.in_proj_weight
+module.transformer.decoder.layers.3.self_attn.in_proj_bias
+module.transformer.decoder.layers.3.self_attn.out_proj.weight
+module.transformer.decoder.layers.3.self_attn.out_proj.bias
+module.transformer.decoder.layers.3.norm2.weight
+module.transformer.decoder.layers.3.norm2.bias
+module.transformer.decoder.layers.3.linear1.weight
+module.transformer.decoder.layers.3.linear1.bias
+module.transformer.decoder.layers.3.linear2.weight
+module.transformer.decoder.layers.3.linear2.bias
+module.transformer.decoder.layers.3.norm3.weight
+module.transformer.decoder.layers.3.norm3.bias
+module.transformer.decoder.layers.4.cross_attn.sampling_offsets.weight
+module.transformer.decoder.layers.4.cross_attn.sampling_offsets.bias
+module.transformer.decoder.layers.4.cross_attn.attention_weights.weight
+module.transformer.decoder.layers.4.cross_attn.attention_weights.bias
+module.transformer.decoder.layers.4.cross_attn.value_proj.weight
+module.transformer.decoder.layers.4.cross_attn.value_proj.bias
+module.transformer.decoder.layers.4.cross_attn.output_proj.weight
+module.transformer.decoder.layers.4.cross_attn.output_proj.bias
+module.transformer.decoder.layers.4.norm1.weight
+module.transformer.decoder.layers.4.norm1.bias
+module.transformer.decoder.layers.4.self_attn.in_proj_weight
+module.transformer.decoder.layers.4.self_attn.in_proj_bias
+module.transformer.decoder.layers.4.self_attn.out_proj.weight
+module.transformer.decoder.layers.4.self_attn.out_proj.bias
+module.transformer.decoder.layers.4.norm2.weight
+module.transformer.decoder.layers.4.norm2.bias
+module.transformer.decoder.layers.4.linear1.weight
+module.transformer.decoder.layers.4.linear1.bias
+module.transformer.decoder.layers.4.linear2.weight
+module.transformer.decoder.layers.4.linear2.bias
+module.transformer.decoder.layers.4.norm3.weight
+module.transformer.decoder.layers.4.norm3.bias
+module.transformer.decoder.layers.5.cross_attn.sampling_offsets.weight
+module.transformer.decoder.layers.5.cross_attn.sampling_offsets.bias
+module.transformer.decoder.layers.5.cross_attn.attention_weights.weight
+module.transformer.decoder.layers.5.cross_attn.attention_weights.bias
+module.transformer.decoder.layers.5.cross_attn.value_proj.weight
+module.transformer.decoder.layers.5.cross_attn.value_proj.bias
+module.transformer.decoder.layers.5.cross_attn.output_proj.weight
+module.transformer.decoder.layers.5.cross_attn.output_proj.bias
+module.transformer.decoder.layers.5.norm1.weight
+module.transformer.decoder.layers.5.norm1.bias
+module.transformer.decoder.layers.5.self_attn.in_proj_weight
+module.transformer.decoder.layers.5.self_attn.in_proj_bias
+module.transformer.decoder.layers.5.self_attn.out_proj.weight
+module.transformer.decoder.layers.5.self_attn.out_proj.bias
+module.transformer.decoder.layers.5.norm2.weight
+module.transformer.decoder.layers.5.norm2.bias
+module.transformer.decoder.layers.5.linear1.weight
+module.transformer.decoder.layers.5.linear1.bias
+module.transformer.decoder.layers.5.linear2.weight
+module.transformer.decoder.layers.5.linear2.bias
+module.transformer.decoder.layers.5.norm3.weight
+module.transformer.decoder.layers.5.norm3.bias
+Evaluation : [ 20/655 ] total loss: [1.31705]
+Evaluation : [ 40/655 ] total loss: [0.79071975]
+Evaluation : [ 60/655 ] total loss: [1.5700744]
+Evaluation : [ 80/655 ] total loss: [1.0118116]
+Evaluation : [ 100/655 ] total loss: [1.1483904]
+Evaluation : [ 120/655 ] total loss: [1.5243949]
+Evaluation : [ 140/655 ] total loss: [1.1056235]
+Evaluation : [ 160/655 ] total loss: [1.9144018]
+Evaluation : [ 180/655 ] total loss: [1.4158125]
+Evaluation : [ 200/655 ] total loss: [1.2782235]
+Evaluation : [ 220/655 ] total loss: [1.2695446]
+Evaluation : [ 240/655 ] total loss: [1.7907251]
+Evaluation : [ 260/655 ] total loss: [0.99253166]
+Evaluation : [ 280/655 ] total loss: [2.0206757]
+Evaluation : [ 300/655 ] total loss: [1.4662967]
+Evaluation : [ 320/655 ] total loss: [1.6432705]
+Evaluation : [ 340/655 ] total loss: [1.7410177]
+Evaluation : [ 360/655 ] total loss: [1.2142019]
+Evaluation : [ 380/655 ] total loss: [1.1927286]
+Evaluation : [ 400/655 ] total loss: [1.1698139]
+Evaluation : [ 420/655 ] total loss: [0.8626524]
+Evaluation : [ 440/655 ] total loss: [1.8289485]
+Evaluation : [ 460/655 ] total loss: [1.0810122]
+Evaluation : [ 480/655 ] total loss: [1.1136789]
+Evaluation : [ 500/655 ] total loss: [1.17891]
+Evaluation : [ 520/655 ] total loss: [0.6980211]
+Evaluation : [ 540/655 ] total loss: [1.4372267]
+Evaluation : [ 560/655 ] total loss: [1.1088603]
+Evaluation : [ 580/655 ] total loss: [1.6088002]
+Evaluation : [ 600/655 ] total loss: [1.5582535]
+Evaluation : [ 620/655 ] total loss: [0.7896794]
+Evaluation : [ 640/655 ] total loss: [1.2142568]
+Accumulating evaluation results...
+DONE (t=6.77s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.3230823350400386
+	AP of category [person]:		0.4825476175973385
+	AP of category [car]:		0.6346256268903875
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.2956805310213782
+	AP of category [truck]:		0.21727822498013466
+	AP of category [motorcycle]:		0.1842034672384423
+	AP of category [bicycle]:		0.21479340988505202
+	AP of category [bus]:		0.23244746766753696
+Evaluation finished. Time cost: 0:02:33
+Evaluation : [ 20/655 ] total loss: [1.3496546]
+Evaluation : [ 40/655 ] total loss: [0.782659]
+Evaluation : [ 60/655 ] total loss: [1.6182625]
+Evaluation : [ 80/655 ] total loss: [1.0416245]
+Evaluation : [ 100/655 ] total loss: [1.1849829]
+Evaluation : [ 120/655 ] total loss: [1.4511836]
+Evaluation : [ 140/655 ] total loss: [1.073982]
+Evaluation : [ 160/655 ] total loss: [1.802774]
+Evaluation : [ 180/655 ] total loss: [1.450288]
+Evaluation : [ 200/655 ] total loss: [1.2994735]
+Evaluation : [ 220/655 ] total loss: [1.2410755]
+Evaluation : [ 240/655 ] total loss: [1.6671948]
+Evaluation : [ 260/655 ] total loss: [0.9785673]
+Evaluation : [ 280/655 ] total loss: [1.9543899]
+Evaluation : [ 300/655 ] total loss: [1.5249898]
+Evaluation : [ 320/655 ] total loss: [1.6161454]
+Evaluation : [ 340/655 ] total loss: [1.7687924]
+Evaluation : [ 360/655 ] total loss: [1.2501731]
+Evaluation : [ 380/655 ] total loss: [1.1395113]
+Evaluation : [ 400/655 ] total loss: [1.1317079]
+Evaluation : [ 420/655 ] total loss: [0.81846607]
+Evaluation : [ 440/655 ] total loss: [1.7585357]
+Evaluation : [ 460/655 ] total loss: [1.0506859]
+Evaluation : [ 480/655 ] total loss: [1.0932766]
+Evaluation : [ 500/655 ] total loss: [1.1566482]
+Evaluation : [ 520/655 ] total loss: [0.66953295]
+Evaluation : [ 540/655 ] total loss: [1.4315895]
+Evaluation : [ 560/655 ] total loss: [1.074758]
+Evaluation : [ 580/655 ] total loss: [1.6604574]
+Evaluation : [ 600/655 ] total loss: [1.580538]
+Evaluation : [ 620/655 ] total loss: [0.87457955]
+Evaluation : [ 640/655 ] total loss: [1.2325103]
+Accumulating evaluation results...
+DONE (t=7.26s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.30936406098087715
+	AP of category [person]:		0.470746422405714
+	AP of category [car]:		0.6152773650467579
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.2808943804565607
+	AP of category [truck]:		0.1778346774509623
+	AP of category [motorcycle]:		0.19038414174429114
+	AP of category [bicycle]:		0.22492215293659718
+	AP of category [bus]:		0.20548928682525697
+Evaluation finished. Time cost: 0:02:36
+Teaching epoch 10 : [ 20/371 ] total loss: [3.8137727]
+Teaching epoch 10 : [ 40/371 ] total loss: [3.671393]
+Teaching epoch 10 : [ 60/371 ] total loss: [4.655748]
+Teaching epoch 10 : [ 80/371 ] total loss: [3.9061766]
+Teaching epoch 10 : [ 100/371 ] total loss: [4.2214403]
+Teaching epoch 10 : [ 120/371 ] total loss: [4.392116]
+Teaching epoch 10 : [ 140/371 ] total loss: [4.2074094]
+Teaching epoch 10 : [ 160/371 ] total loss: [4.9034605]
+Teaching epoch 10 : [ 180/371 ] total loss: [5.236739]
+Teaching epoch 10 : [ 200/371 ] total loss: [4.46535]
+Teaching epoch 10 : [ 220/371 ] total loss: [4.2497087]
+Teaching epoch 10 : [ 240/371 ] total loss: [4.2583084]
+Teaching epoch 10 : [ 260/371 ] total loss: [4.7984467]
+Teaching epoch 10 : [ 280/371 ] total loss: [3.8601732]
+Teaching epoch 10 : [ 300/371 ] total loss: [4.3203764]
+Teaching epoch 10 : [ 320/371 ] total loss: [4.205825]
+Teaching epoch 10 : [ 340/371 ] total loss: [3.93875]
+Teaching epoch 10 : [ 360/371 ] total loss: [4.178605]
+Teaching epoch 10 finished. Time cost: 0:06:23 Epoch loss: [4.3221846]
+Logits Means:  [0.0, 0.4943472452420415, 0.5931495075718152, 0.21510352301843388, 0.5504277043781997, 0.39409226377364537, 0.44512924590668124, 0.43628270382552703, 0.41489300742426416]
+New Dynamic Thresholds:  [0.25, 0.5323768646054619, 0.5800331050244288, 0.37697517183530943, 0.5507716114422848, 0.48853158780318917, 0.5117267518533777, 0.5051768726987673, 0.509348763010369]
+Evaluation : [ 20/655 ] total loss: [1.3195677]
+Evaluation : [ 40/655 ] total loss: [0.7756626]
+Evaluation : [ 60/655 ] total loss: [1.5783768]
+Evaluation : [ 80/655 ] total loss: [1.0116415]
+Evaluation : [ 100/655 ] total loss: [1.1761658]
+Evaluation : [ 120/655 ] total loss: [1.5078721]
+Evaluation : [ 140/655 ] total loss: [1.0970616]
+Evaluation : [ 160/655 ] total loss: [1.8660964]
+Evaluation : [ 180/655 ] total loss: [1.4126017]
+Evaluation : [ 200/655 ] total loss: [1.2752619]
+Evaluation : [ 220/655 ] total loss: [1.2589052]
+Evaluation : [ 240/655 ] total loss: [1.7899806]
+Evaluation : [ 260/655 ] total loss: [0.98968077]
+Evaluation : [ 280/655 ] total loss: [2.0109298]
+Evaluation : [ 300/655 ] total loss: [1.4689516]
+Evaluation : [ 320/655 ] total loss: [1.6385673]
+Evaluation : [ 340/655 ] total loss: [1.7389697]
+Evaluation : [ 360/655 ] total loss: [1.2221782]
+Evaluation : [ 380/655 ] total loss: [1.193701]
+Evaluation : [ 400/655 ] total loss: [1.166307]
+Evaluation : [ 420/655 ] total loss: [0.86192775]
+Evaluation : [ 440/655 ] total loss: [1.821912]
+Evaluation : [ 460/655 ] total loss: [1.0502049]
+Evaluation : [ 480/655 ] total loss: [1.1067458]
+Evaluation : [ 500/655 ] total loss: [1.1907029]
+Evaluation : [ 520/655 ] total loss: [0.70093817]
+Evaluation : [ 540/655 ] total loss: [1.4412893]
+Evaluation : [ 560/655 ] total loss: [1.0987628]
+Evaluation : [ 580/655 ] total loss: [1.592851]
+Evaluation : [ 600/655 ] total loss: [1.5485859]
+Evaluation : [ 620/655 ] total loss: [0.7992403]
+Evaluation : [ 640/655 ] total loss: [1.2177786]
+Accumulating evaluation results...
+DONE (t=6.45s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.3243508152865421
+	AP of category [person]:		0.48430274086436836
+	AP of category [car]:		0.63899199070422
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.30126415289120334
+	AP of category [truck]:		0.21235786580563304
+	AP of category [motorcycle]:		0.18565059335236136
+	AP of category [bicycle]:		0.2180323168950256
+	AP of category [bus]:		0.22985604649298283
+Evaluation finished. Time cost: 0:02:32
+Evaluation : [ 20/655 ] total loss: [1.3976287]
+Evaluation : [ 40/655 ] total loss: [0.8171874]
+Evaluation : [ 60/655 ] total loss: [1.7609895]
+Evaluation : [ 80/655 ] total loss: [1.022291]
+Evaluation : [ 100/655 ] total loss: [1.2314446]
+Evaluation : [ 120/655 ] total loss: [1.6822467]
+Evaluation : [ 140/655 ] total loss: [1.2251244]
+Evaluation : [ 160/655 ] total loss: [2.1096363]
+Evaluation : [ 180/655 ] total loss: [1.5401678]
+Evaluation : [ 200/655 ] total loss: [1.3677001]
+Evaluation : [ 220/655 ] total loss: [1.2875837]
+Evaluation : [ 240/655 ] total loss: [2.1976252]
+Evaluation : [ 260/655 ] total loss: [1.0178883]
+Evaluation : [ 280/655 ] total loss: [2.3051422]
+Evaluation : [ 300/655 ] total loss: [1.5634747]
+Evaluation : [ 320/655 ] total loss: [1.8005619]
+Evaluation : [ 340/655 ] total loss: [1.9082245]
+Evaluation : [ 360/655 ] total loss: [1.3332083]
+Evaluation : [ 380/655 ] total loss: [1.3411479]
+Evaluation : [ 400/655 ] total loss: [1.253236]
+Evaluation : [ 420/655 ] total loss: [0.96008795]
+Evaluation : [ 440/655 ] total loss: [2.0336504]
+Evaluation : [ 460/655 ] total loss: [1.1445096]
+Evaluation : [ 480/655 ] total loss: [1.1999085]
+Evaluation : [ 500/655 ] total loss: [1.2825856]
+Evaluation : [ 520/655 ] total loss: [0.73333657]
+Evaluation : [ 540/655 ] total loss: [1.4834679]
+Evaluation : [ 560/655 ] total loss: [1.1373415]
+Evaluation : [ 580/655 ] total loss: [1.7134717]
+Evaluation : [ 600/655 ] total loss: [1.7318124]
+Evaluation : [ 620/655 ] total loss: [0.8348071]
+Evaluation : [ 640/655 ] total loss: [1.365808]
+Accumulating evaluation results...
+DONE (t=5.38s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.31631692240349674
+	AP of category [person]:		0.48271861549654776
+	AP of category [car]:		0.6331524905031694
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.2836963484104027
+	AP of category [truck]:		0.2233197956576667
+	AP of category [motorcycle]:		0.1833500805098776
+	AP of category [bicycle]:		0.2226975744409505
+	AP of category [bus]:		0.18528355180586292
+Evaluation finished. Time cost: 0:02:30
+Teaching epoch 11 : [ 20/371 ] total loss: [4.2228847]
+Teaching epoch 11 : [ 40/371 ] total loss: [3.9209912]
+Teaching epoch 11 : [ 60/371 ] total loss: [4.2495613]
+Teaching epoch 11 : [ 80/371 ] total loss: [3.9663718]
+Teaching epoch 11 : [ 100/371 ] total loss: [3.9983463]
+Teaching epoch 11 : [ 120/371 ] total loss: [4.112311]
+Teaching epoch 11 : [ 140/371 ] total loss: [3.8440309]
+Teaching epoch 11 : [ 160/371 ] total loss: [4.917014]
+Teaching epoch 11 : [ 180/371 ] total loss: [5.231011]
+Teaching epoch 11 : [ 200/371 ] total loss: [3.9166567]
+Teaching epoch 11 : [ 220/371 ] total loss: [3.8067143]
+Teaching epoch 11 : [ 240/371 ] total loss: [3.9145188]
+Teaching epoch 11 : [ 260/371 ] total loss: [4.6007776]
+Teaching epoch 11 : [ 280/371 ] total loss: [3.7086153]
+Teaching epoch 11 : [ 300/371 ] total loss: [3.898836]
+Teaching epoch 11 : [ 320/371 ] total loss: [4.123018]
+Teaching epoch 11 : [ 340/371 ] total loss: [4.1209807]
+Teaching epoch 11 : [ 360/371 ] total loss: [4.1291914]
+Teaching epoch 11 finished. Time cost: 0:06:24 Epoch loss: [4.2290626]
+Logits Means:  [0.0, 0.5149762004931121, 0.6170160868416312, 0.23244295622173108, 0.5553141995241332, 0.40241309632646277, 0.48166400491201206, 0.4464640226426915, 0.3939727971583237]
+New Dynamic Thresholds:  [0.25, 0.5437248361813111, 0.5927251289042293, 0.38266875910183856, 0.5627619164507707, 0.4967708635500854, 0.5230158925221063, 0.5147953524451363, 0.5149044138531146]
+Evaluation : [ 20/655 ] total loss: [1.3282075]
+Evaluation : [ 40/655 ] total loss: [0.7735934]
+Evaluation : [ 60/655 ] total loss: [1.5958898]
+Evaluation : [ 80/655 ] total loss: [1.0122943]
+Evaluation : [ 100/655 ] total loss: [1.2160213]
+Evaluation : [ 120/655 ] total loss: [1.5109738]
+Evaluation : [ 140/655 ] total loss: [1.0986304]
+Evaluation : [ 160/655 ] total loss: [1.8630989]
+Evaluation : [ 180/655 ] total loss: [1.4211679]
+Evaluation : [ 200/655 ] total loss: [1.2803245]
+Evaluation : [ 220/655 ] total loss: [1.2530731]
+Evaluation : [ 240/655 ] total loss: [1.8179376]
+Evaluation : [ 260/655 ] total loss: [0.9904883]
+Evaluation : [ 280/655 ] total loss: [2.0272317]
+Evaluation : [ 300/655 ] total loss: [1.4789051]
+Evaluation : [ 320/655 ] total loss: [1.6580477]
+Evaluation : [ 340/655 ] total loss: [1.7531927]
+Evaluation : [ 360/655 ] total loss: [1.2343489]
+Evaluation : [ 380/655 ] total loss: [1.2066469]
+Evaluation : [ 400/655 ] total loss: [1.1802202]
+Evaluation : [ 420/655 ] total loss: [0.8753824]
+Evaluation : [ 440/655 ] total loss: [1.8471965]
+Evaluation : [ 460/655 ] total loss: [1.0481997]
+Evaluation : [ 480/655 ] total loss: [1.1111017]
+Evaluation : [ 500/655 ] total loss: [1.2068576]
+Evaluation : [ 520/655 ] total loss: [0.7102388]
+Evaluation : [ 540/655 ] total loss: [1.4427112]
+Evaluation : [ 560/655 ] total loss: [1.0934674]
+Evaluation : [ 580/655 ] total loss: [1.5982893]
+Evaluation : [ 600/655 ] total loss: [1.5544062]
+Evaluation : [ 620/655 ] total loss: [0.80357045]
+Evaluation : [ 640/655 ] total loss: [1.2342933]
+Accumulating evaluation results...
+DONE (t=7.04s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.3235248486129353
+	AP of category [person]:		0.4848897049451468
+	AP of category [car]:		0.6370454505201012
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.3014219185337611
+	AP of category [truck]:		0.21021893166614394
+	AP of category [motorcycle]:		0.18806542450972866
+	AP of category [bicycle]:		0.2187587442540772
+	AP of category [bus]:		0.22427376586158823
+Evaluation finished. Time cost: 0:02:32
+Evaluation : [ 20/655 ] total loss: [1.464366]
+Evaluation : [ 40/655 ] total loss: [0.8403256]
+Evaluation : [ 60/655 ] total loss: [1.8263624]
+Evaluation : [ 80/655 ] total loss: [1.1166562]
+Evaluation : [ 100/655 ] total loss: [1.2831872]
+Evaluation : [ 120/655 ] total loss: [1.692071]
+Evaluation : [ 140/655 ] total loss: [1.2084796]
+Evaluation : [ 160/655 ] total loss: [2.18583]
+Evaluation : [ 180/655 ] total loss: [1.546863]
+Evaluation : [ 200/655 ] total loss: [1.425828]
+Evaluation : [ 220/655 ] total loss: [1.3293561]
+Evaluation : [ 240/655 ] total loss: [2.2872672]
+Evaluation : [ 260/655 ] total loss: [1.0279322]
+Evaluation : [ 280/655 ] total loss: [2.4037807]
+Evaluation : [ 300/655 ] total loss: [1.6251059]
+Evaluation : [ 320/655 ] total loss: [1.8424716]
+Evaluation : [ 340/655 ] total loss: [2.0335891]
+Evaluation : [ 360/655 ] total loss: [1.39265]
+Evaluation : [ 380/655 ] total loss: [1.3768983]
+Evaluation : [ 400/655 ] total loss: [1.325181]
+Evaluation : [ 420/655 ] total loss: [1.0437069]
+Evaluation : [ 440/655 ] total loss: [2.1534233]
+Evaluation : [ 460/655 ] total loss: [1.1569552]
+Evaluation : [ 480/655 ] total loss: [1.2799944]
+Evaluation : [ 500/655 ] total loss: [1.3349661]
+Evaluation : [ 520/655 ] total loss: [0.8237521]
+Evaluation : [ 540/655 ] total loss: [1.5312123]
+Evaluation : [ 560/655 ] total loss: [1.1632227]
+Evaluation : [ 580/655 ] total loss: [1.8213706]
+Evaluation : [ 600/655 ] total loss: [1.7950335]
+Evaluation : [ 620/655 ] total loss: [0.84594]
+Evaluation : [ 640/655 ] total loss: [1.4271969]
+Accumulating evaluation results...
+DONE (t=6.41s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.3163843413654514
+	AP of category [person]:		0.4772459149194198
+	AP of category [car]:		0.6228709906926617
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.29646456390909587
+	AP of category [truck]:		0.21843212165386458
+	AP of category [motorcycle]:		0.18039905471337678
+	AP of category [bicycle]:		0.21691864375529535
+	AP of category [bus]:		0.20235909991444592
+Evaluation finished. Time cost: 0:02:32
+Teaching epoch 12 : [ 20/371 ] total loss: [4.2589626]
+Teaching epoch 12 : [ 40/371 ] total loss: [3.8787382]
+Teaching epoch 12 : [ 60/371 ] total loss: [4.3213673]
+Teaching epoch 12 : [ 80/371 ] total loss: [3.905922]
+Teaching epoch 12 : [ 100/371 ] total loss: [3.7996085]
+Teaching epoch 12 : [ 120/371 ] total loss: [4.051881]
+Teaching epoch 12 : [ 140/371 ] total loss: [4.106766]
+Teaching epoch 12 : [ 160/371 ] total loss: [4.83145]
+Teaching epoch 12 : [ 180/371 ] total loss: [5.0474033]
+Teaching epoch 12 : [ 200/371 ] total loss: [4.1277695]
+Teaching epoch 12 : [ 220/371 ] total loss: [4.1332664]
+Teaching epoch 12 : [ 240/371 ] total loss: [4.360088]
+Teaching epoch 12 : [ 260/371 ] total loss: [4.584957]
+Teaching epoch 12 : [ 280/371 ] total loss: [3.7988153]
+Teaching epoch 12 : [ 300/371 ] total loss: [4.335913]
+Teaching epoch 12 : [ 320/371 ] total loss: [4.6043606]
+Teaching epoch 12 : [ 340/371 ] total loss: [4.145849]
+Teaching epoch 12 : [ 360/371 ] total loss: [4.180541]
+Teaching epoch 12 finished. Time cost: 0:06:23 Epoch loss: [4.2662377]
+Logits Means:  [0.0, 0.5116145360305386, 0.6134347187937427, 0.2246343551143523, 0.5443838075398564, 0.4057000008738814, 0.4582083292515674, 0.44108369408584225, 0.40087474476207385]
+New Dynamic Thresholds:  [0.25, 0.5537268641484911, 0.6, 0.38705792938004696, 0.5728898575164884, 0.5044189026382753, 0.5316362817910969, 0.5230885360788478, 0.5203971755418038]
+Evaluation : [ 20/655 ] total loss: [1.3409742]
+Evaluation : [ 40/655 ] total loss: [0.7764894]
+Evaluation : [ 60/655 ] total loss: [1.6108148]
+Evaluation : [ 80/655 ] total loss: [1.0192418]
+Evaluation : [ 100/655 ] total loss: [1.2346915]
+Evaluation : [ 120/655 ] total loss: [1.5221095]
+Evaluation : [ 140/655 ] total loss: [1.1062641]
+Evaluation : [ 160/655 ] total loss: [1.8852847]
+Evaluation : [ 180/655 ] total loss: [1.4309502]
+Evaluation : [ 200/655 ] total loss: [1.2891662]
+Evaluation : [ 220/655 ] total loss: [1.2504559]
+Evaluation : [ 240/655 ] total loss: [1.8511696]
+Evaluation : [ 260/655 ] total loss: [0.9880382]
+Evaluation : [ 280/655 ] total loss: [2.048252]
+Evaluation : [ 300/655 ] total loss: [1.4908264]
+Evaluation : [ 320/655 ] total loss: [1.6804843]
+Evaluation : [ 340/655 ] total loss: [1.7765052]
+Evaluation : [ 360/655 ] total loss: [1.2499115]
+Evaluation : [ 380/655 ] total loss: [1.2186501]
+Evaluation : [ 400/655 ] total loss: [1.2135957]
+Evaluation : [ 420/655 ] total loss: [0.8922531]
+Evaluation : [ 440/655 ] total loss: [1.8732605]
+Evaluation : [ 460/655 ] total loss: [1.0602975]
+Evaluation : [ 480/655 ] total loss: [1.1240677]
+Evaluation : [ 500/655 ] total loss: [1.221755]
+Evaluation : [ 520/655 ] total loss: [0.71676654]
+Evaluation : [ 540/655 ] total loss: [1.4495437]
+Evaluation : [ 560/655 ] total loss: [1.0922554]
+Evaluation : [ 580/655 ] total loss: [1.6139168]
+Evaluation : [ 600/655 ] total loss: [1.5674944]
+Evaluation : [ 620/655 ] total loss: [0.8105253]
+Evaluation : [ 640/655 ] total loss: [1.2495174]
+Accumulating evaluation results...
+DONE (t=5.89s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.3225284117190638
+	AP of category [person]:		0.4847562257363405
+	AP of category [car]:		0.636458652566988
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.30260653949598565
+	AP of category [truck]:		0.20887903212383171
+	AP of category [motorcycle]:		0.18825922298741507
+	AP of category [bicycle]:		0.21692855795317575
+	AP of category [bus]:		0.2198106511697098
+Evaluation finished. Time cost: 0:02:31
+Evaluation : [ 20/655 ] total loss: [1.5254269]
+Evaluation : [ 40/655 ] total loss: [0.9003787]
+Evaluation : [ 60/655 ] total loss: [1.8380373]
+Evaluation : [ 80/655 ] total loss: [1.1914915]
+Evaluation : [ 100/655 ] total loss: [1.3051238]
+Evaluation : [ 120/655 ] total loss: [1.7346562]
+Evaluation : [ 140/655 ] total loss: [1.2766376]
+Evaluation : [ 160/655 ] total loss: [2.2956696]
+Evaluation : [ 180/655 ] total loss: [1.6129909]
+Evaluation : [ 200/655 ] total loss: [1.4456336]
+Evaluation : [ 220/655 ] total loss: [1.3186946]
+Evaluation : [ 240/655 ] total loss: [2.3594956]
+Evaluation : [ 260/655 ] total loss: [1.0249985]
+Evaluation : [ 280/655 ] total loss: [2.4394326]
+Evaluation : [ 300/655 ] total loss: [1.6408257]
+Evaluation : [ 320/655 ] total loss: [1.9096112]
+Evaluation : [ 340/655 ] total loss: [2.1943588]
+Evaluation : [ 360/655 ] total loss: [1.4243616]
+Evaluation : [ 380/655 ] total loss: [1.4086365]
+Evaluation : [ 400/655 ] total loss: [1.4140795]
+Evaluation : [ 420/655 ] total loss: [1.0817204]
+Evaluation : [ 440/655 ] total loss: [2.2827153]
+Evaluation : [ 460/655 ] total loss: [1.2666966]
+Evaluation : [ 480/655 ] total loss: [1.2976024]
+Evaluation : [ 500/655 ] total loss: [1.3620183]
+Evaluation : [ 520/655 ] total loss: [0.821218]
+Evaluation : [ 540/655 ] total loss: [1.5613339]
+Evaluation : [ 560/655 ] total loss: [1.2197826]
+Evaluation : [ 580/655 ] total loss: [1.9051517]
+Evaluation : [ 600/655 ] total loss: [1.8267235]
+Evaluation : [ 620/655 ] total loss: [0.9054968]
+Evaluation : [ 640/655 ] total loss: [1.4692668]
+Accumulating evaluation results...
+DONE (t=6.38s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.32437985387627194
+	AP of category [person]:		0.4782059584772258
+	AP of category [car]:		0.6228923227357243
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.3076867957651881
+	AP of category [truck]:		0.22412874680918948
+	AP of category [motorcycle]:		0.194843680918768
+	AP of category [bicycle]:		0.22929657802025857
+	AP of category [bus]:		0.21360489440754932
+Evaluation finished. Time cost: 0:02:29
+Teaching epoch 13 : [ 20/371 ] total loss: [4.1440997]
+Teaching epoch 13 : [ 40/371 ] total loss: [4.0632243]
+Teaching epoch 13 : [ 60/371 ] total loss: [4.339458]
+Teaching epoch 13 : [ 80/371 ] total loss: [4.0122123]
+Teaching epoch 13 : [ 100/371 ] total loss: [3.962531]
+Teaching epoch 13 : [ 120/371 ] total loss: [4.2967434]
+Teaching epoch 13 : [ 140/371 ] total loss: [3.9497843]
+Teaching epoch 13 : [ 160/371 ] total loss: [4.9557877]
+Teaching epoch 13 : [ 180/371 ] total loss: [5.0120173]
+Teaching epoch 13 : [ 200/371 ] total loss: [4.1587415]
+Teaching epoch 13 : [ 220/371 ] total loss: [3.925583]
+Teaching epoch 13 : [ 240/371 ] total loss: [4.125844]
+Teaching epoch 13 : [ 260/371 ] total loss: [4.6801157]
+Teaching epoch 13 : [ 280/371 ] total loss: [3.7638133]
+Teaching epoch 13 : [ 300/371 ] total loss: [4.333451]
+Teaching epoch 13 : [ 320/371 ] total loss: [4.3145866]
+Teaching epoch 13 : [ 340/371 ] total loss: [4.082324]
+Teaching epoch 13 : [ 360/371 ] total loss: [4.2937117]
+Teaching epoch 13 finished. Time cost: 0:06:23 Epoch loss: [4.3136454]
+Logits Means:  [0.0, 0.5083032049659097, 0.6067258577885853, 0.18264066110743155, 0.5551276954444679, 0.3845397091581894, 0.4503200069354598, 0.4491707241132882, 0.3488694982591018]
+New Dynamic Thresholds:  [0.25, 0.5625200250375144, 0.6, 0.38681496726571146, 0.5826570745584677, 0.509787151634096, 0.5388679519072785, 0.5310978626931616, 0.5215161161337686]
+Evaluation : [ 20/655 ] total loss: [1.3444618]
+Evaluation : [ 40/655 ] total loss: [0.7851211]
+Evaluation : [ 60/655 ] total loss: [1.6249418]
+Evaluation : [ 80/655 ] total loss: [1.0288855]
+Evaluation : [ 100/655 ] total loss: [1.247374]
+Evaluation : [ 120/655 ] total loss: [1.5307109]
+Evaluation : [ 140/655 ] total loss: [1.1203818]
+Evaluation : [ 160/655 ] total loss: [1.9182743]
+Evaluation : [ 180/655 ] total loss: [1.4445488]
+Evaluation : [ 200/655 ] total loss: [1.306544]
+Evaluation : [ 220/655 ] total loss: [1.242617]
+Evaluation : [ 240/655 ] total loss: [1.8929603]
+Evaluation : [ 260/655 ] total loss: [0.9870009]
+Evaluation : [ 280/655 ] total loss: [2.07053]
+Evaluation : [ 300/655 ] total loss: [1.4998155]
+Evaluation : [ 320/655 ] total loss: [1.7034109]
+Evaluation : [ 340/655 ] total loss: [1.8055738]
+Evaluation : [ 360/655 ] total loss: [1.2623482]
+Evaluation : [ 380/655 ] total loss: [1.2338004]
+Evaluation : [ 400/655 ] total loss: [1.2281814]
+Evaluation : [ 420/655 ] total loss: [0.910608]
+Evaluation : [ 440/655 ] total loss: [1.9091768]
+Evaluation : [ 460/655 ] total loss: [1.0956433]
+Evaluation : [ 480/655 ] total loss: [1.1424673]
+Evaluation : [ 500/655 ] total loss: [1.2374614]
+Evaluation : [ 520/655 ] total loss: [0.7278678]
+Evaluation : [ 540/655 ] total loss: [1.4588608]
+Evaluation : [ 560/655 ] total loss: [1.0968413]
+Evaluation : [ 580/655 ] total loss: [1.6329716]
+Evaluation : [ 600/655 ] total loss: [1.5816978]
+Evaluation : [ 620/655 ] total loss: [0.82007784]
+Evaluation : [ 640/655 ] total loss: [1.2657468]
+Accumulating evaluation results...
+DONE (t=8.44s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.3212291765242324
+	AP of category [person]:		0.48459620735902137
+	AP of category [car]:		0.6357354710986755
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.29906603998249165
+	AP of category [truck]:		0.2080156021245616
+	AP of category [motorcycle]:		0.189358038152433
+	AP of category [bicycle]:		0.21629312656290794
+	AP of category [bus]:		0.21553975038953602
+Evaluation finished. Time cost: 0:02:34
+Evaluation : [ 20/655 ] total loss: [1.4984282]
+Evaluation : [ 40/655 ] total loss: [0.91603816]
+Evaluation : [ 60/655 ] total loss: [1.8520749]
+Evaluation : [ 80/655 ] total loss: [1.1880362]
+Evaluation : [ 100/655 ] total loss: [1.3233516]
+Evaluation : [ 120/655 ] total loss: [1.6951852]
+Evaluation : [ 140/655 ] total loss: [1.3263417]
+Evaluation : [ 160/655 ] total loss: [2.3135056]
+Evaluation : [ 180/655 ] total loss: [1.6318023]
+Evaluation : [ 200/655 ] total loss: [1.4761438]
+Evaluation : [ 220/655 ] total loss: [1.3642521]
+Evaluation : [ 240/655 ] total loss: [2.3705435]
+Evaluation : [ 260/655 ] total loss: [1.0454416]
+Evaluation : [ 280/655 ] total loss: [2.4446342]
+Evaluation : [ 300/655 ] total loss: [1.6879152]
+Evaluation : [ 320/655 ] total loss: [1.8913954]
+Evaluation : [ 340/655 ] total loss: [2.1161087]
+Evaluation : [ 360/655 ] total loss: [1.4351623]
+Evaluation : [ 380/655 ] total loss: [1.4109745]
+Evaluation : [ 400/655 ] total loss: [1.3988459]
+Evaluation : [ 420/655 ] total loss: [1.1093596]
+Evaluation : [ 440/655 ] total loss: [2.2987332]
+Evaluation : [ 460/655 ] total loss: [1.2234721]
+Evaluation : [ 480/655 ] total loss: [1.3426433]
+Evaluation : [ 500/655 ] total loss: [1.3769941]
+Evaluation : [ 520/655 ] total loss: [0.8934614]
+Evaluation : [ 540/655 ] total loss: [1.5574849]
+Evaluation : [ 560/655 ] total loss: [1.2412652]
+Evaluation : [ 580/655 ] total loss: [1.8699768]
+Evaluation : [ 600/655 ] total loss: [1.8510889]
+Evaluation : [ 620/655 ] total loss: [0.9110576]
+Evaluation : [ 640/655 ] total loss: [1.4822973]
+Accumulating evaluation results...
+DONE (t=7.74s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.31862461444810514
+	AP of category [person]:		0.4716702101802591
+	AP of category [car]:		0.6198657265348835
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.31349953625612487
+	AP of category [truck]:		0.21011859451577405
+	AP of category [motorcycle]:		0.18228721488719368
+	AP of category [bicycle]:		0.2130256459964002
+	AP of category [bus]:		0.21990537276610037
+Evaluation finished. Time cost: 0:02:30
+Teaching epoch 14 : [ 20/371 ] total loss: [4.356984]
+Teaching epoch 14 : [ 40/371 ] total loss: [4.1050243]
+Teaching epoch 14 : [ 60/371 ] total loss: [4.3435297]
+Teaching epoch 14 : [ 80/371 ] total loss: [4.2617784]
+Teaching epoch 14 : [ 100/371 ] total loss: [3.9702117]
+Teaching epoch 14 : [ 120/371 ] total loss: [4.191882]
+Teaching epoch 14 : [ 140/371 ] total loss: [3.994749]
+Teaching epoch 14 : [ 160/371 ] total loss: [4.766337]
+Teaching epoch 14 : [ 180/371 ] total loss: [4.8372316]
+Teaching epoch 14 : [ 200/371 ] total loss: [4.5071173]
+Teaching epoch 14 : [ 220/371 ] total loss: [4.366926]
+Teaching epoch 14 : [ 240/371 ] total loss: [4.133209]
+Teaching epoch 14 : [ 260/371 ] total loss: [4.66304]
+Teaching epoch 14 : [ 280/371 ] total loss: [3.9441943]
+Teaching epoch 14 : [ 300/371 ] total loss: [4.2696443]
+Teaching epoch 14 : [ 320/371 ] total loss: [4.406415]
+Teaching epoch 14 : [ 340/371 ] total loss: [4.1227875]
+Teaching epoch 14 : [ 360/371 ] total loss: [4.146258]
+Teaching epoch 14 finished. Time cost: 0:06:21 Epoch loss: [4.3751626]
+Logits Means:  [0.0, 0.5128626549792413, 0.6177266935812218, 0.18399845123291014, 0.5446473201062119, 0.3695333268907335, 0.44815763242685114, 0.4502176478289176, 0.33776708837743996]
+New Dynamic Thresholds:  [0.25, 0.5707210093174013, 0.6, 0.38673900712376214, 0.5908115695478131, 0.5135187640863655, 0.5452312755766616, 0.5383765103115878, 0.5216704641794714]
+Evaluation : [ 20/655 ] total loss: [1.3475783]
+Evaluation : [ 40/655 ] total loss: [0.79698384]
+Evaluation : [ 60/655 ] total loss: [1.6442032]
+Evaluation : [ 80/655 ] total loss: [1.0410745]
+Evaluation : [ 100/655 ] total loss: [1.2553413]
+Evaluation : [ 120/655 ] total loss: [1.540345]
+Evaluation : [ 140/655 ] total loss: [1.13461]
+Evaluation : [ 160/655 ] total loss: [1.9451714]
+Evaluation : [ 180/655 ] total loss: [1.4565862]
+Evaluation : [ 200/655 ] total loss: [1.3207663]
+Evaluation : [ 220/655 ] total loss: [1.2374287]
+Evaluation : [ 240/655 ] total loss: [1.9396318]
+Evaluation : [ 260/655 ] total loss: [0.98613113]
+Evaluation : [ 280/655 ] total loss: [2.0949287]
+Evaluation : [ 300/655 ] total loss: [1.5119877]
+Evaluation : [ 320/655 ] total loss: [1.7195419]
+Evaluation : [ 340/655 ] total loss: [1.8364041]
+Evaluation : [ 360/655 ] total loss: [1.2766384]
+Evaluation : [ 380/655 ] total loss: [1.2529675]
+Evaluation : [ 400/655 ] total loss: [1.2428005]
+Evaluation : [ 420/655 ] total loss: [0.92956424]
+Evaluation : [ 440/655 ] total loss: [1.9388723]
+Evaluation : [ 460/655 ] total loss: [1.1357807]
+Evaluation : [ 480/655 ] total loss: [1.1612909]
+Evaluation : [ 500/655 ] total loss: [1.2518888]
+Evaluation : [ 520/655 ] total loss: [0.73488396]
+Evaluation : [ 540/655 ] total loss: [1.4686807]
+Evaluation : [ 560/655 ] total loss: [1.1021135]
+Evaluation : [ 580/655 ] total loss: [1.6494305]
+Evaluation : [ 600/655 ] total loss: [1.6008248]
+Evaluation : [ 620/655 ] total loss: [0.8283509]
+Evaluation : [ 640/655 ] total loss: [1.2830094]
+Accumulating evaluation results...
+DONE (t=5.94s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.3202519703964866
+	AP of category [person]:		0.4839268429158615
+	AP of category [car]:		0.6321071300870403
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.30136735741240145
+	AP of category [truck]:		0.2068984467281121
+	AP of category [motorcycle]:		0.1893025291866549
+	AP of category [bicycle]:		0.21848161095362836
+	AP of category [bus]:		0.20967987549170783
+Evaluation finished. Time cost: 0:02:28
+Evaluation : [ 20/655 ] total loss: [1.5404056]
+Evaluation : [ 40/655 ] total loss: [0.93924105]
+Evaluation : [ 60/655 ] total loss: [1.9148552]
+Evaluation : [ 80/655 ] total loss: [1.2410953]
+Evaluation : [ 100/655 ] total loss: [1.3738258]
+Evaluation : [ 120/655 ] total loss: [1.7069302]
+Evaluation : [ 140/655 ] total loss: [1.3487177]
+Evaluation : [ 160/655 ] total loss: [2.2774267]
+Evaluation : [ 180/655 ] total loss: [1.6429727]
+Evaluation : [ 200/655 ] total loss: [1.5040574]
+Evaluation : [ 220/655 ] total loss: [1.3803233]
+Evaluation : [ 240/655 ] total loss: [2.4242911]
+Evaluation : [ 260/655 ] total loss: [1.063781]
+Evaluation : [ 280/655 ] total loss: [2.4645457]
+Evaluation : [ 300/655 ] total loss: [1.7144604]
+Evaluation : [ 320/655 ] total loss: [1.9296951]
+Evaluation : [ 340/655 ] total loss: [2.215946]
+Evaluation : [ 360/655 ] total loss: [1.4647713]
+Evaluation : [ 380/655 ] total loss: [1.4694319]
+Evaluation : [ 400/655 ] total loss: [1.4196634]
+Evaluation : [ 420/655 ] total loss: [1.1239535]
+Evaluation : [ 440/655 ] total loss: [2.3295243]
+Evaluation : [ 460/655 ] total loss: [1.3048633]
+Evaluation : [ 480/655 ] total loss: [1.3576524]
+Evaluation : [ 500/655 ] total loss: [1.4074452]
+Evaluation : [ 520/655 ] total loss: [0.88592577]
+Evaluation : [ 540/655 ] total loss: [1.6028414]
+Evaluation : [ 560/655 ] total loss: [1.2628592]
+Evaluation : [ 580/655 ] total loss: [1.8733095]
+Evaluation : [ 600/655 ] total loss: [1.8763113]
+Evaluation : [ 620/655 ] total loss: [0.9187217]
+Evaluation : [ 640/655 ] total loss: [1.5171412]
+Accumulating evaluation results...
+DONE (t=6.96s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.3200733777200374
+	AP of category [person]:		0.4815336940942777
+	AP of category [car]:		0.6159707344594311
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.3078386751504173
+	AP of category [truck]:		0.21906905392974796
+	AP of category [motorcycle]:		0.183938588254769
+	AP of category [bicycle]:		0.218719764678971
+	AP of category [bus]:		0.2134431334726479
+Evaluation finished. Time cost: 0:02:27
+Teaching epoch 15 : [ 20/371 ] total loss: [4.4937325]
+Teaching epoch 15 : [ 40/371 ] total loss: [4.0262017]
+Teaching epoch 15 : [ 60/371 ] total loss: [4.4159355]
+Teaching epoch 15 : [ 80/371 ] total loss: [4.3213434]
+Teaching epoch 15 : [ 100/371 ] total loss: [3.9715147]
+Teaching epoch 15 : [ 120/371 ] total loss: [4.3118424]
+Teaching epoch 15 : [ 140/371 ] total loss: [4.0722213]
+Teaching epoch 15 : [ 160/371 ] total loss: [4.8611016]
+Teaching epoch 15 : [ 180/371 ] total loss: [5.198145]
+Teaching epoch 15 : [ 200/371 ] total loss: [4.324567]
+Teaching epoch 15 : [ 220/371 ] total loss: [4.2394123]
+Teaching epoch 15 : [ 240/371 ] total loss: [4.219384]
+Teaching epoch 15 : [ 260/371 ] total loss: [4.777406]
+Teaching epoch 15 : [ 280/371 ] total loss: [3.7161684]
+Teaching epoch 15 : [ 300/371 ] total loss: [4.133412]
+Teaching epoch 15 : [ 320/371 ] total loss: [4.3495398]
+Teaching epoch 15 : [ 340/371 ] total loss: [4.0083714]
+Teaching epoch 15 : [ 360/371 ] total loss: [4.1064987]
+Teaching epoch 15 finished. Time cost: 0:06:21 Epoch loss: [4.381623]
+Logits Means:  [0.0, 0.5154681793393304, 0.6143176193802958, 0.21013199104057564, 0.5483047264818479, 0.4117306762399743, 0.4479580485654946, 0.4434784905091717, 0.3684582679100286]
+New Dynamic Thresholds:  [0.25, 0.5782654097815785, 0.6, 0.38932124689287867, 0.5983732538027444, 0.5199165065296643, 0.5509448494009644, 0.5444736219238591, 0.5241341048345534]
+Evaluation : [ 20/655 ] total loss: [1.3500185]
+Evaluation : [ 40/655 ] total loss: [0.8072309]
+Evaluation : [ 60/655 ] total loss: [1.6615722]
+Evaluation : [ 80/655 ] total loss: [1.0553088]
+Evaluation : [ 100/655 ] total loss: [1.2622105]
+Evaluation : [ 120/655 ] total loss: [1.5535107]
+Evaluation : [ 140/655 ] total loss: [1.151603]
+Evaluation : [ 160/655 ] total loss: [1.964113]
+Evaluation : [ 180/655 ] total loss: [1.47029]
+Evaluation : [ 200/655 ] total loss: [1.3392948]
+Evaluation : [ 220/655 ] total loss: [1.2376947]
+Evaluation : [ 240/655 ] total loss: [1.9823542]
+Evaluation : [ 260/655 ] total loss: [0.9914121]
+Evaluation : [ 280/655 ] total loss: [2.120925]
+Evaluation : [ 300/655 ] total loss: [1.527394]
+Evaluation : [ 320/655 ] total loss: [1.7408836]
+Evaluation : [ 340/655 ] total loss: [1.8710115]
+Evaluation : [ 360/655 ] total loss: [1.2905946]
+Evaluation : [ 380/655 ] total loss: [1.272049]
+Evaluation : [ 400/655 ] total loss: [1.258137]
+Evaluation : [ 420/655 ] total loss: [0.9479987]
+Evaluation : [ 440/655 ] total loss: [1.9727664]
+Evaluation : [ 460/655 ] total loss: [1.1588511]
+Evaluation : [ 480/655 ] total loss: [1.1798253]
+Evaluation : [ 500/655 ] total loss: [1.2667927]
+Evaluation : [ 520/655 ] total loss: [0.75076914]
+Evaluation : [ 540/655 ] total loss: [1.4834039]
+Evaluation : [ 560/655 ] total loss: [1.1096754]
+Evaluation : [ 580/655 ] total loss: [1.6621764]
+Evaluation : [ 600/655 ] total loss: [1.6231922]
+Evaluation : [ 620/655 ] total loss: [0.8395421]
+Evaluation : [ 640/655 ] total loss: [1.302196]
+Accumulating evaluation results...
+DONE (t=6.06s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.31949336340964907
+	AP of category [person]:		0.48461743350381187
+	AP of category [car]:		0.6311225090313498
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.2993925907888487
+	AP of category [truck]:		0.20618024804441526
+	AP of category [motorcycle]:		0.19350897111996213
+	AP of category [bicycle]:		0.21510063242986768
+	AP of category [bus]:		0.206531158949288
+Evaluation finished. Time cost: 0:02:29
+Evaluation : [ 20/655 ] total loss: [1.5230134]
+Evaluation : [ 40/655 ] total loss: [0.9868757]
+Evaluation : [ 60/655 ] total loss: [1.903918]
+Evaluation : [ 80/655 ] total loss: [1.2283441]
+Evaluation : [ 100/655 ] total loss: [1.3107057]
+Evaluation : [ 120/655 ] total loss: [1.7518666]
+Evaluation : [ 140/655 ] total loss: [1.375749]
+Evaluation : [ 160/655 ] total loss: [2.3092566]
+Evaluation : [ 180/655 ] total loss: [1.688256]
+Evaluation : [ 200/655 ] total loss: [1.4786052]
+Evaluation : [ 220/655 ] total loss: [1.4068115]
+Evaluation : [ 240/655 ] total loss: [2.4156206]
+Evaluation : [ 260/655 ] total loss: [1.0830126]
+Evaluation : [ 280/655 ] total loss: [2.4558792]
+Evaluation : [ 300/655 ] total loss: [1.7533615]
+Evaluation : [ 320/655 ] total loss: [1.956932]
+Evaluation : [ 340/655 ] total loss: [2.1672518]
+Evaluation : [ 360/655 ] total loss: [1.4675169]
+Evaluation : [ 380/655 ] total loss: [1.4423764]
+Evaluation : [ 400/655 ] total loss: [1.4278864]
+Evaluation : [ 420/655 ] total loss: [1.1741693]
+Evaluation : [ 440/655 ] total loss: [2.3515592]
+Evaluation : [ 460/655 ] total loss: [1.274844]
+Evaluation : [ 480/655 ] total loss: [1.3942976]
+Evaluation : [ 500/655 ] total loss: [1.4366087]
+Evaluation : [ 520/655 ] total loss: [0.92760444]
+Evaluation : [ 540/655 ] total loss: [1.6074145]
+Evaluation : [ 560/655 ] total loss: [1.2705567]
+Evaluation : [ 580/655 ] total loss: [1.8389314]
+Evaluation : [ 600/655 ] total loss: [1.9163069]
+Evaluation : [ 620/655 ] total loss: [0.9525988]
+Evaluation : [ 640/655 ] total loss: [1.5467757]
+Accumulating evaluation results...
+DONE (t=4.41s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.3174372587642859
+	AP of category [person]:		0.4741898416936775
+	AP of category [car]:		0.6098103560731157
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.28748959535731006
+	AP of category [truck]:		0.22445022335483805
+	AP of category [motorcycle]:		0.1871054285951462
+	AP of category [bicycle]:		0.22108627015834986
+	AP of category [bus]:		0.2179290961175641
+Evaluation finished. Time cost: 0:02:25
+Teaching epoch 16 : [ 20/371 ] total loss: [4.1398606]
+Teaching epoch 16 : [ 40/371 ] total loss: [4.154772]
+Teaching epoch 16 : [ 60/371 ] total loss: [4.504819]
+Teaching epoch 16 : [ 80/371 ] total loss: [4.348946]
+Teaching epoch 16 : [ 100/371 ] total loss: [4.0461426]
+Teaching epoch 16 : [ 120/371 ] total loss: [4.153971]
+Teaching epoch 16 : [ 140/371 ] total loss: [4.2078876]
+Teaching epoch 16 : [ 160/371 ] total loss: [4.8602333]
+Teaching epoch 16 : [ 180/371 ] total loss: [4.8203573]
+Teaching epoch 16 : [ 200/371 ] total loss: [4.521703]
+Teaching epoch 16 : [ 220/371 ] total loss: [4.817412]
+Teaching epoch 16 : [ 240/371 ] total loss: [4.299077]
+Teaching epoch 16 : [ 260/371 ] total loss: [4.931206]
+Teaching epoch 16 : [ 280/371 ] total loss: [4.035064]
+Teaching epoch 16 : [ 300/371 ] total loss: [4.471946]
+Teaching epoch 16 : [ 320/371 ] total loss: [4.3095865]
+Teaching epoch 16 : [ 340/371 ] total loss: [4.126861]
+Teaching epoch 16 : [ 360/371 ] total loss: [4.2790623]
+Teaching epoch 16 finished. Time cost: 0:06:23 Epoch loss: [4.430586]
+Logits Means:  [0.0, 0.5132153421696343, 0.6201832344899159, 0.16372944587884947, 0.5444898312008715, 0.40304256620861234, 0.4577331046747967, 0.43753124913297203, 0.3622483291862181]
+New Dynamic Thresholds:  [0.25, 0.5849140134063917, 0.6, 0.3868062680502752, 0.6, 0.5250619260351315, 0.5567407425830792, 0.5495577901836384, 0.5258890565785862]
+Evaluation : [ 20/655 ] total loss: [1.3578312]
+Evaluation : [ 40/655 ] total loss: [0.82402027]
+Evaluation : [ 60/655 ] total loss: [1.6859959]
+Evaluation : [ 80/655 ] total loss: [1.0705729]
+Evaluation : [ 100/655 ] total loss: [1.2711773]
+Evaluation : [ 120/655 ] total loss: [1.5785087]
+Evaluation : [ 140/655 ] total loss: [1.1733747]
+Evaluation : [ 160/655 ] total loss: [2.0014493]
+Evaluation : [ 180/655 ] total loss: [1.4826176]
+Evaluation : [ 200/655 ] total loss: [1.3611206]
+Evaluation : [ 220/655 ] total loss: [1.2559373]
+Evaluation : [ 240/655 ] total loss: [2.023987]
+Evaluation : [ 260/655 ] total loss: [0.9999045]
+Evaluation : [ 280/655 ] total loss: [2.147318]
+Evaluation : [ 300/655 ] total loss: [1.5450109]
+Evaluation : [ 320/655 ] total loss: [1.7655499]
+Evaluation : [ 340/655 ] total loss: [1.9089788]
+Evaluation : [ 360/655 ] total loss: [1.3090141]
+Evaluation : [ 380/655 ] total loss: [1.2913232]
+Evaluation : [ 400/655 ] total loss: [1.2783442]
+Evaluation : [ 420/655 ] total loss: [0.96619415]
+Evaluation : [ 440/655 ] total loss: [2.01092]
+Evaluation : [ 460/655 ] total loss: [1.1753772]
+Evaluation : [ 480/655 ] total loss: [1.2012018]
+Evaluation : [ 500/655 ] total loss: [1.2831972]
+Evaluation : [ 520/655 ] total loss: [0.76697725]
+Evaluation : [ 540/655 ] total loss: [1.4937253]
+Evaluation : [ 560/655 ] total loss: [1.1199905]
+Evaluation : [ 580/655 ] total loss: [1.6785562]
+Evaluation : [ 600/655 ] total loss: [1.6510003]
+Evaluation : [ 620/655 ] total loss: [0.8515701]
+Evaluation : [ 640/655 ] total loss: [1.3277572]
+Accumulating evaluation results...
+DONE (t=5.17s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.3186556876907615
+	AP of category [person]:		0.48363372394475723
+	AP of category [car]:		0.6278150299839039
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.29644045291254906
+	AP of category [truck]:		0.20754789140419894
+	AP of category [motorcycle]:		0.18870842903514504
+	AP of category [bicycle]:		0.22104559507089647
+	AP of category [bus]:		0.2053986914838802
+Evaluation finished. Time cost: 0:02:26
+Evaluation : [ 20/655 ] total loss: [1.5757256]
+Evaluation : [ 40/655 ] total loss: [1.0276983]
+Evaluation : [ 60/655 ] total loss: [1.9198531]
+Evaluation : [ 80/655 ] total loss: [1.2303078]
+Evaluation : [ 100/655 ] total loss: [1.3293531]
+Evaluation : [ 120/655 ] total loss: [1.744903]
+Evaluation : [ 140/655 ] total loss: [1.3792417]
+Evaluation : [ 160/655 ] total loss: [2.3486447]
+Evaluation : [ 180/655 ] total loss: [1.6998256]
+Evaluation : [ 200/655 ] total loss: [1.4981515]
+Evaluation : [ 220/655 ] total loss: [1.4205122]
+Evaluation : [ 240/655 ] total loss: [2.4496613]
+Evaluation : [ 260/655 ] total loss: [1.0942152]
+Evaluation : [ 280/655 ] total loss: [2.4882379]
+Evaluation : [ 300/655 ] total loss: [1.7959698]
+Evaluation : [ 320/655 ] total loss: [1.9956844]
+Evaluation : [ 340/655 ] total loss: [2.2341099]
+Evaluation : [ 360/655 ] total loss: [1.5400994]
+Evaluation : [ 380/655 ] total loss: [1.4896197]
+Evaluation : [ 400/655 ] total loss: [1.4365273]
+Evaluation : [ 420/655 ] total loss: [1.1968213]
+Evaluation : [ 440/655 ] total loss: [2.3472092]
+Evaluation : [ 460/655 ] total loss: [1.2769755]
+Evaluation : [ 480/655 ] total loss: [1.4126824]
+Evaluation : [ 500/655 ] total loss: [1.4189633]
+Evaluation : [ 520/655 ] total loss: [0.9111254]
+Evaluation : [ 540/655 ] total loss: [1.6225817]
+Evaluation : [ 560/655 ] total loss: [1.2690287]
+Evaluation : [ 580/655 ] total loss: [1.8688821]
+Evaluation : [ 600/655 ] total loss: [1.9043186]
+Evaluation : [ 620/655 ] total loss: [0.9395791]
+Evaluation : [ 640/655 ] total loss: [1.5561546]
+Accumulating evaluation results...
+DONE (t=6.39s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.31470822123702075
+	AP of category [person]:		0.47557932033645256
+	AP of category [car]:		0.615255541016248
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.2833530406546722
+	AP of category [truck]:		0.23233187665789978
+	AP of category [motorcycle]:		0.16993362552238836
+	AP of category [bicycle]:		0.20152622358323
+	AP of category [bus]:		0.22497792088825416
+Evaluation finished. Time cost: 0:02:24
+Teaching epoch 17 : [ 20/371 ] total loss: [4.6326995]
+Teaching epoch 17 : [ 40/371 ] total loss: [4.1629205]
+Teaching epoch 17 : [ 60/371 ] total loss: [4.1868963]
+Teaching epoch 17 : [ 80/371 ] total loss: [4.1820555]
+Teaching epoch 17 : [ 100/371 ] total loss: [4.0209537]
+Teaching epoch 17 : [ 120/371 ] total loss: [4.349244]
+Teaching epoch 17 : [ 140/371 ] total loss: [4.153713]
+Teaching epoch 17 : [ 160/371 ] total loss: [4.7688913]
+Teaching epoch 17 : [ 180/371 ] total loss: [4.806484]
+Teaching epoch 17 : [ 200/371 ] total loss: [4.270199]
+Teaching epoch 17 : [ 220/371 ] total loss: [4.9016314]
+Teaching epoch 17 : [ 240/371 ] total loss: [4.3368616]
+Teaching epoch 17 : [ 260/371 ] total loss: [4.9560013]
+Teaching epoch 17 : [ 280/371 ] total loss: [3.8128858]
+Teaching epoch 17 : [ 300/371 ] total loss: [4.566742]
+Teaching epoch 17 : [ 320/371 ] total loss: [4.407612]
+Teaching epoch 17 : [ 340/371 ] total loss: [4.204856]
+Teaching epoch 17 : [ 360/371 ] total loss: [4.20428]
+Teaching epoch 17 finished. Time cost: 0:06:21 Epoch loss: [4.4564753]
+Logits Means:  [0.0, 0.5097030340796196, 0.6286719874696923, 0.16820815757468896, 0.5647269885863828, 0.39986412613480177, 0.4605241476918181, 0.44981315230980295, 0.3709233767026431]
+New Dynamic Thresholds:  [0.25, 0.5906767526019462, 0.6, 0.3850375102897025, 0.6, 0.5294670628985346, 0.5621424048844209, 0.5549633111323015, 0.5281132821147344]
+Evaluation : [ 20/655 ] total loss: [1.374773]
+Evaluation : [ 40/655 ] total loss: [0.84472084]
+Evaluation : [ 60/655 ] total loss: [1.7149043]
+Evaluation : [ 80/655 ] total loss: [1.0948279]
+Evaluation : [ 100/655 ] total loss: [1.2690165]
+Evaluation : [ 120/655 ] total loss: [1.6087545]
+Evaluation : [ 140/655 ] total loss: [1.1976126]
+Evaluation : [ 160/655 ] total loss: [2.040662]
+Evaluation : [ 180/655 ] total loss: [1.4990766]
+Evaluation : [ 200/655 ] total loss: [1.3864236]
+Evaluation : [ 220/655 ] total loss: [1.2740638]
+Evaluation : [ 240/655 ] total loss: [2.0758219]
+Evaluation : [ 260/655 ] total loss: [1.0105361]
+Evaluation : [ 280/655 ] total loss: [2.1816688]
+Evaluation : [ 300/655 ] total loss: [1.557772]
+Evaluation : [ 320/655 ] total loss: [1.7964649]
+Evaluation : [ 340/655 ] total loss: [1.9574407]
+Evaluation : [ 360/655 ] total loss: [1.3349881]
+Evaluation : [ 380/655 ] total loss: [1.3151058]
+Evaluation : [ 400/655 ] total loss: [1.29733]
+Evaluation : [ 420/655 ] total loss: [0.98868835]
+Evaluation : [ 440/655 ] total loss: [2.0545127]
+Evaluation : [ 460/655 ] total loss: [1.1940169]
+Evaluation : [ 480/655 ] total loss: [1.2222991]
+Evaluation : [ 500/655 ] total loss: [1.3016014]
+Evaluation : [ 520/655 ] total loss: [0.78283995]
+Evaluation : [ 540/655 ] total loss: [1.5062174]
+Evaluation : [ 560/655 ] total loss: [1.1354961]
+Evaluation : [ 580/655 ] total loss: [1.7056568]
+Evaluation : [ 600/655 ] total loss: [1.6822752]
+Evaluation : [ 620/655 ] total loss: [0.86473596]
+Evaluation : [ 640/655 ] total loss: [1.360179]
+Accumulating evaluation results...
+DONE (t=5.55s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.31809661651466603
+	AP of category [person]:		0.4830272900809857
+	AP of category [car]:		0.624105643773166
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.2938411425091144
+	AP of category [truck]:		0.20925779302280104
+	AP of category [motorcycle]:		0.19005143427351426
+	AP of category [bicycle]:		0.21969953700765643
+	AP of category [bus]:		0.20669347493542434
+Evaluation finished. Time cost: 0:02:27
+Evaluation : [ 20/655 ] total loss: [1.6503637]
+Evaluation : [ 40/655 ] total loss: [1.0533934]
+Evaluation : [ 60/655 ] total loss: [2.0182376]
+Evaluation : [ 80/655 ] total loss: [1.3018391]
+Evaluation : [ 100/655 ] total loss: [1.4108171]
+Evaluation : [ 120/655 ] total loss: [1.8333523]
+Evaluation : [ 140/655 ] total loss: [1.4435625]
+Evaluation : [ 160/655 ] total loss: [2.4501843]
+Evaluation : [ 180/655 ] total loss: [1.7755795]
+Evaluation : [ 200/655 ] total loss: [1.614433]
+Evaluation : [ 220/655 ] total loss: [1.5044255]
+Evaluation : [ 240/655 ] total loss: [2.5713038]
+Evaluation : [ 260/655 ] total loss: [1.1529775]
+Evaluation : [ 280/655 ] total loss: [2.6090932]
+Evaluation : [ 300/655 ] total loss: [1.8525394]
+Evaluation : [ 320/655 ] total loss: [2.1106815]
+Evaluation : [ 340/655 ] total loss: [2.3308043]
+Evaluation : [ 360/655 ] total loss: [1.5854223]
+Evaluation : [ 380/655 ] total loss: [1.5618013]
+Evaluation : [ 400/655 ] total loss: [1.5022476]
+Evaluation : [ 420/655 ] total loss: [1.2569059]
+Evaluation : [ 440/655 ] total loss: [2.5174267]
+Evaluation : [ 460/655 ] total loss: [1.3499068]
+Evaluation : [ 480/655 ] total loss: [1.4530401]
+Evaluation : [ 500/655 ] total loss: [1.4862698]
+Evaluation : [ 520/655 ] total loss: [0.9898681]
+Evaluation : [ 540/655 ] total loss: [1.6873844]
+Evaluation : [ 560/655 ] total loss: [1.3417634]
+Evaluation : [ 580/655 ] total loss: [1.983269]
+Evaluation : [ 600/655 ] total loss: [1.9452348]
+Evaluation : [ 620/655 ] total loss: [1.0109867]
+Evaluation : [ 640/655 ] total loss: [1.6320957]
+Accumulating evaluation results...
+DONE (t=5.51s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.30523472335943314
+	AP of category [person]:		0.4608986969021272
+	AP of category [car]:		0.5821813684376665
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.2825016081474194
+	AP of category [truck]:		0.21612264633492054
+	AP of category [motorcycle]:		0.17839044506862306
+	AP of category [bicycle]:		0.21191460206298002
+	AP of category [bus]:		0.20463369656229466
+Evaluation finished. Time cost: 0:02:27
+Teaching epoch 18 : [ 20/371 ] total loss: [4.3472996]
+Teaching epoch 18 : [ 40/371 ] total loss: [3.9337766]
+Teaching epoch 18 : [ 60/371 ] total loss: [4.556417]
+Teaching epoch 18 : [ 80/371 ] total loss: [4.205711]
+Teaching epoch 18 : [ 100/371 ] total loss: [4.0920043]
+Teaching epoch 18 : [ 120/371 ] total loss: [4.5510483]
+Teaching epoch 18 : [ 140/371 ] total loss: [4.5949383]
+Teaching epoch 18 : [ 160/371 ] total loss: [4.8555164]
+Teaching epoch 18 : [ 180/371 ] total loss: [4.9142265]
+Teaching epoch 18 : [ 200/371 ] total loss: [4.7125936]
+Teaching epoch 18 : [ 220/371 ] total loss: [4.673723]
+Teaching epoch 18 : [ 240/371 ] total loss: [4.4086075]
+Teaching epoch 18 : [ 260/371 ] total loss: [4.967431]
+Teaching epoch 18 : [ 280/371 ] total loss: [3.9848504]
+Teaching epoch 18 : [ 300/371 ] total loss: [4.4488034]
+Teaching epoch 18 : [ 320/371 ] total loss: [4.7706223]
+Teaching epoch 18 : [ 340/371 ] total loss: [4.2922177]
+Teaching epoch 18 : [ 360/371 ] total loss: [4.2833605]
+Teaching epoch 18 finished. Time cost: 0:06:23 Epoch loss: [4.5433054]
+Logits Means:  [0.0, 0.5176760870338741, 0.6376013191448091, 0.1693795455129523, 0.541702913434318, 0.3972236828926282, 0.4737374182074329, 0.4453871310114147, 0.3708116208764141]
+New Dynamic Thresholds:  [0.25, 0.5963638169750354, 0.6, 0.38357393094844067, 0.6, 0.5332434721034272, 0.5678738913469172, 0.5595305776568457, 0.5301068271272632]
+Evaluation : [ 20/655 ] total loss: [1.3996694]
+Evaluation : [ 40/655 ] total loss: [0.8677591]
+Evaluation : [ 60/655 ] total loss: [1.7464379]
+Evaluation : [ 80/655 ] total loss: [1.1184943]
+Evaluation : [ 100/655 ] total loss: [1.2965846]
+Evaluation : [ 120/655 ] total loss: [1.6312883]
+Evaluation : [ 140/655 ] total loss: [1.2210082]
+Evaluation : [ 160/655 ] total loss: [2.0857797]
+Evaluation : [ 180/655 ] total loss: [1.5182579]
+Evaluation : [ 200/655 ] total loss: [1.4153433]
+Evaluation : [ 220/655 ] total loss: [1.2951345]
+Evaluation : [ 240/655 ] total loss: [2.1338754]
+Evaluation : [ 260/655 ] total loss: [1.0272665]
+Evaluation : [ 280/655 ] total loss: [2.2243593]
+Evaluation : [ 300/655 ] total loss: [1.5762489]
+Evaluation : [ 320/655 ] total loss: [1.8317674]
+Evaluation : [ 340/655 ] total loss: [2.00096]
+Evaluation : [ 360/655 ] total loss: [1.3659592]
+Evaluation : [ 380/655 ] total loss: [1.3425026]
+Evaluation : [ 400/655 ] total loss: [1.3208786]
+Evaluation : [ 420/655 ] total loss: [1.015537]
+Evaluation : [ 440/655 ] total loss: [2.1051948]
+Evaluation : [ 460/655 ] total loss: [1.2189753]
+Evaluation : [ 480/655 ] total loss: [1.249399]
+Evaluation : [ 500/655 ] total loss: [1.3206071]
+Evaluation : [ 520/655 ] total loss: [0.80370164]
+Evaluation : [ 540/655 ] total loss: [1.519328]
+Evaluation : [ 560/655 ] total loss: [1.1569202]
+Evaluation : [ 580/655 ] total loss: [1.73405]
+Evaluation : [ 600/655 ] total loss: [1.7223759]
+Evaluation : [ 620/655 ] total loss: [0.88333935]
+Evaluation : [ 640/655 ] total loss: [1.4013164]
+Accumulating evaluation results...
+DONE (t=6.02s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.318211582466413
+	AP of category [person]:		0.4822860487827977
+	AP of category [car]:		0.6234939752541184
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.29227060069967253
+	AP of category [truck]:		0.21279113668800503
+	AP of category [motorcycle]:		0.19035561913040314
+	AP of category [bicycle]:		0.21783195809909428
+	AP of category [bus]:		0.20845173861079982
+Evaluation finished. Time cost: 0:02:26
+Evaluation : [ 20/655 ] total loss: [1.6274585]
+Evaluation : [ 40/655 ] total loss: [1.0351194]
+Evaluation : [ 60/655 ] total loss: [2.0285559]
+Evaluation : [ 80/655 ] total loss: [1.3503668]
+Evaluation : [ 100/655 ] total loss: [1.4582102]
+Evaluation : [ 120/655 ] total loss: [1.8307774]
+Evaluation : [ 140/655 ] total loss: [1.4793367]
+Evaluation : [ 160/655 ] total loss: [2.5205114]
+Evaluation : [ 180/655 ] total loss: [1.7872102]
+Evaluation : [ 200/655 ] total loss: [1.6237445]
+Evaluation : [ 220/655 ] total loss: [1.478579]
+Evaluation : [ 240/655 ] total loss: [2.5636613]
+Evaluation : [ 260/655 ] total loss: [1.1578633]
+Evaluation : [ 280/655 ] total loss: [2.6668565]
+Evaluation : [ 300/655 ] total loss: [1.8589258]
+Evaluation : [ 320/655 ] total loss: [2.1394575]
+Evaluation : [ 340/655 ] total loss: [2.3506947]
+Evaluation : [ 360/655 ] total loss: [1.608908]
+Evaluation : [ 380/655 ] total loss: [1.5821025]
+Evaluation : [ 400/655 ] total loss: [1.4923495]
+Evaluation : [ 420/655 ] total loss: [1.2538145]
+Evaluation : [ 440/655 ] total loss: [2.5247076]
+Evaluation : [ 460/655 ] total loss: [1.3606594]
+Evaluation : [ 480/655 ] total loss: [1.4729567]
+Evaluation : [ 500/655 ] total loss: [1.4898005]
+Evaluation : [ 520/655 ] total loss: [0.95852053]
+Evaluation : [ 540/655 ] total loss: [1.6885815]
+Evaluation : [ 560/655 ] total loss: [1.3460325]
+Evaluation : [ 580/655 ] total loss: [1.9783124]
+Evaluation : [ 600/655 ] total loss: [1.9782057]
+Evaluation : [ 620/655 ] total loss: [0.991505]
+Evaluation : [ 640/655 ] total loss: [1.6365898]
+Accumulating evaluation results...
+DONE (t=4.10s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.31470019958063633
+	AP of category [person]:		0.46702237098945876
+	AP of category [car]:		0.606274205444276
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.2773220197915993
+	AP of category [truck]:		0.23037188395886724
+	AP of category [motorcycle]:		0.1727272368866395
+	AP of category [bicycle]:		0.2132437007797606
+	AP of category [bus]:		0.235939979213853
+Evaluation finished. Time cost: 0:02:21
+Teaching epoch 19 : [ 20/371 ] total loss: [5.0013037]
+Teaching epoch 19 : [ 40/371 ] total loss: [4.0843105]
+Teaching epoch 19 : [ 60/371 ] total loss: [4.8820376]
+Teaching epoch 19 : [ 80/371 ] total loss: [4.448403]
+Teaching epoch 19 : [ 100/371 ] total loss: [4.2028155]
+Teaching epoch 19 : [ 120/371 ] total loss: [4.6814203]
+Teaching epoch 19 : [ 140/371 ] total loss: [4.825474]
+Teaching epoch 19 : [ 160/371 ] total loss: [4.794404]
+Teaching epoch 19 : [ 180/371 ] total loss: [5.083746]
+Teaching epoch 19 : [ 200/371 ] total loss: [4.5259]
+Teaching epoch 19 : [ 220/371 ] total loss: [4.6003556]
+Teaching epoch 19 : [ 240/371 ] total loss: [4.2888017]
+Teaching epoch 19 : [ 260/371 ] total loss: [4.987163]
+Teaching epoch 19 : [ 280/371 ] total loss: [4.1812916]
+Teaching epoch 19 : [ 300/371 ] total loss: [4.4617033]
+Teaching epoch 19 : [ 320/371 ] total loss: [4.8565607]
+Teaching epoch 19 : [ 340/371 ] total loss: [4.5155]
+Teaching epoch 19 : [ 360/371 ] total loss: [4.5244503]
+Teaching epoch 19 finished. Time cost: 0:06:22 Epoch loss: [4.6086006]
+Logits Means:  [0.0, 0.5132466755319149, 0.6270493693702218, 0.17399914496767838, 0.5521755574252376, 0.3805878697609415, 0.46653665209573414, 0.43797276631819543, 0.365322009314223]
+New Dynamic Thresholds:  [0.25, 0.6, 0.6, 0.3827584221195494, 0.6, 0.5354417486158844, 0.5725596417284032, 0.5631390797026484, 0.5314938307205298]
+Doing selective reinitialization. Parameters of the model will be reinitialized EXCEPT FOR:
+Evaluation : [ 20/655 ] total loss: [1.4272063]
+Evaluation : [ 40/655 ] total loss: [0.8974805]
+Evaluation : [ 60/655 ] total loss: [1.7825121]
+Evaluation : [ 80/655 ] total loss: [1.1451855]
+Evaluation : [ 100/655 ] total loss: [1.337681]
+Evaluation : [ 120/655 ] total loss: [1.6532129]
+Evaluation : [ 140/655 ] total loss: [1.2509086]
+Evaluation : [ 160/655 ] total loss: [2.1316214]
+Evaluation : [ 180/655 ] total loss: [1.540968]
+Evaluation : [ 200/655 ] total loss: [1.4506049]
+Evaluation : [ 220/655 ] total loss: [1.3190995]
+Evaluation : [ 240/655 ] total loss: [2.1962137]
+Evaluation : [ 260/655 ] total loss: [1.0477538]
+Evaluation : [ 280/655 ] total loss: [2.2685828]
+Evaluation : [ 300/655 ] total loss: [1.5968292]
+Evaluation : [ 320/655 ] total loss: [1.8701315]
+Evaluation : [ 340/655 ] total loss: [2.0478234]
+Evaluation : [ 360/655 ] total loss: [1.3946571]
+Evaluation : [ 380/655 ] total loss: [1.3727669]
+Evaluation : [ 400/655 ] total loss: [1.3400602]
+Evaluation : [ 420/655 ] total loss: [1.0435424]
+Evaluation : [ 440/655 ] total loss: [2.1648164]
+Evaluation : [ 460/655 ] total loss: [1.2441435]
+Evaluation : [ 480/655 ] total loss: [1.276778]
+Evaluation : [ 500/655 ] total loss: [1.3481464]
+Evaluation : [ 520/655 ] total loss: [0.81981313]
+Evaluation : [ 540/655 ] total loss: [1.5349572]
+Evaluation : [ 560/655 ] total loss: [1.183334]
+Evaluation : [ 580/655 ] total loss: [1.7656444]
+Evaluation : [ 600/655 ] total loss: [1.7602234]
+Evaluation : [ 620/655 ] total loss: [0.9015939]
+Evaluation : [ 640/655 ] total loss: [1.4331863]
+Accumulating evaluation results...
+DONE (t=4.95s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.3186428880512045
+	AP of category [person]:		0.479453646606322
+	AP of category [car]:		0.6196271440191543
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.2930801064404241
+	AP of category [truck]:		0.21482026748000996
+	AP of category [motorcycle]:		0.18857604263252406
+	AP of category [bicycle]:		0.22069926190191086
+	AP of category [bus]:		0.2142437472780864
+Evaluation finished. Time cost: 0:02:24
+Evaluation : [ 20/655 ] total loss: [1.3491755]
+Evaluation : [ 40/655 ] total loss: [0.81830156]
+Evaluation : [ 60/655 ] total loss: [1.6391737]
+Evaluation : [ 80/655 ] total loss: [1.0557534]
+Evaluation : [ 100/655 ] total loss: [1.2172456]
+Evaluation : [ 120/655 ] total loss: [1.4663651]
+Evaluation : [ 140/655 ] total loss: [1.0979087]
+Evaluation : [ 160/655 ] total loss: [1.8568659]
+Evaluation : [ 180/655 ] total loss: [1.4350622]
+Evaluation : [ 200/655 ] total loss: [1.3375435]
+Evaluation : [ 220/655 ] total loss: [1.2373233]
+Evaluation : [ 240/655 ] total loss: [1.6958957]
+Evaluation : [ 260/655 ] total loss: [1.0000645]
+Evaluation : [ 280/655 ] total loss: [1.9865683]
+Evaluation : [ 300/655 ] total loss: [1.5473431]
+Evaluation : [ 320/655 ] total loss: [1.6542988]
+Evaluation : [ 340/655 ] total loss: [1.785779]
+Evaluation : [ 360/655 ] total loss: [1.2527531]
+Evaluation : [ 380/655 ] total loss: [1.1400995]
+Evaluation : [ 400/655 ] total loss: [1.143715]
+Evaluation : [ 420/655 ] total loss: [0.8279723]
+Evaluation : [ 440/655 ] total loss: [1.8389065]
+Evaluation : [ 460/655 ] total loss: [1.0465047]
+Evaluation : [ 480/655 ] total loss: [1.1318777]
+Evaluation : [ 500/655 ] total loss: [1.1718447]
+Evaluation : [ 520/655 ] total loss: [0.6916146]
+Evaluation : [ 540/655 ] total loss: [1.4561533]
+Evaluation : [ 560/655 ] total loss: [1.0892847]
+Evaluation : [ 580/655 ] total loss: [1.6880586]
+Evaluation : [ 600/655 ] total loss: [1.5985588]
+Evaluation : [ 620/655 ] total loss: [0.9012437]
+Evaluation : [ 640/655 ] total loss: [1.2775649]
+Accumulating evaluation results...
+DONE (t=6.03s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.3006583637662856
+	AP of category [person]:		0.45289181683870033
+	AP of category [car]:		0.6146249621421266
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.260429490484427
+	AP of category [truck]:		0.20072771215723942
+	AP of category [motorcycle]:		0.1780311836067957
+	AP of category [bicycle]:		0.22261006200123978
+	AP of category [bus]:		0.17529331913347004
+Evaluation finished. Time cost: 0:02:34
+Saving checkpoints to outputs/def-detr-base/city2bdd/teaching/model_last_tch.pth
+Saving checkpoints to outputs/def-detr-base/city2bdd/teaching/model_last_stu.pth
+Teaching finished. Time cost: 3:58:08 . Best mAP50: 0.33733253364647414

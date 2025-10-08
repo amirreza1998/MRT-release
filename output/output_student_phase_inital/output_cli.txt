@@ -1,0 +1,1592 @@
+root@eed8218237b4:/app/app4# python main.py
+Not using distributed mode
+-------------------------------------
+Logs will be written to output/data_logs
+Checkpoints will be saved to output
+-------------------------------------
+backbone resnet50
+pos_encoding sine
+num_classes 2
+num_queries 300
+num_feature_levels 4
+with_box_refine False
+hidden_dim 256
+num_heads 8
+num_encoder_layers 6
+num_decoder_layers 6
+feedforward_dim 1024
+dropout 0.0
+batch_size 6
+eval_batch_size 8
+lr 0.0002
+lr_backbone 2e-05
+lr_linear_proj 2e-05
+sgd False
+weight_decay 0.0001
+clip_max_norm 0.5
+epoch 50
+epoch_lr_drop 60
+teach_box_loss False
+coef_class 2.0
+coef_boxes 5.0
+coef_giou 2.0
+coef_target 1.0
+coef_domain 1.0
+coef_domain_bac 0.3
+coef_mae 1.0
+alpha_focal 0.25
+alpha_ema 0.9996
+data_root ./data
+source_dataset tanks_source
+target_dataset tanks_source
+epoch_retrain 40
+keep_modules ['decoder']
+mae_layers [2]
+mask_ratio 0.8
+epoch_mae_decay 10
+threshold 0.3
+alpha_dt 0.5
+gamma_dt 0.9
+max_dt 0.45
+mode single_domain
+device cuda
+output_dir ./output
+random_seed 8008
+num_workers 8
+print_freq 20
+flush True
+resume
+eval_from_checkpoint None
+world_size 1
+distributed False
+-------------------------------------
+loading annotations into memory...
+Done (t=0.02s)
+creating index...
+index created!
+loading annotations into memory...
+Done (t=0.01s)
+creating index...
+index created!
+Training epoch 0 : [ 20/365 ] total loss: [4.9868135]
+Training epoch 0 : [ 40/365 ] total loss: [5.2109046]
+Training epoch 0 : [ 60/365 ] total loss: [4.2860427]
+Training epoch 0 : [ 80/365 ] total loss: [5.1512637]
+Training epoch 0 : [ 100/365 ] total loss: [2.8337893]
+Training epoch 0 : [ 120/365 ] total loss: [3.0566845]
+Training epoch 0 : [ 140/365 ] total loss: [2.9532704]
+Training epoch 0 : [ 160/365 ] total loss: [2.967257]
+Training epoch 0 : [ 180/365 ] total loss: [3.6028564]
+Training epoch 0 : [ 200/365 ] total loss: [2.8566072]
+Training epoch 0 : [ 220/365 ] total loss: [2.8184962]
+Training epoch 0 : [ 240/365 ] total loss: [2.6454382]
+Training epoch 0 : [ 260/365 ] total loss: [3.1608524]
+Training epoch 0 : [ 280/365 ] total loss: [2.976487]
+Training epoch 0 : [ 300/365 ] total loss: [3.2087183]
+Training epoch 0 : [ 320/365 ] total loss: [2.1544838]
+Training epoch 0 : [ 340/365 ] total loss: [2.643348]
+Training epoch 0 : [ 360/365 ] total loss: [2.1736248]
+Training epoch 0 finished. Time cost: 0:02:16 Epoch loss: [3.2822196]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [1.5333993]
+Evaluation : [ 40/69 ] total loss: [1.775667]
+Evaluation : [ 60/69 ] total loss: [3.0046165]
+Accumulating evaluation results...
+DONE (t=0.15s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.0952249116543815
+        AP of category [tank]:          0.0952249116543815
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:15
+Checkpoint saved to output/model_best.pth
+this is map50: 0.0952249116543815
+Training epoch 1 : [ 20/365 ] total loss: [1.7381071]
+Training epoch 1 : [ 40/365 ] total loss: [2.678556]
+Training epoch 1 : [ 60/365 ] total loss: [2.0294225]
+Training epoch 1 : [ 80/365 ] total loss: [2.477105]
+Training epoch 1 : [ 100/365 ] total loss: [2.308391]
+Training epoch 1 : [ 120/365 ] total loss: [1.852186]
+Training epoch 1 : [ 140/365 ] total loss: [2.369173]
+Training epoch 1 : [ 160/365 ] total loss: [3.1614037]
+Training epoch 1 : [ 180/365 ] total loss: [2.7665]
+Training epoch 1 : [ 200/365 ] total loss: [3.1557899]
+Training epoch 1 : [ 220/365 ] total loss: [2.5721579]
+Training epoch 1 : [ 240/365 ] total loss: [2.1414135]
+Training epoch 1 : [ 260/365 ] total loss: [2.3567214]
+Training epoch 1 : [ 280/365 ] total loss: [1.8661087]
+Training epoch 1 : [ 300/365 ] total loss: [2.8791275]
+Training epoch 1 : [ 320/365 ] total loss: [2.080182]
+Training epoch 1 : [ 340/365 ] total loss: [2.2458067]
+Training epoch 1 : [ 360/365 ] total loss: [2.0738251]
+Training epoch 1 finished. Time cost: 0:02:32 Epoch loss: [2.2488244]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [1.4190552]
+Evaluation : [ 40/69 ] total loss: [1.8184736]
+Evaluation : [ 60/69 ] total loss: [2.6989846]
+Accumulating evaluation results...
+DONE (t=0.16s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.2828311766624772
+        AP of category [tank]:          0.2828311766624772
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:16
+Checkpoint saved to output/model_best.pth
+this is map50: 0.2828311766624772
+Training epoch 2 : [ 20/365 ] total loss: [2.2499583]
+Training epoch 2 : [ 40/365 ] total loss: [2.000668]
+Training epoch 2 : [ 60/365 ] total loss: [2.3229723]
+Training epoch 2 : [ 80/365 ] total loss: [1.6009407]
+Training epoch 2 : [ 100/365 ] total loss: [2.2537277]
+Training epoch 2 : [ 120/365 ] total loss: [1.8837698]
+Training epoch 2 : [ 140/365 ] total loss: [2.306331]
+Training epoch 2 : [ 160/365 ] total loss: [1.8316463]
+Training epoch 2 : [ 180/365 ] total loss: [2.2648635]
+Training epoch 2 : [ 200/365 ] total loss: [2.0203118]
+Training epoch 2 : [ 220/365 ] total loss: [1.8418612]
+Training epoch 2 : [ 240/365 ] total loss: [2.3596513]
+Training epoch 2 : [ 260/365 ] total loss: [1.5541815]
+Training epoch 2 : [ 280/365 ] total loss: [2.4902384]
+Training epoch 2 : [ 300/365 ] total loss: [2.376217]
+Training epoch 2 : [ 320/365 ] total loss: [1.9208502]
+Training epoch 2 : [ 340/365 ] total loss: [1.8102112]
+Training epoch 2 : [ 360/365 ] total loss: [1.6682433]
+Training epoch 2 finished. Time cost: 0:02:25 Epoch loss: [2.0328016]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [1.1064775]
+Evaluation : [ 40/69 ] total loss: [1.3286817]
+Evaluation : [ 60/69 ] total loss: [2.3531404]
+Accumulating evaluation results...
+DONE (t=0.17s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.3011811040414503
+        AP of category [tank]:          0.3011811040414503
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:16
+Checkpoint saved to output/model_best.pth
+this is map50: 0.3011811040414503
+Training epoch 3 : [ 20/365 ] total loss: [1.2153882]
+Training epoch 3 : [ 40/365 ] total loss: [1.8924936]
+Training epoch 3 : [ 60/365 ] total loss: [1.4331087]
+Training epoch 3 : [ 80/365 ] total loss: [2.5386705]
+Training epoch 3 : [ 100/365 ] total loss: [2.9266148]
+Training epoch 3 : [ 120/365 ] total loss: [2.3694174]
+Training epoch 3 : [ 140/365 ] total loss: [2.052]
+Training epoch 3 : [ 160/365 ] total loss: [1.8457336]
+Training epoch 3 : [ 180/365 ] total loss: [1.7111844]
+Training epoch 3 : [ 200/365 ] total loss: [1.4374437]
+Training epoch 3 : [ 220/365 ] total loss: [2.0422616]
+Training epoch 3 : [ 240/365 ] total loss: [2.3179216]
+Training epoch 3 : [ 260/365 ] total loss: [1.4278593]
+Training epoch 3 : [ 280/365 ] total loss: [1.6291907]
+Training epoch 3 : [ 300/365 ] total loss: [1.2730997]
+Training epoch 3 : [ 320/365 ] total loss: [1.4133272]
+Training epoch 3 : [ 340/365 ] total loss: [1.9490309]
+Training epoch 3 : [ 360/365 ] total loss: [1.7846713]
+Training epoch 3 finished. Time cost: 0:02:16 Epoch loss: [1.8734578]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.9309284]
+Evaluation : [ 40/69 ] total loss: [1.4912205]
+Evaluation : [ 60/69 ] total loss: [2.311823]
+Accumulating evaluation results...
+DONE (t=0.17s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.3366210115709559
+        AP of category [tank]:          0.3366210115709559
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:16
+Checkpoint saved to output/model_best.pth
+this is map50: 0.3366210115709559
+Training epoch 4 : [ 20/365 ] total loss: [2.2220254]
+Training epoch 4 : [ 40/365 ] total loss: [2.3494523]
+Training epoch 4 : [ 60/365 ] total loss: [1.5503936]
+Training epoch 4 : [ 80/365 ] total loss: [2.1734881]
+Training epoch 4 : [ 100/365 ] total loss: [1.3774146]
+Training epoch 4 : [ 120/365 ] total loss: [2.4756572]
+Training epoch 4 : [ 140/365 ] total loss: [1.6157054]
+Training epoch 4 : [ 160/365 ] total loss: [0.9130869]
+Training epoch 4 : [ 180/365 ] total loss: [1.8576875]
+Training epoch 4 : [ 200/365 ] total loss: [1.9507298]
+Training epoch 4 : [ 220/365 ] total loss: [2.097963]
+Training epoch 4 : [ 240/365 ] total loss: [2.6455898]
+Training epoch 4 : [ 260/365 ] total loss: [1.3530712]
+Training epoch 4 : [ 280/365 ] total loss: [2.215087]
+Training epoch 4 : [ 300/365 ] total loss: [2.1163347]
+Training epoch 4 : [ 320/365 ] total loss: [0.8773388]
+Training epoch 4 : [ 340/365 ] total loss: [1.4561143]
+Training epoch 4 : [ 360/365 ] total loss: [1.7511462]
+Training epoch 4 finished. Time cost: 0:02:13 Epoch loss: [1.7704135]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.82025814]
+Evaluation : [ 40/69 ] total loss: [1.121174]
+Evaluation : [ 60/69 ] total loss: [2.0494347]
+Accumulating evaluation results...
+DONE (t=0.17s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.41690211876278066
+        AP of category [tank]:          0.41690211876278066
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:16
+Checkpoint saved to output/model_best.pth
+this is map50: 0.41690211876278066
+Training epoch 5 : [ 20/365 ] total loss: [1.4087757]
+Training epoch 5 : [ 40/365 ] total loss: [1.3996787]
+Training epoch 5 : [ 60/365 ] total loss: [1.7251983]
+Training epoch 5 : [ 80/365 ] total loss: [1.9110487]
+Training epoch 5 : [ 100/365 ] total loss: [1.3332938]
+Training epoch 5 : [ 120/365 ] total loss: [1.7280719]
+Training epoch 5 : [ 140/365 ] total loss: [1.8287606]
+Training epoch 5 : [ 160/365 ] total loss: [2.2690883]
+Training epoch 5 : [ 180/365 ] total loss: [1.9760985]
+Training epoch 5 : [ 200/365 ] total loss: [1.0549877]
+Training epoch 5 : [ 220/365 ] total loss: [1.3286159]
+Training epoch 5 : [ 240/365 ] total loss: [1.4708257]
+Training epoch 5 : [ 260/365 ] total loss: [1.6951501]
+Training epoch 5 : [ 280/365 ] total loss: [2.1271763]
+Training epoch 5 : [ 300/365 ] total loss: [2.0619428]
+Training epoch 5 : [ 320/365 ] total loss: [1.3758744]
+Training epoch 5 : [ 340/365 ] total loss: [1.729552]
+Training epoch 5 : [ 360/365 ] total loss: [1.0944937]
+Training epoch 5 finished. Time cost: 0:02:37 Epoch loss: [1.6863524]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.539332]
+Evaluation : [ 40/69 ] total loss: [1.0385704]
+Evaluation : [ 60/69 ] total loss: [2.0456233]
+Accumulating evaluation results...
+DONE (t=0.17s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.3981111359900096
+        AP of category [tank]:          0.3981111359900096
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:16
+this is map50: 0.3981111359900096
+Training epoch 6 : [ 20/365 ] total loss: [1.538145]
+Training epoch 6 : [ 40/365 ] total loss: [0.87715834]
+Training epoch 6 : [ 60/365 ] total loss: [1.2550278]
+Training epoch 6 : [ 80/365 ] total loss: [1.8783109]
+Training epoch 6 : [ 100/365 ] total loss: [1.567974]
+Training epoch 6 : [ 120/365 ] total loss: [1.5712054]
+Training epoch 6 : [ 140/365 ] total loss: [1.4998045]
+Training epoch 6 : [ 160/365 ] total loss: [1.2464445]
+Training epoch 6 : [ 180/365 ] total loss: [0.8629369]
+Training epoch 6 : [ 200/365 ] total loss: [1.7344275]
+Training epoch 6 : [ 220/365 ] total loss: [1.9311001]
+Training epoch 6 : [ 240/365 ] total loss: [1.2213415]
+Training epoch 6 : [ 260/365 ] total loss: [2.7068472]
+Training epoch 6 : [ 280/365 ] total loss: [1.8889954]
+Training epoch 6 : [ 300/365 ] total loss: [1.825745]
+Training epoch 6 : [ 320/365 ] total loss: [1.8847454]
+Training epoch 6 : [ 340/365 ] total loss: [0.94131124]
+Training epoch 6 : [ 360/365 ] total loss: [1.3768198]
+Training epoch 6 finished. Time cost: 0:02:15 Epoch loss: [1.608649]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.76975286]
+Evaluation : [ 40/69 ] total loss: [1.0334127]
+Evaluation : [ 60/69 ] total loss: [2.1678088]
+Accumulating evaluation results...
+DONE (t=0.17s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.4148243824995975
+        AP of category [tank]:          0.4148243824995975
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:16
+this is map50: 0.4148243824995975
+Training epoch 7 : [ 20/365 ] total loss: [0.85623354]
+Training epoch 7 : [ 40/365 ] total loss: [1.8202267]
+Training epoch 7 : [ 60/365 ] total loss: [1.8076134]
+Training epoch 7 : [ 80/365 ] total loss: [1.8515122]
+Training epoch 7 : [ 100/365 ] total loss: [1.1449103]
+Training epoch 7 : [ 120/365 ] total loss: [1.2988534]
+Training epoch 7 : [ 140/365 ] total loss: [0.8779382]
+Training epoch 7 : [ 160/365 ] total loss: [2.352653]
+Training epoch 7 : [ 180/365 ] total loss: [0.95501745]
+Training epoch 7 : [ 200/365 ] total loss: [1.7465738]
+Training epoch 7 : [ 220/365 ] total loss: [2.1236615]
+Training epoch 7 : [ 240/365 ] total loss: [1.0291739]
+Training epoch 7 : [ 260/365 ] total loss: [1.0170012]
+Training epoch 7 : [ 280/365 ] total loss: [1.4879059]
+Training epoch 7 : [ 300/365 ] total loss: [2.2455912]
+Training epoch 7 : [ 320/365 ] total loss: [1.2599041]
+Training epoch 7 : [ 340/365 ] total loss: [1.4320679]
+Training epoch 7 : [ 360/365 ] total loss: [1.1596383]
+Training epoch 7 finished. Time cost: 0:02:21 Epoch loss: [1.5343269]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.839651]
+Evaluation : [ 40/69 ] total loss: [1.0690522]
+Evaluation : [ 60/69 ] total loss: [2.2462907]
+Accumulating evaluation results...
+DONE (t=0.17s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.40751514986353926
+        AP of category [tank]:          0.40751514986353926
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:17
+this is map50: 0.40751514986353926
+Training epoch 8 : [ 20/365 ] total loss: [1.1757526]
+Training epoch 8 : [ 40/365 ] total loss: [2.1470413]
+Training epoch 8 : [ 60/365 ] total loss: [2.0542088]
+Training epoch 8 : [ 80/365 ] total loss: [1.4834266]
+Training epoch 8 : [ 100/365 ] total loss: [1.6794419]
+Training epoch 8 : [ 120/365 ] total loss: [0.93847287]
+Training epoch 8 : [ 140/365 ] total loss: [1.9699078]
+Training epoch 8 : [ 160/365 ] total loss: [2.2625086]
+Training epoch 8 : [ 180/365 ] total loss: [0.8048135]
+Training epoch 8 : [ 200/365 ] total loss: [1.6043456]
+Training epoch 8 : [ 220/365 ] total loss: [1.6058443]
+Training epoch 8 : [ 240/365 ] total loss: [1.0835192]
+Training epoch 8 : [ 260/365 ] total loss: [2.0540404]
+Training epoch 8 : [ 280/365 ] total loss: [1.4165395]
+Training epoch 8 : [ 300/365 ] total loss: [1.9245121]
+Training epoch 8 : [ 320/365 ] total loss: [1.8089244]
+Training epoch 8 : [ 340/365 ] total loss: [2.0396423]
+Training epoch 8 : [ 360/365 ] total loss: [1.2467921]
+Training epoch 8 finished. Time cost: 0:02:28 Epoch loss: [1.4939342]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.53674644]
+Evaluation : [ 40/69 ] total loss: [0.75065154]
+Evaluation : [ 60/69 ] total loss: [2.0549226]
+Accumulating evaluation results...
+DONE (t=0.16s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.39231192295752565
+        AP of category [tank]:          0.39231192295752565
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:21
+this is map50: 0.39231192295752565
+Training epoch 9 : [ 20/365 ] total loss: [1.2040868]
+Training epoch 9 : [ 40/365 ] total loss: [1.2195283]
+Training epoch 9 : [ 60/365 ] total loss: [1.4250195]
+Training epoch 9 : [ 80/365 ] total loss: [0.93246114]
+Training epoch 9 : [ 100/365 ] total loss: [0.9902816]
+Training epoch 9 : [ 120/365 ] total loss: [1.9713068]
+Training epoch 9 : [ 140/365 ] total loss: [1.4280112]
+Training epoch 9 : [ 160/365 ] total loss: [1.7726669]
+Training epoch 9 : [ 180/365 ] total loss: [0.83784807]
+Training epoch 9 : [ 200/365 ] total loss: [1.5356634]
+Training epoch 9 : [ 220/365 ] total loss: [1.6521995]
+Training epoch 9 : [ 240/365 ] total loss: [1.0836139]
+Training epoch 9 : [ 260/365 ] total loss: [2.0884795]
+Training epoch 9 : [ 280/365 ] total loss: [0.82879364]
+Training epoch 9 : [ 300/365 ] total loss: [0.67898387]
+Training epoch 9 : [ 320/365 ] total loss: [1.4704831]
+Training epoch 9 : [ 340/365 ] total loss: [1.8313694]
+Training epoch 9 : [ 360/365 ] total loss: [2.049588]
+Training epoch 9 finished. Time cost: 0:03:34 Epoch loss: [1.4617735]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.45680317]
+Evaluation : [ 40/69 ] total loss: [0.91755056]
+Evaluation : [ 60/69 ] total loss: [1.9170306]
+Accumulating evaluation results...
+DONE (t=0.16s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.45021312898243426
+        AP of category [tank]:          0.45021312898243426
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:21
+Checkpoint saved to output/model_best.pth
+this is map50: 0.45021312898243426
+Training epoch 10 : [ 20/365 ] total loss: [1.6565492]
+Training epoch 10 : [ 40/365 ] total loss: [1.3611345]
+Training epoch 10 : [ 60/365 ] total loss: [1.0547444]
+Training epoch 10 : [ 80/365 ] total loss: [1.5958707]
+Training epoch 10 : [ 100/365 ] total loss: [0.7837995]
+Training epoch 10 : [ 120/365 ] total loss: [1.3768187]
+Training epoch 10 : [ 140/365 ] total loss: [0.75790787]
+Training epoch 10 : [ 160/365 ] total loss: [1.3092544]
+Training epoch 10 : [ 180/365 ] total loss: [2.1795335]
+Training epoch 10 : [ 200/365 ] total loss: [1.348479]
+Training epoch 10 : [ 220/365 ] total loss: [1.0589279]
+Training epoch 10 : [ 240/365 ] total loss: [1.3094456]
+Training epoch 10 : [ 260/365 ] total loss: [0.80345577]
+Training epoch 10 : [ 280/365 ] total loss: [0.9279229]
+Training epoch 10 : [ 300/365 ] total loss: [1.3178043]
+Training epoch 10 : [ 320/365 ] total loss: [1.1746225]
+Training epoch 10 : [ 340/365 ] total loss: [1.7591088]
+Training epoch 10 : [ 360/365 ] total loss: [1.191832]
+Training epoch 10 finished. Time cost: 0:04:17 Epoch loss: [1.380336]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.43795797]
+Evaluation : [ 40/69 ] total loss: [0.7211835]
+Evaluation : [ 60/69 ] total loss: [2.0087373]
+Accumulating evaluation results...
+DONE (t=0.16s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.4539597575843736
+        AP of category [tank]:          0.4539597575843736
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:20
+Checkpoint saved to output/model_best.pth
+this is map50: 0.4539597575843736
+Training epoch 11 : [ 20/365 ] total loss: [1.09987]
+Training epoch 11 : [ 40/365 ] total loss: [1.1640507]
+Training epoch 11 : [ 60/365 ] total loss: [1.608089]
+Training epoch 11 : [ 80/365 ] total loss: [2.090823]
+Training epoch 11 : [ 100/365 ] total loss: [1.1553364]
+Training epoch 11 : [ 120/365 ] total loss: [1.1608944]
+Training epoch 11 : [ 140/365 ] total loss: [1.2737883]
+Training epoch 11 : [ 160/365 ] total loss: [1.4389989]
+Training epoch 11 : [ 180/365 ] total loss: [1.2556871]
+Training epoch 11 : [ 200/365 ] total loss: [2.1305604]
+Training epoch 11 : [ 220/365 ] total loss: [1.1511011]
+Training epoch 11 : [ 240/365 ] total loss: [1.4508448]
+Training epoch 11 : [ 260/365 ] total loss: [1.3970582]
+Training epoch 11 : [ 280/365 ] total loss: [0.8028861]
+Training epoch 11 : [ 300/365 ] total loss: [1.1247171]
+Training epoch 11 : [ 320/365 ] total loss: [1.5304565]
+Training epoch 11 : [ 340/365 ] total loss: [1.6437424]
+Training epoch 11 : [ 360/365 ] total loss: [1.3696785]
+Training epoch 11 finished. Time cost: 0:03:34 Epoch loss: [1.4019698]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.7166207]
+Evaluation : [ 40/69 ] total loss: [0.9946898]
+Evaluation : [ 60/69 ] total loss: [1.8468289]
+Accumulating evaluation results...
+DONE (t=0.17s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.4694835348249959
+        AP of category [tank]:          0.4694835348249959
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:23
+Checkpoint saved to output/model_best.pth
+this is map50: 0.4694835348249959
+Training epoch 12 : [ 20/365 ] total loss: [0.8165895]
+Training epoch 12 : [ 40/365 ] total loss: [0.73110557]
+Training epoch 12 : [ 60/365 ] total loss: [1.3750199]
+Training epoch 12 : [ 80/365 ] total loss: [1.7244242]
+Training epoch 12 : [ 100/365 ] total loss: [1.7044308]
+Training epoch 12 : [ 120/365 ] total loss: [0.62722194]
+Training epoch 12 : [ 140/365 ] total loss: [0.7010414]
+Training epoch 12 : [ 160/365 ] total loss: [0.64959615]
+Training epoch 12 : [ 180/365 ] total loss: [1.8950748]
+Training epoch 12 : [ 200/365 ] total loss: [1.1485014]
+Training epoch 12 : [ 220/365 ] total loss: [1.6419988]
+Training epoch 12 : [ 240/365 ] total loss: [1.2428458]
+Training epoch 12 : [ 260/365 ] total loss: [0.70206755]
+Training epoch 12 : [ 280/365 ] total loss: [1.2867615]
+Training epoch 12 : [ 300/365 ] total loss: [0.9312956]
+Training epoch 12 : [ 320/365 ] total loss: [0.8049793]
+Training epoch 12 : [ 340/365 ] total loss: [1.5792173]
+Training epoch 12 : [ 360/365 ] total loss: [2.0233095]
+Training epoch 12 finished. Time cost: 0:03:22 Epoch loss: [1.3233372]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.621752]
+Evaluation : [ 40/69 ] total loss: [0.9400026]
+Evaluation : [ 60/69 ] total loss: [2.3111012]
+Accumulating evaluation results...
+DONE (t=0.16s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.3831329031036648
+        AP of category [tank]:          0.3831329031036648
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:20
+this is map50: 0.3831329031036648
+Training epoch 13 : [ 20/365 ] total loss: [1.5004729]
+Training epoch 13 : [ 40/365 ] total loss: [2.2819269]
+Training epoch 13 : [ 60/365 ] total loss: [1.5068702]
+Training epoch 13 : [ 80/365 ] total loss: [0.96430796]
+Training epoch 13 : [ 100/365 ] total loss: [1.6621208]
+Training epoch 13 : [ 120/365 ] total loss: [1.5118746]
+Training epoch 13 : [ 140/365 ] total loss: [1.7235255]
+Training epoch 13 : [ 160/365 ] total loss: [1.0776404]
+Training epoch 13 : [ 180/365 ] total loss: [1.8775853]
+Training epoch 13 : [ 200/365 ] total loss: [1.2076592]
+Training epoch 13 : [ 220/365 ] total loss: [1.2603874]
+Training epoch 13 : [ 240/365 ] total loss: [1.6083667]
+Training epoch 13 : [ 260/365 ] total loss: [0.67488587]
+Training epoch 13 : [ 280/365 ] total loss: [1.9422696]
+Training epoch 13 : [ 300/365 ] total loss: [0.6280774]
+Training epoch 13 : [ 320/365 ] total loss: [1.1382375]
+Training epoch 13 : [ 340/365 ] total loss: [1.3297169]
+Training epoch 13 : [ 360/365 ] total loss: [1.4976273]
+Training epoch 13 finished. Time cost: 0:03:28 Epoch loss: [1.3547816]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.5468328]
+Evaluation : [ 40/69 ] total loss: [0.8048779]
+Evaluation : [ 60/69 ] total loss: [2.4996572]
+Accumulating evaluation results...
+DONE (t=0.17s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.44337556238935655
+        AP of category [tank]:          0.44337556238935655
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:20
+this is map50: 0.44337556238935655
+Training epoch 14 : [ 20/365 ] total loss: [1.1514108]
+Training epoch 14 : [ 40/365 ] total loss: [0.7787084]
+Training epoch 14 : [ 60/365 ] total loss: [1.8301764]
+Training epoch 14 : [ 80/365 ] total loss: [0.89004296]
+Training epoch 14 : [ 100/365 ] total loss: [0.56123435]
+Training epoch 14 : [ 120/365 ] total loss: [1.6629632]
+Training epoch 14 : [ 140/365 ] total loss: [1.046253]
+Training epoch 14 : [ 160/365 ] total loss: [1.0025276]
+Training epoch 14 : [ 180/365 ] total loss: [1.5601147]
+Training epoch 14 : [ 200/365 ] total loss: [1.7192568]
+Training epoch 14 : [ 220/365 ] total loss: [1.3941015]
+Training epoch 14 : [ 240/365 ] total loss: [1.8026931]
+Training epoch 14 : [ 260/365 ] total loss: [1.9985108]
+Training epoch 14 : [ 280/365 ] total loss: [1.6842012]
+Training epoch 14 : [ 300/365 ] total loss: [0.8630675]
+Training epoch 14 : [ 320/365 ] total loss: [1.4589322]
+Training epoch 14 : [ 340/365 ] total loss: [1.4239469]
+Training epoch 14 : [ 360/365 ] total loss: [0.8845874]
+Training epoch 14 finished. Time cost: 0:03:18 Epoch loss: [1.2787821]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.7294664]
+Evaluation : [ 40/69 ] total loss: [0.8678179]
+Evaluation : [ 60/69 ] total loss: [2.0084894]
+Accumulating evaluation results...
+DONE (t=0.16s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.46606204362579645
+        AP of category [tank]:          0.46606204362579645
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:20
+this is map50: 0.46606204362579645
+Training epoch 15 : [ 20/365 ] total loss: [1.434698]
+Training epoch 15 : [ 40/365 ] total loss: [0.5058547]
+Training epoch 15 : [ 60/365 ] total loss: [1.5379868]
+Training epoch 15 : [ 80/365 ] total loss: [1.5793016]
+Training epoch 15 : [ 100/365 ] total loss: [1.8999714]
+Training epoch 15 : [ 120/365 ] total loss: [1.4449575]
+Training epoch 15 : [ 140/365 ] total loss: [0.58376014]
+Training epoch 15 : [ 160/365 ] total loss: [1.2706156]
+Training epoch 15 : [ 180/365 ] total loss: [1.2690281]
+Training epoch 15 : [ 200/365 ] total loss: [0.88474977]
+Training epoch 15 : [ 220/365 ] total loss: [1.2387655]
+Training epoch 15 : [ 240/365 ] total loss: [1.4138321]
+Training epoch 15 : [ 260/365 ] total loss: [1.6805958]
+Training epoch 15 : [ 280/365 ] total loss: [1.4601088]
+Training epoch 15 : [ 300/365 ] total loss: [1.1435839]
+Training epoch 15 : [ 320/365 ] total loss: [0.9135456]
+Training epoch 15 : [ 340/365 ] total loss: [1.6689849]
+Training epoch 15 : [ 360/365 ] total loss: [1.5438604]
+Training epoch 15 finished. Time cost: 0:03:12 Epoch loss: [1.2520615]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.6086062]
+Evaluation : [ 40/69 ] total loss: [0.9121002]
+Evaluation : [ 60/69 ] total loss: [2.0145147]
+Accumulating evaluation results...
+DONE (t=0.17s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.44937863814299134
+        AP of category [tank]:          0.44937863814299134
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:21
+this is map50: 0.44937863814299134
+Training epoch 16 : [ 20/365 ] total loss: [1.9409227]
+Training epoch 16 : [ 40/365 ] total loss: [1.9837565]
+Training epoch 16 : [ 60/365 ] total loss: [1.4954257]
+Training epoch 16 : [ 80/365 ] total loss: [1.5352473]
+Training epoch 16 : [ 100/365 ] total loss: [1.4463208]
+Training epoch 16 : [ 120/365 ] total loss: [1.5765218]
+Training epoch 16 : [ 140/365 ] total loss: [0.9444196]
+Training epoch 16 : [ 160/365 ] total loss: [1.2278488]
+Training epoch 16 : [ 180/365 ] total loss: [0.62062335]
+Training epoch 16 : [ 200/365 ] total loss: [1.515706]
+Training epoch 16 : [ 220/365 ] total loss: [0.59947777]
+Training epoch 16 : [ 240/365 ] total loss: [1.3060247]
+Training epoch 16 : [ 260/365 ] total loss: [1.0528972]
+Training epoch 16 : [ 280/365 ] total loss: [1.6055868]
+Training epoch 16 : [ 300/365 ] total loss: [0.80351204]
+Training epoch 16 : [ 320/365 ] total loss: [1.8814176]
+Training epoch 16 : [ 340/365 ] total loss: [0.34847233]
+Training epoch 16 : [ 360/365 ] total loss: [1.6688552]
+Training epoch 16 finished. Time cost: 0:03:26 Epoch loss: [1.2542013]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.40397343]
+Evaluation : [ 40/69 ] total loss: [0.59768]
+Evaluation : [ 60/69 ] total loss: [1.9188421]
+Accumulating evaluation results...
+DONE (t=0.17s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.48934432100498243
+        AP of category [tank]:          0.48934432100498243
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:21
+Checkpoint saved to output/model_best.pth
+this is map50: 0.48934432100498243
+Training epoch 17 : [ 20/365 ] total loss: [1.5419483]
+Training epoch 17 : [ 40/365 ] total loss: [1.6538329]
+Training epoch 17 : [ 60/365 ] total loss: [1.3114724]
+Training epoch 17 : [ 80/365 ] total loss: [1.0211105]
+Training epoch 17 : [ 100/365 ] total loss: [1.2654381]
+Training epoch 17 : [ 120/365 ] total loss: [0.81994385]
+Training epoch 17 : [ 140/365 ] total loss: [1.090763]
+Training epoch 17 : [ 160/365 ] total loss: [0.76423466]
+Training epoch 17 : [ 180/365 ] total loss: [1.3629954]
+Training epoch 17 : [ 200/365 ] total loss: [1.6175222]
+Training epoch 17 : [ 220/365 ] total loss: [1.589414]
+Training epoch 17 : [ 240/365 ] total loss: [1.18417]
+Training epoch 17 : [ 260/365 ] total loss: [0.9366139]
+Training epoch 17 : [ 280/365 ] total loss: [1.6320217]
+Training epoch 17 : [ 300/365 ] total loss: [1.4711899]
+Training epoch 17 : [ 320/365 ] total loss: [1.2034993]
+Training epoch 17 : [ 340/365 ] total loss: [1.4936807]
+Training epoch 17 : [ 360/365 ] total loss: [1.1099991]
+Training epoch 17 finished. Time cost: 0:03:38 Epoch loss: [1.2007668]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.78399366]
+Evaluation : [ 40/69 ] total loss: [0.93704027]
+Evaluation : [ 60/69 ] total loss: [2.0077968]
+Accumulating evaluation results...
+DONE (t=0.18s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.47527997151532064
+        AP of category [tank]:          0.47527997151532064
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:20
+this is map50: 0.47527997151532064
+Training epoch 18 : [ 20/365 ] total loss: [1.0610912]
+Training epoch 18 : [ 40/365 ] total loss: [1.0338483]
+Training epoch 18 : [ 60/365 ] total loss: [0.8552979]
+Training epoch 18 : [ 80/365 ] total loss: [0.75897115]
+Training epoch 18 : [ 100/365 ] total loss: [1.1342351]
+Training epoch 18 : [ 120/365 ] total loss: [1.1941698]
+Training epoch 18 : [ 140/365 ] total loss: [1.7127666]
+Training epoch 18 : [ 160/365 ] total loss: [1.8883951]
+Training epoch 18 : [ 180/365 ] total loss: [1.0668314]
+Training epoch 18 : [ 200/365 ] total loss: [1.8429831]
+Training epoch 18 : [ 220/365 ] total loss: [1.542918]
+Training epoch 18 : [ 240/365 ] total loss: [0.6743336]
+Training epoch 18 : [ 260/365 ] total loss: [1.1853524]
+Training epoch 18 : [ 280/365 ] total loss: [0.79934704]
+Training epoch 18 : [ 300/365 ] total loss: [1.7635262]
+Training epoch 18 : [ 320/365 ] total loss: [1.5450339]
+Training epoch 18 : [ 340/365 ] total loss: [1.3567607]
+Training epoch 18 : [ 360/365 ] total loss: [1.1495411]
+Training epoch 18 finished. Time cost: 0:03:55 Epoch loss: [1.1966292]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.5370363]
+Evaluation : [ 40/69 ] total loss: [0.62584376]
+D:\Shahabodini\People-Count-using\People-Count-using\venvEvaluation : [ 60/69 ] total loss: [1.7855406]
+Accumulating evaluation results...
+DONE (t=0.17s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.5394403334794846
+        AP of category [tank]:          0.5394403334794846
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:38
+Checkpoint saved to output/model_best.pth
+this is map50: 0.5394403334794846
+Training epoch 19 : [ 20/365 ] total loss: [1.2764307]
+Training epoch 19 : [ 40/365 ] total loss: [1.3346939]
+Training epoch 19 : [ 60/365 ] total loss: [1.7747784]
+Training epoch 19 : [ 80/365 ] total loss: [0.5878468]
+Training epoch 19 : [ 100/365 ] total loss: [1.0699406]
+Training epoch 19 : [ 120/365 ] total loss: [1.8608174]
+Training epoch 19 : [ 140/365 ] total loss: [0.6566328]
+Training epoch 19 : [ 160/365 ] total loss: [0.9198406]
+Training epoch 19 : [ 180/365 ] total loss: [2.2038255]
+Training epoch 19 : [ 200/365 ] total loss: [0.40619433]
+Training epoch 19 : [ 220/365 ] total loss: [1.0656202]
+Training epoch 19 : [ 240/365 ] total loss: [1.1243434]
+Training epoch 19 : [ 260/365 ] total loss: [1.770977]
+Training epoch 19 : [ 280/365 ] total loss: [1.1522341]
+Training epoch 19 : [ 300/365 ] total loss: [2.1197488]
+Training epoch 19 : [ 320/365 ] total loss: [0.44999212]
+Training epoch 19 : [ 340/365 ] total loss: [0.8458597]
+Training epoch 19 : [ 360/365 ] total loss: [1.0810155]
+Training epoch 19 finished. Time cost: 0:03:40 Epoch loss: [1.1584766]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.45100495]
+Evaluation : [ 40/69 ] total loss: [0.60188437]
+Evaluation : [ 60/69 ] total loss: [1.5301689]
+Accumulating evaluation results...
+DONE (t=0.17s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.5523236885160305
+        AP of category [tank]:          0.5523236885160305
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:20
+Checkpoint saved to output/model_best.pth
+this is map50: 0.5523236885160305
+Training epoch 20 : [ 20/365 ] total loss: [1.3368196]
+Training epoch 20 : [ 40/365 ] total loss: [1.1279597]
+Training epoch 20 : [ 60/365 ] total loss: [1.2610925]
+Training epoch 20 : [ 80/365 ] total loss: [0.57972515]
+Training epoch 20 : [ 100/365 ] total loss: [0.83564985]
+Training epoch 20 : [ 120/365 ] total loss: [1.3738134]
+Training epoch 20 : [ 140/365 ] total loss: [2.1318226]
+Training epoch 20 : [ 160/365 ] total loss: [1.1589462]
+Training epoch 20 : [ 180/365 ] total loss: [0.9792105]
+Training epoch 20 : [ 200/365 ] total loss: [1.208787]
+Training epoch 20 : [ 220/365 ] total loss: [0.61053485]
+Training epoch 20 : [ 240/365 ] total loss: [1.193509]
+Training epoch 20 : [ 260/365 ] total loss: [1.5938418]
+Training epoch 20 : [ 280/365 ] total loss: [0.93106097]
+Training epoch 20 : [ 300/365 ] total loss: [1.1135509]
+Training epoch 20 : [ 320/365 ] total loss: [1.0522032]
+Training epoch 20 : [ 340/365 ] total loss: [1.7205614]
+Training epoch 20 : [ 360/365 ] total loss: [1.7202609]
+Training epoch 20 finished. Time cost: 0:04:20 Epoch loss: [1.1772546]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.36247903]
+Evaluation : [ 40/69 ] total loss: [0.7174957]
+Evaluation : [ 60/69 ] total loss: [1.8347243]
+Accumulating evaluation results...
+DONE (t=0.17s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.4894200568040285
+        AP of category [tank]:          0.4894200568040285
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:25
+this is map50: 0.4894200568040285
+Training epoch 21 : [ 20/365 ] total loss: [0.8379563]
+Training epoch 21 : [ 40/365 ] total loss: [1.859972]
+Training epoch 21 : [ 60/365 ] total loss: [1.3690326]
+Training epoch 21 : [ 80/365 ] total loss: [1.0298612]
+Training epoch 21 : [ 100/365 ] total loss: [1.2722114]
+Training epoch 21 : [ 120/365 ] total loss: [1.265999]
+Training epoch 21 : [ 140/365 ] total loss: [0.629322]
+Training epoch 21 : [ 160/365 ] total loss: [0.9326937]
+Training epoch 21 : [ 180/365 ] total loss: [0.76516116]
+Training epoch 21 : [ 200/365 ] total loss: [1.3309069]
+Training epoch 21 : [ 220/365 ] total loss: [0.5720572]
+Training epoch 21 : [ 240/365 ] total loss: [1.49229]
+Training epoch 21 : [ 260/365 ] total loss: [0.61381805]
+Training epoch 21 : [ 280/365 ] total loss: [0.70372844]
+Training epoch 21 : [ 300/365 ] total loss: [1.1026152]
+Training epoch 21 : [ 320/365 ] total loss: [1.2051628]
+Training epoch 21 : [ 340/365 ] total loss: [1.60201]
+Training epoch 21 : [ 360/365 ] total loss: [1.5939811]
+Training epoch 21 finished. Time cost: 0:03:44 Epoch loss: [1.1089613]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.5421737]
+Evaluation : [ 40/69 ] total loss: [0.864406]
+Evaluation : [ 60/69 ] total loss: [1.6868701]
+Accumulating evaluation results...
+DONE (t=0.15s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.5570054877218118
+        AP of category [tank]:          0.5570054877218118
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:20
+Checkpoint saved to output/model_best.pth
+this is map50: 0.5570054877218118
+Training epoch 22 : [ 20/365 ] total loss: [0.8666422]
+Training epoch 22 : [ 40/365 ] total loss: [0.61475503]
+Training epoch 22 : [ 60/365 ] total loss: [0.641973]
+Training epoch 22 : [ 80/365 ] total loss: [0.8360488]
+Training epoch 22 : [ 100/365 ] total loss: [0.9339967]
+Training epoch 22 : [ 120/365 ] total loss: [1.4802952]
+Training epoch 22 : [ 140/365 ] total loss: [1.9624174]
+Training epoch 22 : [ 160/365 ] total loss: [0.9085678]
+Training epoch 22 : [ 180/365 ] total loss: [1.1961727]
+Training epoch 22 : [ 200/365 ] total loss: [1.2837316]
+Training epoch 22 : [ 220/365 ] total loss: [1.1504116]
+Training epoch 22 : [ 240/365 ] total loss: [1.4666233]
+Training epoch 22 : [ 260/365 ] total loss: [0.5966195]
+Training epoch 22 : [ 280/365 ] total loss: [0.98479486]
+Training epoch 22 : [ 300/365 ] total loss: [0.84884584]
+Training epoch 22 : [ 320/365 ] total loss: [2.052167]
+Training epoch 22 : [ 340/365 ] total loss: [1.2818332]
+Training epoch 22 : [ 360/365 ] total loss: [0.57931423]
+Training epoch 22 finished. Time cost: 0:03:37 Epoch loss: [1.1388068]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.3113793]
+Evaluation : [ 40/69 ] total loss: [0.50675815]
+Evaluation : [ 60/69 ] total loss: [1.6624498]
+Accumulating evaluation results...
+DONE (t=0.17s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.5890570661260707
+        AP of category [tank]:          0.5890570661260707
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:20
+Checkpoint saved to output/model_best.pth
+this is map50: 0.5890570661260707
+Training epoch 23 : [ 20/365 ] total loss: [0.669198]
+Training epoch 23 : [ 40/365 ] total loss: [0.7479166]
+Training epoch 23 : [ 60/365 ] total loss: [0.7842235]
+Training epoch 23 : [ 80/365 ] total loss: [1.1139019]
+Training epoch 23 : [ 100/365 ] total loss: [1.377152]
+Training epoch 23 : [ 120/365 ] total loss: [1.1600902]
+Training epoch 23 : [ 140/365 ] total loss: [1.0564185]
+Training epoch 23 : [ 160/365 ] total loss: [1.6700335]
+Training epoch 23 : [ 180/365 ] total loss: [1.3113468]
+Training epoch 23 : [ 200/365 ] total loss: [1.8978618]
+Training epoch 23 : [ 220/365 ] total loss: [1.2615333]
+Training epoch 23 : [ 240/365 ] total loss: [0.69665694]
+Training epoch 23 : [ 260/365 ] total loss: [1.1275365]
+Training epoch 23 : [ 280/365 ] total loss: [1.1478008]
+Training epoch 23 : [ 300/365 ] total loss: [0.89335346]
+Training epoch 23 : [ 320/365 ] total loss: [1.0183618]
+Training epoch 23 : [ 340/365 ] total loss: [1.0106496]
+Training epoch 23 : [ 360/365 ] total loss: [1.7504057]
+Training epoch 23 finished. Time cost: 0:03:53 Epoch loss: [1.1036388]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.39261043]
+Evaluation : [ 40/69 ] total loss: [0.40356523]
+Evaluation : [ 60/69 ] total loss: [1.6101234]
+Accumulating evaluation results...
+DONE (t=0.17s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.549499202470705
+        AP of category [tank]:          0.549499202470705
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:20
+this is map50: 0.549499202470705
+Training epoch 24 : [ 20/365 ] total loss: [1.471508]
+Training epoch 24 : [ 40/365 ] total loss: [0.7834755]
+Training epoch 24 : [ 60/365 ] total loss: [1.341356]
+Training epoch 24 : [ 80/365 ] total loss: [0.76621044]
+Training epoch 24 : [ 100/365 ] total loss: [0.6359024]
+Training epoch 24 : [ 120/365 ] total loss: [0.607999]
+Training epoch 24 : [ 140/365 ] total loss: [1.0242946]
+Training epoch 24 : [ 160/365 ] total loss: [0.8656601]
+Training epoch 24 : [ 180/365 ] total loss: [0.9690818]
+Training epoch 24 : [ 200/365 ] total loss: [0.51037616]
+Training epoch 24 : [ 220/365 ] total loss: [1.7057574]
+Training epoch 24 : [ 240/365 ] total loss: [1.0280303]
+Training epoch 24 : [ 260/365 ] total loss: [0.91234696]
+Training epoch 24 : [ 280/365 ] total loss: [0.70879906]
+Training epoch 24 : [ 300/365 ] total loss: [1.2379823]
+Training epoch 24 : [ 320/365 ] total loss: [1.3710221]
+Training epoch 24 : [ 340/365 ] total loss: [0.7905036]
+Training epoch 24 : [ 360/365 ] total loss: [1.3148057]
+Training epoch 24 finished. Time cost: 0:04:01 Epoch loss: [1.0955931]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.23966444]
+Evaluation : [ 40/69 ] total loss: [0.36328503]
+Evaluation : [ 60/69 ] total loss: [1.8558863]
+Accumulating evaluation results...
+DONE (t=0.17s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.5052624162838902
+        AP of category [tank]:          0.5052624162838902
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:25
+this is map50: 0.5052624162838902
+Training epoch 25 : [ 20/365 ] total loss: [1.1898867]
+Training epoch 25 : [ 40/365 ] total loss: [0.5515994]
+Training epoch 25 : [ 60/365 ] total loss: [0.60738856]
+Training epoch 25 : [ 80/365 ] total loss: [1.0977969]
+Training epoch 25 : [ 100/365 ] total loss: [0.782176]
+Training epoch 25 : [ 120/365 ] total loss: [0.62800586]
+Training epoch 25 : [ 140/365 ] total loss: [1.3360386]
+Training epoch 25 : [ 160/365 ] total loss: [0.91281986]
+Training epoch 25 : [ 180/365 ] total loss: [0.49805343]
+Training epoch 25 : [ 200/365 ] total loss: [1.5524969]
+Training epoch 25 : [ 220/365 ] total loss: [1.5585145]
+Training epoch 25 : [ 240/365 ] total loss: [0.6634665]
+Training epoch 25 : [ 260/365 ] total loss: [1.7415261]
+Training epoch 25 : [ 280/365 ] total loss: [0.74420357]
+Training epoch 25 : [ 300/365 ] total loss: [0.9809414]
+Training epoch 25 : [ 320/365 ] total loss: [0.7058735]
+Training epoch 25 : [ 340/365 ] total loss: [1.946194]
+Training epoch 25 : [ 360/365 ] total loss: [0.998943]
+Training epoch 25 finished. Time cost: 0:04:57 Epoch loss: [1.0694815]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.39361936]
+Evaluation : [ 40/69 ] total loss: [0.5059129]
+Evaluation : [ 60/69 ] total loss: [1.7147098]
+Accumulating evaluation results...
+DONE (t=0.17s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.5072000428825806
+        AP of category [tank]:          0.5072000428825806
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:21
+this is map50: 0.5072000428825806
+Training epoch 26 : [ 20/365 ] total loss: [1.5068939]
+Training epoch 26 : [ 40/365 ] total loss: [0.69265264]
+Training epoch 26 : [ 60/365 ] total loss: [1.5408113]
+Training epoch 26 : [ 80/365 ] total loss: [0.8892476]
+Training epoch 26 : [ 100/365 ] total loss: [1.0472924]
+Training epoch 26 : [ 120/365 ] total loss: [1.1649213]
+Training epoch 26 : [ 140/365 ] total loss: [0.96777904]
+Training epoch 26 : [ 160/365 ] total loss: [1.2085595]
+Training epoch 26 : [ 180/365 ] total loss: [0.543048]
+Training epoch 26 : [ 200/365 ] total loss: [1.2090502]
+Training epoch 26 : [ 220/365 ] total loss: [0.6579963]
+Training epoch 26 : [ 240/365 ] total loss: [1.4887203]
+Training epoch 26 : [ 260/365 ] total loss: [1.4294477]
+Training epoch 26 : [ 280/365 ] total loss: [1.1556661]
+Training epoch 26 : [ 300/365 ] total loss: [0.881694]
+Training epoch 26 : [ 320/365 ] total loss: [0.7164396]
+Training epoch 26 : [ 340/365 ] total loss: [0.5749919]
+Training epoch 26 : [ 360/365 ] total loss: [1.7920554]
+Training epoch 26 finished. Time cost: 0:04:39 Epoch loss: [1.0606465]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.305379]
+Evaluation : [ 40/69 ] total loss: [0.45251125]
+Evaluation : [ 60/69 ] total loss: [1.5704439]
+Accumulating evaluation results...
+DONE (t=0.16s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.5826782732558126
+        AP of category [tank]:          0.5826782732558126
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:21
+this is map50: 0.5826782732558126
+Training epoch 27 : [ 20/365 ] total loss: [0.79887223]
+Training epoch 27 : [ 40/365 ] total loss: [1.805162]
+Training epoch 27 : [ 60/365 ] total loss: [1.4899101]
+Training epoch 27 : [ 80/365 ] total loss: [0.932223]
+Training epoch 27 : [ 100/365 ] total loss: [1.8594383]
+Training epoch 27 : [ 120/365 ] total loss: [0.62684613]
+Training epoch 27 : [ 140/365 ] total loss: [1.1498934]
+Training epoch 27 : [ 160/365 ] total loss: [1.2618737]
+Training epoch 27 : [ 180/365 ] total loss: [1.090297]
+Training epoch 27 : [ 200/365 ] total loss: [0.7792148]
+Training epoch 27 : [ 220/365 ] total loss: [0.66035426]
+Training epoch 27 : [ 240/365 ] total loss: [1.0994953]
+Training epoch 27 : [ 260/365 ] total loss: [0.8539371]
+Training epoch 27 : [ 280/365 ] total loss: [1.2313397]
+Training epoch 27 : [ 300/365 ] total loss: [0.8476645]
+Training epoch 27 : [ 320/365 ] total loss: [1.3602264]
+Training epoch 27 : [ 340/365 ] total loss: [1.1124719]
+Training epoch 27 : [ 360/365 ] total loss: [1.3916206]
+Training epoch 27 finished. Time cost: 0:04:15 Epoch loss: [1.0466264]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.37214538]
+Evaluation : [ 40/69 ] total loss: [0.4305894]
+Evaluation : [ 60/69 ] total loss: [1.6207123]
+Accumulating evaluation results...
+DONE (t=0.17s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.5974899248978394
+        AP of category [tank]:          0.5974899248978394
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:21
+Checkpoint saved to output/model_best.pth
+this is map50: 0.5974899248978394
+Training epoch 28 : [ 20/365 ] total loss: [1.2996789]
+Training epoch 28 : [ 40/365 ] total loss: [1.1858094]
+Training epoch 28 : [ 60/365 ] total loss: [0.74280876]
+Training epoch 28 : [ 80/365 ] total loss: [0.8518723]
+Training epoch 28 : [ 100/365 ] total loss: [0.988872]
+Training epoch 28 : [ 120/365 ] total loss: [0.9623961]
+Training epoch 28 : [ 140/365 ] total loss: [0.890097]
+Training epoch 28 : [ 160/365 ] total loss: [1.0347717]
+Training epoch 28 : [ 180/365 ] total loss: [1.1365176]
+Training epoch 28 : [ 200/365 ] total loss: [1.5892208]
+Training epoch 28 : [ 220/365 ] total loss: [1.6670578]
+Training epoch 28 : [ 240/365 ] total loss: [1.3338089]
+Training epoch 28 : [ 260/365 ] total loss: [0.98264456]
+Training epoch 28 : [ 280/365 ] total loss: [0.90444034]
+Training epoch 28 : [ 300/365 ] total loss: [0.40846595]
+Training epoch 28 : [ 320/365 ] total loss: [0.92280596]
+Training epoch 28 : [ 340/365 ] total loss: [1.3728546]
+Training epoch 28 : [ 360/365 ] total loss: [1.5309811]
+Training epoch 28 finished. Time cost: 0:04:45 Epoch loss: [1.0474213]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.27262816]
+Evaluation : [ 40/69 ] total loss: [0.4574884]
+Evaluation : [ 60/69 ] total loss: [1.5499325]
+Accumulating evaluation results...
+DONE (t=0.14s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.5313301149103803
+        AP of category [tank]:          0.5313301149103803
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:21
+this is map50: 0.5313301149103803
+Training epoch 29 : [ 20/365 ] total loss: [0.7732844]
+Training epoch 29 : [ 40/365 ] total loss: [1.2302524]
+Training epoch 29 : [ 60/365 ] total loss: [0.7002779]
+Training epoch 29 : [ 80/365 ] total loss: [0.48590693]
+Training epoch 29 : [ 100/365 ] total loss: [0.98195815]
+Training epoch 29 : [ 120/365 ] total loss: [0.65431285]
+Training epoch 29 : [ 140/365 ] total loss: [1.0244987]
+Training epoch 29 : [ 160/365 ] total loss: [1.669577]
+Training epoch 29 : [ 180/365 ] total loss: [1.8728187]
+Training epoch 29 : [ 200/365 ] total loss: [0.3535429]
+Training epoch 29 : [ 220/365 ] total loss: [1.7914842]
+Training epoch 29 : [ 240/365 ] total loss: [0.7818417]
+Training epoch 29 : [ 260/365 ] total loss: [0.79125565]
+Training epoch 29 : [ 280/365 ] total loss: [1.3753929]
+Training epoch 29 : [ 300/365 ] total loss: [1.1372453]
+Training epoch 29 : [ 320/365 ] total loss: [1.0243125]
+Training epoch 29 : [ 340/365 ] total loss: [0.53608805]
+Training epoch 29 : [ 360/365 ] total loss: [1.6608198]
+Training epoch 29 finished. Time cost: 0:04:31 Epoch loss: [1.0520747]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.4823246]
+Evaluation : [ 40/69 ] total loss: [0.5906801]
+Evaluation : [ 60/69 ] total loss: [1.6029829]
+Accumulating evaluation results...
+DONE (t=0.17s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.592981605069045
+        AP of category [tank]:          0.592981605069045
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:21
+this is map50: 0.592981605069045
+Training epoch 30 : [ 20/365 ] total loss: [1.293248]
+Training epoch 30 : [ 40/365 ] total loss: [0.84063375]
+Training epoch 30 : [ 60/365 ] total loss: [1.1633921]
+Training epoch 30 : [ 80/365 ] total loss: [0.6651312]
+Training epoch 30 : [ 100/365 ] total loss: [0.63100755]
+Training epoch 30 : [ 120/365 ] total loss: [0.7427379]
+Training epoch 30 : [ 140/365 ] total loss: [1.1938987]
+Training epoch 30 : [ 160/365 ] total loss: [1.186841]
+Training epoch 30 : [ 180/365 ] total loss: [1.7656888]
+Training epoch 30 : [ 200/365 ] total loss: [0.9007362]
+Training epoch 30 : [ 220/365 ] total loss: [0.8814597]
+Training epoch 30 : [ 240/365 ] total loss: [1.5166597]
+Training epoch 30 : [ 260/365 ] total loss: [1.239162]
+Training epoch 30 : [ 280/365 ] total loss: [0.7109066]
+Training epoch 30 : [ 300/365 ] total loss: [1.1214597]
+Training epoch 30 : [ 320/365 ] total loss: [0.46561348]
+Training epoch 30 : [ 340/365 ] total loss: [0.8363881]
+Training epoch 30 : [ 360/365 ] total loss: [0.71217334]
+Training epoch 30 finished. Time cost: 0:04:52 Epoch loss: [1.041623]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.32307702]
+Evaluation : [ 40/69 ] total loss: [0.5573483]
+Evaluation : [ 60/69 ] total loss: [1.643209]
+Accumulating evaluation results...
+DONE (t=0.17s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.5910173402553244
+        AP of category [tank]:          0.5910173402553244
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:21
+this is map50: 0.5910173402553244
+Training epoch 31 : [ 20/365 ] total loss: [1.6518033]
+Training epoch 31 : [ 40/365 ] total loss: [0.54258466]
+Training epoch 31 : [ 60/365 ] total loss: [0.6258817]
+Training epoch 31 : [ 80/365 ] total loss: [1.077539]
+Training epoch 31 : [ 100/365 ] total loss: [1.2196883]
+Training epoch 31 : [ 120/365 ] total loss: [0.57271385]
+Training epoch 31 : [ 140/365 ] total loss: [0.7038379]
+Training epoch 31 : [ 160/365 ] total loss: [1.6219938]
+Training epoch 31 : [ 180/365 ] total loss: [0.9022209]
+Training epoch 31 : [ 200/365 ] total loss: [1.1572027]
+Training epoch 31 : [ 220/365 ] total loss: [1.419936]
+Training epoch 31 : [ 240/365 ] total loss: [0.9564263]
+Training epoch 31 : [ 260/365 ] total loss: [0.7725916]
+Training epoch 31 : [ 280/365 ] total loss: [0.8286864]
+Training epoch 31 : [ 300/365 ] total loss: [0.983752]
+Training epoch 31 : [ 320/365 ] total loss: [0.69958085]
+Training epoch 31 : [ 340/365 ] total loss: [0.8481498]
+Training epoch 31 : [ 360/365 ] total loss: [0.80310893]
+Training epoch 31 finished. Time cost: 0:04:19 Epoch loss: [0.99171144]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.41278708]
+Evaluation : [ 40/69 ] total loss: [0.38910508]
+Evaluation : [ 60/69 ] total loss: [1.5727482]
+Accumulating evaluation results...
+DONE (t=0.17s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.6113965093214963
+        AP of category [tank]:          0.6113965093214963
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:21
+Checkpoint saved to output/model_best.pth
+this is map50: 0.6113965093214963
+Training epoch 32 : [ 20/365 ] total loss: [0.81960905]
+Training epoch 32 : [ 40/365 ] total loss: [0.7227573]
+Training epoch 32 : [ 60/365 ] total loss: [0.7542101]
+Training epoch 32 : [ 80/365 ] total loss: [0.84052265]
+Training epoch 32 : [ 100/365 ] total loss: [0.7751951]
+Training epoch 32 : [ 120/365 ] total loss: [0.6046022]
+Training epoch 32 : [ 140/365 ] total loss: [1.6976852]
+Training epoch 32 : [ 160/365 ] total loss: [0.9469506]
+Training epoch 32 : [ 180/365 ] total loss: [0.6830315]
+Training epoch 32 : [ 200/365 ] total loss: [1.0827893]
+Training epoch 32 : [ 220/365 ] total loss: [0.9092344]
+Training epoch 32 : [ 240/365 ] total loss: [0.6249151]
+Training epoch 32 : [ 260/365 ] total loss: [1.5870147]
+Training epoch 32 : [ 280/365 ] total loss: [0.99797094]
+Training epoch 32 : [ 300/365 ] total loss: [0.62085223]
+Training epoch 32 : [ 320/365 ] total loss: [1.0096648]
+Training epoch 32 : [ 340/365 ] total loss: [0.85636306]
+Training epoch 32 : [ 360/365 ] total loss: [0.470155]
+Training epoch 32 finished. Time cost: 0:04:17 Epoch loss: [1.0090506]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.44720042]
+Evaluation : [ 40/69 ] total loss: [0.6835717]
+Evaluation : [ 60/69 ] total loss: [1.5621245]
+Accumulating evaluation results...
+DONE (t=0.17s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.5888306004665413
+        AP of category [tank]:          0.5888306004665413
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:21
+this is map50: 0.5888306004665413
+Training epoch 33 : [ 20/365 ] total loss: [1.0785078]
+Training epoch 33 : [ 40/365 ] total loss: [0.8593454]
+Training epoch 33 : [ 60/365 ] total loss: [0.9583351]
+Training epoch 33 : [ 80/365 ] total loss: [1.6923904]
+Training epoch 33 : [ 100/365 ] total loss: [0.55381024]
+Training epoch 33 : [ 120/365 ] total loss: [0.54281443]
+Training epoch 33 : [ 140/365 ] total loss: [1.5405803]
+Training epoch 33 : [ 160/365 ] total loss: [0.67544]
+Training epoch 33 : [ 180/365 ] total loss: [1.5499239]
+Training epoch 33 : [ 200/365 ] total loss: [1.1580125]
+Training epoch 33 : [ 220/365 ] total loss: [0.6176003]
+Training epoch 33 : [ 240/365 ] total loss: [1.0333049]
+Training epoch 33 : [ 260/365 ] total loss: [1.4856718]
+Training epoch 33 : [ 280/365 ] total loss: [1.0506136]
+Training epoch 33 : [ 300/365 ] total loss: [0.9557693]
+Training epoch 33 : [ 320/365 ] total loss: [0.60159993]
+Training epoch 33 : [ 340/365 ] total loss: [1.5338353]
+Training epoch 33 : [ 360/365 ] total loss: [0.8730283]
+Training epoch 33 finished. Time cost: 0:04:46 Epoch loss: [1.0204473]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.3849089]
+Evaluation : [ 40/69 ] total loss: [0.46461964]
+Evaluation : [ 60/69 ] total loss: [1.5142173]
+Accumulating evaluation results...
+DONE (t=0.18s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.5448849478977473
+        AP of category [tank]:          0.5448849478977473
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:22
+this is map50: 0.5448849478977473
+Training epoch 34 : [ 20/365 ] total loss: [1.1745995]
+Training epoch 34 : [ 40/365 ] total loss: [0.78083086]
+Training epoch 34 : [ 60/365 ] total loss: [0.90035]
+Training epoch 34 : [ 80/365 ] total loss: [1.1468087]
+Training epoch 34 : [ 100/365 ] total loss: [1.2793736]
+Training epoch 34 : [ 120/365 ] total loss: [1.0970166]
+Training epoch 34 : [ 140/365 ] total loss: [1.5620993]
+Training epoch 34 : [ 160/365 ] total loss: [1.0886645]
+Training epoch 34 : [ 180/365 ] total loss: [0.8499307]
+Training epoch 34 : [ 200/365 ] total loss: [0.6130229]
+Training epoch 34 : [ 220/365 ] total loss: [0.47557485]
+Training epoch 34 : [ 240/365 ] total loss: [1.1154156]
+Training epoch 34 : [ 260/365 ] total loss: [0.7989265]
+Training epoch 34 : [ 280/365 ] total loss: [0.68693674]
+Training epoch 34 : [ 300/365 ] total loss: [0.7579746]
+Training epoch 34 : [ 320/365 ] total loss: [1.3613952]
+Training epoch 34 : [ 340/365 ] total loss: [0.7513835]
+Training epoch 34 : [ 360/365 ] total loss: [0.64259744]
+Training epoch 34 finished. Time cost: 0:05:27 Epoch loss: [0.9540853]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.30706936]
+Evaluation : [ 40/69 ] total loss: [0.645494]
+Evaluation : [ 60/69 ] total loss: [1.4772904]
+Accumulating evaluation results...
+DONE (t=0.17s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.6165558038882373
+        AP of category [tank]:          0.6165558038882373
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:21
+Checkpoint saved to output/model_best.pth
+this is map50: 0.6165558038882373
+Training epoch 35 : [ 20/365 ] total loss: [0.81426394]
+Training epoch 35 : [ 40/365 ] total loss: [1.4622797]
+Training epoch 35 : [ 60/365 ] total loss: [0.93929315]
+Training epoch 35 : [ 80/365 ] total loss: [0.9546809]
+Training epoch 35 : [ 100/365 ] total loss: [0.7784562]
+Training epoch 35 : [ 120/365 ] total loss: [0.627505]
+Training epoch 35 : [ 140/365 ] total loss: [0.5317402]
+Training epoch 35 : [ 160/365 ] total loss: [0.5714179]
+Training epoch 35 : [ 180/365 ] total loss: [2.0110958]
+Training epoch 35 : [ 200/365 ] total loss: [1.6653541]
+Training epoch 35 : [ 220/365 ] total loss: [0.81131744]
+Training epoch 35 : [ 240/365 ] total loss: [0.7760147]
+Training epoch 35 : [ 260/365 ] total loss: [0.9444493]
+Training epoch 35 : [ 280/365 ] total loss: [1.2405537]
+Training epoch 35 : [ 300/365 ] total loss: [0.43218014]
+Training epoch 35 : [ 320/365 ] total loss: [1.1919823]
+Training epoch 35 : [ 340/365 ] total loss: [1.0664185]
+Training epoch 35 : [ 360/365 ] total loss: [0.65742534]
+Training epoch 35 finished. Time cost: 0:04:39 Epoch loss: [0.9429001]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.32778093]
+Evaluation : [ 40/69 ] total loss: [0.70109457]
+Evaluation : [ 60/69 ] total loss: [1.7020367]
+Accumulating evaluation results...
+DONE (t=0.17s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.554927142042663
+        AP of category [tank]:          0.554927142042663
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:31
+this is map50: 0.554927142042663
+Training epoch 36 : [ 20/365 ] total loss: [0.8662318]
+Training epoch 36 : [ 40/365 ] total loss: [0.51001114]
+Training epoch 36 : [ 60/365 ] total loss: [0.5063727]
+Training epoch 36 : [ 80/365 ] total loss: [0.83186907]
+Training epoch 36 : [ 100/365 ] total loss: [0.93800706]
+Training epoch 36 : [ 120/365 ] total loss: [0.41685688]
+Training epoch 36 : [ 140/365 ] total loss: [1.1645159]
+Training epoch 36 : [ 160/365 ] total loss: [0.6710998]
+Training epoch 36 : [ 180/365 ] total loss: [0.9206325]
+Training epoch 36 : [ 200/365 ] total loss: [1.1539328]
+Training epoch 36 : [ 220/365 ] total loss: [1.443076]
+Training epoch 36 : [ 240/365 ] total loss: [1.237447]
+Training epoch 36 : [ 260/365 ] total loss: [1.3146418]
+Training epoch 36 : [ 280/365 ] total loss: [0.67860913]
+Training epoch 36 : [ 300/365 ] total loss: [0.64365816]
+Training epoch 36 : [ 320/365 ] total loss: [1.0803401]
+Training epoch 36 : [ 340/365 ] total loss: [1.1473969]
+Training epoch 36 : [ 360/365 ] total loss: [1.5606577]
+Training epoch 36 finished. Time cost: 0:05:03 Epoch loss: [0.9804996]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.27307022]
+Evaluation : [ 40/69 ] total loss: [0.5617576]
+Evaluation : [ 60/69 ] total loss: [1.3565187]
+Accumulating evaluation results...
+DONE (t=0.17s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.606466511027921
+        AP of category [tank]:          0.606466511027921
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:21
+this is map50: 0.606466511027921
+Training epoch 37 : [ 20/365 ] total loss: [1.1507628]
+Training epoch 37 : [ 40/365 ] total loss: [0.625077]
+Training epoch 37 : [ 60/365 ] total loss: [0.8432685]
+Training epoch 37 : [ 80/365 ] total loss: [0.5623914]
+Training epoch 37 : [ 100/365 ] total loss: [1.3546736]
+Training epoch 37 : [ 120/365 ] total loss: [1.0109227]
+Training epoch 37 : [ 140/365 ] total loss: [1.1779132]
+Training epoch 37 : [ 160/365 ] total loss: [0.43394393]
+Training epoch 37 : [ 180/365 ] total loss: [0.4032789]
+Training epoch 37 : [ 200/365 ] total loss: [0.74678373]
+Training epoch 37 : [ 220/365 ] total loss: [0.90870595]
+Training epoch 37 : [ 240/365 ] total loss: [0.5347044]
+Training epoch 37 : [ 260/365 ] total loss: [0.32967335]
+Training epoch 37 : [ 280/365 ] total loss: [0.57243246]
+Training epoch 37 : [ 300/365 ] total loss: [0.7799388]
+Training epoch 37 : [ 320/365 ] total loss: [0.7308593]
+Training epoch 37 : [ 340/365 ] total loss: [0.6577942]
+Training epoch 37 : [ 360/365 ] total loss: [0.7601449]
+Training epoch 37 finished. Time cost: 0:07:22 Epoch loss: [0.94676834]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.4116177]
+Evaluation : [ 40/69 ] total loss: [0.59412783]
+Evaluation : [ 60/69 ] total loss: [1.5850142]
+Accumulating evaluation results...
+DONE (t=0.17s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.6382081881497461
+        AP of category [tank]:          0.6382081881497461
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:01:06
+Checkpoint saved to output/model_best.pth
+this is map50: 0.6382081881497461
+Training epoch 38 : [ 20/365 ] total loss: [0.9820553]
+Training epoch 38 : [ 40/365 ] total loss: [0.65877235]
+Training epoch 38 : [ 60/365 ] total loss: [0.63686085]
+Training epoch 38 : [ 80/365 ] total loss: [0.9911327]
+Training epoch 38 : [ 100/365 ] total loss: [0.78345466]
+Training epoch 38 : [ 120/365 ] total loss: [0.96222305]
+Training epoch 38 : [ 140/365 ] total loss: [0.6805443]
+Training epoch 38 : [ 160/365 ] total loss: [0.4268815]
+Training epoch 38 : [ 180/365 ] total loss: [0.8420126]
+Training epoch 38 : [ 200/365 ] total loss: [0.41178513]
+Training epoch 38 : [ 220/365 ] total loss: [0.7982413]
+Training epoch 38 : [ 240/365 ] total loss: [0.3880037]
+Training epoch 38 : [ 260/365 ] total loss: [1.264961]
+Training epoch 38 : [ 280/365 ] total loss: [1.1693863]
+Training epoch 38 : [ 300/365 ] total loss: [1.6491613]
+Training epoch 38 : [ 320/365 ] total loss: [0.8043461]
+Training epoch 38 : [ 340/365 ] total loss: [1.313719]
+Training epoch 38 : [ 360/365 ] total loss: [1.1223713]
+Training epoch 38 finished. Time cost: 0:04:22 Epoch loss: [0.9397961]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.32403046]
+Evaluation : [ 40/69 ] total loss: [0.45698875]
+Evaluation : [ 60/69 ] total loss: [1.4771686]
+Accumulating evaluation results...
+DONE (t=0.17s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.6179835014677451
+        AP of category [tank]:          0.6179835014677451
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:21
+this is map50: 0.6179835014677451
+Training epoch 39 : [ 20/365 ] total loss: [1.8422232]
+Training epoch 39 : [ 40/365 ] total loss: [1.7050799]
+Training epoch 39 : [ 60/365 ] total loss: [0.5577399]
+Training epoch 39 : [ 80/365 ] total loss: [0.64692163]
+Training epoch 39 : [ 100/365 ] total loss: [0.70706177]
+Training epoch 39 : [ 120/365 ] total loss: [2.033379]
+Training epoch 39 : [ 140/365 ] total loss: [1.0754021]
+Training epoch 39 : [ 160/365 ] total loss: [0.7225075]
+Training epoch 39 : [ 180/365 ] total loss: [0.7399602]
+Training epoch 39 : [ 200/365 ] total loss: [1.1744792]
+Training epoch 39 : [ 220/365 ] total loss: [0.8139012]
+Training epoch 39 : [ 240/365 ] total loss: [0.93617886]
+Training epoch 39 : [ 260/365 ] total loss: [0.73165643]
+Training epoch 39 : [ 280/365 ] total loss: [1.026298]
+Training epoch 39 : [ 300/365 ] total loss: [1.0284723]
+Training epoch 39 : [ 320/365 ] total loss: [1.123031]
+Training epoch 39 : [ 340/365 ] total loss: [0.99491143]
+Training epoch 39 : [ 360/365 ] total loss: [0.77891123]
+Training epoch 39 finished. Time cost: 0:04:30 Epoch loss: [0.9575197]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.3998558]
+Evaluation : [ 40/69 ] total loss: [0.5111971]
+Evaluation : [ 60/69 ] total loss: [1.471341]
+Accumulating evaluation results...
+DONE (t=0.18s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.6351525029614915
+        AP of category [tank]:          0.6351525029614915
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:21
+this is map50: 0.6351525029614915
+Training epoch 40 : [ 20/365 ] total loss: [1.3966622]
+Training epoch 40 : [ 40/365 ] total loss: [1.1548874]
+Training epoch 40 : [ 60/365 ] total loss: [0.94899553]
+Training epoch 40 : [ 80/365 ] total loss: [1.0716438]
+Training epoch 40 : [ 100/365 ] total loss: [1.2574487]
+Training epoch 40 : [ 120/365 ] total loss: [0.4658688]
+Training epoch 40 : [ 140/365 ] total loss: [0.83989036]
+Training epoch 40 : [ 160/365 ] total loss: [0.6901361]
+Training epoch 40 : [ 180/365 ] total loss: [0.44479203]
+Training epoch 40 : [ 200/365 ] total loss: [1.517022]
+Training epoch 40 : [ 220/365 ] total loss: [1.6114523]
+Training epoch 40 : [ 240/365 ] total loss: [1.114507]
+Training epoch 40 : [ 260/365 ] total loss: [0.8507363]
+Training epoch 40 : [ 280/365 ] total loss: [1.1140549]
+Training epoch 40 : [ 300/365 ] total loss: [0.9517454]
+Training epoch 40 : [ 320/365 ] total loss: [0.5038999]
+Training epoch 40 : [ 340/365 ] total loss: [0.64913535]
+Training epoch 40 : [ 360/365 ] total loss: [0.7521657]
+Training epoch 40 finished. Time cost: 0:04:20 Epoch loss: [0.9577354]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.26276034]
+Evaluation : [ 40/69 ] total loss: [0.49917287]
+Evaluation : [ 60/69 ] total loss: [1.4859183]
+Accumulating evaluation results...
+DONE (t=0.17s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.6382411689237957
+        AP of category [tank]:          0.6382411689237957
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:21
+Checkpoint saved to output/model_best.pth
+this is map50: 0.6382411689237957
+Training epoch 41 : [ 20/365 ] total loss: [0.54220295]
+Training epoch 41 : [ 40/365 ] total loss: [1.1715691]
+Training epoch 41 : [ 60/365 ] total loss: [1.8720589]
+Training epoch 41 : [ 80/365 ] total loss: [0.57564497]
+Training epoch 41 : [ 100/365 ] total loss: [0.4637997]
+Training epoch 41 : [ 120/365 ] total loss: [1.0336022]
+Training epoch 41 : [ 140/365 ] total loss: [1.1526357]
+Training epoch 41 : [ 160/365 ] total loss: [0.7647223]
+Training epoch 41 : [ 180/365 ] total loss: [1.1953967]
+Training epoch 41 : [ 200/365 ] total loss: [1.76582]
+Training epoch 41 : [ 220/365 ] total loss: [0.489562]
+Training epoch 41 : [ 240/365 ] total loss: [0.38128814]
+Training epoch 41 : [ 260/365 ] total loss: [1.2172385]
+Training epoch 41 : [ 280/365 ] total loss: [0.37850603]
+Training epoch 41 : [ 300/365 ] total loss: [0.75381035]
+Training epoch 41 : [ 320/365 ] total loss: [0.42209527]
+Training epoch 41 : [ 340/365 ] total loss: [0.6234049]
+Training epoch 41 : [ 360/365 ] total loss: [0.68101394]
+Training epoch 41 finished. Time cost: 0:04:07 Epoch loss: [0.94906294]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.29409245]
+Evaluation : [ 40/69 ] total loss: [0.52246326]
+Evaluation : [ 60/69 ] total loss: [1.4486417]
+Accumulating evaluation results...
+DONE (t=0.18s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.6391451979799433
+        AP of category [tank]:          0.6391451979799433
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:22
+Checkpoint saved to output/model_best.pth
+this is map50: 0.6391451979799433
+Training epoch 42 : [ 20/365 ] total loss: [0.5998956]
+Training epoch 42 : [ 40/365 ] total loss: [1.1092077]
+Training epoch 42 : [ 60/365 ] total loss: [0.9480836]
+Training epoch 42 : [ 80/365 ] total loss: [0.5389539]
+Training epoch 42 : [ 100/365 ] total loss: [1.544558]
+Training epoch 42 : [ 120/365 ] total loss: [0.60649747]
+Training epoch 42 : [ 140/365 ] total loss: [0.5572088]
+Training epoch 42 : [ 160/365 ] total loss: [1.0460485]
+Training epoch 42 : [ 180/365 ] total loss: [0.5690257]
+Training epoch 42 : [ 200/365 ] total loss: [1.4408786]
+Training epoch 42 : [ 220/365 ] total loss: [0.7812691]
+Training epoch 42 : [ 240/365 ] total loss: [0.62072754]
+Training epoch 42 : [ 260/365 ] total loss: [0.6989419]
+Training epoch 42 : [ 280/365 ] total loss: [1.0532458]
+Training epoch 42 : [ 300/365 ] total loss: [0.6025176]
+Training epoch 42 : [ 320/365 ] total loss: [1.0777879]
+Training epoch 42 : [ 340/365 ] total loss: [0.5868542]
+Training epoch 42 : [ 360/365 ] total loss: [0.8654622]
+Training epoch 42 finished. Time cost: 0:04:28 Epoch loss: [0.9142661]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.27704197]
+Evaluation : [ 40/69 ] total loss: [0.444036]
+Evaluation : [ 60/69 ] total loss: [1.7480911]
+Accumulating evaluation results...
+DONE (t=0.13s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.6018582248796973
+        AP of category [tank]:          0.6018582248796973
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:21
+this is map50: 0.6018582248796973
+Training epoch 43 : [ 20/365 ] total loss: [0.52582]
+Training epoch 43 : [ 40/365 ] total loss: [0.56645286]
+Training epoch 43 : [ 60/365 ] total loss: [0.7663071]
+Training epoch 43 : [ 80/365 ] total loss: [1.0820793]
+Training epoch 43 : [ 100/365 ] total loss: [0.6355196]
+Training epoch 43 : [ 120/365 ] total loss: [1.0543473]
+Training epoch 43 : [ 140/365 ] total loss: [1.410992]
+Training epoch 43 : [ 160/365 ] total loss: [0.9225521]
+Training epoch 43 : [ 180/365 ] total loss: [1.2299922]
+Training epoch 43 : [ 200/365 ] total loss: [0.8037013]
+Training epoch 43 : [ 220/365 ] total loss: [1.3060385]
+Training epoch 43 : [ 240/365 ] total loss: [0.67097557]
+Training epoch 43 : [ 260/365 ] total loss: [0.32144648]
+Training epoch 43 : [ 280/365 ] total loss: [1.2013063]
+Training epoch 43 : [ 300/365 ] total loss: [1.2367767]
+Training epoch 43 : [ 320/365 ] total loss: [1.3954227]
+Training epoch 43 : [ 340/365 ] total loss: [0.605566]
+Training epoch 43 : [ 360/365 ] total loss: [1.2264007]
+Training epoch 43 finished. Time cost: 0:04:25 Epoch loss: [0.9522298]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.2467106]
+Evaluation : [ 40/69 ] total loss: [0.472254]
+Evaluation : [ 60/69 ] total loss: [1.475774]
+Accumulating evaluation results...
+DONE (t=0.18s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.5816427692868087
+        AP of category [tank]:          0.5816427692868087
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:21
+this is map50: 0.5816427692868087
+Training epoch 44 : [ 20/365 ] total loss: [1.0659212]
+Training epoch 44 : [ 40/365 ] total loss: [1.0637983]
+Training epoch 44 : [ 60/365 ] total loss: [1.1538228]
+Training epoch 44 : [ 80/365 ] total loss: [0.7471954]
+Training epoch 44 : [ 100/365 ] total loss: [0.7765206]
+Training epoch 44 : [ 120/365 ] total loss: [0.6298765]
+Training epoch 44 : [ 140/365 ] total loss: [1.123329]
+Training epoch 44 : [ 160/365 ] total loss: [0.5690815]
+Training epoch 44 : [ 180/365 ] total loss: [0.9431707]
+Training epoch 44 : [ 200/365 ] total loss: [0.8978469]
+Training epoch 44 : [ 220/365 ] total loss: [0.44405794]
+Training epoch 44 : [ 240/365 ] total loss: [1.8157394]
+Training epoch 44 : [ 260/365 ] total loss: [1.1724602]
+Training epoch 44 : [ 280/365 ] total loss: [0.9231682]
+Training epoch 44 : [ 300/365 ] total loss: [0.24940781]
+Training epoch 44 : [ 320/365 ] total loss: [0.95302415]
+Training epoch 44 : [ 340/365 ] total loss: [0.5392343]
+Training epoch 44 : [ 360/365 ] total loss: [0.80640376]
+Training epoch 44 finished. Time cost: 0:04:41 Epoch loss: [0.9276583]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.30772248]
+Evaluation : [ 40/69 ] total loss: [0.6116085]
+Evaluation : [ 60/69 ] total loss: [1.3845143]
+Accumulating evaluation results...
+DONE (t=0.17s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.5722115025093331
+        AP of category [tank]:          0.5722115025093331
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:21
+this is map50: 0.5722115025093331
+Training epoch 45 : [ 20/365 ] total loss: [0.44760054]
+Training epoch 45 : [ 40/365 ] total loss: [1.392374]
+Training epoch 45 : [ 60/365 ] total loss: [1.1276954]
+Training epoch 45 : [ 80/365 ] total loss: [0.51086396]
+Training epoch 45 : [ 100/365 ] total loss: [0.9306915]
+Training epoch 45 : [ 120/365 ] total loss: [0.7283566]
+Training epoch 45 : [ 140/365 ] total loss: [1.3174579]
+Training epoch 45 : [ 160/365 ] total loss: [0.64730096]
+Training epoch 45 : [ 180/365 ] total loss: [1.571626]
+Training epoch 45 : [ 200/365 ] total loss: [0.82788575]
+Training epoch 45 : [ 220/365 ] total loss: [0.73480886]
+Training epoch 45 : [ 240/365 ] total loss: [1.0478643]
+Training epoch 45 : [ 260/365 ] total loss: [1.1954691]
+Training epoch 45 : [ 280/365 ] total loss: [0.5307151]
+Training epoch 45 : [ 300/365 ] total loss: [0.8356049]
+Training epoch 45 : [ 320/365 ] total loss: [0.8683009]
+Training epoch 45 : [ 340/365 ] total loss: [0.7927786]
+Training epoch 45 : [ 360/365 ] total loss: [0.847087]
+Training epoch 45 finished. Time cost: 0:04:40 Epoch loss: [0.9368471]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.3764937]
+Evaluation : [ 40/69 ] total loss: [0.4037975]
+Evaluation : [ 60/69 ] total loss: [1.547735]
+Accumulating evaluation results...
+DONE (t=0.17s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.6078539457633015
+        AP of category [tank]:          0.6078539457633015
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:21
+this is map50: 0.6078539457633015
+Training epoch 46 : [ 20/365 ] total loss: [0.43020165]
+Training epoch 46 : [ 40/365 ] total loss: [0.7410576]
+Training epoch 46 : [ 60/365 ] total loss: [1.7310898]
+Training epoch 46 : [ 80/365 ] total loss: [1.1112411]
+Training epoch 46 : [ 100/365 ] total loss: [0.9035021]
+Training epoch 46 : [ 120/365 ] total loss: [0.49940807]
+Training epoch 46 : [ 140/365 ] total loss: [0.4393154]
+Training epoch 46 : [ 160/365 ] total loss: [1.3209043]
+Training epoch 46 : [ 180/365 ] total loss: [1.2596693]
+Training epoch 46 : [ 200/365 ] total loss: [1.2812891]
+Training epoch 46 : [ 220/365 ] total loss: [1.1640435]
+Training epoch 46 : [ 240/365 ] total loss: [0.56635046]
+Training epoch 46 : [ 260/365 ] total loss: [0.7482984]
+Training epoch 46 : [ 280/365 ] total loss: [1.0687423]
+Training epoch 46 : [ 300/365 ] total loss: [1.1650026]
+Training epoch 46 : [ 320/365 ] total loss: [0.5795701]
+Training epoch 46 : [ 340/365 ] total loss: [1.0773208]
+Training epoch 46 : [ 360/365 ] total loss: [0.47113186]
+Training epoch 46 finished. Time cost: 0:04:32 Epoch loss: [0.9280503]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.23666131]
+Evaluation : [ 40/69 ] total loss: [0.3999626]
+Evaluation : [ 60/69 ] total loss: [1.3758492]
+Accumulating evaluation results...
+DONE (t=0.18s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.5632027298596194
+        AP of category [tank]:          0.5632027298596194
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:24
+this is map50: 0.5632027298596194
+Training epoch 47 : [ 20/365 ] total loss: [0.8575479]
+Training epoch 47 : [ 40/365 ] total loss: [1.1609533]
+Training epoch 47 : [ 60/365 ] total loss: [0.5944295]
+Training epoch 47 : [ 80/365 ] total loss: [0.61752415]
+Training epoch 47 : [ 100/365 ] total loss: [0.9442768]
+Training epoch 47 : [ 120/365 ] total loss: [1.0628068]
+Training epoch 47 : [ 140/365 ] total loss: [0.6146165]
+Training epoch 47 : [ 160/365 ] total loss: [0.7990409]
+Training epoch 47 : [ 180/365 ] total loss: [0.6723141]
+Training epoch 47 : [ 200/365 ] total loss: [1.2040889]
+Training epoch 47 : [ 220/365 ] total loss: [1.1862186]
+Training epoch 47 : [ 240/365 ] total loss: [1.1867297]
+Training epoch 47 : [ 260/365 ] total loss: [0.86504304]
+Training epoch 47 : [ 280/365 ] total loss: [0.5704684]
+Training epoch 47 : [ 300/365 ] total loss: [0.5863811]
+Training epoch 47 : [ 320/365 ] total loss: [0.72387207]
+Training epoch 47 : [ 340/365 ] total loss: [1.2685735]
+Training epoch 47 : [ 360/365 ] total loss: [0.82469195]
+Training epoch 47 finished. Time cost: 0:05:01 Epoch loss: [0.9073778]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.29466552]
+Evaluation : [ 40/69 ] total loss: [0.3232721]
+Evaluation : [ 60/69 ] total loss: [1.5096653]
+Accumulating evaluation results...
+DONE (t=0.18s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.5801807216198679
+        AP of category [tank]:          0.5801807216198679
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:24
+this is map50: 0.5801807216198679
+Training epoch 48 : [ 20/365 ] total loss: [0.99226373]
+Training epoch 48 : [ 40/365 ] total loss: [0.8176219]
+Training epoch 48 : [ 60/365 ] total loss: [0.49058232]
+Training epoch 48 : [ 80/365 ] total loss: [1.3269436]
+Training epoch 48 : [ 100/365 ] total loss: [0.77345103]
+Training epoch 48 : [ 120/365 ] total loss: [1.0898888]
+Training epoch 48 : [ 140/365 ] total loss: [0.70152175]
+Training epoch 48 : [ 160/365 ] total loss: [0.6832484]
+Training epoch 48 : [ 180/365 ] total loss: [0.68031836]
+Training epoch 48 : [ 200/365 ] total loss: [0.52459824]
+Training epoch 48 : [ 220/365 ] total loss: [0.8597996]
+Training epoch 48 : [ 240/365 ] total loss: [0.6223447]
+Training epoch 48 : [ 260/365 ] total loss: [1.0694284]
+Training epoch 48 : [ 280/365 ] total loss: [1.5113702]
+Training epoch 48 : [ 300/365 ] total loss: [0.3833651]
+Training epoch 48 : [ 320/365 ] total loss: [0.75120676]
+Training epoch 48 : [ 340/365 ] total loss: [0.95813084]
+Training epoch 48 : [ 360/365 ] total loss: [1.0596861]
+Training epoch 48 finished. Time cost: 0:05:29 Epoch loss: [0.8974824]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.14275105]
+Evaluation : [ 40/69 ] total loss: [0.29343128]
+Evaluation : [ 60/69 ] total loss: [1.5450737]
+Accumulating evaluation results...
+DONE (t=0.18s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.602871619494758
+        AP of category [tank]:          0.602871619494758
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:30
+this is map50: 0.602871619494758
+Training epoch 49 : [ 20/365 ] total loss: [0.9906995]
+Training epoch 49 : [ 40/365 ] total loss: [1.5688624]
+Training epoch 49 : [ 60/365 ] total loss: [1.2208122]
+Training epoch 49 : [ 80/365 ] total loss: [0.93237734]
+Training epoch 49 : [ 100/365 ] total loss: [1.0734956]
+Training epoch 49 : [ 120/365 ] total loss: [0.6900105]
+Training epoch 49 : [ 140/365 ] total loss: [1.3244408]
+Training epoch 49 : [ 160/365 ] total loss: [0.9763154]
+Training epoch 49 : [ 180/365 ] total loss: [0.56750166]
+Training epoch 49 : [ 200/365 ] total loss: [0.6364921]
+Training epoch 49 : [ 220/365 ] total loss: [1.0903596]
+Training epoch 49 : [ 240/365 ] total loss: [1.2934961]
+Training epoch 49 : [ 260/365 ] total loss: [0.67223877]
+Training epoch 49 : [ 280/365 ] total loss: [0.82508695]
+Training epoch 49 : [ 300/365 ] total loss: [0.39130864]
+Training epoch 49 : [ 320/365 ] total loss: [1.1406938]
+Training epoch 49 : [ 340/365 ] total loss: [0.7530422]
+Training epoch 49 : [ 360/365 ] total loss: [1.092653]
+Training epoch 49 finished. Time cost: 0:05:46 Epoch loss: [0.9148231]
+Checkpoint saved to output/model_for_eval.pth
+Evaluation : [ 20/69 ] total loss: [0.23357067]
+Evaluation : [ 40/69 ] total loss: [0.44729042]
+Evaluation : [ 60/69 ] total loss: [1.3010888]
+Accumulating evaluation results...
+DONE (t=0.17s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.6673561384063653
+        AP of category [tank]:          0.6673561384063653
+        AP of category [car]:           -1.0
+Evaluation finished. Time cost: 0:00:38
+Checkpoint saved to output/model_best.pth
+Checkpoint saved to output/model_last.pth
+this is map50: 0.6673561384063653
+Single-domain training finished. Time cost: 3:41:19 . Best mAP50: 0.6673561384063653

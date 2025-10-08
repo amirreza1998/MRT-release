@@ -12,6 +12,7 @@ from datasets.augmentations import train_trans, val_trans, strong_trans
 from utils import get_rank, init_distributed_mode, resume_and_load, save_ckpt, selective_reinitialize
 from pathlib import Path
 
+# Helper function to save model state
 def save_ckpt(model, path, is_distributed):
     """Saves the model checkpoint."""
     # If using DistributedDataParallel, access the underlying model
@@ -34,8 +35,8 @@ def get_args_parser(parser):
     parser.add_argument('--feedforward_dim', default=1024, type=int)
     parser.add_argument('--dropout', default=0.0, type=float)
     # Optimization hyperparameters
-    parser.add_argument('--batch_size', default=1, type=int)
-    parser.add_argument('--eval_batch_size', default=1, type=int)
+    parser.add_argument('--batch_size', default=8, type=int)
+    parser.add_argument('--eval_batch_size', default=8, type=int)
     parser.add_argument('--lr', default=2e-4, type=float)
     parser.add_argument('--lr_backbone', default=2e-5, type=float)
     parser.add_argument('--lr_linear_proj', default=2e-5, type=float)
@@ -43,7 +44,7 @@ def get_args_parser(parser):
     parser.add_argument('--weight_decay', default=1e-4, type=float)
     parser.add_argument('--clip_max_norm', default=0.5, type=float, help='gradient clipping max norm')
     parser.add_argument('--epoch', default=50, type=int)
-    parser.add_argument('--epoch_lr_drop', default=40, type=int)
+    parser.add_argument('--epoch_lr_drop', default=60, type=int)
     # Loss coefficients
     parser.add_argument('--teach_box_loss', default=False, type=bool)
     parser.add_argument('--coef_class', default=2.0, type=float)
@@ -58,7 +59,8 @@ def get_args_parser(parser):
     # Dataset parameters
     parser.add_argument('--data_root', default='./data', type=str)
     parser.add_argument('--source_dataset', default='tanks_source', type=str)
-    parser.add_argument('--target_dataset', default='tanks_test', type=str)
+    parser.add_argument('--target_dataset', default='tanks_source', type=str)
+    # parser.add_argument('--target_dataset', default='tanks_test', type=str)    
     # parser.add_argument('--target_dataset', default='tanks_source', type=str)
     # Retraining parameters
     parser.add_argument('--epoch_retrain', default=40, type=int)
@@ -86,11 +88,10 @@ def get_args_parser(parser):
     parser.add_argument('--flush', default=True, type=bool)
     parser.add_argument("--resume", default="", type=str)
 
-    # Continue from eval or not
+    # In your argument parser file (e.g., main.py)
     parser.add_argument('--eval-from-checkpoint', default=None, type=str,
-                    help="Path to the model checkpoint to load for evaluation only. Skips the training phase.")
+                        help="Path to the model checkpoint to load for evaluation only. Skips the training phase.")
     
-
 def set_random_seed(seed):
     random.seed(seed)
     np.random.seed(seed)
@@ -117,9 +118,10 @@ def single_domain_training(model, device):
     start_time = time.time()
     # Build dataloaders
     # train_loader = build_dataloader(args, args.source_dataset, 'source', 'train', train_trans)
-    train_loader = build_dataloader(args, args.source_dataset, 'source', 'val', train_trans)    
+    train_loader = build_dataloader(args, args.source_dataset, 'source', 'train', train_trans)    
     val_loader = build_dataloader(args, args.target_dataset, 'source', 'val', val_trans)
     # val_loader = build_dataloader(args, args.source_dataset, 'target', 'val', val_trans)
+    # val_loader = build_dataloader(args, args.source_dataset, 'target', 'val', val_trans)    
     idx_to_class = val_loader.dataset.coco.cats
     # Prepare model for optimization
     # import pdb;pdb.set_trace()
@@ -128,8 +130,7 @@ def single_domain_training(model, device):
     criterion = build_criterion(args, device)
     optimizer = build_optimizer(args, model)
     lr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer, args.epoch_lr_drop)
-
-    # load model if it has been set in eval_from_checkpoint argument
+    
     if args.eval_from_checkpoint:
         print(f"💡 Loading model from {args.eval_from_checkpoint} for evaluation only.")
         checkpoint = torch.load(args.eval_from_checkpoint, map_location=device)
@@ -161,6 +162,7 @@ def single_domain_training(model, device):
             )
             write_loss(epoch, 'single_domain', loss_train, loss_train_dict)
             lr_scheduler.step()
+            
             eval_ckpt_path = Path(output_dir) / 'model_for_eval.pth'
             save_ckpt(model, eval_ckpt_path, args.distributed)
 
@@ -186,13 +188,14 @@ def single_domain_training(model, device):
         # Write the evaluation results to tensorboard
         print(f"this is map50: {map50}")
         write_ap50(epoch, 'single_domain', map50, ap50_per_class, idx_to_class)
-
+        
         # If in eval-only mode, you might want to break after one loop
         if args.eval_from_checkpoint:
             print("Evaluation finished. Exiting eval-only mode.")
-            break
-
+            break        
     # Record the end time
+    # python main.py --epoch 1 --eval-from-checkpoint /app/app4/output/model_for_eval.pth
+
     end_time = time.time()
     total_time_str = str(datetime.timedelta(seconds=int(end_time - start_time)))
     print('Single-domain training finished. Time cost: ' + total_time_str +

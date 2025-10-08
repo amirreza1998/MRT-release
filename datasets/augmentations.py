@@ -1,6 +1,4 @@
 from .transforms import *
-
-
 base_trans = ComposeImgAnno([
     ToTensorImgAnno(),
     NormalizeImgAnno()
