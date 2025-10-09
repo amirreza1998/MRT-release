@@ -59,49 +59,49 @@ class CocoStyleDataset(CocoDetection):
 
     
     
-    # img_dirs = {
-    #     'cityscapes': {
-    #         'train': 'cityscapes/leftImg8bit/train', 'val': 'cityscapes/leftImg8bit/val'
-    #     },
-    #     'foggy_cityscapes': {
-    #         'train': 'foggy_cityscapes/leftImg8bit_foggy/train', 'val': 'foggy_cityscapes/leftImg8bit_foggy/val'
-    #     },
-    #     'bdd100k': {
-    #         'train': 'bdd100k/images/100k/train', 'val': 'bdd100k/images/100k/val',
-    #     },
-    #     'sim10k': {
-    #         'train': 'sim10k/JPEGImages'
-    #     },
-    # }
-    # anno_files = {
-    #     'cityscapes': {
-    #         'source': {
-    #             'train': 'cityscapes/annotations/cityscapes_train_cocostyle.json',
-    #             'val': 'cityscapes/annotations/cityscapes_val_cocostyle.json',
-    #         },
-    #         'target': {
-    #             'train': 'cityscapes/annotations/cityscapes_train_caronly_cocostyle.json',
-    #             'val': 'cityscapes/annotations/cityscapes_val_caronly_cocostyle.json'
-    #         }
-    #     },
-    #     'foggy_cityscapes': {
-    #         'target': {
-    #             'train': 'foggy_cityscapes/annotations/foggy_cityscapes_train_cocostyle.json',
-    #             'val': 'foggy_cityscapes/annotations/foggy_cityscapes_val_cocostyle.json'
-    #         }
-    #     },
-    #     'bdd100k': {
-    #         'target': {
-    #             'train': 'bdd100k/annotations/bdd100k_daytime_train_cocostyle.json',
-    #             'val': 'bdd100k/annotations/bdd100k_daytime_val_cocostyle.json'
-    #         },
-    #     },
-    #     'sim10k': {
-    #         'source': {
-    #             'train': 'sim10k/annotations/sim10k_train_cocostyle.json',
-    #         },
-    #     },
-    # }
+    img_dirs = {
+    'cityscapes': {
+             'train': 'cityscapes/leftImg8bit/train', 'val': 'cityscapes/leftImg8bit/val'
+         },
+         'foggy_cityscapes': {
+             'train': 'foggy_cityscapes/leftImg8bit_foggy/train', 'val': 'foggy_cityscapes/leftImg8bit_foggy/val'
+         },
+         'bdd100k': {
+             'train': 'bdd100k/JPEGImages/train', 'val': 'bdd100k/JPEGImages/val',
+         },
+         'sim10k': {
+             'train': 'sim10k/JPEGImages'
+         },
+     }
+    anno_files = {
+         'cityscapes': {
+             'source': {
+                 'train': 'cityscapes/annotations/cityscapes_train_cocostyle.json',
+                 'val': 'cityscapes/annotations/cityscapes_val_cocostyle.json',
+             },
+             'target': {
+                 'train': 'cityscapes/annotations/cityscapes_train_caronly_cocostyle.json',
+                 'val': 'cityscapes/annotations/cityscapes_val_caronly_cocostyle.json'
+             }
+         },
+         'foggy_cityscapes': {
+             'target': {
+                 'train': 'foggy_cityscapes/annotations/foggy_cityscapes_train_cocostyle.json',
+                 'val': 'foggy_cityscapes/annotations/foggy_cityscapes_val_cocostyle.json'
+             }
+         },
+         'bdd100k': {
+             'target': {
+                 'train': 'bdd100k/annotations/bdd100k_daytime_train_cocostyle.json',
+                 'val': 'bdd100k/annotations/bdd100k_daytime_val_cocostyle.json'
+             },
+         },
+         'sim10k': {
+             'source': {
+                 'train': 'sim10k/annotations/sim10k_train_cocostyle.json',
+             },
+         },
+     }
 
     def __init__(self,
                  root_dir: str,
@@ -110,7 +110,7 @@ class CocoStyleDataset(CocoDetection):
                  split: str,
                  transforms: Optional[Callable] = None):
         # dataset_root = os.path.join(root_dir, dataset_name)
-        # import pdb;pdb.set_trace()
+        #import pdb;pdb.set_trace()
         img_dir = os.path.join(root_dir, self.img_dirs[dataset_name][split])
         self.anno_file = os.path.join(root_dir, self.anno_files[dataset_name][domain][split])
         super(CocoStyleDataset, self).__init__(root=img_dir, annFile=self.anno_file, transforms=transforms)
@@ -233,7 +233,7 @@ class CocoStyleDatasetTeaching(CocoStyleDataset):
         image, annotation = super(CocoStyleDatasetTeaching, self).__getitem__(idx)
         teacher_image, annotation = self.weak_aug(image, annotation)
         student_image, _ = self.strong_aug(teacher_image, None)
-        teacher_image, annotation = self.final_trans(teacher_image, annotation)
+        TEACher_image, annotation = self.final_trans(teacher_image, annotation)
         student_image, _ = self.final_trans(student_image, None)
         return teacher_image, student_image, annotation
 

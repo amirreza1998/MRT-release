@@ -12,11 +12,10 @@ main.py \
 --num_decoder_layers 6 \
 --num_classes 9 \
 --dropout 0.1 \
---data_root ${DATA_ROOT} \
 --source_dataset cityscapes \
 --target_dataset bdd100k \
---batch_size ${BATCH_SIZE} \
---eval_batch_size ${BATCH_SIZE} \
+--batch_size 8 \
+--eval_batch_size 8 \
 --lr 2e-4 \
 --lr_backbone 2e-5 \
 --lr_linear_proj 2e-5 \

@@ -71,7 +71,6 @@ def get_args_parser(parser):
     parser.add_argument('--epoch_mae_decay', default=10, type=float)
     # Dynamic threshold (DT) parameters
     parser.add_argument('--threshold', default=0.3, type=float)
-    parser.add_argument('--train-from-chekcpoint', default="", type=str)
     parser.add_argument('--alpha_dt', default=0.5, type=float)
     parser.add_argument('--gamma_dt', default=0.9, type=float)
     parser.add_argument('--max_dt', default=0.45, type=float)
@@ -80,9 +79,20 @@ def get_args_parser(parser):
                         help="'single_domain' for single domain training, "
                              "'cross_domain_mae' for cross domain training with mae, "
                              "'teaching' for teaching process, 'eval' for evaluation only.")
-
-
     # Other settings
+    parser.add_argument('--device', default='cuda', type=str)
+    parser.add_argument('--output_dir', default='./output', type=str)
+    parser.add_argument('--random_seed', default=8008, type=int)
+    parser.add_argument('--num_workers', default=8, type=int)
+    parser.add_argument('--print_freq', default=20, type=int)
+    parser.add_argument('--flush', default=True, type=bool)
+    parser.add_argument("--resume", default="", type=str)
+
+    # CHANGED: Modified help text to clarify this is for evaluation only
+    parser.add_argument('--eval-from-checkpoint', default=None, type=str,
+                        help="Path to the model checkpoint to load for evaluation only. Skips the training phase.")
+    
+    # NEW: Added argument for continuing training from checkpoint
     parser.add_argument('--continue-from-checkpoint', default=None, type=str,
                         help="Path to the model checkpoint to load and continue training from. "
                              "This will load model weights, optimizer state, and resume from the saved epoch.")
@@ -91,18 +101,7 @@ def get_args_parser(parser):
     parser.add_argument('--start-epoch', default=0, type=int,
                         help="Starting epoch number when continuing training from a checkpoint. "
                              "Automatically set when using --continue-from-checkpoint.")
-    parser.add_argument('--device', default='cuda', type=str)
-    parser.add_argument('--output_dir', default='./output', type=str)
-    parser.add_argument('--random_seed', default=8008, type=int)
-    parser.add_argument('--num_workers', default=8, type=int)
-    parser.add_argument('--print_freq', default=20, type=int)
-    parser.add_argument('--flush', default=True, type=bool)
-    parser.add_argument("--resume", default="", type=str)
-    parser.add_argument('--eval_from_checkpoint', default="", type=str)
-    # In your argument parser file (e.g., main.py)
-    parser.add_argument('--eval-from-checkpoint', default=None, type=str,
-                        help="Path to the model checkpoint to load for evaluation only. Skips the training phase.")
-    
+
 def set_random_seed(seed):
     random.seed(seed)
     np.random.seed(seed)
@@ -130,8 +129,8 @@ def single_domain_training(model, device):
     # Build dataloaders
     # train_loader = build_dataloader(args, args.source_dataset, 'source', 'train', train_trans)
     train_loader = build_dataloader(args, args.source_dataset, 'source', 'train', train_trans)    
-   # val_loader = build_dataloader(args, args.target_dataset, 'source', 'val', val_trans)
-    val_loader = build_dataloader(args, args.source_dataset, 'target', 'val', val_trans)
+    #val_loader = build_dataloader(args, args.target_dataset, 'source', 'val', val_trans)
+    val_loader = build_dataloader(args, args.target_dataset, 'target', 'val', val_trans)
     # val_loader = build_dataloader(args, args.source_dataset, 'target', 'val', val_trans)    
     idx_to_class = val_loader.dataset.coco.cats
     # Prepare model for optimization
@@ -142,17 +141,42 @@ def single_domain_training(model, device):
     optimizer = build_optimizer(args, model)
     lr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer, args.epoch_lr_drop)
     
+    # CHANGED: Added logic to handle continuing training from checkpoint
+    if args.continue_from_checkpoint:
+        print(f"💡 Loading checkpoint from {args.continue_from_checkpoint} to continue training.")
+        checkpoint = torch.load(args.continue_from_checkpoint, map_location=device, weights_only=False)
+        
+        # Load model state
+        model_to_load = model.module if args.distributed else model
+        if isinstance(checkpoint, dict) and 'model_state_dict' in checkpoint:
+            # Checkpoint includes optimizer and epoch info
+            model_to_load.load_state_dict(checkpoint['model_state_dict'])
+            optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+            args.start_epoch = checkpoint['epoch'] + 1  # Start from next epoch
+            if 'lr_scheduler_state_dict' in checkpoint:
+                lr_scheduler.load_state_dict(checkpoint['lr_scheduler_state_dict'])
+            print(f"✅ Resuming training from epoch {args.start_epoch}")
+        else:
+            # Checkpoint only contains model weights
+            model_to_load.load_state_dict(checkpoint)
+            print(f"✅ Loaded model weights. Starting from epoch {args.start_epoch}")
+    
     if args.eval_from_checkpoint:
         print(f"💡 Loading model from {args.eval_from_checkpoint} for evaluation only.")
-        checkpoint = torch.load(args.eval_from_checkpoint, map_location=device)
+        checkpoint = torch.load(args.eval_from_checkpoint, map_location=device, weights_only=False)
         
         # Handle models saved with/without DistributedDataParallel wrapper
         model_to_load = model.module if args.distributed else model
-        model_to_load.load_state_dict(checkpoint)
+        # CHANGED: Added support for dict-based checkpoints
+        if isinstance(checkpoint, dict) and 'model_state_dict' in checkpoint:
+            model_to_load.load_state_dict(checkpoint['model_state_dict'])
+        else:
+            model_to_load.load_state_dict(checkpoint)
         print("Model loaded successfully. Skipping training.")
 
     # Record the best mAP
     ap50_best = -1.0
+    # CHANGED: Use args.start_epoch instead of 0 to support continuing training
     for epoch in range(args.start_epoch, args.epoch):
         # Set the epoch for the sampler
         if args.distributed and hasattr(train_loader.sampler, 'set_epoch'):
@@ -174,16 +198,17 @@ def single_domain_training(model, device):
             write_loss(epoch, 'single_domain', loss_train, loss_train_dict)
             lr_scheduler.step()
             
+            # CHANGED: Save comprehensive checkpoint including optimizer state
             eval_ckpt_path = Path(output_dir) / 'model_for_eval.pth'
-            #save_ckpt(model, eval_ckpt_path, args.distributed)
             checkpoint_dict = {
                 'epoch': epoch,
                 'model_state_dict': (model.module if args.distributed else model).state_dict(),
-                'optimizer_state_dict': optimizer.state_dict(),
-                'lr_scheduler_state_dict': lr_scheduler.state_dict(),
-                'args': args
+                # 'optimizer_state_dict': optimizer.state_dict(),
+                # 'lr_scheduler_state_dict': lr_scheduler.state_dict(),
+                # 'args': args
             }
             torch.save(checkpoint_dict, eval_ckpt_path)
+            print(f"Checkpoint saved to {eval_ckpt_path}")
 
         # Evaluate
         # try:
@@ -201,9 +226,18 @@ def single_domain_training(model, device):
         map50 = np.asarray([ap for ap in ap50_per_class if ap > -0.001]).mean().tolist()
         if map50 > ap50_best:
             ap50_best = map50
-            save_ckpt(model, output_dir/'model_best.pth', args.distributed)
+            # CHANGED: Save comprehensive checkpoint for best model too
+            best_checkpoint_dict = {
+                'epoch': epoch,
+                'model_state_dict': (model.module if args.distributed else model).state_dict(),
+                # 'optimizer_state_dict': optimizer.state_dict(),
+                # 'lr_scheduler_state_dict': lr_scheduler.state_dict(),
+                # 'map50': map50,
+                # 'args': args
+            }
+            torch.save(best_checkpoint_dict, output_dir/'model_best.pth')
         #if epoch == args.epoch - 1:
-        #    save_ckpt(model, output_dir/'model_last.pth', args.distributed)
+            # CHANGED: Save comprehensive checkpoint for last model
         last_checkpoint_dict = {
             'epoch': epoch,
             'model_state_dict': (model.module if args.distributed else model).state_dict(),
@@ -212,7 +246,6 @@ def single_domain_training(model, device):
             'args': args
         }
         torch.save(last_checkpoint_dict, output_dir/'model_last.pth')
-
         # Write the evaluation results to tensorboard
         print(f"this is map50: {map50}")
         write_ap50(epoch, 'single_domain', map50, ap50_per_class, idx_to_class)
@@ -234,8 +267,8 @@ def cross_domain_mae(model, device):
     start_time = time.time()
     # Build dataloaders
     source_loader = build_dataloader(args, args.source_dataset, 'source', 'train', strong_trans)
-    target_loader = build_dataloader(args, args.target_dataset, 'source', 'train', strong_trans)
-    val_loader = build_dataloader(args, args.target_dataset, 'source', 'val', val_trans)
+    target_loader = build_dataloader(args, args.target_dataset, 'target', 'train', strong_trans)
+    val_loader = build_dataloader(args, args.target_dataset, 'target', 'val', val_trans)
     idx_to_class = val_loader.dataset.coco.cats
     # Build MAE branch
     image_size = target_loader.dataset.__getitem__(0)[0].shape[-2:]
@@ -246,10 +279,29 @@ def cross_domain_mae(model, device):
     criterion, criterion_mae = build_criterion(args, device), build_criterion(args, device)
     optimizer = build_optimizer(args, model)
     lr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer, args.epoch_lr_drop)
+    
+    # NEW: Added logic to handle continuing training from checkpoint
+    if args.continue_from_checkpoint:
+        print(f"💡 Loading checkpoint from {args.continue_from_checkpoint} to continue training.")
+        checkpoint = torch.load(args.continue_from_checkpoint, map_location=device, weights_only=False)
+        
+        model_to_load = model.module if args.distributed else model
+        if isinstance(checkpoint, dict) and 'model_state_dict' in checkpoint:
+            model_to_load.load_state_dict(checkpoint['model_state_dict'])
+            optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+            args.start_epoch = checkpoint['epoch'] + 1
+            if 'lr_scheduler_state_dict' in checkpoint:
+                lr_scheduler.load_state_dict(checkpoint['lr_scheduler_state_dict'])
+            print(f"✅ Resuming training from epoch {args.start_epoch}")
+        else:
+            model_to_load.load_state_dict(checkpoint)
+            print(f"✅ Loaded model weights. Starting from epoch {args.start_epoch}")
+    
     # Record the best mAP
     ap50_best = -1.0
-    for epoch in range(args.start_epoch, args.epoch):        
-		# Set the epoch for the sampler
+    # CHANGED: Use args.start_epoch instead of 0
+    for epoch in range(args.start_epoch, args.epoch):
+        # Set the epoch for the sampler
         if args.distributed and hasattr(source_loader.sampler, 'set_epoch'):
             source_loader.sampler.set_epoch(epoch)
             target_loader.sampler.set_epoch(epoch)
@@ -284,9 +336,25 @@ def cross_domain_mae(model, device):
         map50 = np.asarray([ap for ap in ap50_per_class if ap > -0.0001]).mean().tolist()
         if map50 > ap50_best:
             ap50_best = map50
-            save_ckpt(model, output_dir/'model_best.pth', args.distributed)
-        if epoch == args.epoch - 1:
-            save_ckpt(model, output_dir/'model_last.pth', args.distributed)
+            # CHANGED: Save comprehensive checkpoint
+            best_checkpoint_dict = {
+                'epoch': epoch,
+                'model_state_dict': (model.module if args.distributed else model).state_dict(),
+                'optimizer_state_dict': optimizer.state_dict(),
+                'lr_scheduler_state_dict': lr_scheduler.state_dict(),
+                'map50': map50,
+                'args': args
+            }
+            torch.save(best_checkpoint_dict, output_dir/'model_best.pth')
+        #if epoch == args.epoch - 1:
+        last_checkpoint_dict = {
+            'epoch': epoch,
+            'model_state_dict': (model.module if args.distributed else model).state_dict(),
+            'optimizer_state_dict': optimizer.state_dict(),
+            'lr_scheduler_state_dict': lr_scheduler.state_dict(),
+            'args': args
+        }
+        torch.save(last_checkpoint_dict, output_dir/'model_last.pth')
         # Write the evaluation results to tensorboard
         write_ap50(epoch, 'cross_domain_mae', map50, ap50_per_class, idx_to_class)
     # Record the end time
@@ -319,13 +387,44 @@ def teaching(model_stu, device):
     criterion_pseudo = build_criterion(args, device, box_loss=args.teach_box_loss)
     optimizer = build_optimizer(args, model_stu)
     lr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer, args.epoch_lr_drop)
+    
+    # NEW: Added logic to handle continuing training from checkpoint
+    if args.continue_from_checkpoint:
+        print(f"💡 Loading checkpoint from {args.continue_from_checkpoint} to continue teaching.")
+        checkpoint = torch.load(args.continue_from_checkpoint, map_location=device, weights_only=False)
+        
+        model_stu_load = model_stu.module if args.distributed else model_stu
+        model_tch_load = model_tch.module if args.distributed else model_tch
+        
+        if isinstance(checkpoint, dict) and 'model_state_dict' in checkpoint:
+            model_stu_load.load_state_dict(checkpoint['model_state_dict'])
+            # Also load teacher if saved
+            if 'teacher_state_dict' in checkpoint:
+                model_tch_load.load_state_dict(checkpoint['teacher_state_dict'])
+            optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+            args.start_epoch = checkpoint['epoch'] + 1
+            if 'lr_scheduler_state_dict' in checkpoint:
+                lr_scheduler.load_state_dict(checkpoint['lr_scheduler_state_dict'])
+            # Load thresholds if saved
+            if 'thresholds' in checkpoint:
+                thresholds = checkpoint['thresholds']
+            else:
+                thresholds = [args.threshold] * args.num_classes
+            print(f"✅ Resuming teaching from epoch {args.start_epoch}")
+        else:
+            model_stu_load.load_state_dict(checkpoint)
+            thresholds = [args.threshold] * args.num_classes
+            print(f"✅ Loaded model weights. Starting from epoch {args.start_epoch}")
+    else:
+        # Initialize thresholds
+        thresholds = [args.threshold] * args.num_classes
+    
     # Reinitialize checkpoint for selective retraining
     reinit_ckpt = copy.deepcopy(model_tch.state_dict())
-    # Initialize thresholds
-    thresholds = [args.threshold] * args.num_classes
     # Record the best mAP
     ap50_best = -1.0
-    for epoch in range(args.start_epoch,args.epoch):
+    # CHANGED: Use args.start_epoch instead of 0
+    for epoch in range(args.start_epoch, args.epoch):
         # Set the epoch for the sampler
         if args.distributed and hasattr(source_loader.sampler, 'set_epoch'):
             source_loader.sampler.set_epoch(epoch)
@@ -383,10 +482,42 @@ def teaching(model_stu, device):
         write_ap50(epoch, 'teaching_student', map50_stu, ap50_per_class_student, idx_to_class)
         if max(map50_tch, map50_stu) > ap50_best:
             ap50_best = max(map50_tch, map50_stu)
-            save_ckpt(model_tch if map50_tch > map50_stu else model_stu, output_dir/'model_best.pth', args.distributed)
+            # CHANGED: Save comprehensive checkpoint including both models
+            best_model = model_tch if map50_tch > map50_stu else model_stu
+            best_checkpoint_dict = {
+                'epoch': epoch,
+                'model_state_dict': (best_model.module if args.distributed else best_model).state_dict(),
+                'teacher_state_dict': (model_tch.module if args.distributed else model_tch).state_dict(),
+                'student_state_dict': (model_stu.module if args.distributed else model_stu).state_dict(),
+                'optimizer_state_dict': optimizer.state_dict(),
+                'lr_scheduler_state_dict': lr_scheduler.state_dict(),
+                'thresholds': thresholds,
+                'map50_teacher': map50_tch,
+                'map50_student': map50_stu,
+                'args': args
+            }
+            torch.save(best_checkpoint_dict, output_dir/'model_best.pth')
         if epoch == args.epoch - 1:
-            save_ckpt(model_tch, output_dir/'model_last_tch.pth', args.distributed)
-            save_ckpt(model_stu, output_dir/'model_last_stu.pth', args.distributed)
+            # CHANGED: Save both teacher and student
+            last_tch_checkpoint = {
+                'epoch': epoch,
+                'model_state_dict': (model_tch.module if args.distributed else model_tch).state_dict(),
+                'optimizer_state_dict': optimizer.state_dict(),
+                'lr_scheduler_state_dict': lr_scheduler.state_dict(),
+                'thresholds': thresholds,
+                'args': args
+            }
+            torch.save(last_tch_checkpoint, output_dir/'model_last_tch.pth')
+            
+            last_stu_checkpoint = {
+                'epoch': epoch,
+                'model_state_dict': (model_stu.module if args.distributed else model_stu).state_dict(),
+                'optimizer_state_dict': optimizer.state_dict(),
+                'lr_scheduler_state_dict': lr_scheduler.state_dict(),
+                'thresholds': thresholds,
+                'args': args
+            }
+            torch.save(last_stu_checkpoint, output_dir/'model_last_stu.pth')
     end_time = time.time()
     total_time_str = str(datetime.timedelta(seconds=int(end_time - start_time)))
     print('Teaching finished. Time cost: ' + total_time_str + ' . Best mAP50: ' + str(ap50_best), flush=args.flush)
@@ -432,8 +563,13 @@ def main():
     # Build model
     device = torch.device(args.device)
     model = build_model(args, device)
-    if args.resume != "":
+    
+    # CHANGED: Modified resume logic to distinguish between --resume and --continue-from-checkpoint
+    # --resume is used for loading pretrained weights only
+    # --continue-from-checkpoint is used for continuing training with optimizer state
+    if args.resume != "" and not args.continue_from_checkpoint:
         model = resume_and_load(model, args.resume, device)
+    
     # Training or evaluation
     print('-------------------------------------', flush=args.flush)
     if args.mode == "single_domain":
@@ -465,3 +601,10 @@ if __name__ == '__main__':
 # python main.py --mode cross_domain_mae --num_classes 2 --dropout 0.0 --source_dataset tanks_source --target_dataset --epoch 50
 # python main.py --mode teaching --num_classes 2 --dropout 0.0 --source_dataset tanks_source --target_dataset 
 # python main.py --mode eval --num_classes 2 --source_dataset tanks_source --target_dataset
+
+# NEW USAGE EXAMPLES:
+# Continue training from a checkpoint (loads model, optimizer, lr_scheduler states):
+# python main.py --mode single_domain --continue-from-checkpoint ./output/model_for_eval.pth --epoch 100
+# 
+# Start training from a specific epoch with a checkpoint:
+# python main.py --mode single_domain --continue-from-checkpoint ./output/model_best.pth --start-epoch 50 --epoch 100

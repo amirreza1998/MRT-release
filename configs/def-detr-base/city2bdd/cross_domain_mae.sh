@@ -25,4 +25,4 @@ main.py \
 --mode cross_domain_mae \
 --output_dir ${OUTPUT_DIR} \
 --resume ${OUTPUT_DIR}/../source_only/model_best.pth \
-
+#--continue-from-checkpoint ./outputs/def-detr-base/city2bdd/cross_domain_mae/model_last.pth
