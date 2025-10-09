@@ -230,10 +230,10 @@ def single_domain_training(model, device):
             best_checkpoint_dict = {
                 'epoch': epoch,
                 'model_state_dict': (model.module if args.distributed else model).state_dict(),
-                # 'optimizer_state_dict': optimizer.state_dict(),
-                # 'lr_scheduler_state_dict': lr_scheduler.state_dict(),
-                # 'map50': map50,
-                # 'args': args
+                'optimizer_state_dict': optimizer.state_dict(),
+                'lr_scheduler_state_dict': lr_scheduler.state_dict(),
+                'map50': map50,
+                'args': args
             }
             torch.save(best_checkpoint_dict, output_dir/'model_best.pth')
         #if epoch == args.epoch - 1:
