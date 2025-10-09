@@ -67,7 +67,7 @@ class CocoStyleDataset(CocoDetection):
              'train': 'foggy_cityscapes/leftImg8bit_foggy/train', 'val': 'foggy_cityscapes/leftImg8bit_foggy/val'
          },
          'bdd100k': {
-             'train': 'bdd100k/JPEGImages/train', 'val': 'bdd100k/JPEGImages/val',
+             'train': 'bdd100k/JPEGImages/train2', 'val': 'bdd100k/JPEGImages/val',
          },
          'sim10k': {
              'train': 'sim10k/JPEGImages'
