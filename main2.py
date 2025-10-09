@@ -230,10 +230,10 @@ def single_domain_training(model, device):
             best_checkpoint_dict = {
                 'epoch': epoch,
                 'model_state_dict': (model.module if args.distributed else model).state_dict(),
-                # 'optimizer_state_dict': optimizer.state_dict(),
-                # 'lr_scheduler_state_dict': lr_scheduler.state_dict(),
-                # 'map50': map50,
-                # 'args': args
+                'optimizer_state_dict': optimizer.state_dict(),
+                'lr_scheduler_state_dict': lr_scheduler.state_dict(),
+                'map50': map50,
+                'args': args
             }
             torch.save(best_checkpoint_dict, output_dir/'model_best.pth')
         #if epoch == args.epoch - 1:
@@ -269,6 +269,7 @@ def cross_domain_mae(model, device):
     source_loader = build_dataloader(args, args.source_dataset, 'source', 'train', strong_trans)
     target_loader = build_dataloader(args, args.target_dataset, 'target', 'train', strong_trans)
     val_loader = build_dataloader(args, args.target_dataset, 'target', 'val', val_trans)
+
     idx_to_class = val_loader.dataset.coco.cats
     # Build MAE branch
     image_size = target_loader.dataset.__getitem__(0)[0].shape[-2:]
