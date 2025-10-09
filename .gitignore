@@ -141,5 +141,5 @@ logs/
 # slurm files
 run.slurm
 
-# output files
-outputs/
+# # output files
+# outputs/

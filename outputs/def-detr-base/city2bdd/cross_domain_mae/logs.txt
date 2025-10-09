@@ -1,0 +1,94 @@
+Not using distributed mode
+-------------------------------------
+Logs will be written to outputs/def-detr-base/city2bdd/cross_domain_mae/data_logs
+Checkpoints will be saved to outputs/def-detr-base/city2bdd/cross_domain_mae
+-------------------------------------
+backbone resnet50
+pos_encoding sine
+num_classes 9
+num_queries 300
+num_feature_levels 4
+with_box_refine False
+hidden_dim 256
+num_heads 8
+num_encoder_layers 6
+num_decoder_layers 6
+feedforward_dim 1024
+dropout 0.0
+batch_size 6
+eval_batch_size 6
+lr 2e-05
+lr_backbone 2e-06
+lr_linear_proj 2e-06
+sgd False
+weight_decay 0.0001
+clip_max_norm 0.5
+epoch 20
+epoch_lr_drop 20
+teach_box_loss False
+coef_class 2.0
+coef_boxes 5.0
+coef_giou 2.0
+coef_target 1.0
+coef_domain 1.0
+coef_domain_bac 0.3
+coef_mae 1.0
+alpha_focal 0.25
+alpha_ema 0.9996
+data_root ./data
+source_dataset cityscapes
+target_dataset bdd100k
+epoch_retrain 40
+keep_modules ['decoder']
+mae_layers [2]
+mask_ratio 0.8
+epoch_mae_decay 10
+threshold 0.3
+alpha_dt 0.5
+gamma_dt 0.9
+max_dt 0.45
+mode cross_domain_mae
+device cuda
+output_dir ./outputs/def-detr-base/city2bdd/cross_domain_mae
+random_seed 8008
+num_workers 8
+print_freq 20
+flush True
+resume ./outputs/def-detr-base/city2bdd/source_only/model_best.pth
+eval_from_checkpoint None
+continue_from_checkpoint None
+start_epoch 0
+world_size 1
+distributed False
+Loading checkpoints from ./outputs/def-detr-base/city2bdd/source_only/model_best.pth
+> /app/utils/checkpoints_utils.py(8)resume_and_load()
+-> checkpoints = torch.load(ckpt_path, map_location=device)
+(Pdb) Missing keys: []
+Unexpected keys: []
+-------------------------------------
+loading annotations into memory...
+Done (t=2.19s)
+creating index...
+index created!
+loading annotations into memory...
+Done (t=2.35s)
+creating index...
+index created!
+loading annotations into memory...
+Done (t=0.14s)
+creating index...
+index created!
+Traceback (most recent call last):
+  File "/app/main2.py", line 599, in <module>
+    main()
+  File "/app/main2.py", line 578, in main
+    cross_domain_mae(model, device)
+  File "/app/main2.py", line 274, in cross_domain_mae
+    image_size = target_loader.dataset.__getitem__(0)[0].shape[-2:]
+  File "/app/datasets/coco_style_dataset.py", line 180, in __getitem__
+    image = self._load_image(image_id)
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/datasets/coco.py", line 43, in _load_image
+    return Image.open(os.path.join(self.root, path)).convert("RGB")
+  File "/usr/local/lib/python3.10/dist-packages/PIL/Image.py", line 3469, in open
+    fp = builtins.open(filename, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: '/app/data/bdd100k/JPEGImages/train/0000f77c-6257be58.jpg'

@@ -1,0 +1,652 @@
+Not using distributed mode
+-------------------------------------
+Logs will be written to outputs/def-detr-base/city2bdd/source_only2/data_logs
+Checkpoints will be saved to outputs/def-detr-base/city2bdd/source_only2
+-------------------------------------
+backbone resnet50
+pos_encoding sine
+num_classes 9
+num_queries 300
+num_feature_levels 4
+with_box_refine False
+hidden_dim 256
+num_heads 8
+num_encoder_layers 6
+num_decoder_layers 6
+feedforward_dim 1024
+dropout 0.1
+batch_size 6
+eval_batch_size 6
+lr 0.0002
+lr_backbone 2e-05
+lr_linear_proj 2e-05
+sgd False
+weight_decay 0.0001
+clip_max_norm 0.5
+epoch 80
+epoch_lr_drop 60
+teach_box_loss False
+coef_class 2.0
+coef_boxes 5.0
+coef_giou 2.0
+coef_target 1.0
+coef_domain 1.0
+coef_domain_bac 0.3
+coef_mae 1.0
+alpha_focal 0.25
+alpha_ema 0.9996
+data_root ./data
+source_dataset cityscapes
+target_dataset bdd100k
+epoch_retrain 40
+keep_modules ['decoder']
+mae_layers [2]
+mask_ratio 0.8
+epoch_mae_decay 10
+threshold 0.3
+alpha_dt 0.5
+gamma_dt 0.9
+max_dt 0.45
+mode single_domain
+device cuda
+output_dir ./outputs/def-detr-base/city2bdd/source_only2
+random_seed 8008
+num_workers 8
+print_freq 20
+flush True
+resume 
+eval_from_checkpoint None
+continue_from_checkpoint ./outputs/def-detr-base/city2bdd/source_only2/model_last.pth
+start_epoch 0
+world_size 1
+distributed False
+-------------------------------------
+loading annotations into memory...
+Done (t=2.22s)
+creating index...
+index created!
+loading annotations into memory...
+Done (t=0.36s)
+creating index...
+index created!
+💡 Loading checkpoint from ./outputs/def-detr-base/city2bdd/source_only2/model_last.pth to continue training.
+✅ Resuming training from epoch 31
+Training epoch 31 : [ 20/495 ] total loss: [1.42361]
+Training epoch 31 : [ 40/495 ] total loss: [1.0395238]
+Training epoch 31 : [ 60/495 ] total loss: [1.2174817]
+Training epoch 31 : [ 80/495 ] total loss: [1.2958612]
+Training epoch 31 : [ 100/495 ] total loss: [1.2261992]
+Training epoch 31 : [ 120/495 ] total loss: [1.5149875]
+Training epoch 31 : [ 140/495 ] total loss: [1.4672372]
+Training epoch 31 : [ 160/495 ] total loss: [1.1331738]
+Training epoch 31 : [ 180/495 ] total loss: [1.3145455]
+Training epoch 31 : [ 200/495 ] total loss: [1.3712671]
+Training epoch 31 : [ 220/495 ] total loss: [1.326568]
+Training epoch 31 : [ 240/495 ] total loss: [1.4252539]
+Training epoch 31 : [ 260/495 ] total loss: [1.2704728]
+Training epoch 31 : [ 280/495 ] total loss: [1.4173816]
+Training epoch 31 : [ 300/495 ] total loss: [1.4177632]
+Training epoch 31 : [ 320/495 ] total loss: [1.2281935]
+Training epoch 31 : [ 340/495 ] total loss: [1.2990376]
+Training epoch 31 : [ 360/495 ] total loss: [1.1081626]
+Training epoch 31 : [ 380/495 ] total loss: [1.3470438]
+Training epoch 31 : [ 400/495 ] total loss: [1.2846869]
+Training epoch 31 : [ 420/495 ] total loss: [1.436487]
+Training epoch 31 : [ 440/495 ] total loss: [1.1138871]
+Training epoch 31 : [ 460/495 ] total loss: [1.2668285]
+Training epoch 31 : [ 480/495 ] total loss: [0.9959573]
+Training epoch 31 finished. Time cost: 0:10:10 Epoch loss: [1.2427622]
+Checkpoint saved to outputs/def-detr-base/city2bdd/source_only2/model_for_eval.pth
+Evaluation : [ 20/873 ] total loss: [1.5405502]
+Evaluation : [ 40/873 ] total loss: [1.6221409]
+Evaluation : [ 60/873 ] total loss: [1.4063863]
+Evaluation : [ 80/873 ] total loss: [1.2865734]
+Evaluation : [ 100/873 ] total loss: [1.5198292]
+Evaluation : [ 120/873 ] total loss: [1.6555012]
+Evaluation : [ 140/873 ] total loss: [1.9785789]
+Evaluation : [ 160/873 ] total loss: [1.2127737]
+Evaluation : [ 180/873 ] total loss: [1.5435324]
+Evaluation : [ 200/873 ] total loss: [1.6716131]
+Evaluation : [ 220/873 ] total loss: [1.7825525]
+Evaluation : [ 240/873 ] total loss: [1.5314186]
+Evaluation : [ 260/873 ] total loss: [1.4490778]
+Evaluation : [ 280/873 ] total loss: [1.5210007]
+Evaluation : [ 300/873 ] total loss: [1.2855053]
+Evaluation : [ 320/873 ] total loss: [1.5035515]
+Evaluation : [ 340/873 ] total loss: [1.5033364]
+Evaluation : [ 360/873 ] total loss: [1.740146]
+Evaluation : [ 380/873 ] total loss: [1.1649307]
+Evaluation : [ 400/873 ] total loss: [1.8285854]
+Evaluation : [ 420/873 ] total loss: [1.4617586]
+Evaluation : [ 440/873 ] total loss: [1.6577454]
+Evaluation : [ 460/873 ] total loss: [1.5673001]
+Evaluation : [ 480/873 ] total loss: [1.6549282]
+Evaluation : [ 500/873 ] total loss: [1.7105883]
+Evaluation : [ 520/873 ] total loss: [1.2590773]
+Evaluation : [ 540/873 ] total loss: [1.5806159]
+Evaluation : [ 560/873 ] total loss: [1.8757322]
+Evaluation : [ 580/873 ] total loss: [1.5781574]
+Evaluation : [ 600/873 ] total loss: [1.2572458]
+Evaluation : [ 620/873 ] total loss: [1.3312099]
+Evaluation : [ 640/873 ] total loss: [1.8256682]
+Evaluation : [ 660/873 ] total loss: [1.639955]
+Evaluation : [ 680/873 ] total loss: [1.467419]
+Evaluation : [ 700/873 ] total loss: [1.3356919]
+Evaluation : [ 720/873 ] total loss: [1.7843465]
+Evaluation : [ 740/873 ] total loss: [1.6653293]
+Evaluation : [ 760/873 ] total loss: [1.585689]
+Evaluation : [ 780/873 ] total loss: [1.7588048]
+Evaluation : [ 800/873 ] total loss: [1.6777381]
+Evaluation : [ 820/873 ] total loss: [1.6276059]
+Evaluation : [ 840/873 ] total loss: [1.7490772]
+Evaluation : [ 860/873 ] total loss: [1.5866542]
+Accumulating evaluation results...
+DONE (t=3.46s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.23467597260818143
+	AP of category [person]:		0.344902274318665
+	AP of category [car]:		0.5101678893712518
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.2358993814348922
+	AP of category [truck]:		0.15102158717191494
+	AP of category [motorcycle]:		0.11028738851878042
+	AP of category [bicycle]:		0.14514969824936505
+	AP of category [bus]:		0.14530358919240063
+Evaluation finished. Time cost: 0:05:28
+this is map50: 0.23467597260818143
+Training epoch 32 : [ 20/495 ] total loss: [1.1276077]
+Training epoch 32 : [ 40/495 ] total loss: [1.3865774]
+Training epoch 32 : [ 60/495 ] total loss: [1.3511846]
+Training epoch 32 : [ 80/495 ] total loss: [1.3430618]
+Training epoch 32 : [ 100/495 ] total loss: [1.3697989]
+Training epoch 32 : [ 120/495 ] total loss: [1.3406409]
+Training epoch 32 : [ 140/495 ] total loss: [1.2731498]
+Training epoch 32 : [ 160/495 ] total loss: [1.0771807]
+Training epoch 32 : [ 180/495 ] total loss: [1.0491037]
+Training epoch 32 : [ 200/495 ] total loss: [0.93000126]
+Training epoch 32 : [ 220/495 ] total loss: [1.2361982]
+Training epoch 32 : [ 240/495 ] total loss: [1.3539195]
+Training epoch 32 : [ 260/495 ] total loss: [1.0537632]
+Training epoch 32 : [ 280/495 ] total loss: [1.2745354]
+Training epoch 32 : [ 300/495 ] total loss: [1.0617857]
+Training epoch 32 : [ 320/495 ] total loss: [1.1180886]
+Training epoch 32 : [ 340/495 ] total loss: [0.93118536]
+Training epoch 32 : [ 360/495 ] total loss: [1.2481418]
+Training epoch 32 : [ 380/495 ] total loss: [1.2965555]
+Training epoch 32 : [ 400/495 ] total loss: [1.0856197]
+Training epoch 32 : [ 420/495 ] total loss: [1.2038434]
+Training epoch 32 : [ 440/495 ] total loss: [1.0359132]
+Training epoch 32 : [ 460/495 ] total loss: [1.3255963]
+Training epoch 32 : [ 480/495 ] total loss: [1.4012766]
+Training epoch 32 finished. Time cost: 0:10:10 Epoch loss: [1.2395105]
+Checkpoint saved to outputs/def-detr-base/city2bdd/source_only2/model_for_eval.pth
+Evaluation : [ 20/873 ] total loss: [1.4917072]
+Evaluation : [ 40/873 ] total loss: [1.5823458]
+Evaluation : [ 60/873 ] total loss: [1.5700967]
+Evaluation : [ 80/873 ] total loss: [1.2697484]
+Evaluation : [ 100/873 ] total loss: [1.4024765]
+Evaluation : [ 120/873 ] total loss: [1.6609362]
+Evaluation : [ 140/873 ] total loss: [1.8496308]
+Evaluation : [ 160/873 ] total loss: [1.2429827]
+Evaluation : [ 180/873 ] total loss: [1.5803094]
+Evaluation : [ 200/873 ] total loss: [1.6998094]
+Evaluation : [ 220/873 ] total loss: [1.6122112]
+Evaluation : [ 240/873 ] total loss: [1.6249636]
+Evaluation : [ 260/873 ] total loss: [1.390358]
+Evaluation : [ 280/873 ] total loss: [1.5676812]
+Evaluation : [ 300/873 ] total loss: [1.1320947]
+Evaluation : [ 320/873 ] total loss: [1.4772938]
+Evaluation : [ 340/873 ] total loss: [1.4402287]
+Evaluation : [ 360/873 ] total loss: [1.7625926]
+Evaluation : [ 380/873 ] total loss: [1.1305943]
+Evaluation : [ 400/873 ] total loss: [1.6441768]
+Evaluation : [ 420/873 ] total loss: [1.3875558]
+Evaluation : [ 440/873 ] total loss: [1.6382011]
+Evaluation : [ 460/873 ] total loss: [1.5383863]
+Evaluation : [ 480/873 ] total loss: [1.6056068]
+Evaluation : [ 500/873 ] total loss: [1.7811246]
+Evaluation : [ 520/873 ] total loss: [1.1571286]
+Evaluation : [ 540/873 ] total loss: [1.4955285]
+Evaluation : [ 560/873 ] total loss: [1.8077244]
+Evaluation : [ 580/873 ] total loss: [1.4600039]
+Evaluation : [ 600/873 ] total loss: [1.205795]
+Evaluation : [ 620/873 ] total loss: [1.3431463]
+Evaluation : [ 640/873 ] total loss: [1.7701368]
+Evaluation : [ 660/873 ] total loss: [1.5960512]
+Evaluation : [ 680/873 ] total loss: [1.3313713]
+Evaluation : [ 700/873 ] total loss: [1.3948169]
+Evaluation : [ 720/873 ] total loss: [1.773112]
+Evaluation : [ 740/873 ] total loss: [1.5776656]
+Evaluation : [ 760/873 ] total loss: [1.4264965]
+Evaluation : [ 780/873 ] total loss: [1.6701548]
+Evaluation : [ 800/873 ] total loss: [1.6777953]
+Evaluation : [ 820/873 ] total loss: [1.564837]
+Evaluation : [ 840/873 ] total loss: [1.7236998]
+Evaluation : [ 860/873 ] total loss: [1.5612075]
+Accumulating evaluation results...
+DONE (t=3.34s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.23141434126075638
+	AP of category [person]:		0.3574227136328394
+	AP of category [car]:		0.5119956464914011
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.238564920727743
+	AP of category [truck]:		0.13274467544222246
+	AP of category [motorcycle]:		0.10373780588522474
+	AP of category [bicycle]:		0.13835591444204193
+	AP of category [bus]:		0.13707871220382242
+Evaluation finished. Time cost: 0:05:00
+this is map50: 0.23141434126075638
+Training epoch 33 : [ 20/495 ] total loss: [0.9335272]
+Training epoch 33 : [ 40/495 ] total loss: [1.1543441]
+Training epoch 33 : [ 60/495 ] total loss: [1.3110379]
+Training epoch 33 : [ 80/495 ] total loss: [1.5523832]
+Training epoch 33 : [ 100/495 ] total loss: [1.2136257]
+Training epoch 33 : [ 120/495 ] total loss: [1.2614973]
+Training epoch 33 : [ 140/495 ] total loss: [1.1121111]
+Training epoch 33 : [ 160/495 ] total loss: [1.4800571]
+Training epoch 33 : [ 180/495 ] total loss: [1.2467462]
+Training epoch 33 : [ 200/495 ] total loss: [1.1814995]
+Training epoch 33 : [ 220/495 ] total loss: [1.2733402]
+Training epoch 33 : [ 240/495 ] total loss: [0.99821085]
+Training epoch 33 : [ 260/495 ] total loss: [1.3697056]
+Training epoch 33 : [ 280/495 ] total loss: [1.4209521]
+Training epoch 33 : [ 300/495 ] total loss: [1.3877596]
+Training epoch 33 : [ 320/495 ] total loss: [1.1022514]
+Training epoch 33 : [ 340/495 ] total loss: [1.2635599]
+Training epoch 33 : [ 360/495 ] total loss: [1.3587534]
+Training epoch 33 : [ 380/495 ] total loss: [1.088172]
+Training epoch 33 : [ 400/495 ] total loss: [1.2100394]
+Training epoch 33 : [ 420/495 ] total loss: [1.3144872]
+Training epoch 33 : [ 440/495 ] total loss: [1.3804506]
+Training epoch 33 : [ 460/495 ] total loss: [1.3074608]
+Training epoch 33 : [ 480/495 ] total loss: [1.2963166]
+Training epoch 33 finished. Time cost: 0:09:32 Epoch loss: [1.2352909]
+Checkpoint saved to outputs/def-detr-base/city2bdd/source_only2/model_for_eval.pth
+Evaluation : [ 20/873 ] total loss: [1.5796036]
+Evaluation : [ 40/873 ] total loss: [1.6924433]
+Evaluation : [ 60/873 ] total loss: [1.6793741]
+Evaluation : [ 80/873 ] total loss: [1.4273539]
+Evaluation : [ 100/873 ] total loss: [1.5241508]
+Evaluation : [ 120/873 ] total loss: [1.7627864]
+Evaluation : [ 140/873 ] total loss: [1.9860395]
+Evaluation : [ 160/873 ] total loss: [1.334914]
+Evaluation : [ 180/873 ] total loss: [1.6040053]
+Evaluation : [ 200/873 ] total loss: [1.8425913]
+Evaluation : [ 220/873 ] total loss: [1.6953151]
+Evaluation : [ 240/873 ] total loss: [1.6293705]
+Evaluation : [ 260/873 ] total loss: [1.5463192]
+Evaluation : [ 280/873 ] total loss: [1.7994883]
+Evaluation : [ 300/873 ] total loss: [1.3930774]
+Evaluation : [ 320/873 ] total loss: [1.6123155]
+Evaluation : [ 340/873 ] total loss: [1.6673926]
+Evaluation : [ 360/873 ] total loss: [1.843243]
+Evaluation : [ 380/873 ] total loss: [1.3295603]
+Evaluation : [ 400/873 ] total loss: [1.9612459]
+Evaluation : [ 420/873 ] total loss: [1.5516107]
+Evaluation : [ 440/873 ] total loss: [1.6941475]
+Evaluation : [ 460/873 ] total loss: [1.697232]
+Evaluation : [ 480/873 ] total loss: [1.7626151]
+Evaluation : [ 500/873 ] total loss: [2.092389]
+Evaluation : [ 520/873 ] total loss: [1.4755294]
+Evaluation : [ 540/873 ] total loss: [1.7588215]
+Evaluation : [ 560/873 ] total loss: [1.8065331]
+Evaluation : [ 580/873 ] total loss: [1.6363018]
+Evaluation : [ 600/873 ] total loss: [1.3500454]
+Evaluation : [ 620/873 ] total loss: [1.5442041]
+Evaluation : [ 640/873 ] total loss: [2.0722342]
+Evaluation : [ 660/873 ] total loss: [1.7494811]
+Evaluation : [ 680/873 ] total loss: [1.504931]
+Evaluation : [ 700/873 ] total loss: [1.5525827]
+Evaluation : [ 720/873 ] total loss: [1.9350466]
+Evaluation : [ 740/873 ] total loss: [1.7517027]
+Evaluation : [ 760/873 ] total loss: [1.5657656]
+Evaluation : [ 780/873 ] total loss: [1.8769765]
+Evaluation : [ 800/873 ] total loss: [1.9248136]
+Evaluation : [ 820/873 ] total loss: [1.786885]
+Evaluation : [ 840/873 ] total loss: [1.9204049]
+Evaluation : [ 860/873 ] total loss: [1.5876034]
+Accumulating evaluation results...
+DONE (t=3.43s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.20468681761915766
+	AP of category [person]:		0.2852340328498046
+	AP of category [car]:		0.4758188926236457
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.2332820163069633
+	AP of category [truck]:		0.10182636949639932
+	AP of category [motorcycle]:		0.08077065405958754
+	AP of category [bicycle]:		0.1219126647056041
+	AP of category [bus]:		0.1339630932920989
+Evaluation finished. Time cost: 0:05:23
+this is map50: 0.20468681761915766
+Training epoch 34 : [ 20/495 ] total loss: [1.521651]
+Training epoch 34 : [ 40/495 ] total loss: [1.4289421]
+Training epoch 34 : [ 60/495 ] total loss: [1.0207334]
+Training epoch 34 : [ 80/495 ] total loss: [1.2931395]
+Training epoch 34 : [ 100/495 ] total loss: [1.4159015]
+Training epoch 34 : [ 120/495 ] total loss: [1.2519562]
+Training epoch 34 : [ 140/495 ] total loss: [1.1072642]
+Training epoch 34 : [ 160/495 ] total loss: [1.3865242]
+Training epoch 34 : [ 180/495 ] total loss: [1.3386081]
+Training epoch 34 : [ 200/495 ] total loss: [0.994298]
+Training epoch 34 : [ 220/495 ] total loss: [1.2710903]
+Training epoch 34 : [ 240/495 ] total loss: [1.2649143]
+Training epoch 34 : [ 260/495 ] total loss: [1.4186728]
+Training epoch 34 : [ 280/495 ] total loss: [1.2777805]
+Training epoch 34 : [ 300/495 ] total loss: [1.3997797]
+Training epoch 34 : [ 320/495 ] total loss: [0.91515756]
+Training epoch 34 : [ 340/495 ] total loss: [1.2302263]
+Training epoch 34 : [ 360/495 ] total loss: [1.3663883]
+Training epoch 34 : [ 380/495 ] total loss: [1.131874]
+Training epoch 34 : [ 400/495 ] total loss: [1.3923863]
+Training epoch 34 : [ 420/495 ] total loss: [1.5148122]
+Training epoch 34 : [ 440/495 ] total loss: [1.1791329]
+Training epoch 34 : [ 460/495 ] total loss: [1.0100545]
+Training epoch 34 : [ 480/495 ] total loss: [1.0521548]
+Training epoch 34 finished. Time cost: 0:10:14 Epoch loss: [1.2263556]
+Checkpoint saved to outputs/def-detr-base/city2bdd/source_only2/model_for_eval.pth
+Evaluation : [ 20/873 ] total loss: [1.6113548]
+Evaluation : [ 40/873 ] total loss: [1.747443]
+Evaluation : [ 60/873 ] total loss: [1.7075114]
+Evaluation : [ 80/873 ] total loss: [1.341748]
+Evaluation : [ 100/873 ] total loss: [1.4921618]
+Evaluation : [ 120/873 ] total loss: [1.8928957]
+Evaluation : [ 140/873 ] total loss: [1.9438303]
+Evaluation : [ 160/873 ] total loss: [1.2972702]
+Evaluation : [ 180/873 ] total loss: [1.6087451]
+Evaluation : [ 200/873 ] total loss: [1.6063247]
+Evaluation : [ 220/873 ] total loss: [1.961889]
+Evaluation : [ 240/873 ] total loss: [1.7755804]
+Evaluation : [ 260/873 ] total loss: [1.4514446]
+Evaluation : [ 280/873 ] total loss: [1.7095965]
+Evaluation : [ 300/873 ] total loss: [1.3085815]
+Evaluation : [ 320/873 ] total loss: [1.6644801]
+Evaluation : [ 340/873 ] total loss: [1.4794607]
+Evaluation : [ 360/873 ] total loss: [1.826547]
+Evaluation : [ 380/873 ] total loss: [1.2373805]
+Evaluation : [ 400/873 ] total loss: [2.3168292]
+Evaluation : [ 420/873 ] total loss: [1.6021274]
+Evaluation : [ 440/873 ] total loss: [1.7350795]
+Evaluation : [ 460/873 ] total loss: [1.6418633]
+Evaluation : [ 480/873 ] total loss: [1.7337341]
+Evaluation : [ 500/873 ] total loss: [1.9020338]
+Evaluation : [ 520/873 ] total loss: [1.3302777]
+Evaluation : [ 540/873 ] total loss: [1.6367233]
+Evaluation : [ 560/873 ] total loss: [1.9048061]
+Evaluation : [ 580/873 ] total loss: [1.6742167]
+Evaluation : [ 600/873 ] total loss: [1.5349629]
+Evaluation : [ 620/873 ] total loss: [1.407037]
+Evaluation : [ 640/873 ] total loss: [2.0094237]
+Evaluation : [ 660/873 ] total loss: [1.7183094]
+Evaluation : [ 680/873 ] total loss: [1.3249393]
+Evaluation : [ 700/873 ] total loss: [1.6237383]
+Evaluation : [ 720/873 ] total loss: [1.8424729]
+Evaluation : [ 740/873 ] total loss: [1.6686872]
+Evaluation : [ 760/873 ] total loss: [1.6316612]
+Evaluation : [ 780/873 ] total loss: [1.7536967]
+Evaluation : [ 800/873 ] total loss: [1.8448594]
+Evaluation : [ 820/873 ] total loss: [1.7908504]
+Evaluation : [ 840/873 ] total loss: [1.7875605]
+Evaluation : [ 860/873 ] total loss: [1.5880024]
+Accumulating evaluation results...
+DONE (t=3.53s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.21642606017985444
+	AP of category [person]:		0.32248919142160387
+	AP of category [car]:		0.47016250762033557
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.23065684979209528
+	AP of category [truck]:		0.12910005354997098
+	AP of category [motorcycle]:		0.09645993686984747
+	AP of category [bicycle]:		0.16564639931106145
+	AP of category [bus]:		0.10046748269406636
+Evaluation finished. Time cost: 0:05:32
+this is map50: 0.21642606017985444
+Training epoch 35 : [ 20/495 ] total loss: [1.1680268]
+Training epoch 35 : [ 40/495 ] total loss: [1.1723394]
+Training epoch 35 : [ 60/495 ] total loss: [1.2002604]
+Training epoch 35 : [ 80/495 ] total loss: [1.0662764]
+Training epoch 35 : [ 100/495 ] total loss: [1.2315038]
+Training epoch 35 : [ 120/495 ] total loss: [1.294831]
+Training epoch 35 : [ 140/495 ] total loss: [1.2262511]
+Training epoch 35 : [ 160/495 ] total loss: [1.2722074]
+Training epoch 35 : [ 180/495 ] total loss: [1.0868244]
+Training epoch 35 : [ 200/495 ] total loss: [1.1846001]
+Training epoch 35 : [ 220/495 ] total loss: [1.0473002]
+Training epoch 35 : [ 240/495 ] total loss: [1.1496248]
+Training epoch 35 : [ 260/495 ] total loss: [1.2810059]
+Training epoch 35 : [ 280/495 ] total loss: [1.4684647]
+Training epoch 35 : [ 300/495 ] total loss: [1.0775099]
+Training epoch 35 : [ 320/495 ] total loss: [1.2731013]
+Training epoch 35 : [ 340/495 ] total loss: [1.1300595]
+Training epoch 35 : [ 360/495 ] total loss: [1.2762634]
+Training epoch 35 : [ 380/495 ] total loss: [1.1869228]
+Training epoch 35 : [ 400/495 ] total loss: [1.1704487]
+Training epoch 35 : [ 420/495 ] total loss: [1.0598527]
+Training epoch 35 : [ 440/495 ] total loss: [1.2661805]
+Training epoch 35 : [ 460/495 ] total loss: [1.1899371]
+Training epoch 35 : [ 480/495 ] total loss: [0.9398017]
+Training epoch 35 finished. Time cost: 0:12:04 Epoch loss: [1.2243427]
+Checkpoint saved to outputs/def-detr-base/city2bdd/source_only2/model_for_eval.pth
+Evaluation : [ 20/873 ] total loss: [1.6267135]
+Evaluation : [ 40/873 ] total loss: [1.5973842]
+Evaluation : [ 60/873 ] total loss: [1.7060674]
+Evaluation : [ 80/873 ] total loss: [1.4109688]
+Evaluation : [ 100/873 ] total loss: [1.4644852]
+Evaluation : [ 120/873 ] total loss: [1.717036]
+Evaluation : [ 140/873 ] total loss: [1.9005775]
+Evaluation : [ 160/873 ] total loss: [1.2514358]
+Evaluation : [ 180/873 ] total loss: [1.5779146]
+Evaluation : [ 200/873 ] total loss: [1.7859106]
+Evaluation : [ 220/873 ] total loss: [1.6567397]
+Evaluation : [ 240/873 ] total loss: [1.5980695]
+Evaluation : [ 260/873 ] total loss: [1.4490154]
+Evaluation : [ 280/873 ] total loss: [1.6008635]
+Evaluation : [ 300/873 ] total loss: [1.3933084]
+Evaluation : [ 320/873 ] total loss: [1.5320666]
+Evaluation : [ 340/873 ] total loss: [1.459343]
+Evaluation : [ 360/873 ] total loss: [1.8012079]
+Evaluation : [ 380/873 ] total loss: [1.325105]
+Evaluation : [ 400/873 ] total loss: [1.7695806]
+Evaluation : [ 420/873 ] total loss: [1.5533476]
+Evaluation : [ 440/873 ] total loss: [1.8381242]
+Evaluation : [ 460/873 ] total loss: [1.5966103]
+Evaluation : [ 480/873 ] total loss: [1.6472688]
+Evaluation : [ 500/873 ] total loss: [1.7341101]
+Evaluation : [ 520/873 ] total loss: [1.4792188]
+Evaluation : [ 540/873 ] total loss: [1.6167626]
+Evaluation : [ 560/873 ] total loss: [1.7378615]
+Evaluation : [ 580/873 ] total loss: [1.6197445]
+Evaluation : [ 600/873 ] total loss: [1.3494809]
+Evaluation : [ 620/873 ] total loss: [1.4563062]
+Evaluation : [ 640/873 ] total loss: [1.8781755]
+Evaluation : [ 660/873 ] total loss: [1.7792995]
+Evaluation : [ 680/873 ] total loss: [1.430294]
+Evaluation : [ 700/873 ] total loss: [1.5725796]
+Evaluation : [ 720/873 ] total loss: [1.681495]
+Evaluation : [ 740/873 ] total loss: [1.7071155]
+Evaluation : [ 760/873 ] total loss: [1.4972767]
+Evaluation : [ 780/873 ] total loss: [1.7508562]
+Evaluation : [ 800/873 ] total loss: [1.8384302]
+Evaluation : [ 820/873 ] total loss: [1.5924218]
+Evaluation : [ 840/873 ] total loss: [1.7244279]
+Evaluation : [ 860/873 ] total loss: [1.6449822]
+Accumulating evaluation results...
+DONE (t=3.87s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.20932067807261023
+	AP of category [person]:		0.3150715930335985
+	AP of category [car]:		0.5153698894706815
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.19238231617225615
+	AP of category [truck]:		0.10481065426150059
+	AP of category [motorcycle]:		0.12729081206593265
+	AP of category [bicycle]:		0.12537156429540372
+	AP of category [bus]:		0.08494791720889841
+Evaluation finished. Time cost: 0:05:35
+this is map50: 0.20932067807261023
+Training epoch 36 : [ 20/495 ] total loss: [1.4495343]
+Training epoch 36 : [ 40/495 ] total loss: [1.4396739]
+Training epoch 36 : [ 60/495 ] total loss: [1.2798626]
+Training epoch 36 : [ 80/495 ] total loss: [1.0801611]
+Training epoch 36 : [ 100/495 ] total loss: [1.2552062]
+Training epoch 36 : [ 120/495 ] total loss: [1.3552225]
+Training epoch 36 : [ 140/495 ] total loss: [1.5789002]
+Training epoch 36 : [ 160/495 ] total loss: [1.0671207]
+Training epoch 36 : [ 180/495 ] total loss: [1.0430703]
+Training epoch 36 : [ 200/495 ] total loss: [1.3578213]
+Training epoch 36 : [ 220/495 ] total loss: [1.2156272]
+Training epoch 36 : [ 240/495 ] total loss: [1.0800984]
+Training epoch 36 : [ 260/495 ] total loss: [1.0680324]
+Training epoch 36 : [ 280/495 ] total loss: [1.4490986]
+Training epoch 36 : [ 300/495 ] total loss: [1.215457]
+Training epoch 36 : [ 320/495 ] total loss: [1.3348236]
+Training epoch 36 : [ 340/495 ] total loss: [1.1259325]
+Training epoch 36 : [ 360/495 ] total loss: [1.3561968]
+Training epoch 36 : [ 380/495 ] total loss: [1.1777885]
+Training epoch 36 : [ 400/495 ] total loss: [0.97927874]
+Training epoch 36 : [ 420/495 ] total loss: [1.4873452]
+Training epoch 36 : [ 440/495 ] total loss: [1.2454219]
+Training epoch 36 : [ 460/495 ] total loss: [1.1309476]
+Training epoch 36 : [ 480/495 ] total loss: [1.0401301]
+Training epoch 36 finished. Time cost: 0:10:25 Epoch loss: [1.2111417]
+Checkpoint saved to outputs/def-detr-base/city2bdd/source_only2/model_for_eval.pth
+Evaluation : [ 20/873 ] total loss: [1.4933428]
+Evaluation : [ 40/873 ] total loss: [1.6142852]
+Evaluation : [ 60/873 ] total loss: [1.5453463]
+Evaluation : [ 80/873 ] total loss: [1.2502862]
+Evaluation : [ 100/873 ] total loss: [1.4440086]
+Evaluation : [ 120/873 ] total loss: [1.6621727]
+Evaluation : [ 140/873 ] total loss: [1.7475107]
+Evaluation : [ 160/873 ] total loss: [1.2182451]
+Evaluation : [ 180/873 ] total loss: [1.455919]
+Evaluation : [ 200/873 ] total loss: [1.6356848]
+Evaluation : [ 220/873 ] total loss: [1.7349958]
+Evaluation : [ 240/873 ] total loss: [1.6218224]
+Evaluation : [ 260/873 ] total loss: [1.362377]
+Evaluation : [ 280/873 ] total loss: [1.6748828]
+Evaluation : [ 300/873 ] total loss: [1.2264376]
+Evaluation : [ 320/873 ] total loss: [1.4850215]
+Evaluation : [ 340/873 ] total loss: [1.4822185]
+Evaluation : [ 360/873 ] total loss: [1.7487401]
+Evaluation : [ 380/873 ] total loss: [1.1566366]
+Evaluation : [ 400/873 ] total loss: [1.7692666]
+Evaluation : [ 420/873 ] total loss: [1.4886783]
+Evaluation : [ 440/873 ] total loss: [1.6617782]
+Evaluation : [ 460/873 ] total loss: [1.5022764]
+Evaluation : [ 480/873 ] total loss: [1.5578321]
+Evaluation : [ 500/873 ] total loss: [1.7069929]
+Evaluation : [ 520/873 ] total loss: [1.26939]
+Evaluation : [ 540/873 ] total loss: [1.4985006]
+Evaluation : [ 560/873 ] total loss: [1.7531512]
+Evaluation : [ 580/873 ] total loss: [1.5689963]
+Evaluation : [ 600/873 ] total loss: [1.3432773]
+Evaluation : [ 620/873 ] total loss: [1.316889]
+Evaluation : [ 640/873 ] total loss: [1.8447669]
+Evaluation : [ 660/873 ] total loss: [1.6506774]
+Evaluation : [ 680/873 ] total loss: [1.3184594]
+Evaluation : [ 700/873 ] total loss: [1.5015972]
+Evaluation : [ 720/873 ] total loss: [1.7083381]
+Evaluation : [ 740/873 ] total loss: [1.5887259]
+Evaluation : [ 760/873 ] total loss: [1.483796]
+Evaluation : [ 780/873 ] total loss: [1.714837]
+Evaluation : [ 800/873 ] total loss: [1.6957562]
+Evaluation : [ 820/873 ] total loss: [1.5314401]
+Evaluation : [ 840/873 ] total loss: [1.78918]
+Evaluation : [ 860/873 ] total loss: [1.4376078]
+Accumulating evaluation results...
+DONE (t=4.29s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.23184000840931734
+	AP of category [person]:		0.3441314654626579
+	AP of category [car]:		0.5177460269062688
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.18391755414826508
+	AP of category [truck]:		0.15490725098556504
+	AP of category [motorcycle]:		0.12245475447284025
+	AP of category [bicycle]:		0.1270057738574473
+	AP of category [bus]:		0.172717233032177
+Evaluation finished. Time cost: 0:05:23
+this is map50: 0.23184000840931734
+Training epoch 37 : [ 20/495 ] total loss: [1.3284625]
+Training epoch 37 : [ 40/495 ] total loss: [1.1578494]
+Training epoch 37 : [ 60/495 ] total loss: [1.1917963]
+Training epoch 37 : [ 80/495 ] total loss: [1.1871858]
+Training epoch 37 : [ 100/495 ] total loss: [1.1791639]
+Training epoch 37 : [ 120/495 ] total loss: [1.0174873]
+Training epoch 37 : [ 140/495 ] total loss: [1.1087571]
+Training epoch 37 : [ 160/495 ] total loss: [1.0384934]
+Training epoch 37 : [ 180/495 ] total loss: [1.4642272]
+Training epoch 37 : [ 200/495 ] total loss: [1.2854993]
+Training epoch 37 : [ 220/495 ] total loss: [1.221077]
+Training epoch 37 : [ 240/495 ] total loss: [1.066625]
+Training epoch 37 : [ 260/495 ] total loss: [1.2459062]
+Training epoch 37 : [ 280/495 ] total loss: [1.3056911]
+Training epoch 37 : [ 300/495 ] total loss: [1.3169515]
+Training epoch 37 : [ 320/495 ] total loss: [1.1621069]
+Training epoch 37 : [ 340/495 ] total loss: [1.1131772]
+Training epoch 37 : [ 360/495 ] total loss: [1.2957447]
+Training epoch 37 : [ 380/495 ] total loss: [1.1067141]
+Training epoch 37 : [ 400/495 ] total loss: [1.2780619]
+Training epoch 37 : [ 420/495 ] total loss: [1.1735252]
+Training epoch 37 : [ 440/495 ] total loss: [1.2224054]
+Training epoch 37 : [ 460/495 ] total loss: [1.3183279]
+Training epoch 37 : [ 480/495 ] total loss: [0.9992709]
+Training epoch 37 finished. Time cost: 0:09:34 Epoch loss: [1.2099459]
+Checkpoint saved to outputs/def-detr-base/city2bdd/source_only2/model_for_eval.pth
+Evaluation : [ 20/873 ] total loss: [1.4885216]
+Evaluation : [ 40/873 ] total loss: [1.5149941]
+Evaluation : [ 60/873 ] total loss: [1.5842004]
+Evaluation : [ 80/873 ] total loss: [1.1962574]
+Evaluation : [ 100/873 ] total loss: [1.43348]
+Evaluation : [ 120/873 ] total loss: [1.6128868]
+Evaluation : [ 140/873 ] total loss: [1.7005557]
+Evaluation : [ 160/873 ] total loss: [1.219105]
+Evaluation : [ 180/873 ] total loss: [1.4604781]
+Evaluation : [ 200/873 ] total loss: [1.5066278]
+Evaluation : [ 220/873 ] total loss: [1.615465]
+Evaluation : [ 240/873 ] total loss: [1.4614781]
+Evaluation : [ 260/873 ] total loss: [1.3229368]
+Evaluation : [ 280/873 ] total loss: [1.569077]
+Evaluation : [ 300/873 ] total loss: [1.2360291]
+Evaluation : [ 320/873 ] total loss: [1.4136661]
+Evaluation : [ 340/873 ] total loss: [1.3452909]
+Evaluation : [ 360/873 ] total loss: [1.6732663]
+Evaluation : [ 380/873 ] total loss: [1.1435746]
+Evaluation : [ 400/873 ] total loss: [1.6983628]
+Evaluation : [ 420/873 ] total loss: [1.4405365]
+Evaluation : [ 440/873 ] total loss: [1.6643496]
+Evaluation : [ 460/873 ] total loss: [1.519423]
+Evaluation : [ 480/873 ] total loss: [1.5554516]
+Evaluation : [ 500/873 ] total loss: [1.7126493]
+Evaluation : [ 520/873 ] total loss: [1.3752737]
+Evaluation : [ 540/873 ] total loss: [1.5421581]
+Evaluation : [ 560/873 ] total loss: [1.6281446]
+Evaluation : [ 580/873 ] total loss: [1.50734]
+Evaluation : [ 600/873 ] total loss: [1.177217]
+Evaluation : [ 620/873 ] total loss: [1.3504267]
+Evaluation : [ 640/873 ] total loss: [1.873207]
+Evaluation : [ 660/873 ] total loss: [1.6423105]
+Evaluation : [ 680/873 ] total loss: [1.2970536]
+Evaluation : [ 700/873 ] total loss: [1.3515123]
+Evaluation : [ 720/873 ] total loss: [1.6325788]
+Evaluation : [ 740/873 ] total loss: [1.5390323]
+Evaluation : [ 760/873 ] total loss: [1.456135]
+Evaluation : [ 780/873 ] total loss: [1.7520535]
+Evaluation : [ 800/873 ] total loss: [1.6635358]
+Evaluation : [ 820/873 ] total loss: [1.6931255]
+Evaluation : [ 840/873 ] total loss: [1.5415499]
+Evaluation : [ 860/873 ] total loss: [1.5106876]
+Accumulating evaluation results...
+DONE (t=3.84s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.2406396816937015
+	AP of category [person]:		0.35488273765534767
+	AP of category [car]:		0.5223988240236678
+	AP of category [train]:		-1.0
+	AP of category [rider]:		0.22210595397755462
+	AP of category [truck]:		0.16558731730722362
+	AP of category [motorcycle]:		0.11799956471203257
+	AP of category [bicycle]:		0.13392636755882667
+	AP of category [bus]:		0.16757700662125755
+Evaluation finished. Time cost: 0:05:21
+this is map50: 0.2406396816937015
+Training epoch 38 : [ 20/495 ] total loss: [1.2472708]
+Training epoch 38 : [ 40/495 ] total loss: [1.0793835]
+Training epoch 38 : [ 60/495 ] total loss: [1.3600768]
+Training epoch 38 : [ 80/495 ] total loss: [1.5128444]
+Training epoch 38 : [ 100/495 ] total loss: [1.0290759]

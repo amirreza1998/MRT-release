@@ -1,0 +1,433 @@
+Not using distributed mode
+-------------------------------------
+Logs will be written to outputs/def-detr-base/city2bdd/source_only/data_logs
+Checkpoints will be saved to outputs/def-detr-base/city2bdd/source_only
+-------------------------------------
+backbone resnet50
+pos_encoding sine
+num_classes 9
+num_queries 300
+num_feature_levels 4
+with_box_refine False
+hidden_dim 256
+num_heads 8
+num_encoder_layers 6
+num_decoder_layers 6
+feedforward_dim 1024
+dropout 0.1
+batch_size 6
+eval_batch_size 6
+lr 0.0002
+lr_backbone 2e-05
+lr_linear_proj 2e-05
+sgd False
+weight_decay 0.0001
+clip_max_norm 0.5
+epoch 80
+epoch_lr_drop 60
+teach_box_loss False
+coef_class 2.0
+coef_boxes 5.0
+coef_giou 2.0
+coef_target 1.0
+coef_domain 1.0
+coef_domain_bac 0.3
+coef_mae 1.0
+alpha_focal 0.25
+alpha_ema 0.9996
+data_root ./data
+source_dataset cityscapes
+target_dataset bdd100k
+epoch_retrain 40
+keep_modules ['decoder']
+mae_layers [2]
+mask_ratio 0.8
+epoch_mae_decay 10
+threshold 0.3
+alpha_dt 0.5
+gamma_dt 0.9
+max_dt 0.45
+mode single_domain
+device cuda
+output_dir ./outputs/def-detr-base/city2bdd/source_only
+random_seed 8008
+num_workers 8
+print_freq 20
+flush True
+resume 
+eval_from_checkpoint None
+continue_from_checkpoint ./outputs/def-detr-base/city2bdd/source_only/model_last.pth
+start_epoch 0
+world_size 1
+distributed False
+-------------------------------------
+loading annotations into memory...
+Done (t=2.56s)
+creating index...
+index created!
+loading annotations into memory...
+Done (t=0.23s)
+creating index...
+index created!
+💡 Loading checkpoint from ./outputs/def-detr-base/city2bdd/source_only/model_last.pth to continue training.
+✅ Resuming training from epoch 20
+Training epoch 20 : [ 20/495 ] total loss: [1.5025659]
+Training epoch 20 : [ 40/495 ] total loss: [1.1337286]
+Training epoch 20 : [ 60/495 ] total loss: [1.2478027]
+Training epoch 20 : [ 80/495 ] total loss: [1.3370064]
+Training epoch 20 : [ 100/495 ] total loss: [1.3040241]
+Training epoch 20 : [ 120/495 ] total loss: [1.5055349]
+Training epoch 20 : [ 140/495 ] total loss: [1.4588702]
+Training epoch 20 : [ 160/495 ] total loss: [1.151297]
+Training epoch 20 : [ 180/495 ] total loss: [1.3511856]
+Training epoch 20 : [ 200/495 ] total loss: [1.3651657]
+Training epoch 20 : [ 220/495 ] total loss: [1.3186716]
+Training epoch 20 : [ 240/495 ] total loss: [1.538484]
+Training epoch 20 : [ 260/495 ] total loss: [1.4233927]
+Training epoch 20 : [ 280/495 ] total loss: [1.509417]
+Training epoch 20 : [ 300/495 ] total loss: [1.4990506]
+Training epoch 20 : [ 320/495 ] total loss: [1.2728757]
+Training epoch 20 : [ 340/495 ] total loss: [1.4104645]
+Training epoch 20 : [ 360/495 ] total loss: [1.1966513]
+Training epoch 20 : [ 380/495 ] total loss: [1.4126291]
+Training epoch 20 : [ 400/495 ] total loss: [1.2760652]
+Training epoch 20 : [ 420/495 ] total loss: [1.5136594]
+Training epoch 20 : [ 440/495 ] total loss: [1.2040609]
+Training epoch 20 : [ 460/495 ] total loss: [1.323109]
+Training epoch 20 : [ 480/495 ] total loss: [1.0534228]
+Training epoch 20 finished. Time cost: 0:06:02 Epoch loss: [1.3119557]
+Checkpoint saved to outputs/def-detr-base/city2bdd/source_only/model_for_eval.pth
+Evaluation : [ 20/84 ] total loss: [2.702311]
+Evaluation : [ 40/84 ] total loss: [4.700187]
+Evaluation : [ 60/84 ] total loss: [2.6210132]
+Evaluation : [ 80/84 ] total loss: [2.641749]
+Accumulating evaluation results...
+DONE (t=0.08s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.005934238922918967
+	AP of category [car]:		0.005934238922918967
+Evaluation finished. Time cost: 0:00:15
+this is map50: 0.005934238922918967
+Training epoch 21 : [ 20/495 ] total loss: [1.2746581]
+Training epoch 21 : [ 40/495 ] total loss: [1.4354028]
+Training epoch 21 : [ 60/495 ] total loss: [1.3944664]
+Training epoch 21 : [ 80/495 ] total loss: [1.3804536]
+Training epoch 21 : [ 100/495 ] total loss: [1.387619]
+Training epoch 21 : [ 120/495 ] total loss: [1.4432712]
+Training epoch 21 : [ 140/495 ] total loss: [1.334424]
+Training epoch 21 : [ 160/495 ] total loss: [1.150999]
+Training epoch 21 : [ 180/495 ] total loss: [1.1520821]
+Training epoch 21 : [ 200/495 ] total loss: [1.0152603]
+Training epoch 21 : [ 220/495 ] total loss: [1.2560811]
+Training epoch 21 : [ 240/495 ] total loss: [1.3640666]
+Training epoch 21 : [ 260/495 ] total loss: [1.1836482]
+Training epoch 21 : [ 280/495 ] total loss: [1.3313992]
+Training epoch 21 : [ 300/495 ] total loss: [1.1300147]
+Training epoch 21 : [ 320/495 ] total loss: [1.2240233]
+Training epoch 21 : [ 340/495 ] total loss: [1.0440172]
+Training epoch 21 : [ 360/495 ] total loss: [1.3588252]
+Training epoch 21 : [ 380/495 ] total loss: [1.24478]
+Training epoch 21 : [ 400/495 ] total loss: [1.1430839]
+Training epoch 21 : [ 420/495 ] total loss: [1.2678132]
+Training epoch 21 : [ 440/495 ] total loss: [1.1855224]
+Training epoch 21 : [ 460/495 ] total loss: [1.426027]
+Training epoch 21 : [ 480/495 ] total loss: [1.3903775]
+Training epoch 21 finished. Time cost: 0:05:58 Epoch loss: [1.3116249]
+Checkpoint saved to outputs/def-detr-base/city2bdd/source_only/model_for_eval.pth
+Evaluation : [ 20/84 ] total loss: [2.7028885]
+Evaluation : [ 40/84 ] total loss: [4.178492]
+Evaluation : [ 60/84 ] total loss: [2.6312175]
+Evaluation : [ 80/84 ] total loss: [2.7258053]
+Accumulating evaluation results...
+DONE (t=0.08s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.007988134642409104
+	AP of category [car]:		0.007988134642409104
+Evaluation finished. Time cost: 0:00:15
+this is map50: 0.007988134642409104
+Training epoch 22 : [ 20/495 ] total loss: [1.056804]
+Training epoch 22 : [ 40/495 ] total loss: [1.2607683]
+Training epoch 22 : [ 60/495 ] total loss: [1.4024433]
+Training epoch 22 : [ 80/495 ] total loss: [1.6075332]
+Training epoch 22 : [ 100/495 ] total loss: [1.3547705]
+Training epoch 22 : [ 120/495 ] total loss: [1.3174219]
+Training epoch 22 : [ 140/495 ] total loss: [1.2005692]
+Training epoch 22 : [ 160/495 ] total loss: [1.5405962]
+Training epoch 22 : [ 180/495 ] total loss: [1.4129708]
+Training epoch 22 : [ 200/495 ] total loss: [1.2759284]
+Training epoch 22 : [ 220/495 ] total loss: [1.2568552]
+Training epoch 22 : [ 240/495 ] total loss: [1.0758086]
+Training epoch 22 : [ 260/495 ] total loss: [1.4333222]
+Training epoch 22 : [ 280/495 ] total loss: [1.2801293]
+Training epoch 22 : [ 300/495 ] total loss: [1.378362]
+Training epoch 22 : [ 320/495 ] total loss: [1.135537]
+Training epoch 22 : [ 340/495 ] total loss: [1.138597]
+Training epoch 22 : [ 360/495 ] total loss: [1.3340276]
+Training epoch 22 : [ 380/495 ] total loss: [1.0819796]
+Training epoch 22 : [ 400/495 ] total loss: [1.224252]
+Training epoch 22 : [ 420/495 ] total loss: [1.4008892]
+Training epoch 22 : [ 440/495 ] total loss: [1.4738802]
+Training epoch 22 : [ 460/495 ] total loss: [1.3570737]
+Training epoch 22 : [ 480/495 ] total loss: [1.2719091]
+Training epoch 22 finished. Time cost: 0:05:13 Epoch loss: [1.2977355]
+Checkpoint saved to outputs/def-detr-base/city2bdd/source_only/model_for_eval.pth
+Evaluation : [ 20/84 ] total loss: [2.6874263]
+Evaluation : [ 40/84 ] total loss: [4.121621]
+Evaluation : [ 60/84 ] total loss: [2.567916]
+Evaluation : [ 80/84 ] total loss: [2.592221]
+Accumulating evaluation results...
+DONE (t=0.10s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.0029539623863953013
+	AP of category [car]:		0.0029539623863953013
+Evaluation finished. Time cost: 0:00:16
+this is map50: 0.0029539623863953013
+Training epoch 23 : [ 20/495 ] total loss: [1.5032403]
+Training epoch 23 : [ 40/495 ] total loss: [1.4503964]
+Training epoch 23 : [ 60/495 ] total loss: [1.1439273]
+Training epoch 23 : [ 80/495 ] total loss: [1.4101132]
+Training epoch 23 : [ 100/495 ] total loss: [1.5078199]
+Training epoch 23 : [ 120/495 ] total loss: [1.3720827]
+Training epoch 23 : [ 140/495 ] total loss: [1.1784589]
+Training epoch 23 : [ 160/495 ] total loss: [1.3475847]
+Training epoch 23 : [ 180/495 ] total loss: [1.3578405]
+Training epoch 23 : [ 200/495 ] total loss: [1.1152232]
+Training epoch 23 : [ 220/495 ] total loss: [1.3296304]
+Training epoch 23 : [ 240/495 ] total loss: [1.3509438]
+Training epoch 23 : [ 260/495 ] total loss: [1.4949627]
+Training epoch 23 : [ 280/495 ] total loss: [1.3293502]
+Training epoch 23 : [ 300/495 ] total loss: [1.4870441]
+Training epoch 23 : [ 320/495 ] total loss: [1.1340616]
+Training epoch 23 : [ 340/495 ] total loss: [1.2782431]
+Training epoch 23 : [ 360/495 ] total loss: [1.376758]
+Training epoch 23 : [ 380/495 ] total loss: [1.1867676]
+Training epoch 23 : [ 400/495 ] total loss: [1.4667276]
+Training epoch 23 : [ 420/495 ] total loss: [1.4913085]
+Training epoch 23 : [ 440/495 ] total loss: [1.2764049]
+Training epoch 23 : [ 460/495 ] total loss: [1.0531483]
+Training epoch 23 : [ 480/495 ] total loss: [1.1163028]
+Training epoch 23 finished. Time cost: 0:05:25 Epoch loss: [1.2804334]
+Checkpoint saved to outputs/def-detr-base/city2bdd/source_only/model_for_eval.pth
+Evaluation : [ 20/84 ] total loss: [2.5634751]
+Evaluation : [ 40/84 ] total loss: [4.2477655]
+Evaluation : [ 60/84 ] total loss: [2.4272442]
+Evaluation : [ 80/84 ] total loss: [2.505499]
+Accumulating evaluation results...
+DONE (t=0.09s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.010693313098622884
+	AP of category [car]:		0.010693313098622884
+Evaluation finished. Time cost: 0:00:16
+this is map50: 0.010693313098622884
+Training epoch 24 : [ 20/495 ] total loss: [1.2001858]
+Training epoch 24 : [ 40/495 ] total loss: [1.2651529]
+Training epoch 24 : [ 60/495 ] total loss: [1.2399148]
+Training epoch 24 : [ 80/495 ] total loss: [1.141931]
+Training epoch 24 : [ 100/495 ] total loss: [1.2074106]
+Training epoch 24 : [ 120/495 ] total loss: [1.382543]
+Training epoch 24 : [ 140/495 ] total loss: [1.2525827]
+Training epoch 24 : [ 160/495 ] total loss: [1.3162746]
+Training epoch 24 : [ 180/495 ] total loss: [1.1660287]
+Training epoch 24 : [ 200/495 ] total loss: [1.2651565]
+Training epoch 24 : [ 220/495 ] total loss: [1.0328089]
+Training epoch 24 : [ 240/495 ] total loss: [1.199897]
+Training epoch 24 : [ 260/495 ] total loss: [1.3293636]
+Training epoch 24 : [ 280/495 ] total loss: [1.4443121]
+Training epoch 24 : [ 300/495 ] total loss: [1.2486271]
+Training epoch 24 : [ 320/495 ] total loss: [1.3654722]
+Training epoch 24 : [ 340/495 ] total loss: [1.1838942]
+Training epoch 24 : [ 360/495 ] total loss: [1.3324223]
+Training epoch 24 : [ 380/495 ] total loss: [1.2390378]
+Training epoch 24 : [ 400/495 ] total loss: [1.1961467]
+Training epoch 24 : [ 420/495 ] total loss: [1.112905]
+Training epoch 24 : [ 440/495 ] total loss: [1.3697822]
+Training epoch 24 : [ 460/495 ] total loss: [1.2468696]
+Training epoch 24 : [ 480/495 ] total loss: [1.0039405]
+Training epoch 24 finished. Time cost: 0:05:41 Epoch loss: [1.274049]
+Checkpoint saved to outputs/def-detr-base/city2bdd/source_only/model_for_eval.pth
+Evaluation : [ 20/84 ] total loss: [2.8795872]
+Evaluation : [ 40/84 ] total loss: [4.4011555]
+Evaluation : [ 60/84 ] total loss: [2.724401]
+Evaluation : [ 80/84 ] total loss: [2.7345939]
+Accumulating evaluation results...
+DONE (t=0.09s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.0027404885669534826
+	AP of category [car]:		0.0027404885669534826
+Evaluation finished. Time cost: 0:00:16
+this is map50: 0.0027404885669534826
+Training epoch 25 : [ 20/495 ] total loss: [1.4173545]
+Training epoch 25 : [ 40/495 ] total loss: [1.5888265]
+Training epoch 25 : [ 60/495 ] total loss: [1.3735268]
+Training epoch 25 : [ 80/495 ] total loss: [1.1991785]
+Training epoch 25 : [ 100/495 ] total loss: [1.3425233]
+Training epoch 25 : [ 120/495 ] total loss: [1.4332564]
+Training epoch 25 : [ 140/495 ] total loss: [1.7697785]
+Training epoch 25 : [ 160/495 ] total loss: [1.1673696]
+Training epoch 25 : [ 180/495 ] total loss: [1.1151034]
+Training epoch 25 : [ 200/495 ] total loss: [1.4546354]
+Training epoch 25 : [ 220/495 ] total loss: [1.304429]
+Training epoch 25 : [ 240/495 ] total loss: [1.118453]
+Training epoch 25 : [ 260/495 ] total loss: [1.0984371]
+Training epoch 25 : [ 280/495 ] total loss: [1.4375522]
+Training epoch 25 : [ 300/495 ] total loss: [1.3900789]
+Training epoch 25 : [ 320/495 ] total loss: [1.4418335]
+Training epoch 25 : [ 340/495 ] total loss: [1.2371019]
+Training epoch 25 : [ 360/495 ] total loss: [1.3087592]
+Training epoch 25 : [ 380/495 ] total loss: [1.2582887]
+Training epoch 25 : [ 400/495 ] total loss: [1.0190171]
+Training epoch 25 : [ 420/495 ] total loss: [1.5621448]
+Training epoch 25 : [ 440/495 ] total loss: [1.2480907]
+Training epoch 25 : [ 460/495 ] total loss: [1.2658782]
+Training epoch 25 : [ 480/495 ] total loss: [1.0814979]
+Training epoch 25 finished. Time cost: 0:05:27 Epoch loss: [1.2935148]
+Checkpoint saved to outputs/def-detr-base/city2bdd/source_only/model_for_eval.pth
+Evaluation : [ 20/84 ] total loss: [2.748803]
+Evaluation : [ 40/84 ] total loss: [4.1412463]
+Evaluation : [ 60/84 ] total loss: [2.6116047]
+Evaluation : [ 80/84 ] total loss: [2.728707]
+Accumulating evaluation results...
+DONE (t=0.09s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.00945972684870916
+	AP of category [car]:		0.00945972684870916
+Evaluation finished. Time cost: 0:00:15
+this is map50: 0.00945972684870916
+Training epoch 26 : [ 20/495 ] total loss: [1.4312325]
+Training epoch 26 : [ 40/495 ] total loss: [1.0325149]
+Training epoch 26 : [ 60/495 ] total loss: [1.3643012]
+Training epoch 26 : [ 80/495 ] total loss: [1.2243866]
+Training epoch 26 : [ 100/495 ] total loss: [1.3079207]
+Training epoch 26 : [ 120/495 ] total loss: [1.0284684]
+Training epoch 26 : [ 140/495 ] total loss: [1.2277856]
+Training epoch 26 : [ 160/495 ] total loss: [1.1162108]
+Training epoch 26 : [ 180/495 ] total loss: [1.4786139]
+Training epoch 26 : [ 200/495 ] total loss: [1.3555484]
+Training epoch 26 : [ 220/495 ] total loss: [1.3790629]
+Training epoch 26 : [ 240/495 ] total loss: [1.1083074]
+Training epoch 26 : [ 260/495 ] total loss: [1.3303547]
+Training epoch 26 : [ 280/495 ] total loss: [1.3886452]
+Training epoch 26 : [ 300/495 ] total loss: [1.5098462]
+Training epoch 26 : [ 320/495 ] total loss: [1.2434175]
+Training epoch 26 : [ 340/495 ] total loss: [1.23965]
+Training epoch 26 : [ 360/495 ] total loss: [1.3494081]
+Training epoch 26 : [ 380/495 ] total loss: [1.2693566]
+Training epoch 26 : [ 400/495 ] total loss: [1.3869381]
+Training epoch 26 : [ 420/495 ] total loss: [1.2868319]
+Training epoch 26 : [ 440/495 ] total loss: [1.28089]
+Training epoch 26 : [ 460/495 ] total loss: [1.384177]
+Training epoch 26 : [ 480/495 ] total loss: [1.1447816]
+Training epoch 26 finished. Time cost: 0:05:16 Epoch loss: [1.2952566]
+Checkpoint saved to outputs/def-detr-base/city2bdd/source_only/model_for_eval.pth
+Evaluation : [ 20/84 ] total loss: [3.077137]
+Evaluation : [ 40/84 ] total loss: [4.747467]
+Evaluation : [ 60/84 ] total loss: [2.7786598]
+Evaluation : [ 80/84 ] total loss: [2.964961]
+Accumulating evaluation results...
+DONE (t=0.08s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.0012497834974007824
+	AP of category [car]:		0.0012497834974007824
+Evaluation finished. Time cost: 0:00:15
+this is map50: 0.0012497834974007824
+Training epoch 27 : [ 20/495 ] total loss: [1.394058]
+Training epoch 27 : [ 40/495 ] total loss: [1.195456]
+Training epoch 27 : [ 60/495 ] total loss: [1.516858]
+Training epoch 27 : [ 80/495 ] total loss: [1.5868099]
+Training epoch 27 : [ 100/495 ] total loss: [1.1622177]
+Training epoch 27 : [ 120/495 ] total loss: [0.96595275]
+Training epoch 27 : [ 140/495 ] total loss: [1.0373516]
+Training epoch 27 : [ 160/495 ] total loss: [0.99411523]
+Training epoch 27 : [ 180/495 ] total loss: [1.271232]
+Training epoch 27 : [ 200/495 ] total loss: [1.3264122]
+Training epoch 27 : [ 220/495 ] total loss: [1.3109483]
+Training epoch 27 : [ 240/495 ] total loss: [1.1592704]
+Training epoch 27 : [ 260/495 ] total loss: [1.2518755]
+Training epoch 27 : [ 280/495 ] total loss: [1.1543274]
+Training epoch 27 : [ 300/495 ] total loss: [1.151474]
+Training epoch 27 : [ 320/495 ] total loss: [1.1865423]
+Training epoch 27 : [ 340/495 ] total loss: [1.4080852]
+Training epoch 27 : [ 360/495 ] total loss: [1.1467798]
+Training epoch 27 : [ 380/495 ] total loss: [1.4106402]
+Training epoch 27 : [ 400/495 ] total loss: [1.1198232]
+Training epoch 27 : [ 420/495 ] total loss: [1.2605188]
+Training epoch 27 : [ 440/495 ] total loss: [1.2222714]
+Training epoch 27 : [ 460/495 ] total loss: [0.88646126]
+Training epoch 27 : [ 480/495 ] total loss: [1.0244356]
+Training epoch 27 finished. Time cost: 0:05:08 Epoch loss: [1.277787]
+Checkpoint saved to outputs/def-detr-base/city2bdd/source_only/model_for_eval.pth
+Evaluation : [ 20/84 ] total loss: [3.114558]
+Evaluation : [ 40/84 ] total loss: [4.475261]
+Evaluation : [ 60/84 ] total loss: [2.8032656]
+Evaluation : [ 80/84 ] total loss: [2.9767842]
+Accumulating evaluation results...
+DONE (t=0.08s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.0016740011675806462
+	AP of category [car]:		0.0016740011675806462
+Evaluation finished. Time cost: 0:00:16
+this is map50: 0.0016740011675806462
+Training epoch 28 : [ 20/495 ] total loss: [1.0509167]
+Training epoch 28 : [ 40/495 ] total loss: [1.3730406]
+Training epoch 28 : [ 60/495 ] total loss: [1.2639774]
+Training epoch 28 : [ 80/495 ] total loss: [1.2719156]
+Training epoch 28 : [ 100/495 ] total loss: [1.2419175]
+Training epoch 28 : [ 120/495 ] total loss: [1.2493838]
+Training epoch 28 : [ 140/495 ] total loss: [1.2186368]
+Training epoch 28 : [ 160/495 ] total loss: [1.2134292]
+Training epoch 28 : [ 180/495 ] total loss: [1.4906852]
+Training epoch 28 : [ 200/495 ] total loss: [1.3180542]
+Training epoch 28 : [ 220/495 ] total loss: [1.3334394]
+Training epoch 28 : [ 240/495 ] total loss: [1.3371322]
+Training epoch 28 : [ 260/495 ] total loss: [1.2588793]
+Training epoch 28 : [ 280/495 ] total loss: [1.1538644]
+Training epoch 28 : [ 300/495 ] total loss: [1.3752654]
+Training epoch 28 : [ 320/495 ] total loss: [1.2855256]
+Training epoch 28 : [ 340/495 ] total loss: [1.4935853]
+Training epoch 28 : [ 360/495 ] total loss: [1.289801]
+Training epoch 28 : [ 380/495 ] total loss: [1.3254318]
+Training epoch 28 : [ 400/495 ] total loss: [1.4231069]
+Training epoch 28 : [ 420/495 ] total loss: [1.2400179]
+Training epoch 28 : [ 440/495 ] total loss: [1.3362753]
+Training epoch 28 : [ 460/495 ] total loss: [1.3579915]
+Training epoch 28 : [ 480/495 ] total loss: [0.87818754]
+Training epoch 28 finished. Time cost: 0:05:03 Epoch loss: [1.2675635]
+Checkpoint saved to outputs/def-detr-base/city2bdd/source_only/model_for_eval.pth
+Evaluation : [ 20/84 ] total loss: [2.6108809]
+Evaluation : [ 40/84 ] total loss: [3.8626509]
+Evaluation : [ 60/84 ] total loss: [2.3862917]
+Evaluation : [ 80/84 ] total loss: [2.551908]
+Accumulating evaluation results...
+DONE (t=0.10s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.011628299667848004
+	AP of category [car]:		0.011628299667848004
+Evaluation finished. Time cost: 0:00:16
+this is map50: 0.011628299667848004
+Training epoch 29 : [ 20/495 ] total loss: [1.131125]
+Training epoch 29 : [ 40/495 ] total loss: [1.2720858]
+Training epoch 29 : [ 60/495 ] total loss: [1.2565286]
+Training epoch 29 : [ 80/495 ] total loss: [1.2407312]
+Training epoch 29 : [ 100/495 ] total loss: [1.437357]
+Training epoch 29 : [ 120/495 ] total loss: [1.2158682]
+Training epoch 29 : [ 140/495 ] total loss: [1.3361452]
+Training epoch 29 : [ 160/495 ] total loss: [0.9859661]
+Training epoch 29 : [ 180/495 ] total loss: [1.2193016]
+Training epoch 29 : [ 200/495 ] total loss: [1.3177674]
+Training epoch 29 : [ 220/495 ] total loss: [1.3207833]
+Training epoch 29 : [ 240/495 ] total loss: [1.3771976]
+Training epoch 29 : [ 260/495 ] total loss: [1.5914443]
+Training epoch 29 : [ 280/495 ] total loss: [1.5452627]
+Training epoch 29 : [ 300/495 ] total loss: [1.1723588]
+Training epoch 29 : [ 320/495 ] total loss: [1.3003104]
+Training epoch 29 : [ 340/495 ] total loss: [1.0731752]
+Training epoch 29 : [ 360/495 ] total loss: [1.0955237]
+Training epoch 29 : [ 380/495 ] total loss: [1.6310759]
+Training epoch 29 : [ 400/495 ] total loss: [1.5873418]
+Training epoch 29 : [ 420/495 ] total loss: [1.1395739]
+Training epoch 29 : [ 440/495 ] total loss: [1.246196]
+Training epoch 29 : [ 460/495 ] total loss: [1.3096409]
+Training epoch 29 : [ 480/495 ] total loss: [1.2078056]
+Training epoch 29 finished. Time cost: 0:08:32 Epoch loss: [1.2617553]
+Checkpoint saved to outputs/def-detr-base/city2bdd/source_only/model_for_eval.pth
+Evaluation : [ 20/84 ] total loss: [2.9062376]
+Evaluation : [ 40/84 ] total loss: [4.3511124]
+Evaluation : [ 60/84 ] total loss: [2.745917]
+Evaluation : [ 80/84 ] total loss: [2.9122791]
+Accumulating evaluation results...
+DONE (t=0.08s).
+Mean Average Precision (mAP) @ [ IoU=0.50 | area=all | max_dets=100 ] = 0.004450461496764929
+	AP of category [car]:		0.004450461496764929
+Evaluation finished. Time cost: 0:00:20
+this is map50: 0.004450461496764929
